@@ -1,0 +1,1257 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		008B2A13D8D7CA35B9BD70676D147BAD /* themify.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 351E0BCD78778EF126B0D169F978A8E9 /* themify.ttf */; };
+		06117D18554D3BD2C4D581DD3ED76AD5 /* FontOpenic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298126402D8EE7CE1A816FA497E0A47F /* FontOpenic.swift */; };
+		0B620FC0E897E491429E1DE603E84842 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AC8DC83DDA2EEDDC3750AD0BFCA8A97 /* FontAwesome.ttf */; };
+		10CDE1E6E1EB050D376A90122DF596D3 /* open-iconic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42FD513769C6E15A2346FEC61AFDD84D /* open-iconic.ttf */; };
+		116FDB8D280B50B3E12CEB7CA626A905 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD86E607012D355E18AF2596F3836A39 /* FontAwesome.swift */; };
+		158377F7759475572908B0AD1ACDD6E6 /* FontOct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC44950C976CEFF95430D03290B927F0 /* FontOct.swift */; };
+		23FFD3BAD0EE959220E580D6B879BDA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		2BF129A990D9356CCE2655BBDF2FA0E8 /* JSSAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 70A3633BF06EEE320B2AB26599094372 /* JSSAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B2FA2FD0C59AF348BC487EB7C2477AB /* FontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915C84369F1FE58E2AAA2374EB085383 /* FontLoader.swift */; };
+		4A76FB7C82C6D27E2218F56EB90F9D28 /* map-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9643B131794CF74BC965AD98BB53FA3C /* map-icons.ttf */; };
+		4D8C3DD2C233267CC1CB90F8C41A2B60 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE40D2D051AB479A6AF53A62DD718BB4 /* Ionicons.ttf */; };
+		517A5D2582439B8D6182EDC079E70AB5 /* Pods-GreenBeansSBTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AAB81FB32233DD297B8AFB24AD49CF /* Pods-GreenBeansSBTests-dummy.m */; };
+		559EFA708395041AF9D9F20CB68373DB /* FontMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080D7A3B406D3B4FDD56132673C1B4A /* FontMap.swift */; };
+		5B832280E1AB6E634D7C95E9ED5CEABD /* Pods-GreenBeansSB-GreenBeansSBUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D2856233500E9D4AD31581C1CEA68397 /* Pods-GreenBeansSB-GreenBeansSBUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DD436522AA643D435BBB56532398C5C /* LGButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8431DFD1DB9952F63FA1637F4AB8099 /* LGButton.xib */; };
+		6F312DB0B6D9FD711696D2C3425E8F41 /* LGButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D4390E7C4B0BA3E6FC8A55128C84AC1A /* LGButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		97AD6F24F3B06BD613C6208F2184E74A /* MaterialIcons-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AAA922359AE3FF72721EE6CBA102925 /* MaterialIcons-Regular.ttf */; };
+		99957B690912720394FD9EA8E64221C5 /* SwiftIconFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663EE62355F3F272E65F8B3761B14ED6 /* SwiftIconFont.swift */; };
+		9A8CB365F5727DEB4619560067C87948 /* JSSAlertView+Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192873C4BE30CC3660A4ECBD7E0C0B5 /* JSSAlertView+Timer.swift */; };
+		9F07B2B06B928E4D4DF1EBCFF1238CB0 /* JSSAlertView+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF6BF9495201A7F21D1E5AE1831991 /* JSSAlertView+UIColor.swift */; };
+		A34A98DD62B110BD2DFAD832FE42DC45 /* SwiftIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805B048D977C5F1475274DF979097EFC /* SwiftIconLabel.swift */; };
+		A551FB945D2B2B84A4470B24125490C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		A6C65A5FB1D81F36D8DBD1D247FC10D9 /* JSSAlertViewResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890124E373E9D7362036D638A7F96A03 /* JSSAlertViewResponder.swift */; };
+		ADC6A5509A6C282AABF349DECD2CD3E2 /* JSSAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 73337592C307A7205A9C4E7FDEF2B133 /* JSSAlertView-dummy.m */; };
+		BA49478D2EFC73FD5603E4AF8199F78B /* JSSAlertView+Predefined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DF296E3E1F871B50D0A770E7625A55 /* JSSAlertView+Predefined.swift */; };
+		BF9468B1645F94F4C86DED54D2E00B6F /* Pods-GreenBeansSB-GreenBeansSBUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E2686A8F03F43DF4D4551EEC14C85600 /* Pods-GreenBeansSB-GreenBeansSBUITests-dummy.m */; };
+		BFB6309660473CE20E1F98165D2190D2 /* LGButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2320F1390F2B04DB91E73B228EA0BEF0 /* LGButton-dummy.m */; };
+		C16C9FFF0BBEF2523F89D5CEC3A51CA7 /* FontIon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7C3CBD91079F5985A86180169613B /* FontIon.swift */; };
+		C7420D8CE75230CB3F3B68C1AEC96D1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		C99AAA98F7BB6FCE0DE5AF5B75EFA0BF /* Pods-GreenBeansSB-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 056FC3B800496AADDDF284DF2F6A5ED2 /* Pods-GreenBeansSB-dummy.m */; };
+		D5CB402C0AAC7173234028405AE5DF72 /* Pods-GreenBeansSBTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 94C346D56A6F951F6019BBF546766CBF /* Pods-GreenBeansSBTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7C5DEB56E431931836C74EA0446A3DA /* FontThemify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2AFDD5A563AAFEF935AF4A4D3FA0E /* FontThemify.swift */; };
+		E04E162655F36D1EDAD8F58868BE3447 /* LGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DFB2991E2B8753D36EB8D3D7BE7B01 /* LGButton.swift */; };
+		E290BEEEF28993C02FA19B53E89923D6 /* JSSAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C13DD43E63E8BFC49AE7844376F27 /* JSSAlertView.swift */; };
+		E53C701CB0232305663C7EF9B3B8E70B /* Pods-GreenBeansSB-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 63E88A1F5F9DC63194F3E4A86D63843F /* Pods-GreenBeansSB-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E91AF13E55A770DBC6913F5D3A4D7731 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		F2ED4AC1567C9E3D31486B3AB8B9E1CB /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E1DCAB7E87A4E4C1F1CDB8E4DC4AC50 /* octicons.ttf */; };
+		F477BF00D68732BD687BD5A3F532B21A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		FA0FB5AA52DE609FFCA1A84D791E37DC /* FontMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = E789416DAFC033614E884E217D2AAB0C /* FontMaterial.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10B24D1B5D7805CAB16D4F56156C8B01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E9BE1433F1F03261D394DBF35BCE495;
+			remoteInfo = "Pods-GreenBeansSB";
+		};
+		239D3E7C063F7DFA32C5D18D9F037279 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB818C20CD2A98FA37CAB3C5A6623BA2;
+			remoteInfo = JSSAlertView;
+		};
+		97E2E1E72C2B4B1AFA5AA671709FDA3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD999FE212F29E29DEEA0A85E1DC4D4E;
+			remoteInfo = LGButton;
+		};
+		C84C7152EDDD12F7D2AE9BA3A46DAD5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB818C20CD2A98FA37CAB3C5A6623BA2;
+			remoteInfo = JSSAlertView;
+		};
+		DC7DA3F5C96DD2375DDD9215F208DA7E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD999FE212F29E29DEEA0A85E1DC4D4E;
+			remoteInfo = LGButton;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		053C93FAF0F0CBB79C9AA20964B29F3A /* Pods_GreenBeansSBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GreenBeansSBTests.framework; path = "Pods-GreenBeansSBTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		056FC3B800496AADDDF284DF2F6A5ED2 /* Pods-GreenBeansSB-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GreenBeansSB-dummy.m"; sourceTree = "<group>"; };
+		06DF296E3E1F871B50D0A770E7625A55 /* JSSAlertView+Predefined.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JSSAlertView+Predefined.swift"; path = "JSSAlertView/Classes/JSSAlertView+Predefined.swift"; sourceTree = "<group>"; };
+		0B356CB80C6DA5DCF35F947DAC9C895B /* Pods-GreenBeansSB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GreenBeansSB.release.xcconfig"; sourceTree = "<group>"; };
+		163793B332DC241CC5FDAE534610202F /* Pods-GreenBeansSB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GreenBeansSB.debug.xcconfig"; sourceTree = "<group>"; };
+		16B63AD9AEC7380675715744B4FCD82E /* Pods-GreenBeansSB-GreenBeansSBUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GreenBeansSB-GreenBeansSBUITests-frameworks.sh"; sourceTree = "<group>"; };
+		1E494B530FBA794FA7D25EA050C89943 /* Pods-GreenBeansSB.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GreenBeansSB.modulemap"; sourceTree = "<group>"; };
+		2320F1390F2B04DB91E73B228EA0BEF0 /* LGButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LGButton-dummy.m"; sourceTree = "<group>"; };
+		23517C95ADB6B45E41787154E0ACA6D7 /* Pods-GreenBeansSB-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GreenBeansSB-acknowledgements.markdown"; sourceTree = "<group>"; };
+		298126402D8EE7CE1A816FA497E0A47F /* FontOpenic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontOpenic.swift; path = LGButton/Classes/SwiftIconFont/FontOpenic.swift; sourceTree = "<group>"; };
+		34159F28B21FD10484C98A4350AA5410 /* Pods-GreenBeansSBTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GreenBeansSBTests-Info.plist"; sourceTree = "<group>"; };
+		351E0BCD78778EF126B0D169F978A8E9 /* themify.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = themify.ttf; path = LGButton/Resources/themify.ttf; sourceTree = "<group>"; };
+		3AAA922359AE3FF72721EE6CBA102925 /* MaterialIcons-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "MaterialIcons-Regular.ttf"; path = "LGButton/Resources/MaterialIcons-Regular.ttf"; sourceTree = "<group>"; };
+		3AC8DC83DDA2EEDDC3750AD0BFCA8A97 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.ttf; path = LGButton/Resources/FontAwesome.ttf; sourceTree = "<group>"; };
+		4278EDD0A2B2C629C1199C7C2FAD6A40 /* Pods-GreenBeansSB-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GreenBeansSB-acknowledgements.plist"; sourceTree = "<group>"; };
+		42FD513769C6E15A2346FEC61AFDD84D /* open-iconic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "open-iconic.ttf"; path = "LGButton/Resources/open-iconic.ttf"; sourceTree = "<group>"; };
+		45A5BCA7EC7B49818D7FD1B078ECB73A /* Pods-GreenBeansSBTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GreenBeansSBTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		49040DC6F77829107AD4F3B56C4ECB01 /* Pods-GreenBeansSB-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GreenBeansSB-frameworks.sh"; sourceTree = "<group>"; };
+		4E1DCAB7E87A4E4C1F1CDB8E4DC4AC50 /* octicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = octicons.ttf; path = LGButton/Resources/octicons.ttf; sourceTree = "<group>"; };
+		5A2C13DD43E63E8BFC49AE7844376F27 /* JSSAlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSSAlertView.swift; path = JSSAlertView/Classes/JSSAlertView.swift; sourceTree = "<group>"; };
+		5BB7C3CBD91079F5985A86180169613B /* FontIon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontIon.swift; path = LGButton/Classes/SwiftIconFont/FontIon.swift; sourceTree = "<group>"; };
+		5DC935BF1D1B50752F67927AAC7FF389 /* JSSAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JSSAlertView-prefix.pch"; sourceTree = "<group>"; };
+		6192873C4BE30CC3660A4ECBD7E0C0B5 /* JSSAlertView+Timer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JSSAlertView+Timer.swift"; path = "JSSAlertView/Classes/JSSAlertView+Timer.swift"; sourceTree = "<group>"; };
+		63DFB2991E2B8753D36EB8D3D7BE7B01 /* LGButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LGButton.swift; path = LGButton/Classes/LGButton.swift; sourceTree = "<group>"; };
+		63E88A1F5F9DC63194F3E4A86D63843F /* Pods-GreenBeansSB-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GreenBeansSB-umbrella.h"; sourceTree = "<group>"; };
+		663EE62355F3F272E65F8B3761B14ED6 /* SwiftIconFont.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconFont.swift; path = LGButton/Classes/SwiftIconFont/SwiftIconFont.swift; sourceTree = "<group>"; };
+		6A337E5731B5B533A1454EC94DEFE8E7 /* LGButton-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LGButton-Info.plist"; sourceTree = "<group>"; };
+		6A9A1102378731DA681980123AB10E9E /* Pods-GreenBeansSB-GreenBeansSBUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GreenBeansSB-GreenBeansSBUITests.modulemap"; sourceTree = "<group>"; };
+		6D516F28500D034641A9B24920479A2B /* Pods-GreenBeansSB-GreenBeansSBUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GreenBeansSB-GreenBeansSBUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7080D7A3B406D3B4FDD56132673C1B4A /* FontMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontMap.swift; path = LGButton/Classes/SwiftIconFont/FontMap.swift; sourceTree = "<group>"; };
+		70A3633BF06EEE320B2AB26599094372 /* JSSAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JSSAlertView-umbrella.h"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		73337592C307A7205A9C4E7FDEF2B133 /* JSSAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JSSAlertView-dummy.m"; sourceTree = "<group>"; };
+		736FB02E8070FDAF27388090DAA3BC56 /* Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7985EAB35A0FC84CD992EF602DFCE7C8 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GreenBeansSB_GreenBeansSBUITests.framework; path = "Pods-GreenBeansSB-GreenBeansSBUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DEEF1EBE16624DAA2AAE22B4D79503D /* JSSAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JSSAlertView.modulemap; sourceTree = "<group>"; };
+		7E7BD372C1F743F7CB96C8C86240EDD1 /* Pods-GreenBeansSBTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GreenBeansSBTests.modulemap"; sourceTree = "<group>"; };
+		7ED4CB9FB7A3AF9AE3D1E7D053672411 /* LGButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LGButton-prefix.pch"; sourceTree = "<group>"; };
+		805B048D977C5F1475274DF979097EFC /* SwiftIconLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIconLabel.swift; path = LGButton/Classes/SwiftIconFont/SwiftIconLabel.swift; sourceTree = "<group>"; };
+		81B5FDBA39BA7E0C583510A5DA12897A /* Pods-GreenBeansSB-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GreenBeansSB-Info.plist"; sourceTree = "<group>"; };
+		890124E373E9D7362036D638A7F96A03 /* JSSAlertViewResponder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSSAlertViewResponder.swift; path = JSSAlertView/Classes/JSSAlertViewResponder.swift; sourceTree = "<group>"; };
+		8B7F7B3724820FEC36D174195F177783 /* Pods_GreenBeansSB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GreenBeansSB.framework; path = "Pods-GreenBeansSB.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		915C84369F1FE58E2AAA2374EB085383 /* FontLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontLoader.swift; path = LGButton/Classes/SwiftIconFont/FontLoader.swift; sourceTree = "<group>"; };
+		9179AFCCB41C89CB6A10FBD0C51DCF97 /* LGButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LGButton.modulemap; sourceTree = "<group>"; };
+		94C346D56A6F951F6019BBF546766CBF /* Pods-GreenBeansSBTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GreenBeansSBTests-umbrella.h"; sourceTree = "<group>"; };
+		9643B131794CF74BC965AD98BB53FA3C /* map-icons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "map-icons.ttf"; path = "LGButton/Resources/map-icons.ttf"; sourceTree = "<group>"; };
+		9B3A8CEF80D131B192C803EAEE5BB7EF /* Pods-GreenBeansSB-GreenBeansSBUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GreenBeansSB-GreenBeansSBUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A1EF80F9BBF35656FC7329DDECA810FE /* JSSAlertView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JSSAlertView-Info.plist"; sourceTree = "<group>"; };
+		A5A164B3DEF4A4CDA2D0A101627C4F1A /* JSSAlertView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JSSAlertView.debug.xcconfig; sourceTree = "<group>"; };
+		AAA39F5DC01FB07DDF1D75161E82224F /* Pods-GreenBeansSB-GreenBeansSBUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GreenBeansSB-GreenBeansSBUITests-Info.plist"; sourceTree = "<group>"; };
+		B1BF6BF9495201A7F21D1E5AE1831991 /* JSSAlertView+UIColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JSSAlertView+UIColor.swift"; path = "JSSAlertView/Classes/JSSAlertView+UIColor.swift"; sourceTree = "<group>"; };
+		BEB5730D0C9DB3D9997CC93D0C703557 /* LGButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LGButton.framework; path = LGButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFACD0EDF342B5E2756F77218BBAF8E5 /* LGButton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LGButton.debug.xcconfig; sourceTree = "<group>"; };
+		C6AAB81FB32233DD297B8AFB24AD49CF /* Pods-GreenBeansSBTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GreenBeansSBTests-dummy.m"; sourceTree = "<group>"; };
+		C8431DFD1DB9952F63FA1637F4AB8099 /* LGButton.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = LGButton.xib; path = LGButton/Resources/LGButton.xib; sourceTree = "<group>"; };
+		CB4D6E1D8D5282B6B9B4D0E29261F2A6 /* Pods-GreenBeansSBTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GreenBeansSBTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		D1C2AFDD5A563AAFEF935AF4A4D3FA0E /* FontThemify.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontThemify.swift; path = LGButton/Classes/SwiftIconFont/FontThemify.swift; sourceTree = "<group>"; };
+		D2856233500E9D4AD31581C1CEA68397 /* Pods-GreenBeansSB-GreenBeansSBUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GreenBeansSB-GreenBeansSBUITests-umbrella.h"; sourceTree = "<group>"; };
+		D4390E7C4B0BA3E6FC8A55128C84AC1A /* LGButton-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LGButton-umbrella.h"; sourceTree = "<group>"; };
+		DD86E607012D355E18AF2596F3836A39 /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = LGButton/Classes/SwiftIconFont/FontAwesome.swift; sourceTree = "<group>"; };
+		DFF323B7E2D0BC9906FDF75B8A473ECE /* JSSAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JSSAlertView.framework; path = JSSAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2686A8F03F43DF4D4551EEC14C85600 /* Pods-GreenBeansSB-GreenBeansSBUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GreenBeansSB-GreenBeansSBUITests-dummy.m"; sourceTree = "<group>"; };
+		E789416DAFC033614E884E217D2AAB0C /* FontMaterial.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontMaterial.swift; path = LGButton/Classes/SwiftIconFont/FontMaterial.swift; sourceTree = "<group>"; };
+		EB847A8501F1BF24A61C95DC1DF9B32D /* LGButton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LGButton.release.xcconfig; sourceTree = "<group>"; };
+		EC3558C2095C50E19AC8E7F829052E0C /* Pods-GreenBeansSBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GreenBeansSBTests.release.xcconfig"; sourceTree = "<group>"; };
+		EC44950C976CEFF95430D03290B927F0 /* FontOct.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontOct.swift; path = LGButton/Classes/SwiftIconFont/FontOct.swift; sourceTree = "<group>"; };
+		EE40D2D051AB479A6AF53A62DD718BB4 /* Ionicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = Ionicons.ttf; path = LGButton/Resources/Ionicons.ttf; sourceTree = "<group>"; };
+		F4C290CDD0696CA2EF3000B5607AFAB6 /* Pods-GreenBeansSBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GreenBeansSBTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FDAC8DE393147A538E4DF091746145E4 /* Pods-GreenBeansSB-GreenBeansSBUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GreenBeansSB-GreenBeansSBUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		FF6AA38ACE064E6DC5F4E8CE7A120B6D /* JSSAlertView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JSSAlertView.release.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C0D0305B5FB151B1FCE75C287AC724C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23FFD3BAD0EE959220E580D6B879BDA6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EA959A9188AC991854E10DC5139E5C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7420D8CE75230CB3F3B68C1AEC96D1F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E36B9DCD4DA37B6F5FFDF48C83BCE0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F477BF00D68732BD687BD5A3F532B21A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9930667B52F75058AF846EB602EE2FFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91AF13E55A770DBC6913F5D3A4D7731 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7AE4BB361497D497C01DF6673E98648 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A551FB945D2B2B84A4470B24125490C8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0AFB59EEAC28824AEA7EF4AE45ED0AD1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7DEEF1EBE16624DAA2AAE22B4D79503D /* JSSAlertView.modulemap */,
+				73337592C307A7205A9C4E7FDEF2B133 /* JSSAlertView-dummy.m */,
+				A1EF80F9BBF35656FC7329DDECA810FE /* JSSAlertView-Info.plist */,
+				5DC935BF1D1B50752F67927AAC7FF389 /* JSSAlertView-prefix.pch */,
+				70A3633BF06EEE320B2AB26599094372 /* JSSAlertView-umbrella.h */,
+				A5A164B3DEF4A4CDA2D0A101627C4F1A /* JSSAlertView.debug.xcconfig */,
+				FF6AA38ACE064E6DC5F4E8CE7A120B6D /* JSSAlertView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JSSAlertView";
+			sourceTree = "<group>";
+		};
+		0EC983264DE3DF34D0F4290F06833E10 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E521C2A5D7CE7B127641F98906DABD2 /* JSSAlertView */,
+				7549FBA6B7EDDE66FE0B0D8076D5AAC8 /* LGButton */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		11764EFEDEAE70F8EBA097CEA0E51AEE /* Pods-GreenBeansSB */ = {
+			isa = PBXGroup;
+			children = (
+				1E494B530FBA794FA7D25EA050C89943 /* Pods-GreenBeansSB.modulemap */,
+				23517C95ADB6B45E41787154E0ACA6D7 /* Pods-GreenBeansSB-acknowledgements.markdown */,
+				4278EDD0A2B2C629C1199C7C2FAD6A40 /* Pods-GreenBeansSB-acknowledgements.plist */,
+				056FC3B800496AADDDF284DF2F6A5ED2 /* Pods-GreenBeansSB-dummy.m */,
+				49040DC6F77829107AD4F3B56C4ECB01 /* Pods-GreenBeansSB-frameworks.sh */,
+				81B5FDBA39BA7E0C583510A5DA12897A /* Pods-GreenBeansSB-Info.plist */,
+				63E88A1F5F9DC63194F3E4A86D63843F /* Pods-GreenBeansSB-umbrella.h */,
+				163793B332DC241CC5FDAE534610202F /* Pods-GreenBeansSB.debug.xcconfig */,
+				0B356CB80C6DA5DCF35F947DAC9C895B /* Pods-GreenBeansSB.release.xcconfig */,
+			);
+			name = "Pods-GreenBeansSB";
+			path = "Target Support Files/Pods-GreenBeansSB";
+			sourceTree = "<group>";
+		};
+		3E521C2A5D7CE7B127641F98906DABD2 /* JSSAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				5A2C13DD43E63E8BFC49AE7844376F27 /* JSSAlertView.swift */,
+				06DF296E3E1F871B50D0A770E7625A55 /* JSSAlertView+Predefined.swift */,
+				6192873C4BE30CC3660A4ECBD7E0C0B5 /* JSSAlertView+Timer.swift */,
+				B1BF6BF9495201A7F21D1E5AE1831991 /* JSSAlertView+UIColor.swift */,
+				890124E373E9D7362036D638A7F96A03 /* JSSAlertViewResponder.swift */,
+				0AFB59EEAC28824AEA7EF4AE45ED0AD1 /* Support Files */,
+			);
+			name = JSSAlertView;
+			path = JSSAlertView;
+			sourceTree = "<group>";
+		};
+		499AD0C90596D5EA83C4CCAAFE6C06D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DFF323B7E2D0BC9906FDF75B8A473ECE /* JSSAlertView.framework */,
+				BEB5730D0C9DB3D9997CC93D0C703557 /* LGButton.framework */,
+				8B7F7B3724820FEC36D174195F177783 /* Pods_GreenBeansSB.framework */,
+				7985EAB35A0FC84CD992EF602DFCE7C8 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework */,
+				053C93FAF0F0CBB79C9AA20964B29F3A /* Pods_GreenBeansSBTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		51C42AE96D4DC1D20147DDB3AD85D642 /* Pods-GreenBeansSB-GreenBeansSBUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6A9A1102378731DA681980123AB10E9E /* Pods-GreenBeansSB-GreenBeansSBUITests.modulemap */,
+				6D516F28500D034641A9B24920479A2B /* Pods-GreenBeansSB-GreenBeansSBUITests-acknowledgements.markdown */,
+				FDAC8DE393147A538E4DF091746145E4 /* Pods-GreenBeansSB-GreenBeansSBUITests-acknowledgements.plist */,
+				E2686A8F03F43DF4D4551EEC14C85600 /* Pods-GreenBeansSB-GreenBeansSBUITests-dummy.m */,
+				16B63AD9AEC7380675715744B4FCD82E /* Pods-GreenBeansSB-GreenBeansSBUITests-frameworks.sh */,
+				AAA39F5DC01FB07DDF1D75161E82224F /* Pods-GreenBeansSB-GreenBeansSBUITests-Info.plist */,
+				D2856233500E9D4AD31581C1CEA68397 /* Pods-GreenBeansSB-GreenBeansSBUITests-umbrella.h */,
+				736FB02E8070FDAF27388090DAA3BC56 /* Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig */,
+				9B3A8CEF80D131B192C803EAEE5BB7EF /* Pods-GreenBeansSB-GreenBeansSBUITests.release.xcconfig */,
+			);
+			name = "Pods-GreenBeansSB-GreenBeansSBUITests";
+			path = "Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7549FBA6B7EDDE66FE0B0D8076D5AAC8 /* LGButton */ = {
+			isa = PBXGroup;
+			children = (
+				DD86E607012D355E18AF2596F3836A39 /* FontAwesome.swift */,
+				5BB7C3CBD91079F5985A86180169613B /* FontIon.swift */,
+				915C84369F1FE58E2AAA2374EB085383 /* FontLoader.swift */,
+				7080D7A3B406D3B4FDD56132673C1B4A /* FontMap.swift */,
+				E789416DAFC033614E884E217D2AAB0C /* FontMaterial.swift */,
+				EC44950C976CEFF95430D03290B927F0 /* FontOct.swift */,
+				298126402D8EE7CE1A816FA497E0A47F /* FontOpenic.swift */,
+				D1C2AFDD5A563AAFEF935AF4A4D3FA0E /* FontThemify.swift */,
+				63DFB2991E2B8753D36EB8D3D7BE7B01 /* LGButton.swift */,
+				663EE62355F3F272E65F8B3761B14ED6 /* SwiftIconFont.swift */,
+				805B048D977C5F1475274DF979097EFC /* SwiftIconLabel.swift */,
+				7E8EB6B5D74C25C13276468924DCAB47 /* Resources */,
+				9FCA11EB3D68289C84C64D4C6E37B6A5 /* Support Files */,
+			);
+			name = LGButton;
+			path = LGButton;
+			sourceTree = "<group>";
+		};
+		79E89528C2E4D76B7C2C34B74CE2C31D /* Pods-GreenBeansSBTests */ = {
+			isa = PBXGroup;
+			children = (
+				7E7BD372C1F743F7CB96C8C86240EDD1 /* Pods-GreenBeansSBTests.modulemap */,
+				45A5BCA7EC7B49818D7FD1B078ECB73A /* Pods-GreenBeansSBTests-acknowledgements.markdown */,
+				CB4D6E1D8D5282B6B9B4D0E29261F2A6 /* Pods-GreenBeansSBTests-acknowledgements.plist */,
+				C6AAB81FB32233DD297B8AFB24AD49CF /* Pods-GreenBeansSBTests-dummy.m */,
+				34159F28B21FD10484C98A4350AA5410 /* Pods-GreenBeansSBTests-Info.plist */,
+				94C346D56A6F951F6019BBF546766CBF /* Pods-GreenBeansSBTests-umbrella.h */,
+				F4C290CDD0696CA2EF3000B5607AFAB6 /* Pods-GreenBeansSBTests.debug.xcconfig */,
+				EC3558C2095C50E19AC8E7F829052E0C /* Pods-GreenBeansSBTests.release.xcconfig */,
+			);
+			name = "Pods-GreenBeansSBTests";
+			path = "Target Support Files/Pods-GreenBeansSBTests";
+			sourceTree = "<group>";
+		};
+		7E8EB6B5D74C25C13276468924DCAB47 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3AC8DC83DDA2EEDDC3750AD0BFCA8A97 /* FontAwesome.ttf */,
+				EE40D2D051AB479A6AF53A62DD718BB4 /* Ionicons.ttf */,
+				C8431DFD1DB9952F63FA1637F4AB8099 /* LGButton.xib */,
+				9643B131794CF74BC965AD98BB53FA3C /* map-icons.ttf */,
+				3AAA922359AE3FF72721EE6CBA102925 /* MaterialIcons-Regular.ttf */,
+				4E1DCAB7E87A4E4C1F1CDB8E4DC4AC50 /* octicons.ttf */,
+				42FD513769C6E15A2346FEC61AFDD84D /* open-iconic.ttf */,
+				351E0BCD78778EF126B0D169F978A8E9 /* themify.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9FCA11EB3D68289C84C64D4C6E37B6A5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9179AFCCB41C89CB6A10FBD0C51DCF97 /* LGButton.modulemap */,
+				2320F1390F2B04DB91E73B228EA0BEF0 /* LGButton-dummy.m */,
+				6A337E5731B5B533A1454EC94DEFE8E7 /* LGButton-Info.plist */,
+				7ED4CB9FB7A3AF9AE3D1E7D053672411 /* LGButton-prefix.pch */,
+				D4390E7C4B0BA3E6FC8A55128C84AC1A /* LGButton-umbrella.h */,
+				BFACD0EDF342B5E2756F77218BBAF8E5 /* LGButton.debug.xcconfig */,
+				EB847A8501F1BF24A61C95DC1DF9B32D /* LGButton.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/LGButton";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				0EC983264DE3DF34D0F4290F06833E10 /* Pods */,
+				499AD0C90596D5EA83C4CCAAFE6C06D4 /* Products */,
+				D5F814138FC0518A0C9A613D4091BE7E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5F814138FC0518A0C9A613D4091BE7E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				11764EFEDEAE70F8EBA097CEA0E51AEE /* Pods-GreenBeansSB */,
+				51C42AE96D4DC1D20147DDB3AD85D642 /* Pods-GreenBeansSB-GreenBeansSBUITests */,
+				79E89528C2E4D76B7C2C34B74CE2C31D /* Pods-GreenBeansSBTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		09AA2919CEFD1CD452F3229470782F5F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BF129A990D9356CCE2655BBDF2FA0E8 /* JSSAlertView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94DDBD86EC2F0CA17C4C4249752D025A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5CB402C0AAC7173234028405AE5DF72 /* Pods-GreenBeansSBTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0137C7923E76FD6AEF7041EA70F7763 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B832280E1AB6E634D7C95E9ED5CEABD /* Pods-GreenBeansSB-GreenBeansSBUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB3652DE4738E7F6FCA695E17D9980B7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E53C701CB0232305663C7EF9B3B8E70B /* Pods-GreenBeansSB-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE1B505D0EE381DC8EE59D9F09B1705A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F312DB0B6D9FD711696D2C3425E8F41 /* LGButton-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3E9BE1433F1F03261D394DBF35BCE495 /* Pods-GreenBeansSB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5975C07901FD8B59BAF1CD9CC1EB3FEA /* Build configuration list for PBXNativeTarget "Pods-GreenBeansSB" */;
+			buildPhases = (
+				CB3652DE4738E7F6FCA695E17D9980B7 /* Headers */,
+				4444D90257590BDABAA93D8BC864202A /* Sources */,
+				7EA959A9188AC991854E10DC5139E5C3 /* Frameworks */,
+				A94892558BBBA41F41B92017CD7EC0FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8AD88A756188EDB15D235B253AA0950 /* PBXTargetDependency */,
+				9C41263600BB9F56F40655C8D0C97794 /* PBXTargetDependency */,
+			);
+			name = "Pods-GreenBeansSB";
+			productName = "Pods-GreenBeansSB";
+			productReference = 8B7F7B3724820FEC36D174195F177783 /* Pods_GreenBeansSB.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		69E300C647355B32DCDF111A45AA0BD3 /* Pods-GreenBeansSBTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D58E3EA66C9BF931CE82200D5918834 /* Build configuration list for PBXNativeTarget "Pods-GreenBeansSBTests" */;
+			buildPhases = (
+				94DDBD86EC2F0CA17C4C4249752D025A /* Headers */,
+				50D73770E67C5966D7C8E5D0F8DBCB29 /* Sources */,
+				8E36B9DCD4DA37B6F5FFDF48C83BCE0B /* Frameworks */,
+				73D37426AE928C45F924DC6BC3A2BF32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				087040D257849805DFEF085890B087A7 /* PBXTargetDependency */,
+			);
+			name = "Pods-GreenBeansSBTests";
+			productName = "Pods-GreenBeansSBTests";
+			productReference = 053C93FAF0F0CBB79C9AA20964B29F3A /* Pods_GreenBeansSBTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AB9E1EE408A26E8363425E82C5907751 /* Pods-GreenBeansSB-GreenBeansSBUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60E5728E11B9F3AA61F28DA17A791BE7 /* Build configuration list for PBXNativeTarget "Pods-GreenBeansSB-GreenBeansSBUITests" */;
+			buildPhases = (
+				C0137C7923E76FD6AEF7041EA70F7763 /* Headers */,
+				C35726BAF5D481DCDC36408702AEE439 /* Sources */,
+				F7AE4BB361497D497C01DF6673E98648 /* Frameworks */,
+				2B977E35612943A4BF3EF8DF8AE593D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCE850813C50977BE8A7D035B6739B4D /* PBXTargetDependency */,
+				41E561608CD16DA6BB8CD1DC75F21F6F /* PBXTargetDependency */,
+			);
+			name = "Pods-GreenBeansSB-GreenBeansSBUITests";
+			productName = "Pods-GreenBeansSB-GreenBeansSBUITests";
+			productReference = 7985EAB35A0FC84CD992EF602DFCE7C8 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EB818C20CD2A98FA37CAB3C5A6623BA2 /* JSSAlertView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8C3DE0C52FB995FF3BFCC0552D0398F /* Build configuration list for PBXNativeTarget "JSSAlertView" */;
+			buildPhases = (
+				09AA2919CEFD1CD452F3229470782F5F /* Headers */,
+				2A9E5C4A409079E920E425A46C33CE69 /* Sources */,
+				4C0D0305B5FB151B1FCE75C287AC724C /* Frameworks */,
+				70B4FD66CADFE27C04492E70B6D8AE86 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JSSAlertView;
+			productName = JSSAlertView;
+			productReference = DFF323B7E2D0BC9906FDF75B8A473ECE /* JSSAlertView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FD999FE212F29E29DEEA0A85E1DC4D4E /* LGButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B38D7C16F5C838BB40C30518C3A23842 /* Build configuration list for PBXNativeTarget "LGButton" */;
+			buildPhases = (
+				DE1B505D0EE381DC8EE59D9F09B1705A /* Headers */,
+				70219176BA49B29EFD79D5600A50F05E /* Sources */,
+				9930667B52F75058AF846EB602EE2FFE /* Frameworks */,
+				3459A5ADAD2268801F26DAB90B620C62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LGButton;
+			productName = LGButton;
+			productReference = BEB5730D0C9DB3D9997CC93D0C703557 /* LGButton.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 11.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 499AD0C90596D5EA83C4CCAAFE6C06D4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB818C20CD2A98FA37CAB3C5A6623BA2 /* JSSAlertView */,
+				FD999FE212F29E29DEEA0A85E1DC4D4E /* LGButton */,
+				3E9BE1433F1F03261D394DBF35BCE495 /* Pods-GreenBeansSB */,
+				AB9E1EE408A26E8363425E82C5907751 /* Pods-GreenBeansSB-GreenBeansSBUITests */,
+				69E300C647355B32DCDF111A45AA0BD3 /* Pods-GreenBeansSBTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2B977E35612943A4BF3EF8DF8AE593D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3459A5ADAD2268801F26DAB90B620C62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B620FC0E897E491429E1DE603E84842 /* FontAwesome.ttf in Resources */,
+				4D8C3DD2C233267CC1CB90F8C41A2B60 /* Ionicons.ttf in Resources */,
+				5DD436522AA643D435BBB56532398C5C /* LGButton.xib in Resources */,
+				4A76FB7C82C6D27E2218F56EB90F9D28 /* map-icons.ttf in Resources */,
+				97AD6F24F3B06BD613C6208F2184E74A /* MaterialIcons-Regular.ttf in Resources */,
+				F2ED4AC1567C9E3D31486B3AB8B9E1CB /* octicons.ttf in Resources */,
+				10CDE1E6E1EB050D376A90122DF596D3 /* open-iconic.ttf in Resources */,
+				008B2A13D8D7CA35B9BD70676D147BAD /* themify.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70B4FD66CADFE27C04492E70B6D8AE86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73D37426AE928C45F924DC6BC3A2BF32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A94892558BBBA41F41B92017CD7EC0FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2A9E5C4A409079E920E425A46C33CE69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA49478D2EFC73FD5603E4AF8199F78B /* JSSAlertView+Predefined.swift in Sources */,
+				9A8CB365F5727DEB4619560067C87948 /* JSSAlertView+Timer.swift in Sources */,
+				9F07B2B06B928E4D4DF1EBCFF1238CB0 /* JSSAlertView+UIColor.swift in Sources */,
+				ADC6A5509A6C282AABF349DECD2CD3E2 /* JSSAlertView-dummy.m in Sources */,
+				E290BEEEF28993C02FA19B53E89923D6 /* JSSAlertView.swift in Sources */,
+				A6C65A5FB1D81F36D8DBD1D247FC10D9 /* JSSAlertViewResponder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4444D90257590BDABAA93D8BC864202A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C99AAA98F7BB6FCE0DE5AF5B75EFA0BF /* Pods-GreenBeansSB-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50D73770E67C5966D7C8E5D0F8DBCB29 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				517A5D2582439B8D6182EDC079E70AB5 /* Pods-GreenBeansSBTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70219176BA49B29EFD79D5600A50F05E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				116FDB8D280B50B3E12CEB7CA626A905 /* FontAwesome.swift in Sources */,
+				C16C9FFF0BBEF2523F89D5CEC3A51CA7 /* FontIon.swift in Sources */,
+				3B2FA2FD0C59AF348BC487EB7C2477AB /* FontLoader.swift in Sources */,
+				559EFA708395041AF9D9F20CB68373DB /* FontMap.swift in Sources */,
+				FA0FB5AA52DE609FFCA1A84D791E37DC /* FontMaterial.swift in Sources */,
+				158377F7759475572908B0AD1ACDD6E6 /* FontOct.swift in Sources */,
+				06117D18554D3BD2C4D581DD3ED76AD5 /* FontOpenic.swift in Sources */,
+				D7C5DEB56E431931836C74EA0446A3DA /* FontThemify.swift in Sources */,
+				BFB6309660473CE20E1F98165D2190D2 /* LGButton-dummy.m in Sources */,
+				E04E162655F36D1EDAD8F58868BE3447 /* LGButton.swift in Sources */,
+				99957B690912720394FD9EA8E64221C5 /* SwiftIconFont.swift in Sources */,
+				A34A98DD62B110BD2DFAD832FE42DC45 /* SwiftIconLabel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C35726BAF5D481DCDC36408702AEE439 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF9468B1645F94F4C86DED54D2E00B6F /* Pods-GreenBeansSB-GreenBeansSBUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		087040D257849805DFEF085890B087A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-GreenBeansSB";
+			target = 3E9BE1433F1F03261D394DBF35BCE495 /* Pods-GreenBeansSB */;
+			targetProxy = 10B24D1B5D7805CAB16D4F56156C8B01 /* PBXContainerItemProxy */;
+		};
+		41E561608CD16DA6BB8CD1DC75F21F6F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LGButton;
+			target = FD999FE212F29E29DEEA0A85E1DC4D4E /* LGButton */;
+			targetProxy = 97E2E1E72C2B4B1AFA5AA671709FDA3F /* PBXContainerItemProxy */;
+		};
+		9C41263600BB9F56F40655C8D0C97794 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LGButton;
+			target = FD999FE212F29E29DEEA0A85E1DC4D4E /* LGButton */;
+			targetProxy = DC7DA3F5C96DD2375DDD9215F208DA7E /* PBXContainerItemProxy */;
+		};
+		D8AD88A756188EDB15D235B253AA0950 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JSSAlertView;
+			target = EB818C20CD2A98FA37CAB3C5A6623BA2 /* JSSAlertView */;
+			targetProxy = 239D3E7C063F7DFA32C5D18D9F037279 /* PBXContainerItemProxy */;
+		};
+		FCE850813C50977BE8A7D035B6739B4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JSSAlertView;
+			target = EB818C20CD2A98FA37CAB3C5A6623BA2 /* JSSAlertView */;
+			targetProxy = C84C7152EDDD12F7D2AE9BA3A46DAD5B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		119D4A02AC44AC8D09F6508A35B9B2D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 163793B332DC241CC5FDAE534610202F /* Pods-GreenBeansSB.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4A2831FA90DF37A03484CB6E50D9C054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4C290CDD0696CA2EF3000B5607AFAB6 /* Pods-GreenBeansSBTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GreenBeansSBTests/Pods-GreenBeansSBTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GreenBeansSBTests/Pods-GreenBeansSBTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5A8C8B76130FA7014EF1DB7FFF8CE3E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF6AA38ACE064E6DC5F4E8CE7A120B6D /* JSSAlertView.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JSSAlertView/JSSAlertView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JSSAlertView/JSSAlertView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JSSAlertView/JSSAlertView.modulemap";
+				PRODUCT_MODULE_NAME = JSSAlertView;
+				PRODUCT_NAME = JSSAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5E95739894BD432B2E51490EAF0ECDA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB847A8501F1BF24A61C95DC1DF9B32D /* LGButton.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LGButton/LGButton-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LGButton/LGButton-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/LGButton/LGButton.modulemap";
+				PRODUCT_MODULE_NAME = LGButton;
+				PRODUCT_NAME = LGButton;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		71243899B61152433AAE34EE86456EE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		75D70EEEA0A456E14F7338A7F342964E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		78DC72006B3CDBEA1672C4B37E9C6431 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 736FB02E8070FDAF27388090DAA3BC56 /* Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8C3D5D7DA96F3E611A4F841BF5D0A136 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5A164B3DEF4A4CDA2D0A101627C4F1A /* JSSAlertView.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JSSAlertView/JSSAlertView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JSSAlertView/JSSAlertView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JSSAlertView/JSSAlertView.modulemap";
+				PRODUCT_MODULE_NAME = JSSAlertView;
+				PRODUCT_NAME = JSSAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		929D8E8647E51504A2E4E6AC174B1055 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B356CB80C6DA5DCF35F947DAC9C895B /* Pods-GreenBeansSB.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		95640A7B69D7F2C71B2F584E98BEB692 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC3558C2095C50E19AC8E7F829052E0C /* Pods-GreenBeansSBTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GreenBeansSBTests/Pods-GreenBeansSBTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GreenBeansSBTests/Pods-GreenBeansSBTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9A034D4355A2938F4C0A0CA11FEA2470 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFACD0EDF342B5E2756F77218BBAF8E5 /* LGButton.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LGButton/LGButton-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LGButton/LGButton-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/LGButton/LGButton.modulemap";
+				PRODUCT_MODULE_NAME = LGButton;
+				PRODUCT_NAME = LGButton;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F8A0D8DB19BA7DE4CA806DB5D822F679 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B3A8CEF80D131B192C803EAEE5BB7EF /* Pods-GreenBeansSB-GreenBeansSBUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75D70EEEA0A456E14F7338A7F342964E /* Debug */,
+				71243899B61152433AAE34EE86456EE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5975C07901FD8B59BAF1CD9CC1EB3FEA /* Build configuration list for PBXNativeTarget "Pods-GreenBeansSB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				119D4A02AC44AC8D09F6508A35B9B2D8 /* Debug */,
+				929D8E8647E51504A2E4E6AC174B1055 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60E5728E11B9F3AA61F28DA17A791BE7 /* Build configuration list for PBXNativeTarget "Pods-GreenBeansSB-GreenBeansSBUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78DC72006B3CDBEA1672C4B37E9C6431 /* Debug */,
+				F8A0D8DB19BA7DE4CA806DB5D822F679 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D58E3EA66C9BF931CE82200D5918834 /* Build configuration list for PBXNativeTarget "Pods-GreenBeansSBTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A2831FA90DF37A03484CB6E50D9C054 /* Debug */,
+				95640A7B69D7F2C71B2F584E98BEB692 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B38D7C16F5C838BB40C30518C3A23842 /* Build configuration list for PBXNativeTarget "LGButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A034D4355A2938F4C0A0CA11FEA2470 /* Debug */,
+				5E95739894BD432B2E51490EAF0ECDA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8C3DE0C52FB995FF3BFCC0552D0398F /* Build configuration list for PBXNativeTarget "JSSAlertView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C3D5D7DA96F3E611A4F841BF5D0A136 /* Debug */,
+				5A8C8B76130FA7014EF1DB7FFF8CE3E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

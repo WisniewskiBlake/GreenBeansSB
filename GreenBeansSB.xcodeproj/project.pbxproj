@@ -3,18 +3,56 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D7132EC57EA136C45D15B00 /* Pods_GreenBeansSBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB0C66E156FC29B557F8EE /* Pods_GreenBeansSBTests.framework */; };
+		2C78A47E48B36CB1BF184454 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3039C464876F8630E73317F7 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework */; };
 		BB61A70325EDFB7100EB1228 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A70225EDFB7100EB1228 /* AppDelegate.swift */; };
 		BB61A70525EDFB7100EB1228 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */; };
-		BB61A70725EDFB7100EB1228 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A70625EDFB7100EB1228 /* ViewController.swift */; };
 		BB61A70A25EDFB7100EB1228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB61A70825EDFB7100EB1228 /* Main.storyboard */; };
 		BB61A70C25EDFB7400EB1228 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB61A70B25EDFB7400EB1228 /* Assets.xcassets */; };
 		BB61A70F25EDFB7400EB1228 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB61A70D25EDFB7400EB1228 /* LaunchScreen.storyboard */; };
 		BB61A71A25EDFB7500EB1228 /* GreenBeansSBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A71925EDFB7500EB1228 /* GreenBeansSBTests.swift */; };
 		BB61A72525EDFB7500EB1228 /* GreenBeansSBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A72425EDFB7500EB1228 /* GreenBeansSBUITests.swift */; };
+		BB61A74125EDFD1400EB1228 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A74025EDFD1400EB1228 /* User.swift */; };
+		BB61A74925EDFD2300EB1228 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A74825EDFD2300EB1228 /* Order.swift */; };
+		BB61A75625EDFDA800EB1228 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A75525EDFDA800EB1228 /* LoginViewController.swift */; };
+		BB61A75B25EDFDBC00EB1228 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A75A25EDFDBC00EB1228 /* RegisterViewController.swift */; };
+		BB61A79525EE072800EB1228 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A79425EE072800EB1228 /* Helper.swift */; };
+		BB61A7A525EE10A900EB1228 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB61A7A425EE10A900EB1228 /* GoogleService-Info.plist */; };
+		BB61A7AB25EE142500EB1228 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = BB61A7AA25EE142500EB1228 /* FirebaseFunctions */; };
+		BB61A7AD25EE142500EB1228 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BB61A7AC25EE142500EB1228 /* FirebaseStorage */; };
+		BB61A7AF25EE142500EB1228 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BB61A7AE25EE142500EB1228 /* FirebaseAuth */; };
+		BB61A7B125EE142500EB1228 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BB61A7B025EE142500EB1228 /* FirebaseFirestore */; };
+		BB61A7B325EE142500EB1228 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BB61A7B225EE142500EB1228 /* FirebaseMessaging */; };
+		BB61A7B825EE150200EB1228 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A7B725EE150200EB1228 /* Product.swift */; };
+		BB61A7C025EE161300EB1228 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A7BF25EE161300EB1228 /* AuthViewModel.swift */; };
+		BB61A7C825EE1C7600EB1228 /* VirtualStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A7C725EE1C7600EB1228 /* VirtualStoreViewController.swift */; };
+		BB61A7D825EE252D00EB1228 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A7D725EE252D00EB1228 /* CustomView.swift */; };
+		BB61A7EE25EF3E2B00EB1228 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = BB61A7ED25EF3E2B00EB1228 /* SideMenu */; };
+		BB61A7F325EF3F5600EB1228 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A7F225EF3F5600EB1228 /* SideMenuViewController.swift */; };
+		BB61A7F825EF48D900EB1228 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A7F725EF48D900EB1228 /* CartViewController.swift */; };
+		BB61A7FD25EF48ED00EB1228 /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A7FC25EF48ED00EB1228 /* OrderHistoryViewController.swift */; };
+		BB61A80625EF490D00EB1228 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A80525EF490D00EB1228 /* SettingsViewController.swift */; };
+		BB61A80B25EF5EB300EB1228 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A80A25EF5EB300EB1228 /* ProductListViewController.swift */; };
+		BB61A81525EF6F1F00EB1228 /* VirtualStoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A81425EF6F1F00EB1228 /* VirtualStoreViewModel.swift */; };
+		BB61A81D25EF79A500EB1228 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A81C25EF79A500EB1228 /* ProductCell.swift */; };
+		BB61A82225EF7FB800EB1228 /* ProductListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A82125EF7FB800EB1228 /* ProductListDataSource.swift */; };
+		BB61A82725EF953200EB1228 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A82625EF953200EB1228 /* Constants.swift */; };
+		BB61A82C25EF9EC700EB1228 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A82B25EF9EC700EB1228 /* TestViewController.swift */; };
+		BB61A83425F0E7EC00EB1228 /* CollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A83325F0E7EC00EB1228 /* CollectionReference.swift */; };
+		BB61A83925F1EEC600EB1228 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A83825F1EEC600EB1228 /* ProductDetailViewController.swift */; };
+		BB61A84E25F49CE600EB1228 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A84D25F49CE600EB1228 /* CartCell.swift */; };
+		BB61A85325F4A18500EB1228 /* CartCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A85225F4A18500EB1228 /* CartCellDataSource.swift */; };
+		BB61A85F25F4A41A00EB1228 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A85E25F4A41A00EB1228 /* CartViewModel.swift */; };
+		BB61A86D25F60BD400EB1228 /* GuestAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A86C25F60BD400EB1228 /* GuestAddressViewController.swift */; };
+		BB61A87525F60D1700EB1228 /* UserAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A87425F60D1700EB1228 /* UserAddressViewController.swift */; };
+		BB61A87A25F6149F00EB1228 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A87925F6149F00EB1228 /* AddressCell.swift */; };
+		BB61A88925F6158E00EB1228 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A88825F6158E00EB1228 /* AddressViewModel.swift */; };
+		BB61A89125F6198900EB1228 /* AddressCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A89025F6198900EB1228 /* AddressCellDataSource.swift */; };
+		E7BBEAD6FCFC82270EF5A7FA /* Pods_GreenBeansSB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70819FF9B6009D94BE2A5307 /* Pods_GreenBeansSB.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +73,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08FB0C66E156FC29B557F8EE /* Pods_GreenBeansSBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenBeansSBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3039C464876F8630E73317F7 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenBeansSB_GreenBeansSBUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E1140A3A0AFFA4BB5909D64 /* Pods-GreenBeansSB-GreenBeansSBUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSB-GreenBeansSBUITests.release.xcconfig"; path = "Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests.release.xcconfig"; sourceTree = "<group>"; };
+		70819FF9B6009D94BE2A5307 /* Pods_GreenBeansSB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenBeansSB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85F037401CE501A05F1518F6 /* Pods-GreenBeansSBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSBTests.release.xcconfig"; path = "Target Support Files/Pods-GreenBeansSBTests/Pods-GreenBeansSBTests.release.xcconfig"; sourceTree = "<group>"; };
+		861B18D6AB76440AE1B00B8E /* Pods-GreenBeansSB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSB.release.xcconfig"; path = "Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB.release.xcconfig"; sourceTree = "<group>"; };
+		96C96497DE0E4DF2183138DE /* Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig"; path = "Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B10D6C8B9870950086E8FCE0 /* Pods-GreenBeansSBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSBTests.debug.xcconfig"; path = "Target Support Files/Pods-GreenBeansSBTests/Pods-GreenBeansSBTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B11D6138182CFF514D6B8B78 /* Pods-GreenBeansSB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSB.debug.xcconfig"; path = "Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB.debug.xcconfig"; sourceTree = "<group>"; };
 		BB61A6FF25EDFB7100EB1228 /* GreenBeansSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenBeansSB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB61A70225EDFB7100EB1228 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BB61A70625EDFB7100EB1228 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB61A70925EDFB7100EB1228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB61A70B25EDFB7400EB1228 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB61A70E25EDFB7400EB1228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +95,36 @@
 		BB61A72025EDFB7500EB1228 /* GreenBeansSBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenBeansSBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB61A72425EDFB7500EB1228 /* GreenBeansSBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenBeansSBUITests.swift; sourceTree = "<group>"; };
 		BB61A72625EDFB7500EB1228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB61A74025EDFD1400EB1228 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BB61A74825EDFD2300EB1228 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		BB61A75525EDFDA800EB1228 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BB61A75A25EDFDBC00EB1228 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		BB61A79425EE072800EB1228 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		BB61A7A425EE10A900EB1228 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BB61A7B725EE150200EB1228 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		BB61A7BF25EE161300EB1228 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		BB61A7C725EE1C7600EB1228 /* VirtualStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualStoreViewController.swift; sourceTree = "<group>"; };
+		BB61A7D725EE252D00EB1228 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		BB61A7F225EF3F5600EB1228 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		BB61A7F725EF48D900EB1228 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		BB61A7FC25EF48ED00EB1228 /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
+		BB61A80525EF490D00EB1228 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BB61A80A25EF5EB300EB1228 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		BB61A81425EF6F1F00EB1228 /* VirtualStoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualStoreViewModel.swift; sourceTree = "<group>"; };
+		BB61A81C25EF79A500EB1228 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		BB61A82125EF7FB800EB1228 /* ProductListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListDataSource.swift; sourceTree = "<group>"; };
+		BB61A82625EF953200EB1228 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BB61A82B25EF9EC700EB1228 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		BB61A83325F0E7EC00EB1228 /* CollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReference.swift; sourceTree = "<group>"; };
+		BB61A83825F1EEC600EB1228 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		BB61A84D25F49CE600EB1228 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		BB61A85225F4A18500EB1228 /* CartCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellDataSource.swift; sourceTree = "<group>"; };
+		BB61A85E25F4A41A00EB1228 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		BB61A86C25F60BD400EB1228 /* GuestAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestAddressViewController.swift; sourceTree = "<group>"; };
+		BB61A87425F60D1700EB1228 /* UserAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAddressViewController.swift; sourceTree = "<group>"; };
+		BB61A87925F6149F00EB1228 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
+		BB61A88825F6158E00EB1228 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
+		BB61A89025F6198900EB1228 /* AddressCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCellDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +132,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB61A7AB25EE142500EB1228 /* FirebaseFunctions in Frameworks */,
+				BB61A7B125EE142500EB1228 /* FirebaseFirestore in Frameworks */,
+				BB61A7B325EE142500EB1228 /* FirebaseMessaging in Frameworks */,
+				BB61A7AF25EE142500EB1228 /* FirebaseAuth in Frameworks */,
+				BB61A7EE25EF3E2B00EB1228 /* SideMenu in Frameworks */,
+				BB61A7AD25EE142500EB1228 /* FirebaseStorage in Frameworks */,
+				E7BBEAD6FCFC82270EF5A7FA /* Pods_GreenBeansSB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D7132EC57EA136C45D15B00 /* Pods_GreenBeansSBTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C78A47E48B36CB1BF184454 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +168,8 @@
 				BB61A71825EDFB7500EB1228 /* GreenBeansSBTests */,
 				BB61A72325EDFB7500EB1228 /* GreenBeansSBUITests */,
 				BB61A70025EDFB7100EB1228 /* Products */,
+				F821B6D54D1E0443F77A702E /* Pods */,
+				F581DF55129128CA8A966A51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +186,13 @@
 		BB61A70125EDFB7100EB1228 /* GreenBeansSB */ = {
 			isa = PBXGroup;
 			children = (
+				BB61A7A425EE10A900EB1228 /* GoogleService-Info.plist */,
+				BB61A79325EE06FC00EB1228 /* Helpers */,
+				BB61A73725EDFBD900EB1228 /* Model */,
+				BB61A73625EDFBC700EB1228 /* ViewModel */,
+				BB61A73525EDFBBA00EB1228 /* View */,
 				BB61A70225EDFB7100EB1228 /* AppDelegate.swift */,
 				BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */,
-				BB61A70625EDFB7100EB1228 /* ViewController.swift */,
 				BB61A70825EDFB7100EB1228 /* Main.storyboard */,
 				BB61A70B25EDFB7400EB1228 /* Assets.xcassets */,
 				BB61A70D25EDFB7400EB1228 /* LaunchScreen.storyboard */,
@@ -128,6 +219,174 @@
 			path = GreenBeansSBUITests;
 			sourceTree = "<group>";
 		};
+		BB61A73525EDFBBA00EB1228 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A80125EF48F400EB1228 /* Settings */,
+				BB61A73C25EDFC8100EB1228 /* OrderHistory */,
+				BB61A73B25EDFC7B00EB1228 /* Cart */,
+				BB61A73A25EDFC6D00EB1228 /* VirtualStore */,
+				BB61A73925EDFC6400EB1228 /* SideMenu */,
+				BB61A73825EDFC4C00EB1228 /* Authentication */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB61A73625EDFBC700EB1228 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A85725F4A38800EB1228 /* Cart */,
+				BB61A73F25EDFCB900EB1228 /* VirtualStore */,
+				BB61A73E25EDFCB200EB1228 /* SideMenu */,
+				BB61A73D25EDFCA900EB1228 /* Authentication */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BB61A73725EDFBD900EB1228 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A74025EDFD1400EB1228 /* User.swift */,
+				BB61A74825EDFD2300EB1228 /* Order.swift */,
+				BB61A7B725EE150200EB1228 /* Product.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BB61A73825EDFC4C00EB1228 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A75525EDFDA800EB1228 /* LoginViewController.swift */,
+				BB61A75A25EDFDBC00EB1228 /* RegisterViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		BB61A73925EDFC6400EB1228 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A7F225EF3F5600EB1228 /* SideMenuViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		BB61A73A25EDFC6D00EB1228 /* VirtualStore */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A7C725EE1C7600EB1228 /* VirtualStoreViewController.swift */,
+				BB61A80A25EF5EB300EB1228 /* ProductListViewController.swift */,
+				BB61A81C25EF79A500EB1228 /* ProductCell.swift */,
+				BB61A82125EF7FB800EB1228 /* ProductListDataSource.swift */,
+				BB61A83825F1EEC600EB1228 /* ProductDetailViewController.swift */,
+			);
+			path = VirtualStore;
+			sourceTree = "<group>";
+		};
+		BB61A73B25EDFC7B00EB1228 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A86825F60B9300EB1228 /* Address */,
+				BB61A7F725EF48D900EB1228 /* CartViewController.swift */,
+				BB61A84D25F49CE600EB1228 /* CartCell.swift */,
+				BB61A85225F4A18500EB1228 /* CartCellDataSource.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		BB61A73C25EDFC8100EB1228 /* OrderHistory */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A7FC25EF48ED00EB1228 /* OrderHistoryViewController.swift */,
+			);
+			path = OrderHistory;
+			sourceTree = "<group>";
+		};
+		BB61A73D25EDFCA900EB1228 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A7BF25EE161300EB1228 /* AuthViewModel.swift */,
+				BB61A82B25EF9EC700EB1228 /* TestViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		BB61A73E25EDFCB200EB1228 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		BB61A73F25EDFCB900EB1228 /* VirtualStore */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A81425EF6F1F00EB1228 /* VirtualStoreViewModel.swift */,
+			);
+			path = VirtualStore;
+			sourceTree = "<group>";
+		};
+		BB61A79325EE06FC00EB1228 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A79425EE072800EB1228 /* Helper.swift */,
+				BB61A7D725EE252D00EB1228 /* CustomView.swift */,
+				BB61A82625EF953200EB1228 /* Constants.swift */,
+				BB61A83325F0E7EC00EB1228 /* CollectionReference.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BB61A80125EF48F400EB1228 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A80525EF490D00EB1228 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		BB61A85725F4A38800EB1228 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A85E25F4A41A00EB1228 /* CartViewModel.swift */,
+				BB61A88825F6158E00EB1228 /* AddressViewModel.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		BB61A86825F60B9300EB1228 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A86C25F60BD400EB1228 /* GuestAddressViewController.swift */,
+				BB61A87425F60D1700EB1228 /* UserAddressViewController.swift */,
+				BB61A87925F6149F00EB1228 /* AddressCell.swift */,
+				BB61A89025F6198900EB1228 /* AddressCellDataSource.swift */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		F581DF55129128CA8A966A51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70819FF9B6009D94BE2A5307 /* Pods_GreenBeansSB.framework */,
+				3039C464876F8630E73317F7 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework */,
+				08FB0C66E156FC29B557F8EE /* Pods_GreenBeansSBTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F821B6D54D1E0443F77A702E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B11D6138182CFF514D6B8B78 /* Pods-GreenBeansSB.debug.xcconfig */,
+				861B18D6AB76440AE1B00B8E /* Pods-GreenBeansSB.release.xcconfig */,
+				96C96497DE0E4DF2183138DE /* Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig */,
+				6E1140A3A0AFFA4BB5909D64 /* Pods-GreenBeansSB-GreenBeansSBUITests.release.xcconfig */,
+				B10D6C8B9870950086E8FCE0 /* Pods-GreenBeansSBTests.debug.xcconfig */,
+				85F037401CE501A05F1518F6 /* Pods-GreenBeansSBTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,15 +394,25 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB61A72925EDFB7500EB1228 /* Build configuration list for PBXNativeTarget "GreenBeansSB" */;
 			buildPhases = (
+				17C5B9A87784D5B747EBD362 /* [CP] Check Pods Manifest.lock */,
 				BB61A6FB25EDFB7100EB1228 /* Sources */,
 				BB61A6FC25EDFB7100EB1228 /* Frameworks */,
 				BB61A6FD25EDFB7100EB1228 /* Resources */,
+				8B8AB00B697483DF6F2ACC8E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GreenBeansSB;
+			packageProductDependencies = (
+				BB61A7AA25EE142500EB1228 /* FirebaseFunctions */,
+				BB61A7AC25EE142500EB1228 /* FirebaseStorage */,
+				BB61A7AE25EE142500EB1228 /* FirebaseAuth */,
+				BB61A7B025EE142500EB1228 /* FirebaseFirestore */,
+				BB61A7B225EE142500EB1228 /* FirebaseMessaging */,
+				BB61A7ED25EF3E2B00EB1228 /* SideMenu */,
+			);
 			productName = GreenBeansSB;
 			productReference = BB61A6FF25EDFB7100EB1228 /* GreenBeansSB.app */;
 			productType = "com.apple.product-type.application";
@@ -152,6 +421,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB61A72C25EDFB7500EB1228 /* Build configuration list for PBXNativeTarget "GreenBeansSBTests" */;
 			buildPhases = (
+				150C6D8C12BD180364B5E6A8 /* [CP] Check Pods Manifest.lock */,
 				BB61A71125EDFB7500EB1228 /* Sources */,
 				BB61A71225EDFB7500EB1228 /* Frameworks */,
 				BB61A71325EDFB7500EB1228 /* Resources */,
@@ -170,9 +440,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB61A72F25EDFB7500EB1228 /* Build configuration list for PBXNativeTarget "GreenBeansSBUITests" */;
 			buildPhases = (
+				843884B451831603C8ED4E1C /* [CP] Check Pods Manifest.lock */,
 				BB61A71C25EDFB7500EB1228 /* Sources */,
 				BB61A71D25EDFB7500EB1228 /* Frameworks */,
 				BB61A71E25EDFB7500EB1228 /* Resources */,
+				12E33EA25EB280A618A1F4A3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,6 +487,10 @@
 				Base,
 			);
 			mainGroup = BB61A6F625EDFB7000EB1228;
+			packageReferences = (
+				BB61A7A925EE142500EB1228 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				BB61A7EC25EF3E2A00EB1228 /* XCRemoteSwiftPackageReference "SideMenu" */,
+			);
 			productRefGroup = BB61A70025EDFB7100EB1228 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB61A70F25EDFB7400EB1228 /* LaunchScreen.storyboard in Resources */,
+				BB61A7A525EE10A900EB1228 /* GoogleService-Info.plist in Resources */,
 				BB61A70C25EDFB7400EB1228 /* Assets.xcassets in Resources */,
 				BB61A70A25EDFB7100EB1228 /* Main.storyboard in Resources */,
 			);
@@ -253,14 +530,145 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		12E33EA25EB280A618A1F4A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		150C6D8C12BD180364B5E6A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GreenBeansSBTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		17C5B9A87784D5B747EBD362 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GreenBeansSB-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		843884B451831603C8ED4E1C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GreenBeansSB-GreenBeansSBUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B8AB00B697483DF6F2ACC8E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BB61A6FB25EDFB7100EB1228 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB61A70725EDFB7100EB1228 /* ViewController.swift in Sources */,
+				BB61A86D25F60BD400EB1228 /* GuestAddressViewController.swift in Sources */,
+				BB61A7C825EE1C7600EB1228 /* VirtualStoreViewController.swift in Sources */,
+				BB61A88925F6158E00EB1228 /* AddressViewModel.swift in Sources */,
+				BB61A87A25F6149F00EB1228 /* AddressCell.swift in Sources */,
+				BB61A7C025EE161300EB1228 /* AuthViewModel.swift in Sources */,
+				BB61A7FD25EF48ED00EB1228 /* OrderHistoryViewController.swift in Sources */,
+				BB61A89125F6198900EB1228 /* AddressCellDataSource.swift in Sources */,
+				BB61A75625EDFDA800EB1228 /* LoginViewController.swift in Sources */,
+				BB61A74125EDFD1400EB1228 /* User.swift in Sources */,
+				BB61A87525F60D1700EB1228 /* UserAddressViewController.swift in Sources */,
+				BB61A7F325EF3F5600EB1228 /* SideMenuViewController.swift in Sources */,
+				BB61A84E25F49CE600EB1228 /* CartCell.swift in Sources */,
+				BB61A81525EF6F1F00EB1228 /* VirtualStoreViewModel.swift in Sources */,
+				BB61A82C25EF9EC700EB1228 /* TestViewController.swift in Sources */,
+				BB61A80B25EF5EB300EB1228 /* ProductListViewController.swift in Sources */,
+				BB61A75B25EDFDBC00EB1228 /* RegisterViewController.swift in Sources */,
+				BB61A7F825EF48D900EB1228 /* CartViewController.swift in Sources */,
+				BB61A80625EF490D00EB1228 /* SettingsViewController.swift in Sources */,
+				BB61A74925EDFD2300EB1228 /* Order.swift in Sources */,
+				BB61A7D825EE252D00EB1228 /* CustomView.swift in Sources */,
+				BB61A82225EF7FB800EB1228 /* ProductListDataSource.swift in Sources */,
+				BB61A85F25F4A41A00EB1228 /* CartViewModel.swift in Sources */,
+				BB61A83925F1EEC600EB1228 /* ProductDetailViewController.swift in Sources */,
 				BB61A70325EDFB7100EB1228 /* AppDelegate.swift in Sources */,
+				BB61A82725EF953200EB1228 /* Constants.swift in Sources */,
+				BB61A85325F4A18500EB1228 /* CartCellDataSource.swift in Sources */,
 				BB61A70525EDFB7100EB1228 /* SceneDelegate.swift in Sources */,
+				BB61A81D25EF79A500EB1228 /* ProductCell.swift in Sources */,
+				BB61A83425F0E7EC00EB1228 /* CollectionReference.swift in Sources */,
+				BB61A7B825EE150200EB1228 /* Product.swift in Sources */,
+				BB61A79525EE072800EB1228 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +841,7 @@
 		};
 		BB61A72A25EDFB7500EB1228 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B11D6138182CFF514D6B8B78 /* Pods-GreenBeansSB.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -443,7 +852,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blake.GreenBeansSB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.top.greenbeansSB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -452,6 +861,7 @@
 		};
 		BB61A72B25EDFB7500EB1228 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 861B18D6AB76440AE1B00B8E /* Pods-GreenBeansSB.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -462,7 +872,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blake.GreenBeansSB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.top.greenbeansSB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -471,6 +881,7 @@
 		};
 		BB61A72D25EDFB7500EB1228 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B10D6C8B9870950086E8FCE0 /* Pods-GreenBeansSBTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -493,6 +904,7 @@
 		};
 		BB61A72E25EDFB7500EB1228 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85F037401CE501A05F1518F6 /* Pods-GreenBeansSBTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -515,6 +927,7 @@
 		};
 		BB61A73025EDFB7500EB1228 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96C96497DE0E4DF2183138DE /* Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -535,6 +948,7 @@
 		};
 		BB61A73125EDFB7500EB1228 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E1140A3A0AFFA4BB5909D64 /* Pods-GreenBeansSB-GreenBeansSBUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -593,6 +1007,58 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BB61A7A925EE142500EB1228 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.7.0;
+			};
+		};
+		BB61A7EC25EF3E2A00EB1228 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BB61A7AA25EE142500EB1228 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB61A7A925EE142500EB1228 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		BB61A7AC25EE142500EB1228 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB61A7A925EE142500EB1228 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		BB61A7AE25EE142500EB1228 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB61A7A925EE142500EB1228 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		BB61A7B025EE142500EB1228 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB61A7A925EE142500EB1228 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		BB61A7B225EE142500EB1228 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB61A7A925EE142500EB1228 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		BB61A7ED25EF3E2B00EB1228 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB61A7EC25EF3E2A00EB1228 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BB61A6F725EDFB7000EB1228 /* Project object */;
 }

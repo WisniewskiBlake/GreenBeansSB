@@ -6,17 +6,42 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseCore
+import CoreLocation
+import PushKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var window: UIWindow?
+    var authListener: AuthStateDidChangeListenerHandle?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        //AutoLogin
+        if Auth.auth().currentUser != nil {
+          // User is signed in.
+            self.goToStore()
+        } else {
+          // No user is signed in.
+            self.goToLogin()
+        }
+        
         guard let _ = (scene as? UIWindowScene) else { return }
+    }
+    
+    func goToLogin() {
+        let selectionVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginViewController
+        selectionVC.modalPresentationStyle = .fullScreen
+        self.window?.rootViewController = selectionVC
+    }
+    
+    func goToStore() {
+        let selectionVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VirtualStore") as! VirtualStoreViewController
+        selectionVC.modalPresentationStyle = .fullScreen
+        self.window?.rootViewController = selectionVC
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -1,0 +1,20 @@
+PODS:
+  - JSSAlertView (5.0.2)
+  - LGButton (1.1.6)
+
+DEPENDENCIES:
+  - JSSAlertView
+  - LGButton
+
+SPEC REPOS:
+  trunk:
+    - JSSAlertView
+    - LGButton
+
+SPEC CHECKSUMS:
+  JSSAlertView: 18345e37d8295827428c12b773b6d75d0dfd0b28
+  LGButton: 9f0a7f9d3030e3f504108342f6b66d64a429371b
+
+PODFILE CHECKSUM: ae325faf40bcbe5d7b1cfff5a42181e4ddffaedb
+
+COCOAPODS: 1.10.1
