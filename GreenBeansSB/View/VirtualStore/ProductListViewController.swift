@@ -13,15 +13,15 @@ class ProductListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var category: String = ""    
-    var dataSource = ProductListDataSource()
-    private var viewModel = VirtualStoreViewModel()
+    var dataSource = ProductListDataSource()    
+    var viewModel: VirtualStoreViewModel!
     private var products: [Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedProducts"), object: nil)
         self.getCategoryTitle(tag: category)
-        viewModel.fetchAllProducts(category: categoryTitleLabel.text!)        
+        viewModel.fetchAllProducts(category: categoryTitleLabel.text!)
     }
     
     @objc func setDataSource() {
@@ -39,6 +39,12 @@ class ProductListViewController: UIViewController {
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
         dismiss(animated: true, completion: nil)
     }
     

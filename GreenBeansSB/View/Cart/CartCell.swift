@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CartCellDelegate {
+    func removeProductFromCart(indexPath: IndexPath)
+}
+
 class CartCell: UITableViewCell {
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productTitleLabel: UILabel!
@@ -15,33 +19,52 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var productCostTotalLabel: UILabel!
     @IBOutlet weak var removeButton: UIButton!
     
-    var productTitle: String? {
-        didSet { productTitleLabel.text = productTitle ?? "" }
+    var indexPath: IndexPath!
+    var delegate: CartCellDelegate?
+    
+    func generateCell(product: Product, indexPath: IndexPath) {
+        self.indexPath = indexPath
+        productTitleLabel.text = product.productTitle
+        productPriceLabel.text = product.productPrice
+        productQuantityLabel.text = product.productQuantity
+        productCostTotalLabel.text = String(Double(product.productPrice)! * Double(product.productQuantity + ".0")!)
     }
     
-    var productPrice: String? {
-            didSet { productPriceLabel.text = productPrice ?? "" }
-    }
-        
-    var productQuantity: String? {
-        didSet { productQuantityLabel.text = "x" + (productQuantity ?? "") }
+    @IBAction func removeButtonClicked(_ sender: Any) {
+        delegate!.removeProductFromCart(indexPath: indexPath)
     }
     
-    var productCostTotal: Double? {
-        didSet {
-            let total = String(productCostTotal ?? 0) 
-            productCostTotalLabel.text = total }
-    }    
-
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
 }
+
+
+
+
+
+
+
+
+
+//     var productTitle: String? {
+//        didSet { productTitleLabel.text = productTitle ?? "" }
+//    }
+//
+//    var productPrice: String? {
+//            didSet { productPriceLabel.text = productPrice ?? "" }
+//    }
+//
+//    var productQuantity: String? {
+//        didSet { productQuantityLabel.text = "x" + (productQuantity ?? "") }
+//    }
+//
+//    var productCostTotal: Double? {
+//        didSet {
+//            let total = String(productCostTotal ?? 0)
+//            productCostTotalLabel.text = total }
+//    }

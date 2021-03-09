@@ -14,7 +14,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
-    private let viewModel = AuthViewModel()
+    var viewModel: AuthViewModel!
     private let customView = CustomView()
     private let helper = Helper()
     

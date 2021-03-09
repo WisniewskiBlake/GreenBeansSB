@@ -16,14 +16,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var window: UIWindow?
     var authListener: AuthStateDidChangeListenerHandle?
-
+    let viewModel: AuthViewModel = AuthViewModel()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(goToStore), name: NSNotification.Name(rawValue: "autoLoggedIn"), object: nil)
         
         //AutoLogin
         if Auth.auth().currentUser != nil {
           // User is signed in.
-            self.goToStore()
+            self.getUser()
         } else {
           // No user is signed in.
             self.goToLogin()
@@ -34,14 +36,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func goToLogin() {
         let selectionVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginViewController
+        selectionVC.viewModel = viewModel
         selectionVC.modalPresentationStyle = .fullScreen
         self.window?.rootViewController = selectionVC
     }
     
-    func goToStore() {
-        let selectionVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VirtualStore") as! VirtualStoreViewController
-        selectionVC.modalPresentationStyle = .fullScreen
-        self.window?.rootViewController = selectionVC
+    @objc func goToStore() {
+        let virtualStoreViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VirtualStore") as! VirtualStoreViewController
+        
+        let user = viewModel.user
+        virtualStoreViewController.viewModel = VirtualStoreViewModel(user: user!)
+        virtualStoreViewController.modalPresentationStyle = .fullScreen
+        self.window?.rootViewController = virtualStoreViewController
+    }
+    
+    func getUser() {
+        viewModel.fetchUserAutoLogin(email: (Auth.auth().currentUser?.email!)!)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

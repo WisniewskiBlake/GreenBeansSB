@@ -16,6 +16,7 @@ class VirtualStoreViewController: UIViewController {
     @IBOutlet weak var suppliesButton: UIButton!
     
     private var category = ""
+    var viewModel: VirtualStoreViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class VirtualStoreViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? ProductListViewController {
             if let button = sender as? UIButton {
+                destinationViewController.viewModel = viewModel
                 destinationViewController.category = String(button.tag)
                 destinationViewController.modalPresentationStyle = .fullScreen
             }

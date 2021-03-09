@@ -133,3 +133,27 @@ extension UIColor {
     }
 }
 
+extension UIViewController {
+    func addTransitionLeft() {
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
+    }
+    func addTransitionRight() {
+        func addTransitionLeft() {
+            let transition = CATransition()
+            transition.duration = 0.5
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromLeft
+            transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+            view.window!.layer.add(transition, forKey: kCATransition)
+        }
+    }
+    func dismissController() {
+        dismiss(animated: true, completion: nil)
+    }
+}
+

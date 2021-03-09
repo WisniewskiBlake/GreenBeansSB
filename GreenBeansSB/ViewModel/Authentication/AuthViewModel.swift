@@ -9,28 +9,27 @@ import SwiftUI
 import Firebase
 
 class AuthViewModel: ObservableObject {
-    @Published var userSession: FirebaseAuth.User?
+    var userSession: FirebaseAuth.User?
     @Published var isAuthenticating = false
     @Published var error: Error?
-    @Published var user: User?
+    var user: User?
     
     static let shared = AuthViewModel()
     
     init() {
         userSession = Auth.auth().currentUser
-        fetchUser()
     }
     
     func login(withEmail email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if let error = error {
-                print("DEBUG: Failed to login: \(error.localizedDescription)")
-                return
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                if let error = error {
+                    print("DEBUG: Failed to login: \(error.localizedDescription)")
+                    return
+                }
+                self.userSession = result?.user
+                self.fetchUser(email: email)
             }
-            self.userSession = result?.user
-            self.fetchUser()
         }
-    }
     
     func registerUser(email: String, password: String, fullname: String, address: String, completion: @escaping (_ error: Error?) -> Void ) {
                 
@@ -50,11 +49,10 @@ class AuthViewModel: ObservableObject {
             
             Firestore.firestore().collection("Users").document(email).setData(data) { _ in
                 self.userSession = user
-                self.fetchUser()
+                self.fetchUser(email: email)
             }
             completion(error)
-        })
-        
+        })        
     }
     
     func signOut() {
@@ -63,13 +61,20 @@ class AuthViewModel: ObservableObject {
         try? Auth.auth().signOut()
     }
     
-    func fetchUser() {
-        guard let uid = userSession?.uid else { return }
-        
-        Firestore.firestore().collection("User").document(uid).getDocument { snapshot, _ in
+    func fetchUser(email: String) {
+        reference(.Users).document(email).getDocument { snapshot, _ in
             guard let data = snapshot?.data() else { return }
             self.user = User(dictionary: data)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loggedIn"), object: nil)
         }
+    }
+    
+    func fetchUserAutoLogin(email: String) {
+        reference(.Users).document(email).getDocument { snapshot, _ in
+            guard let data = snapshot?.data() else { return }
+            self.user = User(dictionary: data)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "autoLoggedIn"), object: nil)
+        }        
     }
     
     func tabTitle(forIndex index: Int) -> String {

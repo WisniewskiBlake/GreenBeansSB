@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JSSAlertView
 
 class ProductDetailViewController: UIViewController {
     @IBOutlet weak var productImageView: UIImageView!
@@ -48,17 +49,12 @@ class ProductDetailViewController: UIViewController {
     }
     
     @IBAction func addToCartClicked(_ sender: Any) {
-        if(productQuantityLabel.text != "0") {
-            viewModel?.addProductToCart(product: product, quantity: productQuantityLabel.text ?? "0")
-            helper.showAlert(title: "Added To Cart", message: "", in: self)
-        } else {
-            helper.showAlert(title: "Please Select Quantity", message: "", in: self)
-        }
-        dismiss(animated: true, completion: nil)
+        isValidQuantity(quantity: productQuantityLabel.text ?? "0")
+        
     }
     
-    
     @IBAction func backButtonClicked(_ sender: Any) {
+        addTransitionLeft()
         dismiss(animated: true, completion: nil)
     }
     
@@ -68,3 +64,24 @@ class ProductDetailViewController: UIViewController {
     }
     
 }
+extension ProductDetailViewController {
+    func isValidQuantity(quantity: String) -> Bool {
+        let alertview = JSSAlertView().show(self,
+          title: "Added To Cart",
+          buttonText: "Ok"
+        )
+        if(productQuantityLabel.text != "0") {
+            viewModel?.addProductToCart(product: product, quantity: productQuantityLabel.text ?? "0")
+            alertview.addAction { self.dismissController() }
+            alertview.setTitleFont("ClearSans-Bold") // Title font
+            alertview.setTextFont("ClearSans") // Alert body text font
+            alertview.setButtonFont("ClearSans-Light") // Button text font
+            alertview.setTextTheme(.light)
+            return true
+        } else {
+            helper.showAlert(title: "Please Select Quantity", message: "", in: self)
+            return false
+        }
+    }    
+}
+

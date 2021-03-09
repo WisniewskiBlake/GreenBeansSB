@@ -7,10 +7,13 @@
 
 import Firebase
 
-class VirtualStoreViewModel: ObservableObject {
+class VirtualStoreViewModel {
     var products = [Product]()
+    private var user: User!
     
-    init() { }
+    init(user: User) {
+        self.user = user
+    }
     
     func getProducts() -> [Product] {
         return self.products
@@ -37,10 +40,12 @@ class VirtualStoreViewModel: ObservableObject {
     }
     
     func addProductToCart(product: Product, quantity: String) {
-        guard let uid = AuthViewModel.shared.userSession?.email else { return }
+        let uid = user.email
         product.productDictionary[kPRODUCTQUANTITY] = quantity
         reference(.Users).document(uid).collection("Kart").document(product.productTitle).setData(product.productDictionary as! [String : Any])
     }
+    
+
     
     func provideQuery(category: String) -> Query {
         var query: Query?

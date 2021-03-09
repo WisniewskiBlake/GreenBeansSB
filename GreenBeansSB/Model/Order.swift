@@ -8,17 +8,17 @@
 import Foundation
 
 class Order {
-    let subtotal: String
+    var subtotal: String
     var total: String
     var tax: String
-    let address: String
-    let orderTime: String
-    let orderType: String
-    let userEmail: String
-    let orderStatus: String
-    let fullName: String
-    let archived: String
-    let products: [Product]
+    var address: String
+    var orderTime: String
+    var orderType: String
+    var userEmail: String
+    var orderStatus: String
+    var fullName: String
+    var archived: String
+    var products: [Product]
 
     init(dictionary: [String: Any]) {
         self.address = dictionary["address"] as? String ?? ""
@@ -32,5 +32,19 @@ class Order {
         self.archived = dictionary["archived"] as? String ?? ""
         self.products = (dictionary["Product"] as? [Product] ?? [])
         self.total = dictionary["total"] as? String ?? ""
+    }
+    
+    init() {
+        self.address = ""
+        self.subtotal = ""
+        self.tax = ""
+        self.orderTime = ""
+        self.orderType = ""
+        self.userEmail = ""
+        self.orderStatus = ""
+        self.fullName = ""
+        self.archived = ""
+        self.products = []
+        self.total = ""
     }
 }

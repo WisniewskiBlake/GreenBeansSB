@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D7132EC57EA136C45D15B00 /* Pods_GreenBeansSBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB0C66E156FC29B557F8EE /* Pods_GreenBeansSBTests.framework */; };
 		2C78A47E48B36CB1BF184454 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3039C464876F8630E73317F7 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework */; };
+		BB1A147A25F71967008F94C9 /* OrderTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A147925F71967008F94C9 /* OrderTypeViewController.swift */; };
+		BB1A149725F770AC008F94C9 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A149625F770AC008F94C9 /* SideMenuViewModel.swift */; };
 		BB61A70325EDFB7100EB1228 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A70225EDFB7100EB1228 /* AppDelegate.swift */; };
 		BB61A70525EDFB7100EB1228 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */; };
 		BB61A70A25EDFB7100EB1228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB61A70825EDFB7100EB1228 /* Main.storyboard */; };
@@ -82,6 +84,8 @@
 		96C96497DE0E4DF2183138DE /* Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig"; path = "Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B10D6C8B9870950086E8FCE0 /* Pods-GreenBeansSBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSBTests.debug.xcconfig"; path = "Target Support Files/Pods-GreenBeansSBTests/Pods-GreenBeansSBTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B11D6138182CFF514D6B8B78 /* Pods-GreenBeansSB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSB.debug.xcconfig"; path = "Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB.debug.xcconfig"; sourceTree = "<group>"; };
+		BB1A147925F71967008F94C9 /* OrderTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTypeViewController.swift; sourceTree = "<group>"; };
+		BB1A149625F770AC008F94C9 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		BB61A6FF25EDFB7100EB1228 /* GreenBeansSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenBeansSB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB61A70225EDFB7100EB1228 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +165,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB1A149525F77091008F94C9 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BB1A149625F770AC008F94C9 /* SideMenuViewModel.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
 		BB61A6F625EDFB7000EB1228 = {
 			isa = PBXGroup;
 			children = (
@@ -235,9 +247,9 @@
 		BB61A73625EDFBC700EB1228 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BB1A149525F77091008F94C9 /* SideMenu */,
 				BB61A85725F4A38800EB1228 /* Cart */,
 				BB61A73F25EDFCB900EB1228 /* VirtualStore */,
-				BB61A73E25EDFCB200EB1228 /* SideMenu */,
 				BB61A73D25EDFCA900EB1228 /* Authentication */,
 			);
 			path = ViewModel;
@@ -289,6 +301,7 @@
 				BB61A7F725EF48D900EB1228 /* CartViewController.swift */,
 				BB61A84D25F49CE600EB1228 /* CartCell.swift */,
 				BB61A85225F4A18500EB1228 /* CartCellDataSource.swift */,
+				BB1A147925F71967008F94C9 /* OrderTypeViewController.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -308,13 +321,6 @@
 				BB61A82B25EF9EC700EB1228 /* TestViewController.swift */,
 			);
 			path = Authentication;
-			sourceTree = "<group>";
-		};
-		BB61A73E25EDFCB200EB1228 /* SideMenu */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		BB61A73F25EDFCB900EB1228 /* VirtualStore */ = {
@@ -467,6 +473,7 @@
 				TargetAttributes = {
 					BB61A6FE25EDFB7100EB1228 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					BB61A71425EDFB7500EB1228 = {
 						CreatedOnToolsVersion = 12.4;
@@ -659,9 +666,11 @@
 				BB61A74925EDFD2300EB1228 /* Order.swift in Sources */,
 				BB61A7D825EE252D00EB1228 /* CustomView.swift in Sources */,
 				BB61A82225EF7FB800EB1228 /* ProductListDataSource.swift in Sources */,
+				BB1A147A25F71967008F94C9 /* OrderTypeViewController.swift in Sources */,
 				BB61A85F25F4A41A00EB1228 /* CartViewModel.swift in Sources */,
 				BB61A83925F1EEC600EB1228 /* ProductDetailViewController.swift in Sources */,
 				BB61A70325EDFB7100EB1228 /* AppDelegate.swift in Sources */,
+				BB1A149725F770AC008F94C9 /* SideMenuViewModel.swift in Sources */,
 				BB61A82725EF953200EB1228 /* Constants.swift in Sources */,
 				BB61A85325F4A18500EB1228 /* CartCellDataSource.swift in Sources */,
 				BB61A70525EDFB7100EB1228 /* SceneDelegate.swift in Sources */,
@@ -845,6 +854,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z2A427979Q;
 				INFOPLIST_FILE = GreenBeansSB/Info.plist;
@@ -854,6 +864,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.top.greenbeansSB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -865,6 +877,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z2A427979Q;
 				INFOPLIST_FILE = GreenBeansSB/Info.plist;
@@ -874,6 +887,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.top.greenbeansSB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

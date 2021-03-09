@@ -16,12 +16,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    private let viewModel: AuthViewModel = AuthViewModel()
+    var viewModel: AuthViewModel!
     private let helper = Helper()
     private let customView = CustomView()
+    private var loginClicked = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(goToStore), name: NSNotification.Name(rawValue: "loggedIn"), object: nil)
         configureUI()
     }
     
@@ -30,7 +32,6 @@ class LoginViewController: UIViewController {
         customView.padding(for: passwordTextField)
         customView.cornerRadius(for: emailTextField)
         customView.cornerRadius(for: passwordTextField)
-        
         customView.cornerRadius(for: loginBtn)
         customView.cornerRadius(for: guestLoginBtn)
     }
@@ -44,20 +45,35 @@ class LoginViewController: UIViewController {
             return
         } else {
             viewModel.login(withEmail: emailTextField.text!, password: passwordTextField.text!)
-            self.goToApp()
         }
     }
     
     @IBAction func registerButtonClicked(_ sender: Any) {
-        helper.instantiateViewController(identifier: "Register", animated: true, by: self, completion: nil)
+        performSegue(withIdentifier: "Register", sender: self)
     }
     
     @IBAction func guestLoginButtonClicked(_ sender: Any) {
-        
+        performSegue(withIdentifier: "VirtualStore", sender: self)
     }
     
-    func goToApp() {
-        helper.instantiateViewController(identifier: "VirtualStore", animated: true, by: self, completion: nil)
+    @objc func goToStore() {
+        self.performSegue(withIdentifier: "VirtualStore", sender: self)
     }    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "VirtualStore", let virtualStoreViewController = segue.destination as? VirtualStoreViewController {
+            let user = viewModel.user            
+            virtualStoreViewController.viewModel = VirtualStoreViewModel(user: user!)
+            virtualStoreViewController.modalPresentationStyle = .fullScreen
+            
+        }
+        if let destinationViewController = segue.destination as? RegisterViewController {
+            
+            destinationViewController.viewModel = viewModel
+            destinationViewController.modalPresentationStyle = .fullScreen
+            
+        }
+    }
 
 }

@@ -9,10 +9,10 @@ import Firebase
 
 class CartViewModel: ObservableObject {
     var products = [Product]()
+    var indexPath = IndexPath()
     
-    init() {
-        fetchUserCart()
-    }
+    
+    init() { fetchUserCart() }
     
     func getCart() -> [Product] {
         return self.products
@@ -42,16 +42,34 @@ class CartViewModel: ObservableObject {
         }
     }
     
-    func removeProductFromCart(product: Product) {
+    func removeProductFromCart(indexPath: IndexPath) {
+        self.indexPath = indexPath
+        let products = self.getCart()
+        let product = products[indexPath.row]
         guard let uid = AuthViewModel.shared.userSession?.email else { return }
         reference(.Users).document(uid).collection("Kart").document(product.productTitle).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
+                self.products.remove(at: indexPath.row)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "productRemoved"), object: nil)                
                 print("Document successfully removed!")
             }
         }
     }
+    
+    func calculateTotal() -> String {
+        var total: Double = 0.0
+        for product in self.products {
+            total = total + (Double(product.productPrice) ?? 0.0 * (Double(product.productQuantity) ?? 0.0))
+        }
+        return String(total)
+    }
+    
+//    func productExistsInCart() -> Bool {
+//        guard let uid = AuthViewModel.shared.userSession?.email else { return false }
+//        reference(.Users).document(uid).collection("Kart").document(product.productTitle)
+//    }
     
 //    func addProductsToUserOrderHistory(products: [Product]) {
 //        guard let uid = AuthViewModel.shared.userSession?.email else { return }
