@@ -19,8 +19,8 @@ class AddressViewModel: ObservableObject {
     }
     
     func fetchUserAddress() {
-        guard let uid = AuthViewModel.shared.userSession?.email else { return }
-        reference(.Users).document(uid).getDocument { document, _ in
+        //guard let uid = AuthViewModel.shared.userSession?.email else { return }
+        reference(.Users).document("uid").getDocument { document, _ in
             if let document = document {
                 self.address = document.get("address") as? String
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedAddress"), object: nil)

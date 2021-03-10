@@ -92,7 +92,7 @@
                                         </constraints>
                                         <state key="normal" title="Menu"/>
                                         <connections>
-                                            <segue destination="GNb-8t-bLm" kind="presentation" id="9S9-TM-d3o"/>
+                                            <segue destination="GNb-8t-bLm" kind="presentation" id="yAe-hI-qI8"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vw2-IZ-NqJ">
@@ -160,11 +160,12 @@
                         <outlet property="menuButton" destination="1Ia-I0-C5t" id="VI3-Qf-mR8"/>
                         <outlet property="merchButton" destination="FTr-U4-W0N" id="0df-DT-ta0"/>
                         <outlet property="suppliesButton" destination="ISk-LZ-tYa" id="ALo-9W-c2F"/>
+                        <segue destination="GNb-8t-bLm" kind="presentation" identifier="openMenu" id="GD9-rI-c5i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDf-7V-z65" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="769.56521739130437" y="118.52678571428571"/>
+            <point key="canvasLocation" x="770" y="102"/>
         </scene>
         <!--Product List View Controller-->
         <scene sceneID="Dv0-s0-gti">
@@ -708,7 +709,7 @@
         <!--Side Menu View Controller-->
         <scene sceneID="jKz-LI-Agi">
             <objects>
-                <viewController id="N2V-aB-lnV" customClass="SideMenuViewController" customModule="GreenBeansSB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SideMenu" id="N2V-aB-lnV" customClass="SideMenuViewController" customModule="GreenBeansSB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ble-Fa-JGw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1595,7 +1596,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9S9-TM-d3o"/>
+        <segue reference="GD9-rI-c5i"/>
         <segue reference="ci1-OT-9Bl"/>
     </inferredMetricsTieBreakers>
     <resources>

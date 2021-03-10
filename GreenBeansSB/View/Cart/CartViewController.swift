@@ -54,7 +54,7 @@ class CartViewController: UIViewController {
             destinationViewController.products = products
             destinationViewController.modalPresentationStyle = .fullScreen
         }
-    }
+    }    
     
     func addNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: NSNotification.Name(rawValue: "productRemoved"), object: nil)

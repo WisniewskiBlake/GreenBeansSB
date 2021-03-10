@@ -17,7 +17,7 @@ class ProductDetailViewController: UIViewController {
         
     let helper = Helper()
     var product = Product()
-    var viewModel: VirtualStoreViewModel?
+    var viewModel: VirtualStoreViewModel!
             
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +65,7 @@ class ProductDetailViewController: UIViewController {
     
 }
 extension ProductDetailViewController {
-    func isValidQuantity(quantity: String) -> Bool {
+    func isValidQuantity(quantity: String) {
         let alertview = JSSAlertView().show(self,
           title: "Added To Cart",
           buttonText: "Ok"
@@ -76,11 +76,9 @@ extension ProductDetailViewController {
             alertview.setTitleFont("ClearSans-Bold") // Title font
             alertview.setTextFont("ClearSans") // Alert body text font
             alertview.setButtonFont("ClearSans-Light") // Button text font
-            alertview.setTextTheme(.light)
-            return true
+            alertview.setTextTheme(.light)            
         } else {
             helper.showAlert(title: "Please Select Quantity", message: "", in: self)
-            return false
         }
     }    
 }

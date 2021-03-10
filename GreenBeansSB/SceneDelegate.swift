@@ -16,7 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var window: UIWindow?
     var authListener: AuthStateDidChangeListenerHandle?
-    let viewModel: AuthViewModel = AuthViewModel()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -25,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //AutoLogin
         if Auth.auth().currentUser != nil {
           // User is signed in.
-            self.getUser()
+            self.goToStore()
         } else {
           // No user is signed in.
             self.goToLogin()
@@ -35,25 +34,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func goToLogin() {
-        let selectionVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginViewController
-        selectionVC.viewModel = viewModel
-        selectionVC.modalPresentationStyle = .fullScreen
-        self.window?.rootViewController = selectionVC
+        let loginVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginViewController
+        loginVC.modalPresentationStyle = .fullScreen
+        self.window?.rootViewController = loginVC
     }
     
     @objc func goToStore() {
-        let virtualStoreViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VirtualStore") as! VirtualStoreViewController
-        
-        let user = viewModel.user
-        virtualStoreViewController.viewModel = VirtualStoreViewModel(user: user!)
-        virtualStoreViewController.modalPresentationStyle = .fullScreen
-        self.window?.rootViewController = virtualStoreViewController
+        let virtualStoreVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VirtualStore") as! VirtualStoreViewController
+        virtualStoreVC.modalPresentationStyle = .fullScreen
+        self.window?.rootViewController = virtualStoreVC
     }
     
-    func getUser() {
-        viewModel.fetchUserAutoLogin(email: (Auth.auth().currentUser?.email!)!)
-    }
-
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

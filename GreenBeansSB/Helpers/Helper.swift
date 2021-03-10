@@ -128,7 +128,6 @@ extension UIColor {
                 }
             }
         }
-
         return nil
     }
 }
@@ -147,7 +146,7 @@ extension UIViewController {
             let transition = CATransition()
             transition.duration = 0.5
             transition.type = CATransitionType.push
-            transition.subtype = CATransitionSubtype.fromLeft
+            transition.subtype = CATransitionSubtype.fromRight
             transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
             view.window!.layer.add(transition, forKey: kCATransition)
         }

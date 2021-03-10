@@ -15,6 +15,8 @@ class VirtualStoreViewModel {
         self.user = user
     }
     
+    init() {}
+    
     func getProducts() -> [Product] {
         return self.products
     }
@@ -45,13 +47,15 @@ class VirtualStoreViewModel {
         reference(.Users).document(uid).collection("Kart").document(product.productTitle).setData(product.productDictionary as! [String : Any])
     }
     
-
-    
     func provideQuery(category: String) -> Query {
         var query: Query?
         if(category != "All Products") {
             query = reference(.Products).whereField(kPRODUCTTYPE, isEqualTo: category)
         }
         return query ?? reference(.Products)
+    }
+    
+    func setUser(user: User) {
+        self.user = user
     }
 }

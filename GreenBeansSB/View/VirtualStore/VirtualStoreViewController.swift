@@ -16,18 +16,17 @@ class VirtualStoreViewController: UIViewController {
     @IBOutlet weak var suppliesButton: UIButton!
     
     private var category = ""
-    var viewModel: VirtualStoreViewModel!
+    var isMenuClicked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationViewController = segue.destination as? ProductListViewController {
+        if let productListViewController = segue.destination as? ProductListViewController {
             if let button = sender as? UIButton {
-                destinationViewController.viewModel = viewModel
-                destinationViewController.category = String(button.tag)
-                destinationViewController.modalPresentationStyle = .fullScreen
+                productListViewController.category = String(button.tag)
+                productListViewController.modalPresentationStyle = .fullScreen
             }
         }
     }

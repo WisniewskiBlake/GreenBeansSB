@@ -16,10 +16,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    var viewModel: AuthViewModel!
+    private let viewModel: AuthViewModel = AuthViewModel()
     private let helper = Helper()
     private let customView = CustomView()
     private var loginClicked = false
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,17 +65,11 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "VirtualStore", let virtualStoreViewController = segue.destination as? VirtualStoreViewController {
-            let user = viewModel.user            
-            virtualStoreViewController.viewModel = VirtualStoreViewModel(user: user!)
-            virtualStoreViewController.modalPresentationStyle = .fullScreen
-            
+            virtualStoreViewController.modalPresentationStyle = .fullScreen           
         }
         if let destinationViewController = segue.destination as? RegisterViewController {
-            
             destinationViewController.viewModel = viewModel
             destinationViewController.modalPresentationStyle = .fullScreen
-            
         }
     }
-
 }

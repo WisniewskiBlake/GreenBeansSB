@@ -16,11 +16,10 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     
     let helper = Helper()
-    let viewModel = AuthViewModel()
+    let authViewModel = AuthViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     @IBAction func virtualStoreButtonClicked(_ sender: Any) {
@@ -40,8 +39,7 @@ class SideMenuViewController: UIViewController {
     }
     
     @IBAction func signOutButtonClicked(_ sender: Any) {
-        viewModel.signOut()
+        authViewModel.signOut()
         helper.instantiateViewController(identifier: "Login", animated: true, by: self, completion: nil)
     }
-    
 }

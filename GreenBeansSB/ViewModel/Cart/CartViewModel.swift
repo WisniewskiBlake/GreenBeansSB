@@ -19,9 +19,9 @@ class CartViewModel: ObservableObject {
     }
     
     func fetchUserCart() {
-        guard let uid = AuthViewModel.shared.userSession?.email else { return }
+        //guard let uid = AuthViewModel.shared.userSession?.email else { return }
         
-        let query = reference(.Users).document(uid).collection("Kart")
+        let query = reference(.Users).document("uid").collection("Kart")
         query.getDocuments { (snapshot, error) in
              self.products = []
              if error != nil {
@@ -46,8 +46,8 @@ class CartViewModel: ObservableObject {
         self.indexPath = indexPath
         let products = self.getCart()
         let product = products[indexPath.row]
-        guard let uid = AuthViewModel.shared.userSession?.email else { return }
-        reference(.Users).document(uid).collection("Kart").document(product.productTitle).delete() { err in
+        //guard let uid = AuthViewModel.shared.userSession?.email else { return }
+        reference(.Users).document("uid").collection("Kart").document(product.productTitle).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {

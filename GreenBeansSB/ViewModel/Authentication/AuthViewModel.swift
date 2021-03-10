@@ -10,8 +10,8 @@ import Firebase
 
 class AuthViewModel: ObservableObject {
     var userSession: FirebaseAuth.User?
-    @Published var isAuthenticating = false
-    @Published var error: Error?
+    var isAuthenticating = false
+    var error: Error?
     var user: User?
     
     static let shared = AuthViewModel()
@@ -27,7 +27,7 @@ class AuthViewModel: ObservableObject {
                     return
                 }
                 self.userSession = result?.user
-                self.fetchUser(email: email)
+                self.fetchUser()
             }
         }
     
@@ -49,7 +49,7 @@ class AuthViewModel: ObservableObject {
             
             Firestore.firestore().collection("Users").document(email).setData(data) { _ in
                 self.userSession = user
-                self.fetchUser(email: email)
+                self.fetchUser()
             }
             completion(error)
         })        
@@ -61,8 +61,9 @@ class AuthViewModel: ObservableObject {
         try? Auth.auth().signOut()
     }
     
-    func fetchUser(email: String) {
-        reference(.Users).document(email).getDocument { snapshot, _ in
+    func fetchUser() {
+        guard let uid = userSession?.email else { return }
+        reference(.Users).document(uid).getDocument { snapshot, _ in
             guard let data = snapshot?.data() else { return }
             self.user = User(dictionary: data)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loggedIn"), object: nil)
@@ -76,6 +77,10 @@ class AuthViewModel: ObservableObject {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "autoLoggedIn"), object: nil)
         }        
     }
+    
+//    func getUser() -> User {
+//        return self.user
+//    }
     
     func tabTitle(forIndex index: Int) -> String {
         switch index {
