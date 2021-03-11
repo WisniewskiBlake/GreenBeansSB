@@ -14,7 +14,7 @@ class ProductListViewController: UIViewController {
     
     var category: String = ""    
     var dataSource = ProductListDataSource()    
-    var viewModel: VirtualStoreViewModel!
+    var viewModel = VirtualStoreViewModel()
     private var products: [Product] = []
     
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class ProductListViewController: UIViewController {
             let product = dataSource.products[row]
             if let productDetailVC = segue.destination as? ProductDetailViewController {
                 productDetailVC.product = product
-                productDetailVC.viewModel = self.viewModel
+                productDetailVC.viewModel = viewModel
                 productDetailVC.modalPresentationStyle = .fullScreen
             }
         }

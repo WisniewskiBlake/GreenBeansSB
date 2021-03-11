@@ -49,8 +49,7 @@ class ProductDetailViewController: UIViewController {
     }
     
     @IBAction func addToCartClicked(_ sender: Any) {
-        isValidQuantity(quantity: productQuantityLabel.text ?? "0")
-        
+        isValidQuantity(quantity: productQuantityLabel.text ?? "0")        
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {

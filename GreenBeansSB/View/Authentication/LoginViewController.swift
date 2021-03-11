@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    private let viewModel: AuthViewModel = AuthViewModel()
+    private let viewModel = AuthViewModel.shared
     private let helper = Helper()
     private let customView = CustomView()
     private var loginClicked = false
@@ -55,6 +55,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func guestLoginButtonClicked(_ sender: Any) {
+        viewModel.createGuestUser()
         performSegue(withIdentifier: "VirtualStore", sender: self)
     }
     

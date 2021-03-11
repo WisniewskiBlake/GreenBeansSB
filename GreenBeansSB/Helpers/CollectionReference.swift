@@ -13,6 +13,7 @@ enum FCollectionReference: String {
     case Users
     case Products
     case Orders
+    case GuestUsers
 }
 
 

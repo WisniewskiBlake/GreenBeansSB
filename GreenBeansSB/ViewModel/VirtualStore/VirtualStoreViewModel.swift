@@ -11,10 +11,6 @@ class VirtualStoreViewModel {
     var products = [Product]()
     private var user: User!
     
-    init(user: User) {
-        self.user = user
-    }
-    
     init() {}
     
     func getProducts() -> [Product] {
@@ -42,9 +38,15 @@ class VirtualStoreViewModel {
     }
     
     func addProductToCart(product: Product, quantity: String) {
-        let uid = user.email
-        product.productDictionary[kPRODUCTQUANTITY] = quantity
-        reference(.Users).document(uid).collection("Kart").document(product.productTitle).setData(product.productDictionary as! [String : Any])
+        if AuthViewModel.shared.userSession == nil {
+            guard let guestId = AuthViewModel.shared.user?.guestId else { return }
+            product.productDictionary[kPRODUCTQUANTITY] = quantity
+            reference(.GuestUsers).document(guestId).collection("Cart").document(product.productTitle).setData(product.productDictionary as! [String : Any])
+        } else {
+            guard let uid = AuthViewModel.shared.userSession?.email else { return }
+            product.productDictionary[kPRODUCTQUANTITY] = quantity
+            reference(.Users).document(uid).collection("Kart").document(product.productTitle).setData(product.productDictionary as! [String : Any])
+        }
     }
     
     func provideQuery(category: String) -> Query {

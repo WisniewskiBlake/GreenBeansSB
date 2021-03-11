@@ -14,6 +14,7 @@ class AuthViewModel: ObservableObject {
     var error: Error?
     var user: User?
     
+    
     static let shared = AuthViewModel()
     
     init() {
@@ -32,22 +33,18 @@ class AuthViewModel: ObservableObject {
         }
     
     func registerUser(email: String, password: String, fullname: String, address: String, completion: @escaping (_ error: Error?) -> Void ) {
-                
         Auth.auth().createUser(withEmail: email, password: password, completion: { (result, error) in
             if let error = error {
                 completion(error)
                 return
             }
-            
             guard let user = result?.user else { return }
-            
             let data = ["email": email,
                         "address": address.lowercased(),
                         "fullName": fullname,
                         "appManager": "false"
                         ]
-            
-            Firestore.firestore().collection("Users").document(email).setData(data) { _ in
+            reference(.Users).document(email).setData(data) { _ in
                 self.userSession = user
                 self.fetchUser()
             }
@@ -55,10 +52,15 @@ class AuthViewModel: ObservableObject {
         })        
     }
     
-    func signOut() {
-        userSession = nil
-        user = nil
-        try? Auth.auth().signOut()
+    func createGuestUser() {
+        let ref = reference(.GuestUsers)
+        let docId = ref.document().documentID
+        let data = ["guestId": docId
+                    ]
+        
+        ref.document(docId).setData(data) { _ in
+            self.user = User(dictionary: data)            
+        }
     }
     
     func fetchUser() {
@@ -78,9 +80,11 @@ class AuthViewModel: ObservableObject {
         }        
     }
     
-//    func getUser() -> User {
-//        return self.user
-//    }
+    func signOut() {
+        userSession = nil
+        user = nil
+        try? Auth.auth().signOut()
+    }
     
     func tabTitle(forIndex index: Int) -> String {
         switch index {
@@ -91,5 +95,4 @@ class AuthViewModel: ObservableObject {
         default: return ""
         }
     }
-    
 }

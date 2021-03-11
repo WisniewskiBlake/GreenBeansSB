@@ -10,6 +10,7 @@ import Firebase
 let COLLECTION_ORDERS = Firestore.firestore().collection("Orders")
 let COLLECTION_PRODUCTS = Firestore.firestore().collection("Products")
 let COLLECTION_USERS = Firestore.firestore().collection("Users")
+let COLLECTION_GUESTUSERS = Firestore.firestore().collection("GuestUsers")
 
 let kPRODUCTTITLE = "productTitle"
 let kPRODUCTDESCRIPTION = "productDescription"

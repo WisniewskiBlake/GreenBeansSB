@@ -14,33 +14,27 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     
-    var viewModel: AuthViewModel!
+    var viewModel = AuthViewModel.shared
     private let customView = CustomView()
     private let helper = Helper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        configureUI()
-    }
+        configureUI()    }
     
     func configureUI() {
         customView.padding(for: emailTextField)
         customView.color(for: emailTextField)
         customView.cornerRadius(for: emailTextField)
-        
         customView.padding(for: fullNameTextField)
         customView.color(for: fullNameTextField)
         customView.cornerRadius(for: fullNameTextField)
-        
         customView.padding(for: addressTextField)
         customView.color(for: addressTextField)
         customView.cornerRadius(for: addressTextField)
-        
         customView.padding(for: passwordTextField)
         customView.color(for: passwordTextField)
         customView.cornerRadius(for: passwordTextField)
-        
         customView.cornerRadius(for: signUpButton)        
     }
     
@@ -61,8 +55,17 @@ class RegisterViewController: UIViewController {
             }
         }
     }
+    @IBAction func backToLoginClicked(_ sender: Any) {
+        performSegue(withIdentifier: "BackToLogin", sender: self)
+    }
     
     func goToApp() {
         helper.instantiateViewController(identifier: "VirtualStore", animated: true, by: self, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "BackToLogin", let loginViewController = segue.destination as? LoginViewController {
+            loginViewController.modalPresentationStyle = .fullScreen
+        }        
     }
 }

@@ -9,18 +9,23 @@ import UIKit
 
 class CartViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var checkoutButton: UIButton!
     
     private var dataSource = CartCellDataSource()
     private var viewModel = CartViewModel()
     private var products: [Product] = []
-    private var order: Order?
+    private var order = Order()
     private let helper = Helper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotifications()
-        viewModel.fetchUserCart()
-        order?.products = products
+        if products.isEmpty {
+            checkoutButton.isHidden = true
+        } else {
+            checkoutButton.isHidden = false
+            order.products = products
+        }
     }
     
     @objc func setDataSource() {
