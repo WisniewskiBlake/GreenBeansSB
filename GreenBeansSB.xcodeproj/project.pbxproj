@@ -11,6 +11,9 @@
 		2C78A47E48B36CB1BF184454 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3039C464876F8630E73317F7 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework */; };
 		BB1A149725F770AC008F94C9 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A149625F770AC008F94C9 /* SideMenuViewModel.swift */; };
 		BB1A14A625F9F0C0008F94C9 /* OrderTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14A525F9F0C0008F94C9 /* OrderTypeViewController.swift */; };
+		BB1A14AB25FAE4A0008F94C9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14AA25FAE4A0008F94C9 /* Address.swift */; };
+		BB1A14B825FB47E0008F94C9 /* NewAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14B725FB47E0008F94C9 /* NewAddressViewController.swift */; };
+		BB1A14BD25FB6262008F94C9 /* OrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14BC25FB6262008F94C9 /* OrderSummaryViewController.swift */; };
 		BB61A70325EDFB7100EB1228 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A70225EDFB7100EB1228 /* AppDelegate.swift */; };
 		BB61A70525EDFB7100EB1228 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */; };
 		BB61A70A25EDFB7100EB1228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB61A70825EDFB7100EB1228 /* Main.storyboard */; };
@@ -86,6 +89,9 @@
 		B11D6138182CFF514D6B8B78 /* Pods-GreenBeansSB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSB.debug.xcconfig"; path = "Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB.debug.xcconfig"; sourceTree = "<group>"; };
 		BB1A149625F770AC008F94C9 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		BB1A14A525F9F0C0008F94C9 /* OrderTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTypeViewController.swift; sourceTree = "<group>"; };
+		BB1A14AA25FAE4A0008F94C9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		BB1A14B725FB47E0008F94C9 /* NewAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAddressViewController.swift; sourceTree = "<group>"; };
+		BB1A14BC25FB6262008F94C9 /* OrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewController.swift; sourceTree = "<group>"; };
 		BB61A6FF25EDFB7100EB1228 /* GreenBeansSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenBeansSB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB61A70225EDFB7100EB1228 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				BB1A14A525F9F0C0008F94C9 /* OrderTypeViewController.swift */,
+				BB1A14BC25FB6262008F94C9 /* OrderSummaryViewController.swift */,
 			);
 			path = OrderDetails;
 			sourceTree = "<group>";
@@ -269,6 +276,7 @@
 				BB61A74025EDFD1400EB1228 /* User.swift */,
 				BB61A74825EDFD2300EB1228 /* Order.swift */,
 				BB61A7B725EE150200EB1228 /* Product.swift */,
+				BB1A14AA25FAE4A0008F94C9 /* Address.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -374,6 +382,7 @@
 				BB61A87425F60D1700EB1228 /* UserAddressViewController.swift */,
 				BB61A87925F6149F00EB1228 /* AddressCell.swift */,
 				BB61A89025F6198900EB1228 /* AddressCellDataSource.swift */,
+				BB1A14B725FB47E0008F94C9 /* NewAddressViewController.swift */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -655,6 +664,7 @@
 			files = (
 				BB61A86D25F60BD400EB1228 /* GuestAddressViewController.swift in Sources */,
 				BB61A7C825EE1C7600EB1228 /* VirtualStoreViewController.swift in Sources */,
+				BB1A14B825FB47E0008F94C9 /* NewAddressViewController.swift in Sources */,
 				BB61A88925F6158E00EB1228 /* AddressViewModel.swift in Sources */,
 				BB61A87A25F6149F00EB1228 /* AddressCell.swift in Sources */,
 				BB61A7C025EE161300EB1228 /* AuthViewModel.swift in Sources */,
@@ -665,6 +675,7 @@
 				BB61A87525F60D1700EB1228 /* UserAddressViewController.swift in Sources */,
 				BB61A7F325EF3F5600EB1228 /* SideMenuViewController.swift in Sources */,
 				BB61A84E25F49CE600EB1228 /* CartCell.swift in Sources */,
+				BB1A14AB25FAE4A0008F94C9 /* Address.swift in Sources */,
 				BB61A81525EF6F1F00EB1228 /* VirtualStoreViewModel.swift in Sources */,
 				BB1A14A625F9F0C0008F94C9 /* OrderTypeViewController.swift in Sources */,
 				BB61A82C25EF9EC700EB1228 /* TestViewController.swift in Sources */,
@@ -675,6 +686,7 @@
 				BB61A74925EDFD2300EB1228 /* Order.swift in Sources */,
 				BB61A7D825EE252D00EB1228 /* CustomView.swift in Sources */,
 				BB61A82225EF7FB800EB1228 /* ProductListDataSource.swift in Sources */,
+				BB1A14BD25FB6262008F94C9 /* OrderSummaryViewController.swift in Sources */,
 				BB61A85F25F4A41A00EB1228 /* CartViewModel.swift in Sources */,
 				BB61A83925F1EEC600EB1228 /* ProductDetailViewController.swift in Sources */,
 				BB61A70325EDFB7100EB1228 /* AppDelegate.swift in Sources */,

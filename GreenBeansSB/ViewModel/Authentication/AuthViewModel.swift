@@ -13,8 +13,6 @@ class AuthViewModel: ObservableObject {
     var isAuthenticating = false
     var error: Error?
     var user: User?
-    
-    
     static let shared = AuthViewModel()
     
     init() {
@@ -40,14 +38,15 @@ class AuthViewModel: ObservableObject {
             }
             guard let user = result?.user else { return }
             let data = ["email": email,
-                        "address": address.lowercased(),
                         "fullName": fullname,
                         "appManager": "false"
                         ]
+            let address = ["address": address.lowercased()]
+            reference(.Users).document(email).collection("Address").addDocument(data: address)
             reference(.Users).document(email).setData(data) { _ in
                 self.userSession = user
                 self.fetchUser()
-            }
+            }            
             completion(error)
         })        
     }
@@ -55,9 +54,7 @@ class AuthViewModel: ObservableObject {
     func createGuestUser() {
         let ref = reference(.GuestUsers)
         let docId = ref.document().documentID
-        let data = ["guestId": docId
-                    ]
-        
+        let data = ["guestId": docId]
         ref.document(docId).setData(data) { _ in
             self.user = User(dictionary: data)            
         }

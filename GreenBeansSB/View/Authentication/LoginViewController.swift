@@ -50,6 +50,10 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @objc func goToStore() {
+        self.performSegue(withIdentifier: "VirtualStore", sender: self)
+    }
+    
     @IBAction func registerButtonClicked(_ sender: Any) {
         performSegue(withIdentifier: "Register", sender: self)
     }
@@ -58,10 +62,6 @@ class LoginViewController: UIViewController {
         viewModel.createGuestUser()
         performSegue(withIdentifier: "VirtualStore", sender: self)
     }
-    
-    @objc func goToStore() {
-        self.performSegue(withIdentifier: "VirtualStore", sender: self)
-    }    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

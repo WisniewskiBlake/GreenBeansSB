@@ -12,35 +12,58 @@ class UserAddressViewController: UIViewController {
     
     var dataSource = AddressCellDataSource()
     private var viewModel = AddressViewModel()
-    private var addresses: String?
+    var order: Order?
+    private var addresses: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedAddress"), object: nil)
-        viewModel.fetchUserAddress()
-        // Do any additional setup after loading the view.
+        addNotificationCenter()
+        viewModel.fetchUserAddresses()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
     @objc func setDataSource() {
-//        addresses = viewModel.getAddress()
-//        dataSource.addresses = addresses
-//        tableView.dataSource = dataSource
-//        tableView.reloadData()
+        addresses = viewModel.getAddresses()
+        dataSource.addresses = addresses
+        tableView.dataSource = dataSource
+        tableView.reloadData()
+    }
+    
+    @objc func updateUI() {
+        tableView.reloadData()
     }
     
     @IBAction func newButtonClicked(_ sender: Any) {
+        
     }
-    @IBAction func menuButtonClicked(_ sender: Any) {
+    @IBAction func backButtonClicked(_ sender: Any) {
+        addTransitionLeft()
+        dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "NewAddress", let userAddressViewController = segue.destination as? NewAddressViewController {
+            userAddressViewController.addressViewModel = viewModel
+            userAddressViewController.modalPresentationStyle = .fullScreen
+        } else {
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let address = dataSource.addresses[row]
+                if let productDetailVC = segue.destination as? ProductDetailViewController {
+  
+                    productDetailVC.modalPresentationStyle = .fullScreen
+                }
+            }
+        }
     }
-    */
-
+    
+    func addNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedAddresses"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "newAddress"), object: nil)
+    }
 }

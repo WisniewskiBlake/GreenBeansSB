@@ -8,30 +8,46 @@
 import Firebase
 
 class AddressViewModel: ObservableObject {
+    var addresses: [String] = []
     var address: String?
+    private var userSession = AuthViewModel.shared.userSession
     
     init() {
-        fetchUserAddress()
+        fetchUserAddresses()
     }
     
-    func getAddress() -> String {
-        return self.address ?? ""
+    func getAddresses() -> [String] {
+        return self.addresses
     }
     
-    func fetchUserAddress() {
-        //guard let uid = AuthViewModel.shared.userSession?.email else { return }
-        reference(.Users).document("uid").getDocument { document, _ in
-            if let document = document {
-                self.address = document.get("address") as? String
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedAddress"), object: nil)
-            } else {
-                print("Document does not exist in cache")
-            }            
+    func fetchUserAddresses() {
+        guard let email = userSession?.email else { return }
+        let query = reference(.Users).document(email).collection("Address")
+        query.getDocuments { (snapshot, error) in
+            self.addresses = []
+             if error != nil {
+                 print(error!.localizedDescription)
+                 return
+             }
+             guard let snapshot = snapshot else {
+                  return
+             }
+             if !snapshot.isEmpty {
+                 for addressDictionary in snapshot.documents {
+                     let addressDictionary = addressDictionary.data() as NSDictionary
+                     let address = Address(dictionary: addressDictionary as! [String : Any])
+                    self.addresses.append(address.address!)
+                 }
+             }
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedAddresses"), object: nil)
         }
     }
     
     func addNewUserAddress(address: String) {
-        
+        guard let email = userSession?.email else { return }
+        let address = ["address": address.lowercased()]
+        reference(.Users).document(email).collection("Address").addDocument(data: address)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newAddress"), object: nil)
     }
     
     func setUserAddress(address: String) {

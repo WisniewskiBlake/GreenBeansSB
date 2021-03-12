@@ -7,17 +7,11 @@
 
 import UIKit
 
-protocol ProductCellDelegate {
-    func didTapProductCell(indexPath: IndexPath)
-}
-
 class ProductCell: UITableViewCell {
     @IBOutlet private weak var productImageView: UIImageView!
     @IBOutlet private weak var productTitleLabel: UILabel!
     @IBOutlet private weak var productPriceLabel: UILabel!
     @IBOutlet private weak var productDescriptionLabel: UILabel!
-    
-    var delegate: ProductCellDelegate?
         
     var productTitle: String? {
         didSet { productTitleLabel.text = productTitle ?? "" }

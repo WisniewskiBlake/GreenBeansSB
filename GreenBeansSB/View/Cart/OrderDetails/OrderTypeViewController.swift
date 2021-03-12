@@ -12,29 +12,54 @@ class OrderTypeViewController: UIViewController {
     @IBOutlet weak var deliveryButton: UIButton!
     
     private let helper = Helper()
-    var products: [Product] = []
+    var order: Order?
+    var cartViewModel: CartViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        addTransitionRight()
     }
     
     @IBAction func pickUpButtonClicked(_ sender: Any) {
-        
+        order?.orderType = "pickUp"
+        if (cartViewModel?.userInSession())! {
+            performSegue(withIdentifier: "UserPickUp", sender: self)
+        } else {
+            performSegue(withIdentifier: "GuestPickUp", sender: self)
+        }
     }
     
     @IBAction func deliveryButtonClicked(_ sender: Any) {
-        
+        order?.orderType = "delivery"
+        if (cartViewModel?.userInSession())! {
+            performSegue(withIdentifier: "UserDelivery", sender: self)
+        } else {
+            performSegue(withIdentifier: "GuestDelivery", sender: self)
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    @IBAction func backButtonClicked(_ sender: Any) {
+        addTransitionLeft()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "UserPickUp", let userAddressViewController = segue.destination as? UserAddressViewController {
+            userAddressViewController.order = order
+            userAddressViewController.modalPresentationStyle = .fullScreen
+        }
+        else if segue.identifier == "UserDelivery", let userAddressViewController = segue.destination as? UserAddressViewController {
+            userAddressViewController.order = order
+            userAddressViewController.modalPresentationStyle = .fullScreen
+        }
+        else if segue.identifier == "GuestPickUp", let guestAddressViewController = segue.destination as? GuestAddressViewController {
+            guestAddressViewController.order = order
+            guestAddressViewController.modalPresentationStyle = .fullScreen
+        }
+        else if segue.identifier == "GuestDelivery", let guestAddressViewController = segue.destination as? GuestAddressViewController {
+            guestAddressViewController.order = order
+            guestAddressViewController.modalPresentationStyle = .fullScreen
+        }
     }
-    */
-
 }

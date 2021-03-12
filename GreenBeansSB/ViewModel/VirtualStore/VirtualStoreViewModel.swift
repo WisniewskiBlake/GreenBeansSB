@@ -10,6 +10,7 @@ import Firebase
 class VirtualStoreViewModel {
     var products = [Product]()
     private var user: User!
+    private var userSession = AuthViewModel.shared.userSession
     
     init() {}
     
@@ -38,14 +39,44 @@ class VirtualStoreViewModel {
     }
     
     func addProductToCart(product: Product, quantity: String) {
-        if AuthViewModel.shared.userSession == nil {
-            guard let guestId = AuthViewModel.shared.user?.guestId else { return }
-            product.productDictionary[kPRODUCTQUANTITY] = quantity
-            reference(.GuestUsers).document(guestId).collection("Cart").document(product.productTitle).setData(product.productDictionary as! [String : Any])
+        product.productDictionary[kPRODUCTQUANTITY] = quantity
+        if userSession == nil {
+            addToGuestCart(product: product, quantity: quantity)
         } else {
-            guard let uid = AuthViewModel.shared.userSession?.email else { return }
-            product.productDictionary[kPRODUCTQUANTITY] = quantity
-            reference(.Users).document(uid).collection("Kart").document(product.productTitle).setData(product.productDictionary as! [String : Any])
+            addToUserCart(product: product, quantity: quantity)
+        }
+    }
+
+    
+    func addToGuestCart(product: Product, quantity: String) {
+        guard let guestId = AuthViewModel.shared.user?.guestId else { return }
+        let query = reference(.GuestUsers).document(guestId).collection("Cart").document(product.productTitle)
+        query.getDocument { snapshot, _ in
+            if let snapshot = snapshot, snapshot.exists {
+                guard let data = snapshot.data() else { return }
+                let oldProduct = Product(dictionary: data)
+                let newQuantity = Int(quantity)! + Int(oldProduct.productQuantity)!
+                product.productDictionary[kPRODUCTQUANTITY] = String(newQuantity)
+                query.setData(product.productDictionary as! [String : Any])
+            } else {
+                query.setData(product.productDictionary as! [String : Any])
+            }
+        }
+    }
+    
+    func addToUserCart(product: Product, quantity: String) {
+        guard let email = AuthViewModel.shared.userSession?.email else { return }
+        let query = reference(.Users).document(email).collection("Kart").document(product.productTitle)
+        query.getDocument { snapshot, _ in
+            if let snapshot = snapshot, snapshot.exists {
+                guard let data = snapshot.data() else { return }
+                let oldProduct = Product(dictionary: data)
+                let newQuantity = Int(product.productQuantity)! + Int(oldProduct.productQuantity)!
+                product.productDictionary[kPRODUCTQUANTITY] = String(newQuantity)
+                query.setData(product.productDictionary as! [String : Any])                
+            } else {
+                query.setData(product.productDictionary as! [String : Any])
+            }
         }
     }
     

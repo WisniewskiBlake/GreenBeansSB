@@ -10,7 +10,7 @@ import Firebase
 class CartViewModel: ObservableObject {
     var products = [Product]()
     var indexPath = IndexPath()
-    
+    private var userSession = AuthViewModel.shared.userSession
     
     init() { fetchUserCart() }
     
@@ -20,12 +20,12 @@ class CartViewModel: ObservableObject {
     
     func fetchUserCart() {
         let query: CollectionReference?
-        if AuthViewModel.shared.userSession == nil {
+        if userSession == nil {
             guard let guestId = AuthViewModel.shared.user?.guestId else { return }
             query = reference(.GuestUsers).document(guestId).collection("Cart")   
         } else {
-            guard let uid = AuthViewModel.shared.userSession?.email else { return }
-            query = reference(.Users).document(uid).collection("Kart")
+            guard let email = userSession?.email else { return }
+            query = reference(.Users).document(email).collection("Kart")
         }
         query?.getDocuments { (snapshot, error) in
              self.products = []
@@ -48,30 +48,24 @@ class CartViewModel: ObservableObject {
     }
     
     func removeProductFromCart(indexPath: IndexPath) {
+        let document: DocumentReference?
         self.indexPath = indexPath
         let products = self.getCart()
         let product = products[indexPath.row]
-        if AuthViewModel.shared.userSession == nil {
+        if userSession == nil {
             guard let guestId = AuthViewModel.shared.user?.guestId else { return }
-            reference(.GuestUsers).document(guestId).collection("Cart").document(product.productTitle).delete() { err in
-                if let err = err {
-                    print("Error removing document: \(err)")
-                } else {
-                    self.products.remove(at: indexPath.row)
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "productRemoved"), object: nil)
-                    print("Document successfully removed!")
-                }
-            }
+            document = reference(.GuestUsers).document(guestId).collection("Cart").document(product.productTitle)
         } else {
-            guard let uid = AuthViewModel.shared.userSession?.email else { return }
-            reference(.Users).document(uid).collection("Kart").document(product.productTitle).delete() { err in
-                if let err = err {
-                    print("Error removing document: \(err)")
-                } else {
-                    self.products.remove(at: indexPath.row)
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "productRemoved"), object: nil)
-                    print("Document successfully removed!")
-                }
+            guard let email = userSession?.email else { return }
+            document = reference(.Users).document(email).collection("Kart").document(product.productTitle)
+        }
+        document?.delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                self.products.remove(at: indexPath.row)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "productRemoved"), object: nil)
+                print("Document successfully removed!")
             }
         }
     }
@@ -82,6 +76,14 @@ class CartViewModel: ObservableObject {
             total = total + (Double(product.productPrice) ?? 0.0 * (Double(product.productQuantity) ?? 0.0))
         }
         return String(total)
+    }
+    
+    func userInSession() -> Bool? {
+        if userSession == nil {
+            return false
+        } else {
+            return true
+        }
     }
     
 //    func productExistsInCart() -> Bool {

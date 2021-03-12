@@ -75,7 +75,7 @@ extension ProductDetailViewController {
             alertview.setTitleFont("ClearSans-Bold") // Title font
             alertview.setTextFont("ClearSans") // Alert body text font
             alertview.setButtonFont("ClearSans-Light") // Button text font
-            alertview.setTextTheme(.light)            
+//            alertview.setTextTheme(.light)            
         } else {
             helper.showAlert(title: "Please Select Quantity", message: "", in: self)
         }

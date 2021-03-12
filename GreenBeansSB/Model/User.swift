@@ -13,8 +13,8 @@ struct User {
     let address: String
     let cart: [Product]
     let orderHistory: [Order]
+    let phoneNumber: String
     let guestId: String
-
     
     init(dictionary: [String: Any]) {
         self.email = dictionary["email"] as? String ?? ""
@@ -23,9 +23,6 @@ struct User {
         self.orderHistory = (dictionary["OrderHistory"] as? [Order] ?? [])
         self.cart = (dictionary["Kart"] as? [Product] ?? [])
         self.guestId = dictionary["guestId"] as? String ?? ""
+        self.phoneNumber = dictionary["phoneNumber"] as? String ?? ""
     }
-    
-
-    
-    
 }

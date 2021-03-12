@@ -12,31 +12,29 @@ class CartViewController: UIViewController {
     @IBOutlet weak var checkoutButton: UIButton!
     
     private var dataSource = CartCellDataSource()
-    private var viewModel = CartViewModel()
+    private var cartViewModel = CartViewModel()
     private var products: [Product] = []
     private var order = Order()
     private let helper = Helper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNotifications()
-        if products.isEmpty {
-            checkoutButton.isHidden = true
-        } else {
-            checkoutButton.isHidden = false
-            order.products = products
-        }
+        addNotificationCenter()
     }
     
     @objc func setDataSource() {
-        products = viewModel.getCart()
-        dataSource.viewModel = viewModel
+        products = cartViewModel.getCart()
+        order.products = products
+        hideCheckout()
+        dataSource.viewModel = cartViewModel
         dataSource.products = products
         tableView.dataSource = dataSource
         tableView.reloadData()
     }
     
-    @objc func updateTableView() {
+    @objc func updateUI() {
+        products = dataSource.products
+        order.products = dataSource.products
         tableView.reloadData()
     }
     
@@ -56,13 +54,22 @@ class CartViewController: UIViewController {
             transition.subtype = CATransitionSubtype.fromRight
             transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
             view.window!.layer.add(transition, forKey: kCATransition)
-            destinationViewController.products = products
+            destinationViewController.order = order
+            destinationViewController.cartViewModel = cartViewModel
             destinationViewController.modalPresentationStyle = .fullScreen
         }
-    }    
+    }
     
-    func addNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: NSNotification.Name(rawValue: "productRemoved"), object: nil)
+    func hideCheckout() {
+        if order.products.isEmpty {
+            checkoutButton.isHidden = true
+        } else {
+            checkoutButton.isHidden = false
+        }
+    }
+    
+    func addNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "productRemoved"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedCart"), object: nil)
     }
 }
