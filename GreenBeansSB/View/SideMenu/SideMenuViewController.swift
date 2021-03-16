@@ -16,10 +16,10 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     
     let helper = Helper()
-    let authViewModel = AuthViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideButtons()
     }
     
     @IBAction func virtualStoreButtonClicked(_ sender: Any) {
@@ -39,7 +39,16 @@ class SideMenuViewController: UIViewController {
     }
     
     @IBAction func signOutButtonClicked(_ sender: Any) {
-        authViewModel.signOut()
+        if AuthViewModel.shared.userSession != nil {
+            AuthViewModel.shared.signOut()
+        }
         helper.instantiateViewController(identifier: "Login", animated: true, by: self, completion: nil)
+    }
+    
+    func hideButtons() {
+        if AuthViewModel.shared.userSession == nil {
+            signOutButton.setTitle("Login", for: .normal)
+            settingsButton.isHidden = true
+        }
     }
 }

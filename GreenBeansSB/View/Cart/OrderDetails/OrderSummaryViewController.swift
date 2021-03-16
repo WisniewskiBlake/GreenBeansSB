@@ -8,11 +8,12 @@
 import UIKit
 
 class OrderSummaryViewController: UIViewController {
+    
+    var order: Order?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 

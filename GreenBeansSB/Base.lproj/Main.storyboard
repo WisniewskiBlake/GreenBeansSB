@@ -1482,6 +1482,7 @@
                     <navigationItem key="navigationItem" id="ybp-it-QEZ"/>
                     <connections>
                         <outlet property="addressTextField" destination="V37-PK-o7Z" id="Z06-Mv-xjU"/>
+                        <segue destination="c08-QL-Qbk" kind="show" id="cLY-t4-nRl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLB-J1-s5k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1740,16 +1741,17 @@
             </objects>
             <point key="canvasLocation" x="2999" y="790"/>
         </scene>
-        <!--View Controller-->
+        <!--Order Summary View Controller-->
         <scene sceneID="SV2-n2-Vcw">
             <objects>
-                <viewController id="c08-QL-Qbk" sceneMemberID="viewController">
+                <viewController id="c08-QL-Qbk" customClass="OrderSummaryViewController" customModule="GreenBeansSB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Bi-Q4-ce8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="MdZ-ng-W8i"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="T0D-mG-3oe"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qc-U8-azw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

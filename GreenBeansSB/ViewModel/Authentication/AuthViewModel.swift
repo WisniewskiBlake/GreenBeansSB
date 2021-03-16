@@ -81,6 +81,7 @@ class AuthViewModel: ObservableObject {
         userSession = nil
         user = nil
         try? Auth.auth().signOut()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "signedOut"), object: nil)
     }
     
     func tabTitle(forIndex index: Int) -> String {
