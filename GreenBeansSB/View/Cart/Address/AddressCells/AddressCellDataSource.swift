@@ -20,5 +20,9 @@ class AddressCellDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
         cell.address = address       
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "cellClicked"), object: nil)
+    }
 }
 

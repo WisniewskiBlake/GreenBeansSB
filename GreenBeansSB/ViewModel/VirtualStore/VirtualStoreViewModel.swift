@@ -71,7 +71,7 @@ class VirtualStoreViewModel {
             if let snapshot = snapshot, snapshot.exists {
                 guard let data = snapshot.data() else { return }
                 let oldProduct = Product(dictionary: data)
-                let newQuantity = Int(product.productQuantity)! + Int(oldProduct.productQuantity)!
+                let newQuantity = Int(quantity)! + Int(oldProduct.productQuantity)!
                 product.productDictionary[kPRODUCTQUANTITY] = String(newQuantity)
                 query.setData(product.productDictionary as! [String : Any])                
             } else {

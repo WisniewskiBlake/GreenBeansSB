@@ -20,4 +20,21 @@ let kPRODUCTIMAGEURL = "productImageUrl"
 let kPRODUCTQUANTITY = "productQuantity"
 let kPRODUCTHIGHLIGHTED = "productHighlighted"
 
+let kORDERSUBTOTAL = "subtotal"
+let kORDERTAX = "tax"
+let kORDERADDRESS = "address"
+let kORDERPICKUPADDRESS = "pickUpAddress"
+let kORDERTIME = "orderTime"
+let kORDERTYPE = "orderType"
+let kORDEREMAIL = "userEmail"
+let kORDERPHONE = "userPhone"
+let kORDERSTATUS = "orderStatus"
+let kORDERFULLNAME = "fullName"
+let kORDERARCHIVED = "archived"
+let kORDERTOTAL = "total"
+let kORDERPICKUPTIME = "pickUpTime"
+let kORDERINSTRUCTIONS = "specialInstructions"
+let kORDERDELIVERYFEE = "deliveryFee"
+
+
 

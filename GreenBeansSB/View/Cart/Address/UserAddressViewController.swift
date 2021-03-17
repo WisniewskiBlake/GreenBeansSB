@@ -12,7 +12,9 @@ class UserAddressViewController: UIViewController {
     
     var dataSource = AddressCellDataSource()
     private var viewModel = AddressViewModel()
+    var cartViewModel: CartViewModel?
     var order: Order?
+    
     private var addresses: [String] = []
     
     override func viewDidLoad() {
@@ -37,11 +39,8 @@ class UserAddressViewController: UIViewController {
     
     @objc func updateUI() {
         tableView.reloadData()
-    }
-    
-    @IBAction func newButtonClicked(_ sender: Any) {
-        
-    }
+    }    
+
     @IBAction func backButtonClicked(_ sender: Any) {
         addTransitionLeft()
         dismiss(animated: true, completion: nil)
@@ -53,10 +52,11 @@ class UserAddressViewController: UIViewController {
             userAddressViewController.modalPresentationStyle = .fullScreen
         } else {
             if let row = tableView.indexPathForSelectedRow?.row {
-                let address = dataSource.addresses[row]
-                if let productDetailVC = segue.destination as? ProductDetailViewController {
-  
-                    productDetailVC.modalPresentationStyle = .fullScreen
+                order?.customerAddress = dataSource.addresses[row]
+                if let orderSummaryVC = segue.destination as? OrderSummaryViewController {
+                    orderSummaryVC.cartViewModel = cartViewModel
+                    orderSummaryVC.order = order
+                    orderSummaryVC.modalPresentationStyle = .fullScreen
                 }
             }
         }

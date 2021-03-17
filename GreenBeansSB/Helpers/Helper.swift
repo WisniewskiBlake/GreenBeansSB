@@ -65,6 +65,14 @@ public class Helper {
             withBlock(image)
     }
     
+    func getCurrentDate() -> String {
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let formattedDate = format.string(from: date)
+        return formattedDate
+    }
+    
     //for avatars
     func dataImageFromString(pictureString: String, withBlock: (_ image: Data?) -> Void) {
         

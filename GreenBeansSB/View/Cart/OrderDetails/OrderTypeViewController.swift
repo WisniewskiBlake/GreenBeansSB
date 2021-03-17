@@ -13,7 +13,7 @@ class OrderTypeViewController: UIViewController {
     
     private let helper = Helper()
     var order: Order?
-    var cartViewModel: CartViewModel?
+    var cartViewModel: CartViewModel?    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +22,7 @@ class OrderTypeViewController: UIViewController {
     
     @IBAction func pickUpButtonClicked(_ sender: Any) {
         order?.orderType = "pickUp"
-        if (cartViewModel?.userInSession())! {
-            performSegue(withIdentifier: "UserPickUp", sender: self)
-        } else {
-            performSegue(withIdentifier: "GuestPickUp", sender: self)
-        }
+        performSegue(withIdentifier: "PickUp", sender: self)
     }
     
     @IBAction func deliveryButtonClicked(_ sender: Any) {
@@ -45,19 +41,18 @@ class OrderTypeViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "UserPickUp", let userAddressViewController = segue.destination as? UserAddressViewController {
+        if segue.identifier == "PickUp", let userAddressViewController = segue.destination as? PickupViewController {
+            userAddressViewController.cartViewModel = cartViewModel
             userAddressViewController.order = order
             userAddressViewController.modalPresentationStyle = .fullScreen
         }
-        else if segue.identifier == "UserDelivery", let userAddressViewController = segue.destination as? UserAddressViewController {
+        else if segue.identifier == "UserDelivery", let userAddressViewController = segue.destination as? UserAddressViewController {            
+            userAddressViewController.cartViewModel = cartViewModel
             userAddressViewController.order = order
             userAddressViewController.modalPresentationStyle = .fullScreen
-        }
-        else if segue.identifier == "GuestPickUp", let guestAddressViewController = segue.destination as? GuestAddressViewController {
-            guestAddressViewController.order = order
-            guestAddressViewController.modalPresentationStyle = .fullScreen
         }
         else if segue.identifier == "GuestDelivery", let guestAddressViewController = segue.destination as? GuestAddressViewController {
+            guestAddressViewController.cartViewModel = cartViewModel
             guestAddressViewController.order = order
             guestAddressViewController.modalPresentationStyle = .fullScreen
         }

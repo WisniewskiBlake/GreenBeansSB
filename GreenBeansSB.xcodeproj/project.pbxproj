@@ -57,6 +57,8 @@
 		BB61A87A25F6149F00EB1228 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A87925F6149F00EB1228 /* AddressCell.swift */; };
 		BB61A88925F6158E00EB1228 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A88825F6158E00EB1228 /* AddressViewModel.swift */; };
 		BB61A89125F6198900EB1228 /* AddressCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A89025F6198900EB1228 /* AddressCellDataSource.swift */; };
+		BB8601112601CEFB0093EE16 /* PickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8601102601CEFB0093EE16 /* PickupViewController.swift */; };
+		BB86011E260201320093EE16 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB86011D260201320093EE16 /* TimeViewController.swift */; };
 		E7BBEAD6FCFC82270EF5A7FA /* Pods_GreenBeansSB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70819FF9B6009D94BE2A5307 /* Pods_GreenBeansSB.framework */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +137,8 @@
 		BB61A87925F6149F00EB1228 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		BB61A88825F6158E00EB1228 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		BB61A89025F6198900EB1228 /* AddressCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCellDataSource.swift; sourceTree = "<group>"; };
+		BB8601102601CEFB0093EE16 /* PickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupViewController.swift; sourceTree = "<group>"; };
+		BB86011D260201320093EE16 /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,8 @@
 			children = (
 				BB1A14A525F9F0C0008F94C9 /* OrderTypeViewController.swift */,
 				BB1A14BC25FB6262008F94C9 /* OrderSummaryViewController.swift */,
+				BB8601102601CEFB0093EE16 /* PickupViewController.swift */,
+				BB86011D260201320093EE16 /* TimeViewController.swift */,
 			);
 			path = OrderDetails;
 			sourceTree = "<group>";
@@ -313,11 +319,10 @@
 		BB61A73B25EDFC7B00EB1228 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				BB860119260200D90093EE16 /* CartCell */,
 				BB1A149E25F9D6DE008F94C9 /* OrderDetails */,
 				BB61A86825F60B9300EB1228 /* Address */,
 				BB61A7F725EF48D900EB1228 /* CartViewController.swift */,
-				BB61A84D25F49CE600EB1228 /* CartCell.swift */,
-				BB61A85225F4A18500EB1228 /* CartCellDataSource.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -378,13 +383,30 @@
 		BB61A86825F60B9300EB1228 /* Address */ = {
 			isa = PBXGroup;
 			children = (
+				BB8601152602008C0093EE16 /* AddressCells */,
 				BB61A86C25F60BD400EB1228 /* GuestAddressViewController.swift */,
 				BB61A87425F60D1700EB1228 /* UserAddressViewController.swift */,
-				BB61A87925F6149F00EB1228 /* AddressCell.swift */,
-				BB61A89025F6198900EB1228 /* AddressCellDataSource.swift */,
 				BB1A14B725FB47E0008F94C9 /* NewAddressViewController.swift */,
 			);
 			path = Address;
+			sourceTree = "<group>";
+		};
+		BB8601152602008C0093EE16 /* AddressCells */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A89025F6198900EB1228 /* AddressCellDataSource.swift */,
+				BB61A87925F6149F00EB1228 /* AddressCell.swift */,
+			);
+			path = AddressCells;
+			sourceTree = "<group>";
+		};
+		BB860119260200D90093EE16 /* CartCell */ = {
+			isa = PBXGroup;
+			children = (
+				BB61A85225F4A18500EB1228 /* CartCellDataSource.swift */,
+				BB61A84D25F49CE600EB1228 /* CartCell.swift */,
+			);
+			path = CartCell;
 			sourceTree = "<group>";
 		};
 		F581DF55129128CA8A966A51 /* Frameworks */ = {
@@ -679,7 +701,9 @@
 				BB61A81525EF6F1F00EB1228 /* VirtualStoreViewModel.swift in Sources */,
 				BB1A14A625F9F0C0008F94C9 /* OrderTypeViewController.swift in Sources */,
 				BB61A82C25EF9EC700EB1228 /* TestViewController.swift in Sources */,
+				BB8601112601CEFB0093EE16 /* PickupViewController.swift in Sources */,
 				BB61A80B25EF5EB300EB1228 /* ProductListViewController.swift in Sources */,
+				BB86011E260201320093EE16 /* TimeViewController.swift in Sources */,
 				BB61A75B25EDFDBC00EB1228 /* RegisterViewController.swift in Sources */,
 				BB61A7F825EF48D900EB1228 /* CartViewController.swift in Sources */,
 				BB61A80625EF490D00EB1228 /* SettingsViewController.swift in Sources */,

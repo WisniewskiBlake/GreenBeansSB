@@ -11,6 +11,7 @@ class CartViewModel: ObservableObject {
     var products = [Product]()
     var indexPath = IndexPath()
     private var userSession = AuthViewModel.shared.userSession
+    let helper = Helper()
     
     init() { fetchUserCart() }
     
@@ -70,12 +71,72 @@ class CartViewModel: ObservableObject {
         }
     }
     
-    func calculateTotal() -> String {
+    func calculateDelivery(address: String) -> String? {
+        return ""
+    }
+    
+    func placeOrder(order: Order?) {
+        if userSession == nil {
+            placeGuestOrder(order: order)
+        } else {
+            placeUserOrder(order: order)
+        }
+    }
+    
+    func placeUserOrder(order: Order?) {
+        guard let email = AuthViewModel.shared.userSession?.email else { return }
+        let ref = reference(.Users).document(email).collection("OrderHistory")
+        let orderID = ref.document().documentID
+        
+        ref.document(orderID).setData(order!.orderDictionary as! [String : Any])
+        for product in order!.products {
+            ref.document(orderID).collection("Product").document().setData(product.productDictionary as! [String : Any])
+        }
+    }
+    
+    func placeGuestOrder(order: Order?) {
+        guard let guestId = AuthViewModel.shared.user?.guestId else { return }
+        let ref = reference(.GuestUsers).document(guestId).collection("OrderHistory")
+        let orderID = ref.document().documentID
+        let data = ["customerAddress": order?.customerAddress,
+                    "subtotal": order?.subtotal,
+                    "tax": order?.tax,
+                    "orderTime": helper.getCurrentDate(),
+                    "orderType": order?.orderType,
+                    "userEmail": order?.userEmail,
+                    "userPhone": order?.userPhone,
+                    "fullName": "",
+                    "archived": "false",
+                    "total": order?.total,
+                    "pickUpAddress": order?.pickUpAddress
+                    ]
+        ref.document(orderID).setData(data as [String : Any])
+        for product in order!.products {
+            ref.document(orderID).collection("Product").document().setData(product.productDictionary as! [String : Any])
+        }
+    }
+//    
+//    func addProductsToAdminOrderHistory(order: Order?) {
+//        reference(.Orders).document().setData(<#T##documentData: [String : Any]##[String : Any]#>)
+//    }
+    
+    func calculateTax(subtotal: String) -> String {
+        let tax = Double(subtotal)! * 0.07
+        let roundedTax = String(format: "%.2f", tax)
+        return String(roundedTax)
+    }
+    
+    func calculateSubtotal(productList: [Product]) -> String {
         var total: Double = 0.0
-        for product in self.products {
-            total = total + (Double(product.productPrice) ?? 0.0 * (Double(product.productQuantity) ?? 0.0))
+        for product in productList {
+            total = total + Double(product.productPrice)! * Double(product.productQuantity + ".0")!
         }
         return String(total)
+    }
+    
+    func calculateTotal(subtotal: String, tax: String) -> String {
+        let total = Double(subtotal)! + Double(tax)!
+        return String(format: "%.2f", total)
     }
     
     func userInSession() -> Bool? {
@@ -85,19 +146,5 @@ class CartViewModel: ObservableObject {
             return true
         }
     }
-    
-//    func productExistsInCart() -> Bool {
-//        guard let uid = AuthViewModel.shared.userSession?.email else { return false }
-//        reference(.Users).document(uid).collection("Kart").document(product.productTitle)
-//    }
-    
-//    func addProductsToUserOrderHistory(products: [Product]) {
-//        guard let uid = AuthViewModel.shared.userSession?.email else { return }
-//        reference(.Users).document(uid).collection("OrderHistory").document().setData(<#T##documentData: [String : Any]##[String : Any]#>)
-//    }
-//    
-//    func addProductsToAdminOrderHistory(product: Product) {
-//        reference(.Orders).document().setData(<#T##documentData: [String : Any]##[String : Any]#>)
-//    }
 }
 
