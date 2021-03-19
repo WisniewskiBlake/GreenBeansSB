@@ -59,6 +59,7 @@
 		BB61A89125F6198900EB1228 /* AddressCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A89025F6198900EB1228 /* AddressCellDataSource.swift */; };
 		BB8601112601CEFB0093EE16 /* PickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8601102601CEFB0093EE16 /* PickupViewController.swift */; };
 		BB86011E260201320093EE16 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB86011D260201320093EE16 /* TimeViewController.swift */; };
+		BB860123260424160093EE16 /* GuestContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB860122260424160093EE16 /* GuestContactViewController.swift */; };
 		E7BBEAD6FCFC82270EF5A7FA /* Pods_GreenBeansSB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70819FF9B6009D94BE2A5307 /* Pods_GreenBeansSB.framework */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +140,7 @@
 		BB61A89025F6198900EB1228 /* AddressCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCellDataSource.swift; sourceTree = "<group>"; };
 		BB8601102601CEFB0093EE16 /* PickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupViewController.swift; sourceTree = "<group>"; };
 		BB86011D260201320093EE16 /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		BB860122260424160093EE16 /* GuestContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +387,7 @@
 			children = (
 				BB8601152602008C0093EE16 /* AddressCells */,
 				BB61A86C25F60BD400EB1228 /* GuestAddressViewController.swift */,
+				BB860122260424160093EE16 /* GuestContactViewController.swift */,
 				BB61A87425F60D1700EB1228 /* UserAddressViewController.swift */,
 				BB1A14B725FB47E0008F94C9 /* NewAddressViewController.swift */,
 			);
@@ -709,6 +712,7 @@
 				BB61A80625EF490D00EB1228 /* SettingsViewController.swift in Sources */,
 				BB61A74925EDFD2300EB1228 /* Order.swift in Sources */,
 				BB61A7D825EE252D00EB1228 /* CustomView.swift in Sources */,
+				BB860123260424160093EE16 /* GuestContactViewController.swift in Sources */,
 				BB61A82225EF7FB800EB1228 /* ProductListDataSource.swift in Sources */,
 				BB1A14BD25FB6262008F94C9 /* OrderSummaryViewController.swift in Sources */,
 				BB61A85F25F4A41A00EB1228 /* CartViewModel.swift in Sources */,

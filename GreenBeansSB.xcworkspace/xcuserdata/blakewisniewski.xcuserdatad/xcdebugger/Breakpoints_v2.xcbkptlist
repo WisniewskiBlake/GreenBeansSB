@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "LoginViewController"
-            landmarkType = "3">
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -135,22 +135,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9CE76D27-2C4A-4567-9749-24D010DA8F18"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GreenBeansSB/ViewModel/Authentication/AuthViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "fetchUserAutoLogin(email:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "A56FFCD7-7FB4-42E3-905B-D42E5C955C8A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -162,70 +146,6 @@
             endingLineNumber = "25"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "62298217-0845-41F2-B949-63DBB485EB80"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GreenBeansSB/ViewModel/Cart/CartViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "fetchUserCart()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FDC9E3F6-ACDA-4FF3-A42B-F1D777E1ED23"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GreenBeansSB/ViewModel/Cart/CartViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "fetchUserCart()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FDC9E3F6-ACDA-4FF3-A42B-F1D777E1ED23 - b0402989879b757"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GreenBeansSB.CartViewModel.fetchUserCart() -&gt; ()"
-                  moduleName = "GreenBeansSB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/blakewisniewski/Desktop/GreenBeansSB/GreenBeansSB/ViewModel/Cart/CartViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "1352">
-               </Location>
-               <Location
-                  uuid = "FDC9E3F6-ACDA-4FF3-A42B-F1D777E1ED23 - 62443aa7d2438719"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GreenBeansSB.CartViewModel.fetchUserCart() -&gt; ()"
-                  moduleName = "GreenBeansSB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/blakewisniewski/Desktop/GreenBeansSB/GreenBeansSB/ViewModel/Cart/CartViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "116">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -286,8 +206,8 @@
             filePath = "GreenBeansSB/ViewModel/Cart/CartViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "placeGuestOrder(order:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -321,6 +241,38 @@
             startingLineNumber = "24"
             endingLineNumber = "24"
             landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3442DE82-57E6-4373-B326-13752C2425CC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GreenBeansSB/View/Cart/OrderDetails/OrderSummaryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "placeOrderClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "441BFA28-204A-4D21-8A60-189E4F096E7C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GreenBeansSB/ViewModel/Authentication/AuthViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "createGuestUser()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

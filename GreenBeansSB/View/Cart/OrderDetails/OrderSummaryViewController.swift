@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JSSAlertView
 
 class OrderSummaryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -16,6 +17,7 @@ class OrderSummaryViewController: UIViewController {
     @IBOutlet weak var instructionsTextField: UITextField!
     
     private var dataSource = CartCellDataSource()
+    let helper = Helper()
     var cartViewModel: CartViewModel?    
     var order: Order?
 
@@ -46,7 +48,18 @@ class OrderSummaryViewController: UIViewController {
     }
     
     @IBAction func placeOrderClicked(_ sender: Any) {
+        if instructionsTextField.text != "" {
+            order?.specialInstructions = instructionsTextField.text!
+        }
+        let alertview = JSSAlertView().show(self,
+          title: "Order Has Been Placed",
+          buttonText: "Ok"
+        )
         cartViewModel?.placeOrder(order: order)
+        alertview.addAction { self.helper.instantiateViewController(identifier: "VirtualStore", animated: true, by: self, completion: nil) }
+        alertview.setTitleFont("ClearSans-Bold") // Title font
+        alertview.setTextFont("ClearSans") // Alert body text font
+        alertview.setButtonFont("ClearSans-Light") // Button text font
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {

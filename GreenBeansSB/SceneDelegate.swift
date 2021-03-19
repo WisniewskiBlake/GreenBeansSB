@@ -19,11 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(goToStore), name: NSNotification.Name(rawValue: "autoLoggedIn"), object: nil)
-        
         //AutoLogin
         if Auth.auth().currentUser != nil {
           // User is signed in.
+            AuthViewModel.shared.fetchUser()
             self.goToStore()
         } else {
           // No user is signed in.

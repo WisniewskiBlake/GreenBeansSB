@@ -6,6 +6,7 @@
 //
 
 import Firebase
+import CoreLocation
 
 class CartViewModel: ObservableObject {
     var products = [Product]()
@@ -84,13 +85,29 @@ class CartViewModel: ObservableObject {
     }
     
     func placeUserOrder(order: Order?) {
+        guard let fullName = AuthViewModel.shared.user?.fullName else { return }
         guard let email = AuthViewModel.shared.userSession?.email else { return }
         let ref = reference(.Users).document(email).collection("OrderHistory")
         let orderID = ref.document().documentID
+        let data = ["customerAddress": order?.customerAddress,
+                    "subtotal": order?.subtotal,
+                    "tax": order?.tax,
+                    "orderTime": helper.getCurrentDate(),
+                    "orderType": order?.orderType,
+                    "userEmail": email,
+                    "userPhone": order?.userPhone,
+                    "fullName": fullName,
+                    "archived": "false",
+                    "total": order?.total,
+                    "pickUpAddress": order?.pickUpAddress,
+                    "pickUpTime": order?.pickUpTime,
+                    "specialInstructions": order?.specialInstructions
+                    ]
         
-        ref.document(orderID).setData(order!.orderDictionary as! [String : Any])
+        ref.document(orderID).setData(data as [String : Any])
         for product in order!.products {
             ref.document(orderID).collection("Product").document().setData(product.productDictionary as! [String : Any])
+            reference(.Users).document(email).collection("Kart").document(product.productTitle).delete()
         }
     }
     
@@ -105,17 +122,20 @@ class CartViewModel: ObservableObject {
                     "orderType": order?.orderType,
                     "userEmail": order?.userEmail,
                     "userPhone": order?.userPhone,
-                    "fullName": "",
+                    "fullName": order?.fullName,
                     "archived": "false",
                     "total": order?.total,
-                    "pickUpAddress": order?.pickUpAddress
+                    "pickUpAddress": order?.pickUpAddress,
+                    "pickUpTime": order?.pickUpTime,
+                    "specialInstructions": order?.specialInstructions
                     ]
         ref.document(orderID).setData(data as [String : Any])
         for product in order!.products {
             ref.document(orderID).collection("Product").document().setData(product.productDictionary as! [String : Any])
+            reference(.GuestUsers).document(guestId).collection("Cart").document(product.productTitle).delete()
         }
     }
-//    
+    
 //    func addProductsToAdminOrderHistory(order: Order?) {
 //        reference(.Orders).document().setData(<#T##documentData: [String : Any]##[String : Any]#>)
 //    }
@@ -144,6 +164,21 @@ class CartViewModel: ObservableObject {
             return false
         } else {
             return true
+        }
+    }
+    
+    func getCoordinate( addressString : String,
+            completionHandler: @escaping(CLLocationCoordinate2D, NSError?) -> Void ) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(addressString) { (placemarks, error) in
+            if error == nil {
+                if let placemark = placemarks?[0] {
+                    let location = placemark.location!                        
+                    completionHandler(location.coordinate, nil)
+                    return
+                }
+            }
+            completionHandler(kCLLocationCoordinate2DInvalid, error as NSError?)
         }
     }
 }

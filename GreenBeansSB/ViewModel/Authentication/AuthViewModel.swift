@@ -61,20 +61,12 @@ class AuthViewModel: ObservableObject {
     }
     
     func fetchUser() {
-        guard let uid = userSession?.email else { return }
-        reference(.Users).document(uid).getDocument { snapshot, _ in
+        guard let email = userSession?.email else { return }
+        reference(.Users).document(email).getDocument { snapshot, _ in
             guard let data = snapshot?.data() else { return }
             self.user = User(dictionary: data)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loggedIn"), object: nil)
         }
-    }
-    
-    func fetchUserAutoLogin(email: String) {
-        reference(.Users).document(email).getDocument { snapshot, _ in
-            guard let data = snapshot?.data() else { return }
-            self.user = User(dictionary: data)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "autoLoggedIn"), object: nil)
-        }        
     }
     
     func signOut() {

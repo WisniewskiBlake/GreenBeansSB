@@ -22,7 +22,7 @@ class OrderTypeViewController: UIViewController {
     
     @IBAction func pickUpButtonClicked(_ sender: Any) {
         order?.orderType = "pickUp"
-        performSegue(withIdentifier: "PickUp", sender: self)
+        performSegue(withIdentifier: "Time", sender: self)
     }
     
     @IBAction func deliveryButtonClicked(_ sender: Any) {
@@ -37,11 +37,10 @@ class OrderTypeViewController: UIViewController {
     @IBAction func backButtonClicked(_ sender: Any) {
         addTransitionLeft()
         dismiss(animated: true, completion: nil)
-    }
-    
+    }    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PickUp", let userAddressViewController = segue.destination as? PickupViewController {
+        if segue.identifier == "PickUp", let userAddressViewController = segue.destination as? TimeViewController {
             userAddressViewController.cartViewModel = cartViewModel
             userAddressViewController.order = order
             userAddressViewController.modalPresentationStyle = .fullScreen

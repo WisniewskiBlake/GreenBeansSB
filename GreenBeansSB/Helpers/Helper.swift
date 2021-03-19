@@ -73,6 +73,11 @@ public class Helper {
         return formattedDate
     }
     
+    func getDateAsString(dateComps: DateComponents) -> String {
+        let dateString = String(dateComps.month!) + "/" + String(dateComps.day!) + "/" + String(dateComps.year!) + ", " + String(dateComps.hour!) + ":" + String(dateComps.minute!)
+        return dateString
+    }
+    
     //for avatars
     func dataImageFromString(pictureString: String, withBlock: (_ image: Data?) -> Void) {
         

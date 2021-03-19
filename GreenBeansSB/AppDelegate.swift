@@ -23,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         settings.isPersistenceEnabled = false
         let db = Firestore.firestore()
         db.settings = settings
+        
+//        NotificationCenter.default.addObserver(forName: NSNotification.Name("UserLoggedIn"), object: nil, queue: nil) { (note) in
+//            let dictionary: NSDictionary = note
+//            print("User has logged in...............................")
+//            
+//        }
 
         return true
     }

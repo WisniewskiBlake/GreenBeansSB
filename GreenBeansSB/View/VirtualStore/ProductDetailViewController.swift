@@ -61,21 +61,19 @@ class ProductDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
-    
 }
 extension ProductDetailViewController {
     func isValidQuantity(quantity: String) {
-        let alertview = JSSAlertView().show(self,
-          title: "Added To Cart",
-          buttonText: "Ok"
-        )
         if(productQuantityLabel.text != "0") {
+            let alertview = JSSAlertView().show(self,
+              title: "Added To Cart",
+              buttonText: "Ok"
+            )
             viewModel?.addProductToCart(product: product, quantity: productQuantityLabel.text ?? "0")
             alertview.addAction { self.dismissController() }
             alertview.setTitleFont("ClearSans-Bold") // Title font
             alertview.setTextFont("ClearSans") // Alert body text font
             alertview.setButtonFont("ClearSans-Light") // Button text font
-//            alertview.setTextTheme(.light)            
         } else {
             helper.showAlert(title: "Please Select Quantity", message: "", in: self)
         }
