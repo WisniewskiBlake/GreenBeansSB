@@ -19,6 +19,7 @@ let kPRODUCTTYPE = "productType"
 let kPRODUCTIMAGEURL = "productImageUrl"
 let kPRODUCTQUANTITY = "productQuantity"
 let kPRODUCTHIGHLIGHTED = "productHighlighted"
+let kPRODUCTSTATUS = "productStatus"
 
 let kORDERSUBTOTAL = "subtotal"
 let kORDERTAX = "tax"
@@ -35,6 +36,7 @@ let kORDERTOTAL = "total"
 let kORDERPICKUPTIME = "pickUpTime"
 let kORDERINSTRUCTIONS = "specialInstructions"
 let kORDERDELIVERYFEE = "deliveryFee"
+let kPRODUCTS = "orderDetails"
 
 
 

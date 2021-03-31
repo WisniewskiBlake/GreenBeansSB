@@ -19,32 +19,36 @@ class OrderSummaryViewController: UIViewController {
     private var dataSource = CartCellDataSource()
     let helper = Helper()
     var cartViewModel: CartViewModel?    
-    var order: Order?
+    var order: Order?    
+    var subtotal = ""
+    var tax = ""
+    var total = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getOrderDetails()
         configureUI()
         tableView.dataSource = dataSource
         tableView.reloadData()
     }
     
     func configureUI() {
-        var deliveryFee = ""
-        if order?.orderType != "pickUp" {
-            deliveryFee = (cartViewModel?.calculateDelivery(address: order!.customerAddress))!
+        subtotalLabel.text = "$" + subtotal
+        taxLabel.text = "$" + tax
+        totalLabel.text = "$" + total
+    }
+    
+    func getOrderDetails() {
+        //self.subtotal = cartViewModel?.calculateSubtotal(productList: order!.products)
+        // self.tax = cartViewModel?.calculateTax(subtotal: subtotal!)
+        // self.total = cartViewModel?.calculateTotal(subtotal: subtotal!, tax: tax!)
+        order?.subtotal = subtotal
+        order?.tax = tax
+        order?.total = total
+        order?.deliveryFee = order!.deliveryFee
+        cartViewModel?.fetchOrderProducts(order: order!) { (productsReturned) in
+            self.dataSource.products = productsReturned
         }
-        let subtotal = cartViewModel?.calculateSubtotal(productList: order!.products)
-        let tax = cartViewModel?.calculateTax(subtotal: subtotal!)
-        let total = cartViewModel?.calculateTotal(subtotal: subtotal!, tax: tax!)
-        
-        subtotalLabel.text = "$" + subtotal!
-        taxLabel.text = "$" + tax!
-        totalLabel.text = "$" + total!
-        order?.subtotal = subtotal!
-        order?.tax = tax!
-        order?.total = total!        
-        order?.deliveryFee = deliveryFee
-        dataSource.products = order!.products
     }
     
     @IBAction func placeOrderClicked(_ sender: Any) {

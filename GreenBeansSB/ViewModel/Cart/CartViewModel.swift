@@ -72,10 +72,6 @@ class CartViewModel: ObservableObject {
         }
     }
     
-    func calculateDelivery(address: String) -> String? {
-        return ""
-    }
-    
     func placeOrder(order: Order?) {
         if userSession == nil {
             placeGuestOrder(order: order)
@@ -101,23 +97,27 @@ class CartViewModel: ObservableObject {
                     "total": order?.total,
                     "pickUpAddress": order?.pickUpAddress,
                     "pickUpTime": order?.pickUpTime,
-                    "specialInstructions": order?.specialInstructions
+                    "specialInstructions": order?.specialInstructions,
+                    "orderStatus": "PLACED",
+                    "orderDetails": order?.products
                     ]
         
         ref.document(orderID).setData(data as [String : Any])
-        for product in order!.products {
-            ref.document(orderID).collection("Product").document().setData(product.productDictionary as! [String : Any])
-            reference(.Users).document(email).collection("Kart").document(product.productTitle).delete()
-        }
+//        for product in order!.products {
+        //            ref.document(orderID).collection("Product").document().setData(product.productDictionary as! [String : Any])
+//            reference(.Users).document(email).collection("Kart").document(product.productTitle).delete()
+//        }
     }
     
     func placeGuestOrder(order: Order?) {
         guard let guestId = AuthViewModel.shared.user?.guestId else { return }
-        let ref = reference(.GuestUsers).document(guestId).collection("OrderHistory")
-        let orderID = ref.document().documentID
+        let guestUserRef = reference(.GuestUsers).document(guestId).collection("OrderHistory")
+        let orderID = guestUserRef.document().documentID
+        let ordersRef = reference(.Orders).document(orderID)
         let data = ["customerAddress": order?.customerAddress,
                     "subtotal": order?.subtotal,
                     "tax": order?.tax,
+                    "deliveryFee": order?.deliveryFee,
                     "orderTime": helper.getCurrentDate(),
                     "orderType": order?.orderType,
                     "userEmail": order?.userEmail,
@@ -127,18 +127,42 @@ class CartViewModel: ObservableObject {
                     "total": order?.total,
                     "pickUpAddress": order?.pickUpAddress,
                     "pickUpTime": order?.pickUpTime,
-                    "specialInstructions": order?.specialInstructions
+                    "specialInstructions": order?.specialInstructions,
+                    kPRODUCTS: order?.products,
+                    kORDERSTATUS: "PLACED"
                     ]
-        ref.document(orderID).setData(data as [String : Any])
-        for product in order!.products {
-            ref.document(orderID).collection("Product").document().setData(product.productDictionary as! [String : Any])
-            reference(.GuestUsers).document(guestId).collection("Cart").document(product.productTitle).delete()
-        }
+        data.append
+        guestUserRef.document(orderID).setData(data as [String : Any])
+        ordersRef.setData(data as [String : Any])
     }
     
-//    func addProductsToAdminOrderHistory(order: Order?) {
-//        reference(.Orders).document().setData(<#T##documentData: [String : Any]##[String : Any]#>)
-//    }
+    func fetchOrderProducts(order: Order, completion: @escaping (_ products: [Product]) -> Void) {
+        var productsToReturn: [Product]
+        let productNames = getProductNames(order: order)
+        
+        for name in productNames {
+            let query = reference(.Products).whereField(kPRODUCTTITLE, isEqualTo: name)
+            query.getDocuments { (snapshot, error) in
+                 if error != nil {
+                     print(error!.localizedDescription)
+                     return
+                 }
+                 guard let snapshot = snapshot else {
+                     return
+                 }
+                 if !snapshot.isEmpty {
+                     for productDictionary in snapshot.documents {
+                         let productDictionary = productDictionary.data() as NSDictionary
+                        let product = Product(dictionary: productDictionary as! [String : Any])
+                         productsToReturn.append(product)
+                     }
+                 }
+            }
+            if productsToReturn.count == productNames.count {
+                completion(productsToReturn)
+            }
+        }
+    }
     
     func calculateTax(subtotal: String) -> String {
         let tax = Double(subtotal)! * 0.07
@@ -160,26 +184,26 @@ class CartViewModel: ObservableObject {
     }
     
     func userInSession() -> Bool? {
-        if userSession == nil {
-            return false
-        } else {
-            return true
-        }
+        if userSession == nil { return false }
+        else { return true }
     }
     
-    func getCoordinate( addressString : String,
-            completionHandler: @escaping(CLLocationCoordinate2D, NSError?) -> Void ) {
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(addressString) { (placemarks, error) in
-            if error == nil {
-                if let placemark = placemarks?[0] {
-                    let location = placemark.location!                        
-                    completionHandler(location.coordinate, nil)
-                    return
-                }
-            }
-            completionHandler(kCLLocationCoordinate2DInvalid, error as NSError?)
+    func getProductNames(order: Order) -> [String] {
+        var productNames: [String] = []
+        for product in order.products {
+            var details = product.components(separatedBy: ";")
+            productNames.append(details[0])
         }
+        return productNames
+    }
+    
+    func getProductQuantities(order: Order) -> [String] {
+        var productQuantities: [String] = []
+        for product in order.products {
+            var details = product.components(separatedBy: ";")
+            productQuantities.append(details[1])
+        }
+        return productQuantities
     }
 }
 

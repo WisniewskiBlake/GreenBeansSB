@@ -38,11 +38,11 @@ class PickupViewController: UIViewController {
     }
     
     @objc func navigate() {
-        if cartViewModel?.userInSession() == true {
+        if (cartViewModel?.userInSession())! {
             performSegue(withIdentifier: "ToOrderSummary", sender: self)
         } else {
-            performSegue(withIdentifier: "ToGuestAddress", sender: self)
-        }
+            performSegue(withIdentifier: "GuestContactDetails", sender: self)
+        }        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,11 +53,10 @@ class PickupViewController: UIViewController {
                 orderSummaryVC.order = order
                 orderSummaryVC.modalPresentationStyle = .fullScreen
             }
-            if segue.identifier == "ToGuestAddress", let guestAddressVC = segue.destination as? GuestAddressViewController {
-                guestAddressVC.cartViewModel = cartViewModel
-                guestAddressVC.order = order
-                guestAddressVC.pickUp = true
-                guestAddressVC.modalPresentationStyle = .fullScreen
+            if segue.identifier == "GuestContactDetails", let pickUpVC = segue.destination as? GuestContactViewController {
+                pickUpVC.cartViewModel = cartViewModel
+                pickUpVC.order = order
+                pickUpVC.modalPresentationStyle = .fullScreen
             }
         }        
     }

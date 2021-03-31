@@ -60,6 +60,9 @@
 		BB8601112601CEFB0093EE16 /* PickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8601102601CEFB0093EE16 /* PickupViewController.swift */; };
 		BB86011E260201320093EE16 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB86011D260201320093EE16 /* TimeViewController.swift */; };
 		BB860123260424160093EE16 /* GuestContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB860122260424160093EE16 /* GuestContactViewController.swift */; };
+		BB86013D260974140093EE16 /* OrderHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB86013C260974140093EE16 /* OrderHistoryViewModel.swift */; };
+		BB860146260C32AE0093EE16 /* HistoryCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB860145260C32AE0093EE16 /* HistoryCellDataSource.swift */; };
+		BB86014B260C32C40093EE16 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB86014A260C32C40093EE16 /* HistoryCell.swift */; };
 		E7BBEAD6FCFC82270EF5A7FA /* Pods_GreenBeansSB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70819FF9B6009D94BE2A5307 /* Pods_GreenBeansSB.framework */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +144,9 @@
 		BB8601102601CEFB0093EE16 /* PickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupViewController.swift; sourceTree = "<group>"; };
 		BB86011D260201320093EE16 /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		BB860122260424160093EE16 /* GuestContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestContactViewController.swift; sourceTree = "<group>"; };
+		BB86013C260974140093EE16 /* OrderHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewModel.swift; sourceTree = "<group>"; };
+		BB860145260C32AE0093EE16 /* HistoryCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCellDataSource.swift; sourceTree = "<group>"; };
+		BB86014A260C32C40093EE16 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +276,7 @@
 		BB61A73625EDFBC700EB1228 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BB86012B260968B90093EE16 /* OrderHistory */,
 				BB1A149525F77091008F94C9 /* SideMenu */,
 				BB61A85725F4A38800EB1228 /* Cart */,
 				BB61A73F25EDFCB900EB1228 /* VirtualStore */,
@@ -332,6 +339,7 @@
 		BB61A73C25EDFC8100EB1228 /* OrderHistory */ = {
 			isa = PBXGroup;
 			children = (
+				BB860144260C32930093EE16 /* HistoryCell */,
 				BB61A7FC25EF48ED00EB1228 /* OrderHistoryViewController.swift */,
 			);
 			path = OrderHistory;
@@ -410,6 +418,23 @@
 				BB61A84D25F49CE600EB1228 /* CartCell.swift */,
 			);
 			path = CartCell;
+			sourceTree = "<group>";
+		};
+		BB86012B260968B90093EE16 /* OrderHistory */ = {
+			isa = PBXGroup;
+			children = (
+				BB86013C260974140093EE16 /* OrderHistoryViewModel.swift */,
+			);
+			path = OrderHistory;
+			sourceTree = "<group>";
+		};
+		BB860144260C32930093EE16 /* HistoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				BB860145260C32AE0093EE16 /* HistoryCellDataSource.swift */,
+				BB86014A260C32C40093EE16 /* HistoryCell.swift */,
+			);
+			path = HistoryCell;
 			sourceTree = "<group>";
 		};
 		F581DF55129128CA8A966A51 /* Frameworks */ = {
@@ -696,6 +721,7 @@
 				BB61A7FD25EF48ED00EB1228 /* OrderHistoryViewController.swift in Sources */,
 				BB61A89125F6198900EB1228 /* AddressCellDataSource.swift in Sources */,
 				BB61A75625EDFDA800EB1228 /* LoginViewController.swift in Sources */,
+				BB860146260C32AE0093EE16 /* HistoryCellDataSource.swift in Sources */,
 				BB61A74125EDFD1400EB1228 /* User.swift in Sources */,
 				BB61A87525F60D1700EB1228 /* UserAddressViewController.swift in Sources */,
 				BB61A7F325EF3F5600EB1228 /* SideMenuViewController.swift in Sources */,
@@ -704,6 +730,7 @@
 				BB61A81525EF6F1F00EB1228 /* VirtualStoreViewModel.swift in Sources */,
 				BB1A14A625F9F0C0008F94C9 /* OrderTypeViewController.swift in Sources */,
 				BB61A82C25EF9EC700EB1228 /* TestViewController.swift in Sources */,
+				BB86013D260974140093EE16 /* OrderHistoryViewModel.swift in Sources */,
 				BB8601112601CEFB0093EE16 /* PickupViewController.swift in Sources */,
 				BB61A80B25EF5EB300EB1228 /* ProductListViewController.swift in Sources */,
 				BB86011E260201320093EE16 /* TimeViewController.swift in Sources */,
@@ -721,6 +748,7 @@
 				BB1A149725F770AC008F94C9 /* SideMenuViewModel.swift in Sources */,
 				BB61A82725EF953200EB1228 /* Constants.swift in Sources */,
 				BB61A85325F4A18500EB1228 /* CartCellDataSource.swift in Sources */,
+				BB86014B260C32C40093EE16 /* HistoryCell.swift in Sources */,
 				BB61A70525EDFB7100EB1228 /* SceneDelegate.swift in Sources */,
 				BB61A81D25EF79A500EB1228 /* ProductCell.swift in Sources */,
 				BB61A83425F0E7EC00EB1228 /* CollectionReference.swift in Sources */,

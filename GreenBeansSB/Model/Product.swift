@@ -15,6 +15,7 @@ class Product {
     let productImageUrl: String
     var productQuantity: String
     let productHighlighted: String
+    let productStatus: String
     
     let productDictionary: NSMutableDictionary
         
@@ -26,8 +27,9 @@ class Product {
         self.productType = dictionary["productType"] as? String ?? ""
         self.productImageUrl = dictionary["productImageUrl"] as? String ?? ""
         self.productQuantity = dictionary["productQuantity"] as? String ?? ""
+        self.productStatus = dictionary["productStatus"] as? String ?? ""
         
-        productDictionary = NSMutableDictionary(objects: [productTitle, productDescription, productPrice, productType, productImageUrl, productQuantity, productHighlighted], forKeys: [kPRODUCTTITLE as NSCopying, kPRODUCTDESCRIPTION as NSCopying, kPRODUCTPRICE as NSCopying, kPRODUCTTYPE as NSCopying, kPRODUCTIMAGEURL as NSCopying, kPRODUCTQUANTITY as NSCopying, kPRODUCTHIGHLIGHTED as NSCopying])
+        productDictionary = NSMutableDictionary(objects: [productTitle, productDescription, productPrice, productType, productImageUrl, productQuantity, productHighlighted, productStatus], forKeys: [kPRODUCTTITLE as NSCopying, kPRODUCTDESCRIPTION as NSCopying, kPRODUCTPRICE as NSCopying, kPRODUCTTYPE as NSCopying, kPRODUCTIMAGEURL as NSCopying, kPRODUCTQUANTITY as NSCopying, kPRODUCTHIGHLIGHTED as NSCopying, kPRODUCTSTATUS as NSCopying])
     }
     
     init() {
@@ -39,5 +41,6 @@ class Product {
         self.productImageUrl = ""
         self.productQuantity = ""
         self.productDictionary = [:]
+        self.productStatus = ""
     }
 }

@@ -8,11 +8,23 @@
 import UIKit
 
 class OrderHistoryViewController: UIViewController {
-
+    @IBOutlet weak var tableView: UITableView!    
+    
+    private var dataSource = HistoryCellDataSource()
+    private var orderViewModel = OrderHistoryViewModel()
+    private var products: [Product] = []
+    private var orders: [Order] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedHistory"), object: nil)
+    }
+    
+    @objc func setDataSource() {
+        orders = orderViewModel.getOrders()
+        dataSource.orders = orders
+        tableView.dataSource = dataSource
+        tableView.reloadData()
     }
     
 

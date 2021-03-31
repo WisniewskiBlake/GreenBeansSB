@@ -28,7 +28,7 @@ class TimeViewController: UIViewController {
                 helper.showAlert(title: "Date selected is in the past", message: "", in: self)
             } else {
                 order?.pickUpTime = helper.getDateAsString(dateComps: dateComps)
-                if (cartViewModel?.userInSession())! {
+                if order?.orderType == "pickUp" {
                     performSegue(withIdentifier: "SelectPickUpAddress", sender: self)
                 } else {
                     performSegue(withIdentifier: "EnterGuestAddress", sender: self)
@@ -50,7 +50,7 @@ class TimeViewController: UIViewController {
             pickUpViewController.order = order
             pickUpViewController.modalPresentationStyle = .fullScreen
         }
-        if segue.identifier == "EnterGuestAddress", let pickUpViewController = segue.destination as? PickupViewController {
+        if segue.identifier == "EnterGuestAddress", let pickUpViewController = segue.destination as? GuestAddressViewController {
             pickUpViewController.cartViewModel = cartViewModel
             pickUpViewController.order = order
             pickUpViewController.modalPresentationStyle = .fullScreen

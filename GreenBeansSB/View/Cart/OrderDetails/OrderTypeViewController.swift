@@ -22,7 +22,7 @@ class OrderTypeViewController: UIViewController {
     
     @IBAction func pickUpButtonClicked(_ sender: Any) {
         order?.orderType = "pickUp"
-        performSegue(withIdentifier: "Time", sender: self)
+        performSegue(withIdentifier: "PickUp", sender: self)
     }
     
     @IBAction func deliveryButtonClicked(_ sender: Any) {

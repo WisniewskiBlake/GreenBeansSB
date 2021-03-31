@@ -20,10 +20,10 @@ class Order {
     var orderStatus: String
     var fullName: String
     var archived: String
-    var products: [Product]
     var pickUpTime: String
     var specialInstructions: String
     var deliveryFee: String
+    var products: [String]
     
     let orderDictionary: NSMutableDictionary
 
@@ -35,17 +35,17 @@ class Order {
         self.orderType = dictionary["orderType"] as? String ?? ""
         self.userEmail = dictionary["userEmail"] as? String ?? ""
         self.userPhone = dictionary["userPhone"] as? String ?? ""
-        self.orderStatus = dictionary["orderStatus"] as? String ?? ""
+        self.orderStatus = dictionary[kORDERSTATUS] as? String ?? ""
         self.fullName = dictionary["fullName"] as? String ?? ""
         self.archived = dictionary["archived"] as? String ?? ""
-        self.products = (dictionary["Product"] as? [Product] ?? [])
         self.total = dictionary["total"] as? String ?? ""
         self.pickUpAddress = dictionary["pickUpAddress"] as? String ?? ""
         self.pickUpTime = dictionary["pickUpTime"] as? String ?? ""
         self.specialInstructions = dictionary["specialInstructions"] as? String ?? ""
         self.deliveryFee = dictionary["deliveryFee"] as? String ?? ""
+        self.products = dictionary[kPRODUCTS] as? [String] ?? []
         
-        orderDictionary = NSMutableDictionary(objects: [customerAddress, subtotal, tax, orderTime, orderType, userEmail, userPhone, orderStatus, fullName, archived, total, pickUpAddress, pickUpTime, specialInstructions, deliveryFee], forKeys: [kORDERADDRESS as NSCopying, kORDERSUBTOTAL as NSCopying, kORDERTAX as NSCopying, kORDERTIME as NSCopying, kORDERTYPE as NSCopying, kORDEREMAIL as NSCopying, kORDERPHONE as NSCopying, kORDERSTATUS as NSCopying, kORDERFULLNAME as NSCopying, kORDERARCHIVED as NSCopying, kORDERTOTAL as NSCopying, kORDERPICKUPADDRESS as NSCopying, kORDERPICKUPTIME as NSCopying, kORDERINSTRUCTIONS as NSCopying, kORDERDELIVERYFEE  as NSCopying])
+        orderDictionary = NSMutableDictionary(objects: [customerAddress, subtotal, tax, orderTime, orderType, userEmail, userPhone, orderStatus, fullName, archived, total, pickUpAddress, pickUpTime, specialInstructions, deliveryFee, products], forKeys: [kORDERADDRESS as NSCopying, kORDERSUBTOTAL as NSCopying, kORDERTAX as NSCopying, kORDERTIME as NSCopying, kORDERTYPE as NSCopying, kORDEREMAIL as NSCopying, kORDERPHONE as NSCopying, kORDERSTATUS as NSCopying, kORDERFULLNAME as NSCopying, kORDERARCHIVED as NSCopying, kORDERTOTAL as NSCopying, kORDERPICKUPADDRESS as NSCopying, kORDERPICKUPTIME as NSCopying, kORDERINSTRUCTIONS as NSCopying, kORDERDELIVERYFEE  as NSCopying, kPRODUCTS  as NSCopying])
     }
     
     init() {

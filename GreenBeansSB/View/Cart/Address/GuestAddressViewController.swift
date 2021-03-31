@@ -19,7 +19,7 @@ class GuestAddressViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(loadedFee), name: NSNotification.Name(rawValue: "calculatedFee"), object: nil)
     }
     
     @IBAction func continueButtonClicked(_ sender: Any) {
@@ -32,22 +32,32 @@ class GuestAddressViewController: UIViewController {
             alertview.setTextFont("ClearSans") // Alert body text font
             alertview.setButtonFont("ClearSans-Light") // Button text font
         } else {
-            let fullAddress = streetAddressTextField.text! + "," + cityStateTextField.text! + "," + zipCodeTextField.text!
-            order?.customerAddress = fullAddress
-            performSegue(withIdentifier: "ContactInfo", sender: self)
+            let fullAddress = streetAddressTextField.text! + ", " + cityStateTextField.text! + " " + zipCodeTextField.text!
+            DispatchQueue.main.async {
+                self.addressViewModel.getCoordinate(addressString: fullAddress, completionHandler: { (coordinate, error) -> Void in
+                    if error == nil {
+                        self.addressViewModel.calcDeliveryFee(endCoordinate: coordinate)
+                        self.order?.customerAddress = fullAddress
+                    }
+                })
+            }            
         }
     }
     
+    @objc func loadedFee() {        
+        order?.deliveryFee = addressViewModel.getDeliveryFee()
+        performSegue(withIdentifier: "ContactInfo", sender: self)
+    }
     
     @IBAction func backButtonClicked(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ContactInfo", let userAddressViewController = segue.destination as? GuestContactViewController {
-            userAddressViewController.cartViewModel = cartViewModel
-            userAddressViewController.order = order
-            userAddressViewController.modalPresentationStyle = .fullScreen
+        if segue.identifier == "ContactInfo", let guestContactVC = segue.destination as? GuestContactViewController {
+            guestContactVC.cartViewModel = cartViewModel
+            guestContactVC.order = order
+            guestContactVC.modalPresentationStyle = .fullScreen
         }
     }
 }

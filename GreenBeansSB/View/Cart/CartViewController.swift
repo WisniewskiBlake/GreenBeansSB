@@ -24,7 +24,7 @@ class CartViewController: UIViewController {
     
     @objc func setDataSource() {
         products = cartViewModel.getCart()
-        order.products = products
+        //order.products = products
         hideCheckout()
         dataSource.viewModel = cartViewModel
         dataSource.products = products
@@ -34,7 +34,9 @@ class CartViewController: UIViewController {
     
     @objc func updateUI() {
         products = dataSource.products
-        order.products = dataSource.products
+        for product in products {
+            order.products.append(product.productTitle + ";" + product.productQuantity)
+        }        
         tableView.reloadData()
     }
     

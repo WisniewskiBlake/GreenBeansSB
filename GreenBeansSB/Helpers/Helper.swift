@@ -49,7 +49,7 @@ public class Helper {
             newViewController.modalPresentationStyle = .fullScreen
             // presenting accessed ViewController
             vc.present(newViewController, animated: animated, completion: completion)
-        }
+    }
 
     func dateFormatter() -> DateFormatter {
         let dateFormatter = DateFormatter()
@@ -168,4 +168,6 @@ extension UIViewController {
         dismiss(animated: true, completion: nil)
     }
 }
+
+
 
