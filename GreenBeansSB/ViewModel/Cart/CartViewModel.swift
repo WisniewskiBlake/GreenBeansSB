@@ -10,6 +10,7 @@ import CoreLocation
 
 class CartViewModel: ObservableObject {
     var products = [Product]()
+    var summaryProducts = [Product]()
     var indexPath = IndexPath()
     private var userSession = AuthViewModel.shared.userSession
     let helper = Helper()
@@ -18,6 +19,10 @@ class CartViewModel: ObservableObject {
     
     func getCart() -> [Product] {
         return self.products
+    }
+    
+    func getSummaryProducts() -> [Product] {
+        return self.summaryProducts
     }
     
     func fetchUserCart() {
@@ -84,29 +89,33 @@ class CartViewModel: ObservableObject {
         guard let fullName = AuthViewModel.shared.user?.fullName else { return }
         guard let email = AuthViewModel.shared.userSession?.email else { return }
         let ref = reference(.Users).document(email).collection("OrderHistory")
-        let orderID = ref.document().documentID
-        let data = ["customerAddress": order?.customerAddress,
-                    "subtotal": order?.subtotal,
-                    "tax": order?.tax,
-                    "orderTime": helper.getCurrentDate(),
-                    "orderType": order?.orderType,
-                    "userEmail": email,
-                    "userPhone": order?.userPhone,
-                    "fullName": fullName,
-                    "archived": "false",
-                    "total": order?.total,
-                    "pickUpAddress": order?.pickUpAddress,
-                    "pickUpTime": order?.pickUpTime,
-                    "specialInstructions": order?.specialInstructions,
-                    "orderStatus": "PLACED",
-                    "orderDetails": order?.products
-                    ]
+        for product in products {
+            order?.products.append(product.productTitle + ";" + product.productQuantity)
+        }
         
-        ref.document(orderID).setData(data as [String : Any])
-//        for product in order!.products {
+        let orderID = ref.document().documentID
+        let orderDictionary: [String : Any] = ["customerAddress": order?.customerAddress ?? "",
+                    "subtotal": order?.subtotal ?? "",
+                    "tax": order?.tax ?? "",
+                    "orderTime": helper.getCurrentDate(),
+                    "orderType": order?.orderType ?? "",
+                    "userEmail": order?.userEmail ?? "",
+                    "userPhone": order?.userPhone ?? "",
+                    kORDERSTATUS: "PLACED",
+                    "fullName": order?.fullName ?? "",
+                    "archived": "false",
+                    "total": order?.total ?? "",
+                    "pickUpAddress": order?.pickUpAddress ?? "",
+                    "pickUpTime": order?.pickUpTime ?? "",
+                    "specialInstructions": order?.specialInstructions ?? "",
+                    "deliveryFee": order?.deliveryFee ?? "",
+                    kPRODUCTS: order?.products ?? []]
+                
+        ref.document(orderID).setData(orderDictionary)
+        for product in products {
         //            ref.document(orderID).collection("Product").document().setData(product.productDictionary as! [String : Any])
-//            reference(.Users).document(email).collection("Kart").document(product.productTitle).delete()
-//        }
+            reference(.Users).document(email).collection("Kart").document(product.productTitle).delete()
+        }
     }
     
     func placeGuestOrder(order: Order?) {
@@ -114,34 +123,37 @@ class CartViewModel: ObservableObject {
         let guestUserRef = reference(.GuestUsers).document(guestId).collection("OrderHistory")
         let orderID = guestUserRef.document().documentID
         let ordersRef = reference(.Orders).document(orderID)
-        let data = ["customerAddress": order?.customerAddress,
-                    "subtotal": order?.subtotal,
-                    "tax": order?.tax,
-                    "deliveryFee": order?.deliveryFee,
+        for product in products {
+            order?.products.append(product.productTitle + ";" + product.productQuantity)
+        }
+        
+        let orderDictionary: [String : Any] = ["customerAddress": order?.customerAddress ?? "",
+                    "subtotal": order?.subtotal ?? "",
+                    "tax": order?.tax ?? "",
                     "orderTime": helper.getCurrentDate(),
-                    "orderType": order?.orderType,
-                    "userEmail": order?.userEmail,
-                    "userPhone": order?.userPhone,
-                    "fullName": order?.fullName,
+                    "orderType": order?.orderType ?? "",
+                    "userEmail": order?.userEmail ?? "",
+                    "userPhone": order?.userPhone ?? "",
+                    kORDERSTATUS: "PLACED",
+                    "fullName": order?.fullName ?? "",
                     "archived": "false",
-                    "total": order?.total,
-                    "pickUpAddress": order?.pickUpAddress,
-                    "pickUpTime": order?.pickUpTime,
-                    "specialInstructions": order?.specialInstructions,
-                    kPRODUCTS: order?.products,
-                    kORDERSTATUS: "PLACED"
-                    ]
-        data.append
-        guestUserRef.document(orderID).setData(data as [String : Any])
-        ordersRef.setData(data as [String : Any])
+                    "total": order?.total ?? "",
+                    "pickUpAddress": order?.pickUpAddress ?? "",
+                    "pickUpTime": order?.pickUpTime ?? "",
+                    "specialInstructions": order?.specialInstructions ?? "",
+                    "deliveryFee": order?.deliveryFee ?? "",
+                    kPRODUCTS: order?.products ?? []]
+        
+        guestUserRef.document(orderID).setData(orderDictionary)
+        ordersRef.setData(orderDictionary as [String : Any])
     }
     
-    func fetchOrderProducts(order: Order, completion: @escaping (_ products: [Product]) -> Void) {
-        var productsToReturn: [Product]
+    func fetchOrderProducts(order: Order) {
         let productNames = getProductNames(order: order)
+        summaryProducts = []
         
         for name in productNames {
-            let query = reference(.Products).whereField(kPRODUCTTITLE, isEqualTo: name)
+            let query = reference(.Products).whereField(kPRODUCTTITLE, isEqualTo: name)            
             query.getDocuments { (snapshot, error) in
                  if error != nil {
                      print(error!.localizedDescription)
@@ -152,15 +164,15 @@ class CartViewModel: ObservableObject {
                  }
                  if !snapshot.isEmpty {
                      for productDictionary in snapshot.documents {
-                         let productDictionary = productDictionary.data() as NSDictionary
+                        let productDictionary = productDictionary.data() as NSDictionary
                         let product = Product(dictionary: productDictionary as! [String : Any])
-                         productsToReturn.append(product)
+                        self.summaryProducts.append(product)
                      }
                  }
             }
-            if productsToReturn.count == productNames.count {
-                completion(productsToReturn)
-            }
+        }
+        if summaryProducts.count == productNames.count {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "productsLoaded"), object: nil)
         }
     }
     

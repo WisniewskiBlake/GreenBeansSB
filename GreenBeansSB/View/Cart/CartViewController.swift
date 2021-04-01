@@ -63,7 +63,7 @@ class CartViewController: UIViewController {
     }
     
     func hideCheckout() {
-        if order.products.isEmpty {
+        if products.isEmpty {
             checkoutButton.isHidden = true
         } else {
             checkoutButton.isHidden = false
