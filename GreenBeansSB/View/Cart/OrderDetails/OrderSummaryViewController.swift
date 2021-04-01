@@ -25,8 +25,7 @@ class OrderSummaryViewController: UIViewController {
     var total = ""
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "productsLoaded"), object: nil)
+        super.viewDidLoad()        
         getOrderDetails()
         configureUI()        
     }
@@ -38,22 +37,19 @@ class OrderSummaryViewController: UIViewController {
     }
     
     func getOrderDetails() {
-        self.subtotal = cartViewModel?.calculateSubtotal(productList: (cartViewModel?.getCart())!)
-        self.tax = cartViewModel?.calculateTax(subtotal: subtotal)
-        self.total = cartViewModel?.calculateTotal(subtotal: subtotal!, tax: tax!)
+        self.subtotal = (cartViewModel?.calculateSubtotal(productList: cartViewModel?.getCart() ?? []))!
+        self.tax = (cartViewModel?.calculateTax(subtotal: subtotal))!
+        self.total = (cartViewModel?.calculateTotal(subtotal: subtotal, tax: tax))!
         order?.subtotal = subtotal
         order?.tax = tax
         order?.total = total
         order?.deliveryFee = order!.deliveryFee
-        //cartViewModel?.fetchOrderProducts(order: order!)
-    }
-    
-    @objc func setDataSource() {
+
         self.dataSource.products = (cartViewModel?.getCart())!
         self.tableView.dataSource = self.dataSource
         self.tableView.reloadData()
     }
-    
+
     @IBAction func placeOrderClicked(_ sender: Any) {
         if instructionsTextField.text != "" {
             order?.specialInstructions = instructionsTextField.text!

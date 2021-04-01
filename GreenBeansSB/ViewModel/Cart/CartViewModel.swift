@@ -148,7 +148,7 @@ class CartViewModel: ObservableObject {
         ordersRef.setData(orderDictionary as [String : Any])
     }
     
-    func fetchOrderProducts(order: Order) {
+    func fetchSummaryProducts(order: Order) {
         let productNames = getProductNames(order: order)
         summaryProducts = []
         
