@@ -102,7 +102,7 @@ class CartViewModel: ObservableObject {
                     "userEmail": order?.userEmail ?? "",
                     "userPhone": order?.userPhone ?? "",
                     kORDERSTATUS: "PLACED",
-                    "fullName": order?.fullName ?? "",
+                    "fullName": fullName,
                     "archived": "false",
                     "total": order?.total ?? "",
                     "pickUpAddress": order?.pickUpAddress ?? "",
@@ -113,7 +113,6 @@ class CartViewModel: ObservableObject {
                 
         ref.document(orderID).setData(orderDictionary)
         for product in products {
-        //            ref.document(orderID).collection("Product").document().setData(product.productDictionary as! [String : Any])
             reference(.Users).document(email).collection("Kart").document(product.productTitle).delete()
         }
     }
@@ -151,7 +150,6 @@ class CartViewModel: ObservableObject {
     func fetchSummaryProducts(order: Order) {
         let productNames = getProductNames(order: order)
         summaryProducts = []
-        
         for name in productNames {
             let query = reference(.Products).whereField(kPRODUCTTITLE, isEqualTo: name)            
             query.getDocuments { (snapshot, error) in
@@ -159,9 +157,7 @@ class CartViewModel: ObservableObject {
                      print(error!.localizedDescription)
                      return
                  }
-                 guard let snapshot = snapshot else {
-                     return
-                 }
+                 guard let snapshot = snapshot else { return }
                  if !snapshot.isEmpty {
                      for productDictionary in snapshot.documents {
                         let productDictionary = productDictionary.data() as NSDictionary
@@ -187,12 +183,19 @@ class CartViewModel: ObservableObject {
         for product in productList {
             total = total + Double(product.productPrice)! * Double(product.productQuantity + ".0")!
         }
-        return String(total)
+        let roundedSubtotal = String(format: "%.2f", total)
+        return String(roundedSubtotal)
     }
     
-    func calculateTotal(subtotal: String, tax: String) -> String {
-        let total = Double(subtotal)! + Double(tax)!
-        return String(format: "%.2f", total)
+    func calculateTotal(subtotal: String, tax: String, order: Order) -> String {
+        var total: Double?
+        if order.orderType == "delivery" {
+            total = Double(subtotal)! + Double(tax)! + Double(order.deliveryFee)!
+        } else {
+            total = Double(subtotal)! + Double(tax)!
+        }
+        
+        return String(format: "%.2f", total!)
     }
     
     func userInSession() -> Bool? {

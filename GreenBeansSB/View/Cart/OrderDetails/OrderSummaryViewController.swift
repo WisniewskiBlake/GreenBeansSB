@@ -31,6 +31,11 @@ class OrderSummaryViewController: UIViewController {
     }
     
     func configureUI() {
+        if order?.orderType == "delivery" {
+            deliveryLabel.text = "$" + order!.deliveryFee
+        } else {
+            deliveryLabel.text = "N/A"
+        }
         subtotalLabel.text = "$" + subtotal
         taxLabel.text = "$" + tax
         totalLabel.text = "$" + total
@@ -39,11 +44,10 @@ class OrderSummaryViewController: UIViewController {
     func getOrderDetails() {
         self.subtotal = (cartViewModel?.calculateSubtotal(productList: cartViewModel?.getCart() ?? []))!
         self.tax = (cartViewModel?.calculateTax(subtotal: subtotal))!
-        self.total = (cartViewModel?.calculateTotal(subtotal: subtotal, tax: tax))!
+        self.total = (cartViewModel?.calculateTotal(subtotal: subtotal, tax: tax, order: order!))!
         order?.subtotal = subtotal
         order?.tax = tax
         order?.total = total
-        order?.deliveryFee = order!.deliveryFee
 
         self.dataSource.products = (cartViewModel?.getCart())!
         self.tableView.dataSource = self.dataSource

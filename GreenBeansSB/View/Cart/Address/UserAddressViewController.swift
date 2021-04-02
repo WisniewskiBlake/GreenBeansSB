@@ -33,13 +33,31 @@ class UserAddressViewController: UIViewController {
     @objc func setDataSource() {
         addresses = viewModel.getAddresses()
         dataSource.addresses = addresses
+        dataSource.viewModel = viewModel
         tableView.dataSource = dataSource
+        tableView.delegate = dataSource
         tableView.reloadData()
     }
     
     @objc func updateUI() {
         tableView.reloadData()
-    }    
+    }
+    
+    @objc func getDeliveryFee() {
+        if let row = tableView.indexPathForSelectedRow?.row {
+            order?.customerAddress = dataSource.addresses[row]
+            self.viewModel.getCoordinate(addressString: order!.customerAddress, completionHandler: { (coordinate, error) -> Void in
+                if error == nil {
+                    self.viewModel.calcDeliveryFee(endCoordinate: coordinate)
+                }
+            })            
+        }
+    }
+    
+    @objc func loadedFee() {
+        order?.deliveryFee = viewModel.getDeliveryFee()
+        performSegue(withIdentifier: "OrderSummary", sender: self)
+    }
 
     @IBAction func backButtonClicked(_ sender: Any) {
         addTransitionLeft()
@@ -51,23 +69,22 @@ class UserAddressViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NewAddress", let userAddressViewController = segue.destination as? NewAddressViewController {
-            userAddressViewController.addressViewModel = viewModel
-            userAddressViewController.modalPresentationStyle = .fullScreen
+        if segue.identifier == "NewAddress", let newAddressViewController = segue.destination as? NewAddressViewController {
+            newAddressViewController.addressViewModel = viewModel
+            newAddressViewController.modalPresentationStyle = .fullScreen
         } else {
-            if let row = tableView.indexPathForSelectedRow?.row {
-                order?.customerAddress = dataSource.addresses[row]
-                if let orderSummaryVC = segue.destination as? OrderSummaryViewController {
-                    orderSummaryVC.cartViewModel = cartViewModel
-                    orderSummaryVC.order = order
-                    orderSummaryVC.modalPresentationStyle = .fullScreen
-                }
+            if let orderSummaryVC = segue.destination as? OrderSummaryViewController {
+                orderSummaryVC.cartViewModel = self.cartViewModel
+                orderSummaryVC.order = self.order
+                orderSummaryVC.modalPresentationStyle = .fullScreen
             }
         }
     }
     
     func addNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedAddresses"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadedFee), name: NSNotification.Name(rawValue: "calculatedFee"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getDeliveryFee), name: NSNotification.Name(rawValue: "addressCellClicked"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "newAddress"), object: nil)
     }
 }

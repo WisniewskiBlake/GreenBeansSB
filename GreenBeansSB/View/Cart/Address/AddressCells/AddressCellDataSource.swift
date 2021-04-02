@@ -9,6 +9,7 @@ import UIKit
 
 class AddressCellDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     var addresses: [String] = []
+    var viewModel: AddressViewModel?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return addresses.count
@@ -22,7 +23,15 @@ class AddressCellDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "cellClicked"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "addressCellClicked"), object: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {            
+            viewModel?.removeUserAddress(address: addresses[indexPath.row], indexPath: indexPath)
+            addresses.remove(at: indexPath.row)            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
 

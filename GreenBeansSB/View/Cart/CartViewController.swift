@@ -24,7 +24,6 @@ class CartViewController: UIViewController {
     
     @objc func setDataSource() {
         products = cartViewModel.getCart()
-        //order.products = products
         hideCheckout()
         dataSource.viewModel = cartViewModel
         dataSource.products = products

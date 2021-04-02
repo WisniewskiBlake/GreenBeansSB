@@ -1912,7 +1912,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addressLabel" destination="6L7-53-g3B" id="mES-p5-jqe"/>
-                                            <segue destination="c08-QL-Qbk" kind="show" identifier="OrderSummary" id="ao2-By-x0I"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1986,6 +1985,7 @@
                     <connections>
                         <outlet property="tableView" destination="9Zc-go-al2" id="bfk-ce-4Du"/>
                         <segue destination="d59-4r-ahC" kind="show" identifier="NewAddress" id="gIr-ae-nkV"/>
+                        <segue destination="c08-QL-Qbk" kind="show" identifier="OrderSummary" id="sc1-bh-xaJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnV-mc-U4Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2435,7 +2435,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ao2-By-x0I"/>
+        <segue reference="gIr-ae-nkV"/>
+        <segue reference="sc1-bh-xaJ"/>
         <segue reference="db9-kp-aH7"/>
         <segue reference="uLY-vD-L42"/>
         <segue reference="hdS-1l-w7Q"/>

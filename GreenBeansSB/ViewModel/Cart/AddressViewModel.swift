@@ -11,7 +11,6 @@ import MapKit
 
 class AddressViewModel: ObservableObject {
     var addresses: [String] = []
-    var address: String?
     var deliveryFee: Double = 0.0
     private var userSession = AuthViewModel.shared.userSession
     
@@ -46,13 +45,10 @@ class AddressViewModel: ObservableObject {
     
     func addNewUserAddress(address: String) {
         guard let email = userSession?.email else { return }
-        let address = ["address": address]
-        reference(.Users).document(email).collection("Address").addDocument(data: address)
+        let data = ["address": address]
+        let ref = reference(.Users).document(email).collection("Address").document(address)
+        ref.setData(data)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newAddress"), object: nil)
-    }
-    
-    func setUserAddress(address: String) {
-        self.address = address
     }
     
     func calcDeliveryFee(address: String) {
@@ -124,6 +120,19 @@ class AddressViewModel: ObservableObject {
                 }
             }
             completionHandler(kCLLocationCoordinate2DInvalid, error as NSError?)
+        }
+    }
+    
+    func removeUserAddress(address: String, indexPath: IndexPath) {
+        guard let email = userSession?.email else { return }
+        reference(.Users).document(email).collection("Address").document(address).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                self.addresses.remove(at: indexPath.row)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "productRemoved"), object: nil)
+                print("Document successfully removed!")
+            }
         }
     }
     
