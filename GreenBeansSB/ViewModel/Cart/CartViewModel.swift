@@ -88,12 +88,12 @@ class CartViewModel: ObservableObject {
     func placeUserOrder(order: Order?) {
         guard let fullName = AuthViewModel.shared.user?.fullName else { return }
         guard let email = AuthViewModel.shared.userSession?.email else { return }
-        let ref = reference(.Users).document(email).collection("OrderHistory")
+        let userRef = reference(.Users).document(email).collection("OrderHistory")
+        let orderID = userRef.document().documentID
+        let ordersRef = reference(.Orders).document(orderID)
         for product in products {
             order?.products.append(product.productTitle + ";" + product.productQuantity)
         }
-        
-        let orderID = ref.document().documentID
         let orderDictionary: [String : Any] = ["customerAddress": order?.customerAddress ?? "",
                     "subtotal": order?.subtotal ?? "",
                     "tax": order?.tax ?? "",
@@ -111,7 +111,8 @@ class CartViewModel: ObservableObject {
                     "deliveryFee": order?.deliveryFee ?? "",
                     kPRODUCTS: order?.products ?? []]
                 
-        ref.document(orderID).setData(orderDictionary)
+        userRef.document(orderID).setData(orderDictionary)
+        ordersRef.setData(orderDictionary as [String : Any])
         for product in products {
             reference(.Users).document(email).collection("Kart").document(product.productTitle).delete()
         }
@@ -125,7 +126,6 @@ class CartViewModel: ObservableObject {
         for product in products {
             order?.products.append(product.productTitle + ";" + product.productQuantity)
         }
-        
         let orderDictionary: [String : Any] = ["customerAddress": order?.customerAddress ?? "",
                     "subtotal": order?.subtotal ?? "",
                     "tax": order?.tax ?? "",
@@ -145,6 +145,9 @@ class CartViewModel: ObservableObject {
         
         guestUserRef.document(orderID).setData(orderDictionary)
         ordersRef.setData(orderDictionary as [String : Any])
+        for product in products {
+            reference(.GuestUsers).document(guestId).collection("Cart").document(product.productTitle).delete()
+        }
     }
     
     func fetchSummaryProducts(order: Order) {
