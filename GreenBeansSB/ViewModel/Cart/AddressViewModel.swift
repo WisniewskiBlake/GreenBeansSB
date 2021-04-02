@@ -46,7 +46,7 @@ class AddressViewModel: ObservableObject {
     
     func addNewUserAddress(address: String) {
         guard let email = userSession?.email else { return }
-        let address = ["address": address.lowercased()]
+        let address = ["address": address]
         reference(.Users).document(email).collection("Address").addDocument(data: address)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newAddress"), object: nil)
     }

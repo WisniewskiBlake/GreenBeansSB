@@ -10,6 +10,8 @@ import JSSAlertView
 
 class NewAddressViewController: UIViewController {
     @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var cityStateTextField: UITextField!
+    @IBOutlet weak var zipTextField: UITextField!
     
     var addressViewModel: AddressViewModel?
     
@@ -19,17 +21,17 @@ class NewAddressViewController: UIViewController {
     }
     
     @IBAction func continueButtonClicked(_ sender: Any) {
-        if addressTextField.text!.isEmpty || addressTextField.text == "" {
+        if addressTextField.text == "" || cityStateTextField.text == "" || zipTextField.text == "" {
             let alertview = JSSAlertView().show(self,
-              title: "Field is empty!",
+              title: "One or more fields are empty!",
               buttonText: "Ok"
             )
-            alertview.addAction { self.dismissController() }
             alertview.setTitleFont("ClearSans-Bold") // Title font
             alertview.setTextFont("ClearSans") // Alert body text font
             alertview.setButtonFont("ClearSans-Light") // Button text font
         } else {
-            addressViewModel?.addNewUserAddress(address: addressTextField.text!)            
+            let fullAddress = addressTextField.text! + ", " + cityStateTextField.text! + " " + zipTextField.text!
+            addressViewModel?.addNewUserAddress(address: fullAddress)
         }
     }
     

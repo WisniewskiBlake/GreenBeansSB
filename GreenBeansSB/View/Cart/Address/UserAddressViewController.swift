@@ -46,6 +46,10 @@ class UserAddressViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func newButtonClicked(_ sender: Any) {
+        performSegue(withIdentifier: "NewAddress", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewAddress", let userAddressViewController = segue.destination as? NewAddressViewController {
             userAddressViewController.addressViewModel = viewModel
