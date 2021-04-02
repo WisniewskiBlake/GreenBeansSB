@@ -18,7 +18,7 @@ class PickupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(navigate), name: NSNotification.Name(rawValue: "cellClicked"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(navigate), name: NSNotification.Name(rawValue: "addressCellClicked"), object: nil)
         dataSource.addresses = addresses
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
@@ -47,7 +47,7 @@ class PickupViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let row = tableView.indexPathForSelectedRow?.row {
-            order?.pickUpAddress = dataSource.addresses[row]
+            order?.pickUpAddress = addresses[row]
             if segue.identifier == "ToOrderSummary", let orderSummaryVC = segue.destination as? OrderSummaryViewController {
                 orderSummaryVC.cartViewModel = cartViewModel
                 orderSummaryVC.order = order

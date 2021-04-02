@@ -99,7 +99,7 @@ class CartViewModel: ObservableObject {
                     "tax": order?.tax ?? "",
                     "orderTime": helper.getCurrentDate(),
                     "orderType": order?.orderType ?? "",
-                    "userEmail": order?.userEmail ?? "",
+                    "userEmail": email,
                     "userPhone": order?.userPhone ?? "",
                     kORDERSTATUS: "PLACED",
                     "fullName": fullName,
