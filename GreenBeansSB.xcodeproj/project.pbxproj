@@ -57,12 +57,19 @@
 		BB61A87A25F6149F00EB1228 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A87925F6149F00EB1228 /* AddressCell.swift */; };
 		BB61A88925F6158E00EB1228 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A88825F6158E00EB1228 /* AddressViewModel.swift */; };
 		BB61A89125F6198900EB1228 /* AddressCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A89025F6198900EB1228 /* AddressCellDataSource.swift */; };
+		BB76D079261C4A67002E4B62 /* PromisesTestHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = BB76D078261C4A67002E4B62 /* PromisesTestHelpers */; };
+		BB76D07B261C4A67002E4B62 /* Promises in Frameworks */ = {isa = PBXBuildFile; productRef = BB76D07A261C4A67002E4B62 /* Promises */; };
+		BB76D07D261C4A67002E4B62 /* FBLPromises in Frameworks */ = {isa = PBXBuildFile; productRef = BB76D07C261C4A67002E4B62 /* FBLPromises */; };
+		BB76D07F261C4A67002E4B62 /* FBLPromisesTestHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = BB76D07E261C4A67002E4B62 /* FBLPromisesTestHelpers */; };
 		BB8601112601CEFB0093EE16 /* PickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8601102601CEFB0093EE16 /* PickupViewController.swift */; };
 		BB86011E260201320093EE16 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB86011D260201320093EE16 /* TimeViewController.swift */; };
 		BB860123260424160093EE16 /* GuestContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB860122260424160093EE16 /* GuestContactViewController.swift */; };
 		BB86013D260974140093EE16 /* OrderHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB86013C260974140093EE16 /* OrderHistoryViewModel.swift */; };
 		BB860146260C32AE0093EE16 /* HistoryCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB860145260C32AE0093EE16 /* HistoryCellDataSource.swift */; };
 		BB86014B260C32C40093EE16 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB86014A260C32C40093EE16 /* HistoryCell.swift */; };
+		BB9F3DB4261C2561003C93FA /* GuestAutoAddr.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F3DB3261C2561003C93FA /* GuestAutoAddr.swift */; };
+		BB9F3DBA261C2780003C93FA /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F3DB9261C2780003C93FA /* SearchResults.swift */; };
+		BB9F3DBF261C27D0003C93FA /* AddressSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F3DBE261C27D0003C93FA /* AddressSearchBar.swift */; };
 		E7BBEAD6FCFC82270EF5A7FA /* Pods_GreenBeansSB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70819FF9B6009D94BE2A5307 /* Pods_GreenBeansSB.framework */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +154,9 @@
 		BB86013C260974140093EE16 /* OrderHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewModel.swift; sourceTree = "<group>"; };
 		BB860145260C32AE0093EE16 /* HistoryCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCellDataSource.swift; sourceTree = "<group>"; };
 		BB86014A260C32C40093EE16 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		BB9F3DB3261C2561003C93FA /* GuestAutoAddr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestAutoAddr.swift; sourceTree = "<group>"; };
+		BB9F3DB9261C2780003C93FA /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
+		BB9F3DBE261C27D0003C93FA /* AddressSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,11 +164,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB76D079261C4A67002E4B62 /* PromisesTestHelpers in Frameworks */,
 				BB61A7AB25EE142500EB1228 /* FirebaseFunctions in Frameworks */,
 				BB61A7B125EE142500EB1228 /* FirebaseFirestore in Frameworks */,
+				BB76D07F261C4A67002E4B62 /* FBLPromisesTestHelpers in Frameworks */,
 				BB61A7B325EE142500EB1228 /* FirebaseMessaging in Frameworks */,
 				BB61A7AF25EE142500EB1228 /* FirebaseAuth in Frameworks */,
+				BB76D07B261C4A67002E4B62 /* Promises in Frameworks */,
 				BB61A7EE25EF3E2B00EB1228 /* SideMenu in Frameworks */,
+				BB76D07D261C4A67002E4B62 /* FBLPromises in Frameworks */,
 				BB61A7AD25EE142500EB1228 /* FirebaseStorage in Frameworks */,
 				E7BBEAD6FCFC82270EF5A7FA /* Pods_GreenBeansSB.framework in Frameworks */,
 			);
@@ -393,6 +407,7 @@
 		BB61A86825F60B9300EB1228 /* Address */ = {
 			isa = PBXGroup;
 			children = (
+				BB9F3DB8261C274C003C93FA /* AutoComplete */,
 				BB8601152602008C0093EE16 /* AddressCells */,
 				BB61A86C25F60BD400EB1228 /* GuestAddressViewController.swift */,
 				BB860122260424160093EE16 /* GuestContactViewController.swift */,
@@ -437,6 +452,16 @@
 			path = HistoryCell;
 			sourceTree = "<group>";
 		};
+		BB9F3DB8261C274C003C93FA /* AutoComplete */ = {
+			isa = PBXGroup;
+			children = (
+				BB9F3DB3261C2561003C93FA /* GuestAutoAddr.swift */,
+				BB9F3DB9261C2780003C93FA /* SearchResults.swift */,
+				BB9F3DBE261C27D0003C93FA /* AddressSearchBar.swift */,
+			);
+			path = AutoComplete;
+			sourceTree = "<group>";
+		};
 		F581DF55129128CA8A966A51 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +497,7 @@
 				BB61A6FC25EDFB7100EB1228 /* Frameworks */,
 				BB61A6FD25EDFB7100EB1228 /* Resources */,
 				8B8AB00B697483DF6F2ACC8E /* [CP] Embed Pods Frameworks */,
+				29D58AFAE721D644BABA8C55 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -485,6 +511,10 @@
 				BB61A7B025EE142500EB1228 /* FirebaseFirestore */,
 				BB61A7B225EE142500EB1228 /* FirebaseMessaging */,
 				BB61A7ED25EF3E2B00EB1228 /* SideMenu */,
+				BB76D078261C4A67002E4B62 /* PromisesTestHelpers */,
+				BB76D07A261C4A67002E4B62 /* Promises */,
+				BB76D07C261C4A67002E4B62 /* FBLPromises */,
+				BB76D07E261C4A67002E4B62 /* FBLPromisesTestHelpers */,
 			);
 			productName = GreenBeansSB;
 			productReference = BB61A6FF25EDFB7100EB1228 /* GreenBeansSB.app */;
@@ -518,6 +548,7 @@
 				BB61A71D25EDFB7500EB1228 /* Frameworks */,
 				BB61A71E25EDFB7500EB1228 /* Resources */,
 				12E33EA25EB280A618A1F4A3 /* [CP] Embed Pods Frameworks */,
+				F80A6B741B221B1B4D4C5E4C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -564,6 +595,7 @@
 			packageReferences = (
 				BB61A7A925EE142500EB1228 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				BB61A7EC25EF3E2A00EB1228 /* XCRemoteSwiftPackageReference "SideMenu" */,
+				BB76D077261C4A67002E4B62 /* XCRemoteSwiftPackageReference "promises" */,
 			);
 			productRefGroup = BB61A70025EDFB7100EB1228 /* Products */;
 			projectDirPath = "";
@@ -666,6 +698,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		29D58AFAE721D644BABA8C55 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		843884B451831603C8ED4E1C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -705,6 +754,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F80A6B741B221B1B4D4C5E4C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -734,14 +800,17 @@
 				BB8601112601CEFB0093EE16 /* PickupViewController.swift in Sources */,
 				BB61A80B25EF5EB300EB1228 /* ProductListViewController.swift in Sources */,
 				BB86011E260201320093EE16 /* TimeViewController.swift in Sources */,
+				BB9F3DBA261C2780003C93FA /* SearchResults.swift in Sources */,
 				BB61A75B25EDFDBC00EB1228 /* RegisterViewController.swift in Sources */,
 				BB61A7F825EF48D900EB1228 /* CartViewController.swift in Sources */,
 				BB61A80625EF490D00EB1228 /* SettingsViewController.swift in Sources */,
+				BB9F3DBF261C27D0003C93FA /* AddressSearchBar.swift in Sources */,
 				BB61A74925EDFD2300EB1228 /* Order.swift in Sources */,
 				BB61A7D825EE252D00EB1228 /* CustomView.swift in Sources */,
 				BB860123260424160093EE16 /* GuestContactViewController.swift in Sources */,
 				BB61A82225EF7FB800EB1228 /* ProductListDataSource.swift in Sources */,
 				BB1A14BD25FB6262008F94C9 /* OrderSummaryViewController.swift in Sources */,
+				BB9F3DB4261C2561003C93FA /* GuestAutoAddr.swift in Sources */,
 				BB61A85F25F4A41A00EB1228 /* CartViewModel.swift in Sources */,
 				BB61A83925F1EEC600EB1228 /* ProductDetailViewController.swift in Sources */,
 				BB61A70325EDFB7100EB1228 /* AppDelegate.swift in Sources */,
@@ -845,6 +914,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -906,6 +976,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -933,6 +1004,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z2A427979Q;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = GreenBeansSB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -956,6 +1028,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z2A427979Q;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = GreenBeansSB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1115,6 +1188,14 @@
 				minimumVersion = 6.5.0;
 			};
 		};
+		BB76D077261C4A67002E4B62 /* XCRemoteSwiftPackageReference "promises" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/promises.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.12;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1147,6 +1228,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB61A7EC25EF3E2A00EB1228 /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
+		};
+		BB76D078261C4A67002E4B62 /* PromisesTestHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB76D077261C4A67002E4B62 /* XCRemoteSwiftPackageReference "promises" */;
+			productName = PromisesTestHelpers;
+		};
+		BB76D07A261C4A67002E4B62 /* Promises */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB76D077261C4A67002E4B62 /* XCRemoteSwiftPackageReference "promises" */;
+			productName = Promises;
+		};
+		BB76D07C261C4A67002E4B62 /* FBLPromises */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB76D077261C4A67002E4B62 /* XCRemoteSwiftPackageReference "promises" */;
+			productName = FBLPromises;
+		};
+		BB76D07E261C4A67002E4B62 /* FBLPromisesTestHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB76D077261C4A67002E4B62 /* XCRemoteSwiftPackageReference "promises" */;
+			productName = FBLPromisesTestHelpers;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

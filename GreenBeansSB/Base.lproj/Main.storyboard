@@ -1453,6 +1453,79 @@
             </objects>
             <point key="canvasLocation" x="1445" y="1047"/>
         </scene>
+        <!--Autocomplete Results View Controller-->
+        <scene sceneID="HHf-gR-CKl">
+            <objects>
+                <viewController storyboardIdentifier="guestAddressSearch" id="pHy-m2-za0" customClass="GMSAutocompleteResultsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VxH-zW-e0C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pcS-Ce-QVH">
+                                <rect key="frame" x="20" y="125" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="keZ-Wn-ryJ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9s-11-d0j">
+                                        <rect key="frame" x="111" y="50" width="192" height="41"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="OYw-fV-xtF"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="gcY-H8-EtC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvN-1m-0CP">
+                                        <rect key="frame" x="8" y="55" width="77" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="9vf-PO-vJH"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="F9M-Gb-9vO"/>
+                                            <constraint firstAttribute="width" constant="77" id="UU1-gM-9e8"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="77" id="tqF-AL-ePq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Cart" image="chevron.backward" catalog="system"/>
+                                        <connections>
+                                            <action selector="backButtonClicked:" destination="kbw-ui-plt" eventType="touchUpInside" id="EZ7-7f-mY5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="99" id="3ka-hx-4gg"/>
+                                    <constraint firstAttribute="trailing" secondItem="z9s-11-d0j" secondAttribute="trailing" constant="111" id="F2Q-kB-H6K"/>
+                                    <constraint firstAttribute="bottom" secondItem="z9s-11-d0j" secondAttribute="bottom" constant="8" id="FPH-nW-f2M"/>
+                                    <constraint firstItem="z9s-11-d0j" firstAttribute="top" secondItem="keZ-Wn-ryJ" secondAttribute="top" constant="50" id="NeY-nb-dON"/>
+                                    <constraint firstItem="z9s-11-d0j" firstAttribute="centerX" secondItem="keZ-Wn-ryJ" secondAttribute="centerX" id="TFL-2V-ewO"/>
+                                    <constraint firstAttribute="width" constant="414" id="a82-ac-D2h"/>
+                                    <constraint firstAttribute="bottom" secondItem="KvN-1m-0CP" secondAttribute="bottom" constant="8" id="mtV-aZ-80f"/>
+                                    <constraint firstItem="KvN-1m-0CP" firstAttribute="leading" secondItem="keZ-Wn-ryJ" secondAttribute="leading" constant="8" id="sSe-UC-2fg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="avY-J1-tG0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pcS-Ce-QVH" firstAttribute="leading" secondItem="avY-J1-tG0" secondAttribute="leading" constant="20" id="EJz-jl-xn8"/>
+                            <constraint firstItem="pcS-Ce-QVH" firstAttribute="top" secondItem="avY-J1-tG0" secondAttribute="top" constant="81" id="HSh-5u-yH9"/>
+                            <constraint firstItem="avY-J1-tG0" firstAttribute="trailing" secondItem="pcS-Ce-QVH" secondAttribute="trailing" constant="20" id="SAT-QH-odm"/>
+                            <constraint firstItem="keZ-Wn-ryJ" firstAttribute="leading" secondItem="avY-J1-tG0" secondAttribute="leading" id="YTX-HD-U3C"/>
+                            <constraint firstItem="keZ-Wn-ryJ" firstAttribute="top" secondItem="VxH-zW-e0C" secondAttribute="top" id="dJB-wo-lb0"/>
+                            <constraint firstItem="keZ-Wn-ryJ" firstAttribute="trailing" secondItem="avY-J1-tG0" secondAttribute="trailing" id="wCE-Rv-6xY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="34S-me-uOC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NGn-0E-0jl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1489.8550724637682" y="1809.375"/>
+        </scene>
         <!--Time View Controller-->
         <scene sceneID="Abq-FV-gE7">
             <objects>
@@ -1542,6 +1615,7 @@
                         <outlet property="datePicker" destination="DJK-c5-vDY" id="36D-aX-YlP"/>
                         <segue destination="B5G-QH-ifv" kind="show" identifier="SelectPickUpAddress" id="KuB-Ub-l0b"/>
                         <segue destination="kbw-ui-plt" kind="show" identifier="EnterGuestAddress" id="hdS-1l-w7Q"/>
+                        <segue destination="pHy-m2-za0" kind="show" identifier="GuestAddressSearch" id="qOk-eo-ceX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="juH-9V-U7m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2443,10 +2517,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gIr-ae-nkV"/>
         <segue reference="xsf-cU-N6e"/>
         <segue reference="db9-kp-aH7"/>
-        <segue reference="sQV-T3-k3t"/>
+        <segue reference="uLY-vD-L42"/>
         <segue reference="hdS-1l-w7Q"/>
         <segue reference="gyn-Jj-ocM"/>
         <segue reference="ci1-OT-9Bl"/>

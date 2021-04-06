@@ -11,18 +11,17 @@ import FirebaseCore
 import CoreLocation
 import FirebaseAuth
 import FirebaseFirestore
+import GooglePlaces
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         let settings = FirestoreSettings()
         settings.isPersistenceEnabled = false
         let db = Firestore.firestore()
         db.settings = settings
+        GMSPlacesClient.provideAPIKey("AIzaSyBVZTXBOpYMOck9-8oSYKmDuHjLskLrzw8")
         
 //        NotificationCenter.default.addObserver(forName: NSNotification.Name("UserLoggedIn"), object: nil, queue: nil) { (note) in
 //            let dictionary: NSDictionary = note

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import JSSAlertView
+//import JSSAlertView
 
 class TimeViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -31,7 +31,8 @@ class TimeViewController: UIViewController {
                 if order?.orderType == "pickUp" {
                     performSegue(withIdentifier: "SelectPickUpAddress", sender: self)
                 } else {
-                    performSegue(withIdentifier: "EnterGuestAddress", sender: self)
+                   // performSegue(withIdentifier: "EnterGuestAddress", sender: self)
+                    performSegue(withIdentifier: "GuestAddressSearch", sender: self)
                 }
             }            
         } else {
@@ -53,6 +54,9 @@ class TimeViewController: UIViewController {
         if segue.identifier == "EnterGuestAddress", let pickUpViewController = segue.destination as? GuestAddressViewController {
             pickUpViewController.cartViewModel = cartViewModel
             pickUpViewController.order = order
+            pickUpViewController.modalPresentationStyle = .fullScreen
+        }
+        if segue.identifier == "GuestAddressSearch", let pickUpViewController = segue.destination as? GuestAutoAddr {            
             pickUpViewController.modalPresentationStyle = .fullScreen
         }
     }
