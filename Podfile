@@ -8,6 +8,7 @@ target 'GreenBeansSB' do
   # Pods for GreenBeansSB
 pod 'LGButton'
 pod 'JSSAlertView'
+pod 'GooglePlaces', '4.2.0'
 
   target 'GreenBeansSBTests' do
     inherit! :search_paths

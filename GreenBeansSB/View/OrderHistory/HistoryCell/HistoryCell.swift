@@ -17,7 +17,7 @@ class HistoryCell: UITableViewCell {
     
     func generateCell(order: Order, indexPath: IndexPath) {
         self.indexPath = indexPath
-        productTitleLabel.text = order.products[indexPath.row]
+        productTitleLabel.text = String(order.products.count) + " product(s)"
         productStatusLabel.text = order.orderStatus
         
     }

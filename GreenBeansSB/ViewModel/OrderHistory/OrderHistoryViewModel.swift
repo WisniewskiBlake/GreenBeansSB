@@ -11,7 +11,7 @@ import CoreLocation
 class OrderHistoryViewModel: ObservableObject {
     private var userSession = AuthViewModel.shared.userSession
     var products = [Product]()
-    var orders = [Order]()
+    var orders = [Order]()    
     
     init() { fetchOrderHistory() }
     
