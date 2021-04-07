@@ -310,6 +310,7 @@ PODS:
   - PromisesObjC (1.2.12)
   - PromisesSwift (1.2.12):
     - PromisesObjC (= 1.2.12)
+  - SideMenu (6.5.0)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -318,6 +319,7 @@ DEPENDENCIES:
   - JSSAlertView
   - LGButton
   - PromisesSwift
+  - SideMenu
 
 SPEC REPOS:
   trunk:
@@ -341,6 +343,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - PromisesSwift
+    - SideMenu
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -363,7 +366,8 @@ SPEC CHECKSUMS:
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   PromisesSwift: 64085cf6e5fc1b5001f90cf31e87a1f1621fefee
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 76410871666c01ee016e5d36e10ff19311f6a663
+PODFILE CHECKSUM: 406e6d6598228eada90583e495d08bc8f3701129
 
 COCOAPODS: 1.10.1

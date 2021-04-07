@@ -33,9 +33,7 @@ class CartViewController: UIViewController {
     
     @objc func updateUI() {
         products = dataSource.products
-        for product in products {
-            order.products.append(product.productTitle + ";" + product.productQuantity)
-        }        
+                
         tableView.reloadData()
     }
     
@@ -48,13 +46,11 @@ class CartViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        for product in products {
+            order.products.append(product.productTitle + ";" + product.productQuantity)
+        }
         if let destinationViewController = segue.destination as? OrderTypeViewController {
-            let transition = CATransition()
-            transition.duration = 0.5
-            transition.type = CATransitionType.push
-            transition.subtype = CATransitionSubtype.fromRight
-            transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
-            view.window!.layer.add(transition, forKey: kCATransition)
+            addTransitionRight()
             destinationViewController.order = order
             destinationViewController.cartViewModel = cartViewModel
             destinationViewController.modalPresentationStyle = .fullScreen

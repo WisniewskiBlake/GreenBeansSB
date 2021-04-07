@@ -12,6 +12,7 @@ target 'GreenBeansSB' do
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'PromisesSwift'
+pod 'SideMenu'
 
   target 'GreenBeansSBTests' do
     inherit! :search_paths

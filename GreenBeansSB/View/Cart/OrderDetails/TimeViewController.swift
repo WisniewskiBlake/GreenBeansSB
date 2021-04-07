@@ -31,8 +31,8 @@ class TimeViewController: UIViewController {
                 if order?.orderType == "pickUp" {
                     performSegue(withIdentifier: "SelectPickUpAddress", sender: self)
                 } else {
-                   // performSegue(withIdentifier: "EnterGuestAddress", sender: self)
-                    performSegue(withIdentifier: "GuestAddressSearch", sender: self)
+                    performSegue(withIdentifier: "EnterGuestAddress", sender: self)
+                    //performSegue(withIdentifier: "GuestAddressSearch", sender: self)
                 }
             }            
         } else {
@@ -56,8 +56,6 @@ class TimeViewController: UIViewController {
             pickUpViewController.order = order
             pickUpViewController.modalPresentationStyle = .fullScreen
         }
-        if segue.identifier == "GuestAddressSearch", let pickUpViewController = segue.destination as? GuestAutoAddr {            
-            pickUpViewController.modalPresentationStyle = .fullScreen
-        }
+        
     }
 }

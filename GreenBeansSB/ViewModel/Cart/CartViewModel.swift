@@ -91,9 +91,9 @@ class CartViewModel: ObservableObject {
         let userRef = reference(.Users).document(email).collection("OrderHistory")
         let orderID = userRef.document().documentID
         let ordersRef = reference(.Orders).document(orderID)
-        for product in products {
-            order?.products.append(product.productTitle + ";" + product.productQuantity)
-        }
+//        for product in products {
+//            order?.products.append(product.productTitle + ";" + product.productQuantity)
+//        }
         let orderDictionary: [String : Any] = ["customerAddress": order?.customerAddress ?? "",
                     "subtotal": order?.subtotal ?? "",
                     "tax": order?.tax ?? "",
@@ -123,9 +123,9 @@ class CartViewModel: ObservableObject {
         let guestUserRef = reference(.GuestUsers).document(guestId).collection("OrderHistory")
         let orderID = guestUserRef.document().documentID
         let ordersRef = reference(.Orders).document(orderID)
-        for product in products {
-            order?.products.append(product.productTitle + ";" + product.productQuantity)
-        }
+//        for product in products {
+//            order?.products.append(product.productTitle + ";" + product.productQuantity)
+//        }
         let orderDictionary: [String : Any] = ["customerAddress": order?.customerAddress ?? "",
                     "subtotal": order?.subtotal ?? "",
                     "tax": order?.tax ?? "",

@@ -48,16 +48,27 @@ class PickupViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let row = tableView.indexPathForSelectedRow?.row {
             order?.pickUpAddress = addresses[row]
-            if segue.identifier == "ToOrderSummary", let orderSummaryVC = segue.destination as? OrderSummaryViewController {
-                orderSummaryVC.cartViewModel = cartViewModel
-                orderSummaryVC.order = order
-                orderSummaryVC.modalPresentationStyle = .fullScreen
+            if (cartViewModel?.userInSession())! {
+                let orderSummaryVC = segue.destination as? OrderSummaryViewController
+                orderSummaryVC!.cartViewModel = cartViewModel
+                orderSummaryVC!.order = order
+                orderSummaryVC!.modalPresentationStyle = .fullScreen
+            } else {
+                let pickUpVC = segue.destination as? GuestContactViewController
+                pickUpVC!.cartViewModel = cartViewModel
+                pickUpVC!.order = order
+                pickUpVC!.modalPresentationStyle = .fullScreen
             }
-            if segue.identifier == "GuestContactDetails", let pickUpVC = segue.destination as? GuestContactViewController {
-                pickUpVC.cartViewModel = cartViewModel
-                pickUpVC.order = order
-                pickUpVC.modalPresentationStyle = .fullScreen
-            }
+//            if segue.identifier == "ToOrderSummary", let orderSummaryVC = segue.destination as? OrderSummaryViewController {
+//                orderSummaryVC.cartViewModel = cartViewModel
+//                orderSummaryVC.order = order
+//                orderSummaryVC.modalPresentationStyle = .fullScreen
+//            }
+//            if segue.identifier == "GuestContactDetails", let pickUpVC = segue.destination as? GuestContactViewController {
+//                pickUpVC.cartViewModel = cartViewModel
+//                pickUpVC.order = order
+//                pickUpVC.modalPresentationStyle = .fullScreen
+//            }
         }        
     }
 }

@@ -30,7 +30,8 @@ class OrderTypeViewController: UIViewController {
         if (cartViewModel?.userInSession())! {
             performSegue(withIdentifier: "UserDelivery", sender: self)
         } else {
-            performSegue(withIdentifier: "GuestDelivery", sender: self)
+//            performSegue(withIdentifier: "GuestDelivery", sender: self)
+            performSegue(withIdentifier: "GuestAddressSearch", sender: self)
         }
     }
     
@@ -54,6 +55,9 @@ class OrderTypeViewController: UIViewController {
             guestAddressViewController.cartViewModel = cartViewModel
             guestAddressViewController.order = order
             guestAddressViewController.modalPresentationStyle = .fullScreen
+        }
+        if segue.identifier == "GuestAddressSearch", let pickUpViewController = segue.destination as? GuestAutoAddr {
+//            pickUpViewController.modalPresentationStyle = .fullScreen
         }
     }
 }
