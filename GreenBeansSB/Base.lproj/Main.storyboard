@@ -1462,18 +1462,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVG-de-ccy">
-                                <rect key="frame" x="20" y="138" width="374" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="nBO-87-2NS">
+                                <rect key="frame" x="0.0" y="226" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCb-KS-YzY">
+                                <rect key="frame" x="20" y="319" width="374" height="30"/>
+                                <state key="normal" title="Continue"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="avY-J1-tG0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nBO-87-2NS" firstAttribute="top" secondItem="avY-J1-tG0" secondAttribute="top" constant="182" id="I4f-40-bwh"/>
+                            <constraint firstItem="avY-J1-tG0" firstAttribute="trailing" secondItem="zCb-KS-YzY" secondAttribute="trailing" constant="20" id="JPX-8o-GCE"/>
+                            <constraint firstItem="nBO-87-2NS" firstAttribute="trailing" secondItem="avY-J1-tG0" secondAttribute="trailing" id="PBS-1Y-wAK"/>
+                            <constraint firstItem="zCb-KS-YzY" firstAttribute="leading" secondItem="avY-J1-tG0" secondAttribute="leading" constant="20" id="RaG-hG-c3D"/>
+                            <constraint firstItem="zCb-KS-YzY" firstAttribute="top" secondItem="nBO-87-2NS" secondAttribute="bottom" constant="37" id="XVz-yn-SN4"/>
+                            <constraint firstItem="nBO-87-2NS" firstAttribute="leading" secondItem="avY-J1-tG0" secondAttribute="leading" id="cBr-xd-kGb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="34S-me-uOC"/>
+                    <connections>
+                        <outlet property="continueButton" destination="zCb-KS-YzY" id="Rmi-tD-u2p"/>
+                        <outlet property="searchBar" destination="nBO-87-2NS" id="yg0-da-Qcv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGn-0E-0jl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2474,7 +2487,7 @@
         <segue reference="WHG-7K-Mwd"/>
         <segue reference="uLY-vD-L42"/>
         <segue reference="1b5-we-Hdl"/>
-        <segue reference="3dc-hN-esi"/>
+        <segue reference="qOk-eo-ceX"/>
         <segue reference="MQ8-GQ-eFy"/>
         <segue reference="ci1-OT-9Bl"/>
     </inferredMetricsTieBreakers>

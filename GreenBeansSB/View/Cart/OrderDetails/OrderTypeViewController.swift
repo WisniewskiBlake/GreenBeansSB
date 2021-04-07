@@ -57,7 +57,7 @@ class OrderTypeViewController: UIViewController {
             guestAddressViewController.modalPresentationStyle = .fullScreen
         }
         if segue.identifier == "GuestAddressSearch", let pickUpViewController = segue.destination as? GuestAutoAddr {
-//            pickUpViewController.modalPresentationStyle = .fullScreen
+            pickUpViewController.modalPresentationStyle = .fullScreen
         }
     }
 }
