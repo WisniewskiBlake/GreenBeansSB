@@ -9,10 +9,11 @@ import UIKit
 import GooglePlaces
 
 class GuestAutoAddr: UIViewController {
-    private var tableView: UITableView!
-      private var tableDataSource: GMSAutocompleteTableDataSource!
+    
+    @IBOutlet weak var tableView: UITableView!
+    private var tableDataSource: GMSAutocompleteTableDataSource!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var continueButton: UIButton!
+    
     
       override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +24,14 @@ class GuestAutoAddr: UIViewController {
         tableDataSource = GMSAutocompleteTableDataSource()
         tableDataSource.delegate = self
 
-        tableView = UITableView(frame: CGRect(x: 0, y: 64, width: self.view.frame.size.width, height: self.view.frame.size.height - 44))
+        //tableView = UITableView(frame: CGRect(x: 0, y: 64, width: self.view.frame.size.width, height: self.view.frame.size.height - 44))
         tableView.delegate = tableDataSource
         tableView.dataSource = tableDataSource
 
         view.addSubview(tableView)
       }
+    @IBAction func backButtonClicked(_ sender: Any) {
+    }
 }
 
 extension GuestAutoAddr: UISearchBarDelegate {
