@@ -101,7 +101,7 @@ class AddressViewModel: ObservableObject {
                         let distanceInMiles = distance!/1609.344
                         self.deliveryFee = distanceInMiles
                         let seconds = route.expectedTravelTime
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "calculatedFee"), object: nil)
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "calcFee"), object: nil)
                      }
                })
             }

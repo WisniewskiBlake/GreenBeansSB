@@ -15,12 +15,14 @@ class Product {
     let productImageUrl: String
     var productQuantity: String
     let productHighlighted: String
+    let productDiscount: String
     let productStatus: String
     
     let productDictionary: NSMutableDictionary
         
     init(dictionary: [String: Any]) {
-        self.productHighlighted = dictionary["productHighlighted"] as? String ?? ""
+        self.productHighlighted = dictionary[kPRODUCTHIGHLIGHTED] as? String ?? ""
+        self.productDiscount = dictionary[kPRODUCTDISCOUNT] as? String ?? ""
         self.productDescription = dictionary["productDescription"] as? String ?? ""
         self.productTitle = dictionary["productTitle"] as? String ?? ""
         self.productPrice = dictionary["productPrice"] as? String ?? ""
@@ -29,7 +31,7 @@ class Product {
         self.productQuantity = dictionary["productQuantity"] as? String ?? ""
         self.productStatus = dictionary["productStatus"] as? String ?? ""
         
-        productDictionary = NSMutableDictionary(objects: [productTitle, productDescription, productPrice, productType, productImageUrl, productQuantity, productHighlighted, productStatus], forKeys: [kPRODUCTTITLE as NSCopying, kPRODUCTDESCRIPTION as NSCopying, kPRODUCTPRICE as NSCopying, kPRODUCTTYPE as NSCopying, kPRODUCTIMAGEURL as NSCopying, kPRODUCTQUANTITY as NSCopying, kPRODUCTHIGHLIGHTED as NSCopying, kPRODUCTSTATUS as NSCopying])
+        productDictionary = NSMutableDictionary(objects: [productTitle, productDescription, productPrice, productType, productImageUrl, productQuantity, productHighlighted, productStatus, productDiscount], forKeys: [kPRODUCTTITLE as NSCopying, kPRODUCTDESCRIPTION as NSCopying, kPRODUCTPRICE as NSCopying, kPRODUCTTYPE as NSCopying, kPRODUCTIMAGEURL as NSCopying, kPRODUCTQUANTITY as NSCopying, kPRODUCTHIGHLIGHTED as NSCopying, kPRODUCTSTATUS as NSCopying, kPRODUCTDISCOUNT as NSCopying])
     }
     
     init() {
@@ -42,5 +44,6 @@ class Product {
         self.productQuantity = ""
         self.productDictionary = [:]
         self.productStatus = ""
+        self.productDiscount = ""
     }
 }

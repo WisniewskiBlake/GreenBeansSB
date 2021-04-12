@@ -51,12 +51,9 @@ class OrderTypeViewController: UIViewController {
             userAddressViewController.order = order
             userAddressViewController.modalPresentationStyle = .fullScreen
         }
-        else if segue.identifier == "GuestDelivery", let guestAddressViewController = segue.destination as? GuestAddressViewController {
-            guestAddressViewController.cartViewModel = cartViewModel
-            guestAddressViewController.order = order
-            guestAddressViewController.modalPresentationStyle = .fullScreen
-        }
-        if segue.identifier == "GuestAddressSearch", let pickUpViewController = segue.destination as? GuestAutoAddr {
+        else if segue.identifier == "GuestAddressSearch", let pickUpViewController = segue.destination as? GuestAutoAddr {
+            pickUpViewController.cartViewModel = cartViewModel
+            pickUpViewController.order = order
             pickUpViewController.modalPresentationStyle = .fullScreen
         }
     }

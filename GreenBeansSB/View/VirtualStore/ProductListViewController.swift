@@ -73,6 +73,8 @@ extension ProductListViewController {
             categoryTitleLabel.text = "Concentrate"
         case 5:
             categoryTitleLabel.text = "Supplies"
+        case 6:
+            categoryTitleLabel.text = "On Sale"
         default:
             categoryTitleLabel.text = "None"
         }

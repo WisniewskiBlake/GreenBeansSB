@@ -14,6 +14,7 @@ class VirtualStoreViewController: UIViewController {
     @IBOutlet weak var edibleButton: UIButton!
     @IBOutlet weak var concentrateButton: UIButton!
     @IBOutlet weak var suppliesButton: UIButton!
+    @IBOutlet weak var discountedButton: UIButton!
     
     private var category = ""
     var isMenuClicked = false

@@ -18,8 +18,14 @@ class ProductListDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductCell
         let product = products[indexPath.row]
         cell.productTitle = product.productTitle
-        cell.productPrice = product.productPrice
+        cell.productPrice = "$" + product.productPrice
         cell.productDescription = product.productDescription
+        if product.productDiscount != "" {
+            cell.productDiscount = product.productDiscount + " Off!"
+        } else {
+            cell.productDiscount = ""
+        }
+        
         return cell
     }    
 }
