@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Firebase
 
 class ProductListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     var products: [Product] = []
+    //let storage = Storage.storage()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
@@ -17,6 +19,7 @@ class ProductListDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductCell
         let product = products[indexPath.row]
+        //let storageRef = storage.reference()
         cell.productTitle = product.productTitle
         cell.productPrice = "$" + product.productPrice
         cell.productDescription = product.productDescription

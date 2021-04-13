@@ -14,6 +14,9 @@
 		BB1A14AB25FAE4A0008F94C9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14AA25FAE4A0008F94C9 /* Address.swift */; };
 		BB1A14B825FB47E0008F94C9 /* NewAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14B725FB47E0008F94C9 /* NewAddressViewController.swift */; };
 		BB1A14BD25FB6262008F94C9 /* OrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14BC25FB6262008F94C9 /* OrderSummaryViewController.swift */; };
+		BB4D4D8C262548BA00581F83 /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4D4D8B262548BA00581F83 /* Designables.swift */; };
+		BB4D4D9226254E4E00581F83 /* Futura.ttc in Resources */ = {isa = PBXBuildFile; fileRef = BB4D4D9126254E4400581F83 /* Futura.ttc */; };
+		BB4D4D972625503000581F83 /* Pipetton DEMO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4D4D962625502C00581F83 /* Pipetton DEMO.ttf */; };
 		BB61A70325EDFB7100EB1228 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A70225EDFB7100EB1228 /* AppDelegate.swift */; };
 		BB61A70525EDFB7100EB1228 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */; };
 		BB61A70A25EDFB7100EB1228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB61A70825EDFB7100EB1228 /* Main.storyboard */; };
@@ -105,6 +108,9 @@
 		BB1A14AA25FAE4A0008F94C9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		BB1A14B725FB47E0008F94C9 /* NewAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAddressViewController.swift; sourceTree = "<group>"; };
 		BB1A14BC25FB6262008F94C9 /* OrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewController.swift; sourceTree = "<group>"; };
+		BB4D4D8B262548BA00581F83 /* Designables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
+		BB4D4D9126254E4400581F83 /* Futura.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Futura.ttc; sourceTree = "<group>"; };
+		BB4D4D962625502C00581F83 /* Pipetton DEMO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pipetton DEMO.ttf"; sourceTree = "<group>"; };
 		BB61A6FF25EDFB7100EB1228 /* GreenBeansSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenBeansSB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB61A70225EDFB7100EB1228 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +222,15 @@
 			path = OrderDetails;
 			sourceTree = "<group>";
 		};
+		BB4D4D9026254E1300581F83 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BB4D4D962625502C00581F83 /* Pipetton DEMO.ttf */,
+				BB4D4D9126254E4400581F83 /* Futura.ttc */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		BB61A6F625EDFB7000EB1228 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +256,7 @@
 		BB61A70125EDFB7100EB1228 /* GreenBeansSB */ = {
 			isa = PBXGroup;
 			children = (
+				BB4D4D9026254E1300581F83 /* fonts */,
 				BB61A7A425EE10A900EB1228 /* GoogleService-Info.plist */,
 				BB61A79325EE06FC00EB1228 /* Helpers */,
 				BB61A73725EDFBD900EB1228 /* Model */,
@@ -383,6 +399,7 @@
 				BB61A7D725EE252D00EB1228 /* CustomView.swift */,
 				BB61A82625EF953200EB1228 /* Constants.swift */,
 				BB61A83325F0E7EC00EB1228 /* CollectionReference.swift */,
+				BB4D4D8B262548BA00581F83 /* Designables.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -617,6 +634,8 @@
 				BB61A7A525EE10A900EB1228 /* GoogleService-Info.plist in Resources */,
 				BB61A70C25EDFB7400EB1228 /* Assets.xcassets in Resources */,
 				BB61A70A25EDFB7100EB1228 /* Main.storyboard in Resources */,
+				BB4D4D9226254E4E00581F83 /* Futura.ttc in Resources */,
+				BB4D4D972625503000581F83 /* Pipetton DEMO.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,6 +830,7 @@
 				BB61A82225EF7FB800EB1228 /* ProductListDataSource.swift in Sources */,
 				BB1A14BD25FB6262008F94C9 /* OrderSummaryViewController.swift in Sources */,
 				BB9F3DB4261C2561003C93FA /* GuestAutoAddr.swift in Sources */,
+				BB4D4D8C262548BA00581F83 /* Designables.swift in Sources */,
 				BB61A85F25F4A41A00EB1228 /* CartViewModel.swift in Sources */,
 				BB61A83925F1EEC600EB1228 /* ProductDetailViewController.swift in Sources */,
 				BB61A70325EDFB7100EB1228 /* AppDelegate.swift in Sources */,

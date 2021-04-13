@@ -25,9 +25,9 @@ class CartCell: UITableViewCell {
     func generateCell(product: Product, indexPath: IndexPath) {
         self.indexPath = indexPath
         productTitleLabel.text = product.productTitle
-        productPriceLabel.text = product.productPrice
-        productQuantityLabel.text = product.productQuantity
-        productCostTotalLabel.text = String(Double(product.productPrice)! * Double(product.productQuantity + ".0")!)
+        productPriceLabel.text = "$" + product.productPrice
+        productQuantityLabel.text = "x" + product.productQuantity
+        productCostTotalLabel.text = "$" + String(Double(product.productPrice)! * Double(product.productQuantity + ".0")!)
     }
     
     @IBAction func removeButtonClicked(_ sender: Any) {
