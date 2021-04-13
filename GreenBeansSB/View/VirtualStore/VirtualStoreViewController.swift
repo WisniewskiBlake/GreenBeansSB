@@ -10,23 +10,39 @@ import LGButton
 
 class VirtualStoreViewController: UIViewController {
     @IBOutlet weak var menuButton: UIButton!
-    @IBOutlet weak var allButton: UIButton!
-    @IBOutlet weak var merchButton: UIButton!
-    @IBOutlet weak var edibleButton: UIButton!
-    @IBOutlet weak var concentrateButton: UIButton!
-    @IBOutlet weak var suppliesButton: UIButton!
-    @IBOutlet weak var discountedButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var allButton: LGButton!
+    @IBOutlet weak var onSaleButton: LGButton!
     
+    var dataSource = ProductListDataSource()
+    var viewModel = VirtualStoreViewModel()
+    private var products: [Product] = []
     private var tag = ""
     var isMenuClicked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedProducts"), object: nil)
+        allButton.gradientStartColor = #colorLiteral(red: 1, green: 0.4314318299, blue: 0.7802562118, alpha: 1)
+        allButton.gradientEndColor = #colorLiteral(red: 1, green: 0.5957168212, blue: 0.8018686056, alpha: 1)
+        viewModel.fetchAllProducts(category: "All Products")
+    }
+    
+    @objc func setDataSource() {
+        products = viewModel.getProducts()
+        dataSource.products = products
+        tableView.dataSource = dataSource
+        tableView.reloadData()
     }
 
     @IBAction func allClicked(_ sender: Any) {
-        self.tag = String((sender as AnyObject).tag)
-        performSegue(withIdentifier: "Any", sender: self)
+        viewModel.fetchAllProducts(category: "All Products")
+    }
+    
+    @IBAction func onSaleClicked(_ sender: Any) {
+        viewModel.fetchAllProducts(category: "On Sale")
+        onSaleButton.gradientStartColor = #colorLiteral(red: 1, green: 0.4314318299, blue: 0.7802562118, alpha: 1)
+        onSaleButton.gradientEndColor = #colorLiteral(red: 1, green: 0.5957168212, blue: 0.8018686056, alpha: 1)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
