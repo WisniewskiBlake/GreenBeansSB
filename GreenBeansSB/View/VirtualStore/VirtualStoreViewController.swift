@@ -51,7 +51,17 @@ class VirtualStoreViewController: UIViewController {
     }
     
     @objc func cellClicked() {
-        performSegue(withIdentifier: "Any", sender: self)
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "productDetailVC") as? ProductDetailViewController
+        {
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let product = dataSource.products[row]
+            vc.product = product
+            vc.viewModel = viewModel
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+        }
+        //performSegue(withIdentifier: "Any", sender: self)
     }
 
     @IBAction func allClicked(_ sender: Any) {

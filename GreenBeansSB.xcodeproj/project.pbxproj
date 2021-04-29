@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0D7132EC57EA136C45D15B00 /* Pods_GreenBeansSBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB0C66E156FC29B557F8EE /* Pods_GreenBeansSBTests.framework */; };
 		2C78A47E48B36CB1BF184454 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3039C464876F8630E73317F7 /* Pods_GreenBeansSB_GreenBeansSBUITests.framework */; };
-		BB1A149725F770AC008F94C9 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A149625F770AC008F94C9 /* SideMenuViewModel.swift */; };
 		BB1A14A625F9F0C0008F94C9 /* OrderTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14A525F9F0C0008F94C9 /* OrderTypeViewController.swift */; };
 		BB1A14AB25FAE4A0008F94C9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14AA25FAE4A0008F94C9 /* Address.swift */; };
 		BB1A14B825FB47E0008F94C9 /* NewAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14B725FB47E0008F94C9 /* NewAddressViewController.swift */; };
@@ -102,7 +101,6 @@
 		96C96497DE0E4DF2183138DE /* Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig"; path = "Target Support Files/Pods-GreenBeansSB-GreenBeansSBUITests/Pods-GreenBeansSB-GreenBeansSBUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B10D6C8B9870950086E8FCE0 /* Pods-GreenBeansSBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSBTests.debug.xcconfig"; path = "Target Support Files/Pods-GreenBeansSBTests/Pods-GreenBeansSBTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B11D6138182CFF514D6B8B78 /* Pods-GreenBeansSB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenBeansSB.debug.xcconfig"; path = "Target Support Files/Pods-GreenBeansSB/Pods-GreenBeansSB.debug.xcconfig"; sourceTree = "<group>"; };
-		BB1A149625F770AC008F94C9 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		BB1A14A525F9F0C0008F94C9 /* OrderTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTypeViewController.swift; sourceTree = "<group>"; };
 		BB1A14AA25FAE4A0008F94C9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		BB1A14B725FB47E0008F94C9 /* NewAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAddressViewController.swift; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 		BB1A149525F77091008F94C9 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				BB1A149625F770AC008F94C9 /* SideMenuViewModel.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -830,7 +827,6 @@
 				BB61A85F25F4A41A00EB1228 /* CartViewModel.swift in Sources */,
 				BB61A83925F1EEC600EB1228 /* ProductDetailViewController.swift in Sources */,
 				BB61A70325EDFB7100EB1228 /* AppDelegate.swift in Sources */,
-				BB1A149725F770AC008F94C9 /* SideMenuViewModel.swift in Sources */,
 				BB61A82725EF953200EB1228 /* Constants.swift in Sources */,
 				BB61A85325F4A18500EB1228 /* CartCellDataSource.swift in Sources */,
 				BB86014B260C32C40093EE16 /* HistoryCell.swift in Sources */,

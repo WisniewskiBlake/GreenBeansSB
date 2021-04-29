@@ -51,7 +51,7 @@ class TimeViewController: UIViewController {
             pickUpViewController.order = order
             pickUpViewController.modalPresentationStyle = .fullScreen
         }
-        if segue.identifier == "EnterGuestAddress", let pickUpViewController = segue.destination as? GuestAddressViewController {
+        if segue.identifier == "EnterGuestAddress", let pickUpViewController = segue.destination as? GuestAutoAddr {
             pickUpViewController.cartViewModel = cartViewModel
             pickUpViewController.order = order
             pickUpViewController.modalPresentationStyle = .fullScreen
