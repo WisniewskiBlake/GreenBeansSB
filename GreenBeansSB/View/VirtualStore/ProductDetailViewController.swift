@@ -12,9 +12,9 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productTitleLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
-    @IBOutlet weak var productDescriptionLabel: UILabel!
     @IBOutlet weak var productQuantityLabel: UILabel!
-        
+    @IBOutlet weak var productDescriptionText: UITextView!
+    
     let helper = Helper()
     var product = Product()
     var viewModel: VirtualStoreViewModel!
@@ -30,8 +30,8 @@ class ProductDetailViewController: UIViewController {
     
     func configureUI() {
         productTitleLabel.text = product.productTitle
-        productPriceLabel.text = product.productPrice
-        productDescriptionLabel.text = product.productDescription
+        productPriceLabel.text = "$" + product.productPrice
+        productDescriptionText.text = product.productDescription
     }
     
     @IBAction func minusButtonClicked(_ sender: Any) {

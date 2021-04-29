@@ -20,11 +20,19 @@ class ProductListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedProducts"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellClicked"), object: nil)
         self.getCategoryTitle(tag: category)
         viewModel.fetchAllProducts(category: categoryTitleLabel.text!)
     }
     
     @objc func setDataSource() {
+        products = viewModel.getProducts()
+        dataSource.products = products
+        tableView.dataSource = dataSource
+        tableView.reloadData()
+    }
+    
+    @objc func cellClicked() {
         products = viewModel.getProducts()
         dataSource.products = products
         tableView.dataSource = dataSource
@@ -49,14 +57,7 @@ class ProductListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let row = tableView.indexPathForSelectedRow?.row {
-            let product = dataSource.products[row]
-            if let productDetailVC = segue.destination as? ProductDetailViewController {
-                productDetailVC.product = product
-                productDetailVC.viewModel = viewModel
-                productDetailVC.modalPresentationStyle = .fullScreen
-            }
-        }
+        
     }
 }
 

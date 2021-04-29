@@ -13,6 +13,7 @@ class ProductCell: UITableViewCell {
     @IBOutlet private weak var productPriceLabel: UILabel!
     @IBOutlet private weak var productDescriptionLabel: UILabel!
     @IBOutlet private weak var productDiscountLabel: UILabel!
+    @IBOutlet private weak var productDescriptionText: UITextView!
     
     var productTitle: String? {
         didSet { productTitleLabel.text = productTitle ?? "" }
@@ -23,7 +24,8 @@ class ProductCell: UITableViewCell {
     }
         
     var productDescription: String? {
-        didSet { productDescriptionLabel.text = productDescription ?? "" }
+//        didSet { productDescriptionLabel.text = productDescription ?? "" }
+        didSet { productDescriptionText.text = productDescription ?? "" }
     }
     
     var productDiscount: String? {
