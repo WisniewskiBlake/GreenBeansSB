@@ -35,7 +35,7 @@ class SideMenuViewController: UIViewController {
     }
     
     @IBAction func settingsButtonClicked(_ sender: Any) {
-        helper.instantiateViewController(identifier: "Settings", animated: true, by: self, completion: nil)
+//        helper.instantiateViewController(identifier: "Settings", animated: true, by: self, completion: nil)
     }
     
     @IBAction func signOutButtonClicked(_ sender: Any) {

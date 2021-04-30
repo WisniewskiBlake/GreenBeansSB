@@ -17,6 +17,9 @@ class TimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        datePicker.backgroundColor = #colorLiteral(red: 0, green: 0.2327971756, blue: 0.003043845529, alpha: 1)
+        datePicker.subviews.first?.semanticContentAttribute = .forceRightToLeft
+        
     }
     
     @IBAction func continueButtonClicked(_ sender: Any) {

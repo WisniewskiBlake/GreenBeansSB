@@ -68,6 +68,8 @@
 		BB86013D260974140093EE16 /* OrderHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB86013C260974140093EE16 /* OrderHistoryViewModel.swift */; };
 		BB860146260C32AE0093EE16 /* HistoryCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB860145260C32AE0093EE16 /* HistoryCellDataSource.swift */; };
 		BB86014B260C32C40093EE16 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB86014A260C32C40093EE16 /* HistoryCell.swift */; };
+		BB978F19263B42670021FBD7 /* greenbeansinclogo_default.png in Resources */ = {isa = PBXBuildFile; fileRef = BB978F18263B42670021FBD7 /* greenbeansinclogo_default.png */; };
+		BB978F54263B7CE60021FBD7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB978F53263B7CE60021FBD7 /* CustomTextField.swift */; };
 		BB9F3DB4261C2561003C93FA /* GuestAutoAddr.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F3DB3261C2561003C93FA /* GuestAutoAddr.swift */; };
 		BB9F3DBA261C2780003C93FA /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F3DB9261C2780003C93FA /* SearchResults.swift */; };
 		BB9F3DBF261C27D0003C93FA /* AddressSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9F3DBE261C27D0003C93FA /* AddressSearchBar.swift */; };
@@ -156,6 +158,8 @@
 		BB86013C260974140093EE16 /* OrderHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewModel.swift; sourceTree = "<group>"; };
 		BB860145260C32AE0093EE16 /* HistoryCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCellDataSource.swift; sourceTree = "<group>"; };
 		BB86014A260C32C40093EE16 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		BB978F18263B42670021FBD7 /* greenbeansinclogo_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenbeansinclogo_default.png; sourceTree = "<group>"; };
+		BB978F53263B7CE60021FBD7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BB9F3DB3261C2561003C93FA /* GuestAutoAddr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestAutoAddr.swift; sourceTree = "<group>"; };
 		BB9F3DB9261C2780003C93FA /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		BB9F3DBE261C27D0003C93FA /* AddressSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchBar.swift; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 				BB61A70225EDFB7100EB1228 /* AppDelegate.swift */,
 				BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */,
 				BB61A70825EDFB7100EB1228 /* Main.storyboard */,
+				BB978F18263B42670021FBD7 /* greenbeansinclogo_default.png */,
 				BB61A70B25EDFB7400EB1228 /* Assets.xcassets */,
 				BB61A70D25EDFB7400EB1228 /* LaunchScreen.storyboard */,
 				BB61A71025EDFB7400EB1228 /* Info.plist */,
@@ -395,6 +400,7 @@
 				BB61A82625EF953200EB1228 /* Constants.swift */,
 				BB61A83325F0E7EC00EB1228 /* CollectionReference.swift */,
 				BB4D4D8B262548BA00581F83 /* Designables.swift */,
+				BB978F53263B7CE60021FBD7 /* CustomTextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -630,6 +636,7 @@
 				BB61A70A25EDFB7100EB1228 /* Main.storyboard in Resources */,
 				BB4D4D9226254E4E00581F83 /* Futura.ttc in Resources */,
 				BB4D4D972625503000581F83 /* Pipetton DEMO.ttf in Resources */,
+				BB978F19263B42670021FBD7 /* greenbeansinclogo_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +842,7 @@
 				BB61A83425F0E7EC00EB1228 /* CollectionReference.swift in Sources */,
 				BB61A7B825EE150200EB1228 /* Product.swift in Sources */,
 				BB61A79525EE072800EB1228 /* Helper.swift in Sources */,
+				BB978F54263B7CE60021FBD7 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
