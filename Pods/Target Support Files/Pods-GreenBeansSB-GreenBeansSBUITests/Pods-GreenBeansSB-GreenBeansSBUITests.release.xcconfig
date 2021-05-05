@@ -1,10 +1,10 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/JSSAlertView" "${PODS_CONFIGURATION_BUILD_DIR}/LGButton" "${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC" "${PODS_CONFIGURATION_BUILD_DIR}/PromisesSwift" "${PODS_CONFIGURATION_BUILD_DIR}/SideMenu" "${PODS_ROOT}/GoogleMaps/Base/Frameworks" "${PODS_ROOT}/GooglePlaces/Frameworks"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/JSSAlertView" "${PODS_CONFIGURATION_BUILD_DIR}/LGButton" "${PODS_CONFIGURATION_BUILD_DIR}/SideMenu" "${PODS_ROOT}/GoogleMaps/Base/Frameworks" "${PODS_ROOT}/GooglePlaces/Frameworks"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/JSSAlertView/JSSAlertView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/LGButton/LGButton.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/PromisesSwift/Promises.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SideMenu/SideMenu.framework/Headers" "${PODS_TARGET_SRCROOT}/Sources/FBLPromises/include"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/JSSAlertView/JSSAlertView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/LGButton/LGButton.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SideMenu/SideMenu.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"z" -framework "CoreData" -framework "CoreGraphics" -framework "CoreLocation" -framework "FBLPromises" -framework "GoogleMapsBase" -framework "GooglePlaces" -framework "JSSAlertView" -framework "LGButton" -framework "Promises" -framework "QuartzCore" -framework "SideMenu" -framework "SystemConfiguration" -framework "UIKit"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"z" -framework "CoreData" -framework "CoreGraphics" -framework "CoreLocation" -framework "GoogleMapsBase" -framework "GooglePlaces" -framework "JSSAlertView" -framework "LGButton" -framework "QuartzCore" -framework "SideMenu" -framework "SystemConfiguration" -framework "UIKit"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

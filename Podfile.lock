@@ -4,16 +4,12 @@ PODS:
     - GoogleMaps/Base (= 4.2.0)
   - JSSAlertView (5.0.2)
   - LGButton (1.1.6)
-  - PromisesObjC (1.2.12)
-  - PromisesSwift (1.2.12):
-    - PromisesObjC (= 1.2.12)
   - SideMenu (6.5.0)
 
 DEPENDENCIES:
   - GooglePlaces (= 4.2.0)
   - JSSAlertView
   - LGButton
-  - PromisesSwift
   - SideMenu
 
 SPEC REPOS:
@@ -22,8 +18,6 @@ SPEC REPOS:
     - GooglePlaces
     - JSSAlertView
     - LGButton
-    - PromisesObjC
-    - PromisesSwift
     - SideMenu
 
 SPEC CHECKSUMS:
@@ -31,10 +25,8 @@ SPEC CHECKSUMS:
   GooglePlaces: 196a9dd88580dcb3f3df46f415057703d0d2a310
   JSSAlertView: 18345e37d8295827428c12b773b6d75d0dfd0b28
   LGButton: 9f0a7f9d3030e3f504108342f6b66d64a429371b
-  PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  PromisesSwift: 64085cf6e5fc1b5001f90cf31e87a1f1621fefee
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 284a74d01edc314d27695f91f517bfa36b9519c3
+PODFILE CHECKSUM: 9ed913ecb7ce109bf257dce135fff8d1e1c89848
 
 COCOAPODS: 1.10.1

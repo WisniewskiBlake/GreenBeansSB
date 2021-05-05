@@ -177,15 +177,11 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/JSSAlertView/JSSAlertView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LGButton/LGButton.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/JSSAlertView/JSSAlertView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LGButton/LGButton.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

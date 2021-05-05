@@ -8,10 +8,10 @@
 import UIKit
 
 class AddDeleteProducts: UIViewController {
-    
+    let viewModel = AdminViewModel()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }  
     
     @IBAction func addButtonClicked(_ sender: Any) {

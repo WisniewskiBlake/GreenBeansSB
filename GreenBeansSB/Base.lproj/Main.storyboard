@@ -1365,8 +1365,51 @@
                                     <constraint firstAttribute="width" constant="414" id="wjL-WC-L8F"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXM-x4-ODx">
+                                <rect key="frame" x="20" y="556" width="374" height="68"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="RG8-Pn-8sX"/>
+                                    <constraint firstAttribute="height" constant="68" id="XAT-da-MY9"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Product Name" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="waG-xq-p0O">
+                                <rect key="frame" x="20" y="384" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Price" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ntc-0R-JZN">
+                                <rect key="frame" x="20" y="426" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Percent Discount" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ook-7E-bbJ">
+                                <rect key="frame" x="20" y="514" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePlaceholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="et1-we-GMz">
+                                <rect key="frame" x="74" y="131" width="266" height="245"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="245" id="gr6-Vi-aQb"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weg-5f-X11">
+                                <rect key="frame" x="20" y="468" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Category">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryButtonClicked:" destination="e58-dr-zdH" eventType="touchUpInside" id="coE-Fg-N1R"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxw-JH-GlN">
-                                <rect key="frame" x="20" y="619" width="374" height="49"/>
+                                <rect key="frame" x="20" y="632" width="374" height="49"/>
                                 <color key="backgroundColor" red="0.002976117423" green="0.2405280471" blue="0.0029586993619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="PJf-v2-TWQ"/>
@@ -1385,61 +1428,31 @@
                                     <action selector="addToCartClicked:" destination="XaT-Vm-KHg" eventType="touchUpInside" id="ZFM-GV-UTd"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Product Name" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="waG-xq-p0O">
-                                <rect key="frame" x="20" y="384" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Price" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ntc-0R-JZN">
-                                <rect key="frame" x="20" y="426" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Percent Discount" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ook-7E-bbJ">
-                                <rect key="frame" x="20" y="468" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePlaceholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="et1-we-GMz">
-                                <rect key="frame" x="74" y="131" width="266" height="245"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="245" id="gr6-Vi-aQb"/>
-                                </constraints>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXM-x4-ODx">
-                                <rect key="frame" x="20" y="510" width="374" height="83"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="374" id="RG8-Pn-8sX"/>
-                                    <constraint firstAttribute="height" constant="83" id="XAT-da-MY9"/>
-                                </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hC1-jy-Hy8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="weg-5f-X11" firstAttribute="top" secondItem="Ntc-0R-JZN" secondAttribute="bottom" constant="8" symbolic="YES" id="9gN-wV-ZIL"/>
                             <constraint firstItem="hC1-jy-Hy8" firstAttribute="trailing" secondItem="Ntc-0R-JZN" secondAttribute="trailing" constant="20" id="BUd-cZ-lHZ"/>
+                            <constraint firstItem="weg-5f-X11" firstAttribute="leading" secondItem="hC1-jy-Hy8" secondAttribute="leading" constant="20" id="FUJ-D9-5Qp"/>
                             <constraint firstItem="waG-xq-p0O" firstAttribute="top" secondItem="et1-we-GMz" secondAttribute="bottom" constant="8" id="Isf-ex-Mzu"/>
                             <constraint firstItem="4tm-Fg-Xv4" firstAttribute="trailing" secondItem="hC1-jy-Hy8" secondAttribute="trailing" id="KSP-Ge-zN5"/>
                             <constraint firstItem="hC1-jy-Hy8" firstAttribute="trailing" secondItem="cXM-x4-ODx" secondAttribute="trailing" constant="20" id="LTL-vc-qoG"/>
                             <constraint firstItem="xxw-JH-GlN" firstAttribute="leading" secondItem="hC1-jy-Hy8" secondAttribute="leading" constant="20" id="MDQ-CK-OV3"/>
+                            <constraint firstItem="ook-7E-bbJ" firstAttribute="top" secondItem="weg-5f-X11" secondAttribute="bottom" constant="12" id="Rm0-au-hXe"/>
                             <constraint firstItem="cXM-x4-ODx" firstAttribute="leading" secondItem="hC1-jy-Hy8" secondAttribute="leading" constant="20" id="WiP-Dc-j0K"/>
                             <constraint firstItem="hC1-jy-Hy8" firstAttribute="trailing" secondItem="xxw-JH-GlN" secondAttribute="trailing" constant="20" id="X7p-Wz-9RA"/>
                             <constraint firstItem="Ntc-0R-JZN" firstAttribute="leading" secondItem="hC1-jy-Hy8" secondAttribute="leading" constant="20" id="aSu-Hr-SnB"/>
                             <constraint firstItem="hC1-jy-Hy8" firstAttribute="trailing" secondItem="ook-7E-bbJ" secondAttribute="trailing" constant="20" id="dz6-xn-cHH"/>
                             <constraint firstItem="hC1-jy-Hy8" firstAttribute="trailing" secondItem="et1-we-GMz" secondAttribute="trailing" constant="74" id="efO-zg-Adh"/>
-                            <constraint firstItem="ook-7E-bbJ" firstAttribute="top" secondItem="Ntc-0R-JZN" secondAttribute="bottom" constant="8" symbolic="YES" id="fEI-jS-bvd"/>
                             <constraint firstItem="4tm-Fg-Xv4" firstAttribute="leading" secondItem="hC1-jy-Hy8" secondAttribute="leading" id="fzx-hF-53p"/>
                             <constraint firstItem="cXM-x4-ODx" firstAttribute="top" secondItem="ook-7E-bbJ" secondAttribute="bottom" constant="8" symbolic="YES" id="gOo-vV-Kvn"/>
+                            <constraint firstItem="hC1-jy-Hy8" firstAttribute="trailing" secondItem="weg-5f-X11" secondAttribute="trailing" constant="20" id="kmf-AP-RUm"/>
                             <constraint firstItem="et1-we-GMz" firstAttribute="top" secondItem="4tm-Fg-Xv4" secondAttribute="bottom" constant="8" id="kte-25-CLL"/>
                             <constraint firstItem="4tm-Fg-Xv4" firstAttribute="top" secondItem="jDR-OV-JLr" secondAttribute="top" id="oVd-iE-HSE"/>
                             <constraint firstItem="Ntc-0R-JZN" firstAttribute="top" secondItem="waG-xq-p0O" secondAttribute="bottom" constant="8" id="rX9-Ym-ked"/>
                             <constraint firstItem="ook-7E-bbJ" firstAttribute="leading" secondItem="hC1-jy-Hy8" secondAttribute="leading" constant="20" id="tyA-rq-Uf6"/>
-                            <constraint firstItem="xxw-JH-GlN" firstAttribute="top" secondItem="cXM-x4-ODx" secondAttribute="bottom" constant="26" id="u39-Kj-OHr"/>
+                            <constraint firstItem="xxw-JH-GlN" firstAttribute="top" secondItem="cXM-x4-ODx" secondAttribute="bottom" constant="8" id="u39-Kj-OHr"/>
                             <constraint firstItem="waG-xq-p0O" firstAttribute="leading" secondItem="hC1-jy-Hy8" secondAttribute="leading" constant="20" id="uYk-uM-VJ5"/>
                             <constraint firstItem="et1-we-GMz" firstAttribute="leading" secondItem="hC1-jy-Hy8" secondAttribute="leading" constant="74" id="zjt-U6-yRI"/>
                             <constraint firstItem="hC1-jy-Hy8" firstAttribute="trailing" secondItem="waG-xq-p0O" secondAttribute="trailing" constant="20" id="zzF-QV-33A"/>
@@ -1447,6 +1460,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="pEd-Hr-Z5F"/>
                     <connections>
+                        <outlet property="categoryButton" destination="weg-5f-X11" id="03K-wX-pBt"/>
                         <outlet property="productDescriptionText" destination="cXM-x4-ODx" id="tK0-uF-wLo"/>
                         <outlet property="productDiscount" destination="ook-7E-bbJ" id="SCM-tf-ecn"/>
                         <outlet property="productImage" destination="et1-we-GMz" id="y75-rO-Ggj"/>

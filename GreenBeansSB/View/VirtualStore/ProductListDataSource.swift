@@ -10,7 +10,7 @@ import Firebase
 
 class ProductListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     var products: [Product] = []
-    var images: [UIImage] = []
+    var imageDictionary: [String:UIImage] = [:]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
@@ -31,7 +31,7 @@ class ProductListDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductCell
         let product = products[indexPath.row]
-        let image = images[indexPath.row]
+        let image = imageDictionary[product.productTitle]
         cell.productImage = image
         cell.productTitle = product.productTitle
         cell.productPrice = "$" + product.productPrice

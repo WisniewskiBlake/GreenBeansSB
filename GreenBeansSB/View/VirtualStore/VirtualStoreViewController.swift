@@ -21,7 +21,7 @@ class VirtualStoreViewController: UIViewController {
     var dataSource = ProductListDataSource()
     var viewModel = VirtualStoreViewModel()
     private var products: [Product] = []
-    private var images: [UIImage] = []
+    private var imageDictionary: [String:UIImage] = [:]
     private var tag = ""
     var isMenuClicked = false
     
@@ -43,16 +43,17 @@ class VirtualStoreViewController: UIViewController {
     }
     
     @objc func loadImages() {
-        viewModel.loadImages()
+        products = viewModel.getProducts()
+        viewModel.loadImages(products: products)
     }
     
     @objc func setDataSource() {
 //        onSaleButton.gradientStartColor = #colorLiteral(red: 1, green: 0.4314318299, blue: 0.7802562118, alpha: 1)
 //        onSaleButton.gradientEndColor = #colorLiteral(red: 1, green: 0.5957168212, blue: 0.8018686056, alpha: 1)
-        products = viewModel.getProducts()
-        images = viewModel.getImages()
+        
+        imageDictionary = viewModel.getImages()
         dataSource.products = products
-        dataSource.images = images
+        dataSource.imageDictionary = imageDictionary
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         tableView.reloadData()

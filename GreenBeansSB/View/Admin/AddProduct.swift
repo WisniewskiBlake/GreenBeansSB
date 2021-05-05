@@ -17,10 +17,18 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
     @IBOutlet weak var productDiscount: UITextField!
     @IBOutlet weak var productDescriptionText: UITextView!
     @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var categoryButton: UIButton!
+    
+    let transparentView = UIView()
+    let tableView = UITableView()
+    var selectedButton = UIButton()
+    var dataSource = [String]()
+    var cellText = "Category"
     
     let imageTapGestureRecognizer = UITapGestureRecognizer()
     let imagePickerVC = UIImagePickerController()
     var pictureToUpload: String? = ""
+    let viewModel = AdminViewModel()
     let helper = Helper()
     
     override func viewDidLoad() {
@@ -36,14 +44,14 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
     }
     
     @IBAction func addProductClicked(_ sender: Any) {
-        if(productNameText.text != "" || productNameText.text != "Product Name" && productPriceText.text != "" || productPriceText.text != "Product Price" && productDescriptionText.text != "" || productDescriptionText.text != "Description") {
+        if(productNameText.text != "" || productNameText.text != "Product Name" && productPriceText.text != "" || productPriceText.text != "Product Price" && productDescriptionText.text != "" || productDescriptionText.text != "Description" && productDiscount.text != "") {
             let productName = productNameText.text
             let productPrice = productPriceText.text
-            var discount = productDiscount.text
+            let discount = Int(productDiscount.text!) ?? 0
             let productDescription = productDescriptionText.text
-            if productDiscount.text == "" || productDiscount.text == " " || productDiscount.text == "0" || productDiscount.text == "Percent Discount" {
-                discount = "0"
-            }
+            
+            viewModel.addNewProduct(image: pictureToUpload!, name: productName!, price: productPrice!, discount: String(discount), description: productDescription!)
+            
             let alertview = JSSAlertView().show(self,
               title: "Added New Product!",
               buttonText: "Ok"
@@ -54,8 +62,14 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
             alertview.setButtonFont("ClearSans-Light") // Button text font
 
         } else {
-            helper.showAlert(title: "Please Enter Name, Price, and Description", message: "", in: self)
+            helper.showAlert(title: "Please Fill All Fields", message: "", in: self)
         }
+    }
+    
+    @IBAction func categoryButtonClicked(_ sender: Any) {
+        dataSource = ["Clothing", "Concentrate", "Edible", "Supplies"]
+        selectedButton = categoryButton
+        addTransparentView(frames: categoryButton.frame)
     }
     
     @objc func handleImageTap() {
@@ -118,6 +132,40 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
     func textViewShouldReturn(_ textField: UITextView) -> Bool {
         self.view.endEditing(true)
          return true
+    }
+    
+    func addTransparentView(frames: CGRect) {
+        let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
+        
+        transparentView.frame = keyWindow?.frame ?? self.view.frame
+        self.view.addSubview(transparentView)
+        
+        tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
+        self.view.addSubview(tableView)
+        tableView.layer.cornerRadius = 5
+        
+        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+        tableView.reloadData()
+        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
+        transparentView.addGestureRecognizer(tapgesture)
+        transparentView.alpha = 0
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+            self.transparentView.alpha = 0.5
+            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height + 5, width: frames.width, height: CGFloat(self.dataSource.count * 50))
+        }, completion: nil)
+    }
+    
+    @objc func removeTransparentView() {
+        let frames = selectedButton.frame
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+            self.transparentView.alpha = 0
+            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
+        }, completion: nil)
     }
 }
 

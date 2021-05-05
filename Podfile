@@ -12,7 +12,7 @@ target 'GreenBeansSB' do
 #pod 'Firebase/Auth'
 #pod 'Firebase/Firestore'
 #pod 'Firebase/Storage'
-pod 'PromisesSwift'
+#pod 'PromisesSwift'
 pod 'SideMenu'
 pod 'LGButton'
 
