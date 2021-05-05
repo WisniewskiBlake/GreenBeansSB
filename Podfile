@@ -9,8 +9,9 @@ target 'GreenBeansSB' do
 	pod 'LGButton'
 	pod 'JSSAlertView'
 	pod 'GooglePlaces', '4.2.0'
-pod 'Firebase/Auth'
-pod 'Firebase/Firestore'
+#pod 'Firebase/Auth'
+#pod 'Firebase/Firestore'
+#pod 'Firebase/Storage'
 pod 'PromisesSwift'
 pod 'SideMenu'
 pod 'LGButton'
@@ -26,9 +27,9 @@ pod 'LGButton'
 
 end
 
-#post_install do |installer|
-#  installer.pods_project.build_configurations.each do |config|
-#    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
-#  end
-#end
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
+end
 

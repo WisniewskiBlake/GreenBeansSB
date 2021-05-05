@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var guestLoginBtn: UIButton!
     @IBOutlet weak var forgotPassBtn: UIButton!
@@ -36,6 +36,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(goToStore), name: NSNotification.Name(rawValue: "loggedIn"), object: nil)
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         configureUI()
     }
 
@@ -83,6 +85,11 @@ class LoginViewController: UIViewController {
     @IBAction func guestLoginButtonClicked(_ sender: Any) {
         viewModel.createGuestUser()
         performSegue(withIdentifier: "VirtualStore", sender: self)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+         return true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

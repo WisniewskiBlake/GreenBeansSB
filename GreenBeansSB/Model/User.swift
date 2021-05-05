@@ -15,6 +15,7 @@ struct User {
     let orderHistory: [Order]
     let phoneNumber: String
     let guestId: String
+    let appManager: String
     
     init(dictionary: [String: Any]) {
         self.email = dictionary["email"] as? String ?? ""
@@ -24,5 +25,6 @@ struct User {
         self.cart = (dictionary["Kart"] as? [Product] ?? [])
         self.guestId = dictionary["guestId"] as? String ?? ""
         self.phoneNumber = dictionary["phoneNumber"] as? String ?? ""
+        self.appManager = dictionary["appManager"] as? String ?? ""
     }
 }

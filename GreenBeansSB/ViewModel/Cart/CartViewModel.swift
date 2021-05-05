@@ -192,7 +192,7 @@ class CartViewModel: ObservableObject {
     
     func calculateTotal(subtotal: String, tax: String, order: Order) -> String {
         var total: Double?
-        if order.orderType == "delivery" {
+        if order.orderType == "Delivery" {
             total = Double(subtotal)! + Double(tax)! + Double(order.deliveryFee)!
         } else {
             total = Double(subtotal)! + Double(tax)!

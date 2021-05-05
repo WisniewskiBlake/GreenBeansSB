@@ -31,7 +31,7 @@ class TimeViewController: UIViewController {
                 helper.showAlert(title: "Date selected is in the past", message: "", in: self)
             } else {
                 order?.pickUpTime = helper.getDateAsString(dateComps: dateComps)
-                if order?.orderType == "pickUp" {
+                if order?.orderType == "PickUp" {
                     performSegue(withIdentifier: "SelectPickUpAddress", sender: self)
                 } else {
                     performSegue(withIdentifier: "EnterGuestAddress", sender: self)

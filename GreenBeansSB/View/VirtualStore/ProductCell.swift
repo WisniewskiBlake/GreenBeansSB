@@ -22,6 +22,10 @@ class ProductCell: UITableViewCell {
     var productPrice: String? {
         didSet { productPriceLabel.text = productPrice ?? "" }
     }
+    
+    var productImage: UIImage? {
+        didSet { productImageView.image = productImage }
+    }
         
     var productDescription: String? {
 //        didSet { productDescriptionLabel.text = productDescription ?? "" }

@@ -8,7 +8,7 @@
 import UIKit
 import JSSAlertView
 
-class GuestContactViewController: UIViewController {
+class GuestContactViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var fullNameTextField: UITextField!
@@ -20,7 +20,9 @@ class GuestContactViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        emailTextField.delegate = self
+        phoneTextField.delegate = self
+        fullNameTextField.delegate = self
     }
 
     @IBAction func continueButtonClicked(_ sender: Any) {
@@ -43,6 +45,11 @@ class GuestContactViewController: UIViewController {
     @IBAction func backButtonClicked(_ sender: Any) {
         addTransitionLeft()
         dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+         return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
@@ -20,7 +20,12 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()    }
+        configureUI()
+        emailTextField.delegate = self
+        fullNameTextField.delegate = self
+        addressTextField.delegate = self
+        passwordTextField.delegate = self
+    }
     
     func configureUI() {
         customView.padding(for: emailTextField)
@@ -61,6 +66,11 @@ class RegisterViewController: UIViewController {
     
     func goToApp() {
         helper.instantiateViewController(identifier: "VirtualStore", animated: true, by: self, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+         return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

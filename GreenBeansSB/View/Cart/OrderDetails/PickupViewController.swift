@@ -19,6 +19,7 @@ class PickupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(navigate), name: NSNotification.Name(rawValue: "addressCellClicked"), object: nil)
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         dataSource.addresses = addresses
         tableView.dataSource = dataSource
         tableView.delegate = dataSource

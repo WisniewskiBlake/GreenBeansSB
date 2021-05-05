@@ -72,18 +72,18 @@ class UserAddressViewController: UIViewController {
         if segue.identifier == "NewAddress", let newAddressViewController = segue.destination as? NewAddressViewController {
             newAddressViewController.addressViewModel = viewModel
             newAddressViewController.modalPresentationStyle = .fullScreen
-        } else {
-            if let orderSummaryVC = segue.destination as? OrderSummaryViewController {
-                orderSummaryVC.cartViewModel = self.cartViewModel
-                orderSummaryVC.order = self.order
-                orderSummaryVC.modalPresentationStyle = .fullScreen
-            }
         }
+        if segue.identifier == "OrderSummary", let orderSummaryVC = segue.destination as? OrderSummaryViewController {
+            orderSummaryVC.cartViewModel = self.cartViewModel
+            orderSummaryVC.order = self.order
+            orderSummaryVC.modalPresentationStyle = .fullScreen
+        }
+        
     }
     
     func addNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedAddresses"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(loadedFee), name: NSNotification.Name(rawValue: "calculatedFee"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadedFee), name: NSNotification.Name(rawValue: "calcFee"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getDeliveryFee), name: NSNotification.Name(rawValue: "addressCellClicked"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "newAddress"), object: nil)
     }

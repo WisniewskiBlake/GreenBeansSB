@@ -21,15 +21,17 @@ class VirtualStoreViewController: UIViewController {
     var dataSource = ProductListDataSource()
     var viewModel = VirtualStoreViewModel()
     private var products: [Product] = []
+    private var images: [UIImage] = []
     private var tag = ""
     var isMenuClicked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedProducts"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "loadedProducts"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedImages"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellClicked"), object: nil)
-//        allButton.gradientStartColor = #colorLiteral(red: 1, green: 0.4314318299, blue: 0.7802562118, alpha: 1)
-//        allButton.gradientEndColor = #colorLiteral(red: 1, green: 0.5957168212, blue: 0.8018686056, alpha: 1)
+        allButton.gradientStartColor = #colorLiteral(red: 1, green: 0.4314318299, blue: 0.7802562118, alpha: 1)
+        allButton.gradientEndColor = #colorLiteral(red: 1, green: 0.5957168212, blue: 0.8018686056, alpha: 1)
         viewModel.fetchAllProducts(category: "All Products")
     }
     
@@ -40,11 +42,17 @@ class VirtualStoreViewController: UIViewController {
         }
     }
     
+    @objc func loadImages() {
+        viewModel.loadImages()
+    }
+    
     @objc func setDataSource() {
 //        onSaleButton.gradientStartColor = #colorLiteral(red: 1, green: 0.4314318299, blue: 0.7802562118, alpha: 1)
 //        onSaleButton.gradientEndColor = #colorLiteral(red: 1, green: 0.5957168212, blue: 0.8018686056, alpha: 1)
         products = viewModel.getProducts()
+        images = viewModel.getImages()
         dataSource.products = products
+        dataSource.images = images
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         tableView.reloadData()
@@ -61,36 +69,35 @@ class VirtualStoreViewController: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
         }
-        //performSegue(withIdentifier: "Any", sender: self)
     }
 
     @IBAction func allClicked(_ sender: Any) {
-        //allProductsPink()
+        allProductsPink()
         viewModel.fetchAllProducts(category: "All Products")
     }
     
     @IBAction func onSaleClicked(_ sender: Any) {
-        //onSalePink()
+        onSalePink()
         viewModel.fetchAllProducts(category: "On Sale")
     }
     
     @IBAction func clothingClicked(_ sender: Any) {
-        //clothingPink()
+        clothingPink()
         viewModel.fetchAllProducts(category: "Merchandise")
     }
     
     @IBAction func concentrateClicked(_ sender: Any) {
-        //concentratePink()
+        concentratePink()
         viewModel.fetchAllProducts(category: "Concentrate")
     }
     
     @IBAction func edibleClicked(_ sender: Any) {
-        //ediblePink()
+        ediblePink()
         viewModel.fetchAllProducts(category: "Edible")
     }
     
     @IBAction func suppliesClicked(_ sender: Any) {
-        //suppliesPink()
+        suppliesPink()
         viewModel.fetchAllProducts(category: "Supplies")
     }
     

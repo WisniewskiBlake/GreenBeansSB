@@ -8,7 +8,7 @@
 import UIKit
 import JSSAlertView
 
-class OrderSummaryViewController: UIViewController {
+class OrderSummaryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var subtotalLabel: UILabel!
     @IBOutlet weak var taxLabel: UILabel!
@@ -25,13 +25,14 @@ class OrderSummaryViewController: UIViewController {
     var total = ""
 
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        instructionsTextField.delegate = self
         getOrderDetails()
         configureUI()        
     }
     
     func configureUI() {
-        if order?.orderType == "delivery" {
+        if order?.orderType == "Delivery" {
             deliveryLabel.text = "$" + order!.deliveryFee
         } else {
             deliveryLabel.text = "N/A"
@@ -69,19 +70,14 @@ class OrderSummaryViewController: UIViewController {
         alertview.setButtonFont("ClearSans-Light") // Button text font
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+         return true
+    }
+    
     @IBAction func backButtonClicked(_ sender: Any) {
         addTransitionLeft()
         dismiss(animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

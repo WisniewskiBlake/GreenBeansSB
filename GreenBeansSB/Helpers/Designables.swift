@@ -15,9 +15,9 @@ class DesignableView: UIView {
 class DesignableButton: UIButton {
 }
 
-@IBDesignable
-class DesignableLabel: UILabel {
-}
+//@IBDesignable
+//class DesignableLabel: UILabel {
+//}
 
 extension UIView {
     

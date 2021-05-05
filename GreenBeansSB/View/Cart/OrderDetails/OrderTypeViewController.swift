@@ -21,12 +21,12 @@ class OrderTypeViewController: UIViewController {
     }
     
     @IBAction func pickUpButtonClicked(_ sender: Any) {
-        order?.orderType = "pickUp"
+        order?.orderType = "PickUp"
         performSegue(withIdentifier: "PickUp", sender: self)
     }
     
     @IBAction func deliveryButtonClicked(_ sender: Any) {
-        order?.orderType = "delivery"
+        order?.orderType = "Delivery"
         if (cartViewModel?.userInSession())! {
             performSegue(withIdentifier: "UserDelivery", sender: self)
         } else {

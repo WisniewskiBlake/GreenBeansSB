@@ -6,11 +6,14 @@
 //
 
 import Firebase
+import UIKit
+import FirebaseAuth
 
 class VirtualStoreViewModel {
     var products = [Product]()
     private var user: User!
     private var userSession = AuthViewModel.shared.userSession
+    private var images: [UIImage] = []
     
     init() {}
     
@@ -18,10 +21,15 @@ class VirtualStoreViewModel {
         return self.products
     }
     
+    func getImages() -> [UIImage] {
+        return images
+    }
+    
     func fetchAllProducts(category: String) {
         let query = self.provideQuery(category: category)
         query.getDocuments { (snapshot, error) in
              self.products = []
+             self.images = []
              if error != nil {
                  print(error!.localizedDescription)
                  return
@@ -36,6 +44,30 @@ class VirtualStoreViewModel {
              }
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedProducts"), object: nil)
         }
+    }
+    
+    func loadImages() {
+        
+        for i in 0...products.count-1 {
+            let str = products[i].productTitle
+            let replaced = str.replacingOccurrences(of: " ", with: "_")
+            let path = "gs://greenbeans-9bcea.appspot.com/" + replaced + ".jpg"
+            
+            let storageRef = Firebase.Storage.storage().reference(forURL: path)
+            
+            storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+              if let error = error {
+                print(error)
+              } else {                
+                // Data for "images/island.jpg" is returned
+                self.images.append(UIImage(data: data!)!)
+                if self.images.count == self.products.count {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedImages"), object: nil)
+                }
+              }
+            }
+        }
+        
     }
     
     func addProductToCart(product: Product, quantity: String) {

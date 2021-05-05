@@ -19,7 +19,7 @@ class CartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNotificationCenter()
+        addNotificationCenter()        
     }
     
     @objc func setDataSource() {
