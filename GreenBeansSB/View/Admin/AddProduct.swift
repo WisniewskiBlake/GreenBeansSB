@@ -9,13 +9,17 @@ import UIKit
 
 import UIKit
 import JSSAlertView
+import Firebase
 
+class CellClass: UITableViewCell {
+    
+}
 
 class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var productNameText: UITextField!
     @IBOutlet weak var productPriceText: UITextField!
     @IBOutlet weak var productDiscount: UITextField!
-    @IBOutlet weak var productDescriptionText: UITextView!
+    @IBOutlet weak var productDescriptionText: UITextField!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var categoryButton: UIButton!
     
@@ -30,6 +34,8 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
     var pictureToUpload: String? = ""
     let viewModel = AdminViewModel()
     let helper = Helper()
+    var image = UIImage()
+    var data = Data()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +46,9 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
         productPriceText.delegate = self
         productDiscount.delegate = self
         productDescriptionText.delegate = self
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
     }
     
     @IBAction func addProductClicked(_ sender: Any) {
@@ -49,8 +57,9 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
             let productPrice = productPriceText.text
             let discount = Int(productDiscount.text!) ?? 0
             let productDescription = productDescriptionText.text
+            let category = categoryButton.title(for: .normal)
             
-            viewModel.addNewProduct(image: pictureToUpload!, name: productName!, price: productPrice!, discount: String(discount), description: productDescription!)
+            viewModel.addNewProduct(data: data, name: productName!, price: productPrice!, discount: String(discount), description: productDescription!, category: category!)
             
             let alertview = JSSAlertView().show(self,
               title: "Added New Product!",
@@ -103,20 +112,32 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        image = (info[.editedImage] as? UIImage)!
+        productImage.image = image
+        data = image.jpegData(compressionQuality: 0.5)!
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        let image = info[UIImagePickerController.InfoKey(rawValue: convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage))] as? UIImage
+//        let picturePath = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+//
+//            // assign selected image to AvaImageView
+//        self.productImage.image = picturePath
+//        
+//            // refresh global variable storing the user's profile pic
+//        let pictureData = image?.jpegData(compressionQuality: 0.4)!
+//        let avatar = pictureData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+//        pictureToUpload = avatar
 
-        let image = info[UIImagePickerController.InfoKey(rawValue: convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage))] as? UIImage
-        let picturePath = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-
-            // assign selected image to AvaImageView
-        self.productImage.image = picturePath
-
-            // refresh global variable storing the user's profile pic
-        let pictureData = image?.jpegData(compressionQuality: 0.4)!
-        let avatar = pictureData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        pictureToUpload = avatar
-
-
-        dismiss(animated: true) {}
+        dismiss(animated: true)
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {
@@ -167,6 +188,28 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
             self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
         }, completion: nil)
     }
+}
+
+extension AddProduct: UITableViewDelegate, UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = dataSource[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedButton.setTitle(dataSource[indexPath.row], for: .normal)
+        removeTransparentView()
+        cellText = dataSource[indexPath.row]
+    }    
 }
 
 // Helper function inserted by Swift 4.2 migrator.

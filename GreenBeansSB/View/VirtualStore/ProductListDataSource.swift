@@ -33,10 +33,10 @@ class ProductListDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
         let product = products[indexPath.row]
         let image = imageDictionary[product.productTitle]
         cell.productImage = image
-        cell.productTitle = product.productTitle
+//        cell.productTitle = product.productTitle
         cell.productPrice = "$" + product.productPrice
-        cell.productDescription = product.productDescription
-        if product.productDiscount != "" {
+        cell.productDescription = product.productTitle + " " + product.productDescription
+        if product.productHighlighted == "true" {
             cell.productDiscount = product.productDiscount + " Off!"
         } else {
             cell.productDiscount = ""

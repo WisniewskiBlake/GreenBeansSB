@@ -47,15 +47,10 @@ class VirtualStoreViewModel {
         }
     }
     
-    func loadImages(products: [Product]) {
-        
+    func loadImages(products: [Product]) {        
         for i in 0...products.count-1 {
             let str = products[i].productTitle
-            let replaced = str.replacingOccurrences(of: " ", with: "_")
-            let path = "gs://greenbeans-9bcea.appspot.com/" + replaced + ".jpg"
-            
-            let storageRef = Firebase.Storage.storage().reference(forURL: products[i].productImageUrl)
-            
+            let storageRef = Firebase.Storage.storage().reference(forURL: products[i].productImageUrl) 
             storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
               if let error = error {
                 print(error)
@@ -69,7 +64,6 @@ class VirtualStoreViewModel {
               }
             }
         }
-        
     }
     
     func addProductToCart(product: Product, quantity: String) {

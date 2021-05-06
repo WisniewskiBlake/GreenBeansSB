@@ -12,8 +12,35 @@ import FirebaseAuth
 
 class AdminViewModel {
     
-    func addNewProduct(image: String, name: String, price: String, discount: String, description: String) {
-//        let productDictionary = NSMutableDictionary(objects: [postID, postTeamID, ownerID, text, picture, postUserAva, postUserName, video, postType, postUrlLink, postFeedType], forKeys: [kPOSTID as NSCopying, kPOSTTEAMID as NSCopying, kPOSTOWNERID as NSCopying, kPOSTTEXT as NSCopying, kPOSTPICTURE as NSCopying, kPOSTUSERAVA as NSCopying, kPOSTUSERNAME as NSCopying, kPOSTVIDEO as NSCopying, kPOSTTYPE as NSCopying, kPOSTURLLINK as NSCopying, kPOSTFEEDTYPE as NSCopying])
+    func addNewProduct(data: Data, name: String, price: String, discount: String, description: String, category: String) {
+        let replaced = name.replacingOccurrences(of: " ", with: "_")
+        let path = "gs://greenbeans-9bcea.appspot.com/" + replaced + ".jpg"
+        var highlightedProduct = "false"
+        if discount != "0" {
+            highlightedProduct = "true"
+        }
+        let productDictionary: [String:Any] = [
+            "productImageUrl": path,
+            "productTitle": name,
+            "productPrice": price,
+            "productType": category,
+            "productDescription": description,
+            "highlightedProduct": highlightedProduct,
+            "highlightedDiscount": discount
+        ]
+        let md = StorageMetadata()
+        md.contentType = "image/jpeg"
         
+        let ref = Storage.storage().reference().child(replaced + ".jpg")
+        ref.putData(data, metadata: md) { (metadata, error) in
+             if error == nil {
+                 ref.downloadURL(completion: { (url, error) in
+                     print("Done, url is \(String(describing: url))")
+                 })
+             }else{
+                 print("error \(String(describing: error))")
+             }
+         }
+        reference(.Products).document(name).setData(productDictionary)
     }
 }

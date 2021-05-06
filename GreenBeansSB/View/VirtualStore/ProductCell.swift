@@ -9,15 +9,13 @@ import UIKit
 
 class ProductCell: UITableViewCell {
     @IBOutlet private weak var productImageView: UIImageView!
-    @IBOutlet private weak var productTitleLabel: UILabel!
-    @IBOutlet private weak var productPriceLabel: UILabel!
-    @IBOutlet private weak var productDescriptionLabel: UILabel!
+    @IBOutlet private weak var productPriceLabel: UILabel!    
     @IBOutlet private weak var productDiscountLabel: UILabel!
     @IBOutlet private weak var productDescriptionText: UITextView!
     
-    var productTitle: String? {
-        didSet { productTitleLabel.text = productTitle ?? "" }
-    }
+//    var productTitle: String? {
+//        didSet { productTitleLabel.text = productTitle ?? "" }
+//    }
     
     var productPrice: String? {
         didSet { productPriceLabel.text = productPrice ?? "" }
@@ -37,7 +35,8 @@ class ProductCell: UITableViewCell {
     }
 
     override func awakeFromNib() {
-        super.awakeFromNib()        
+        super.awakeFromNib()
+        productImageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
