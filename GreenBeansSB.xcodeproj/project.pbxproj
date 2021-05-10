@@ -75,6 +75,8 @@
 		BBBF3C4F26412C81000E97F9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BBBF3C4E26412C81000E97F9 /* FirebaseFirestore */; };
 		BBBF3C5126412C81000E97F9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = BBBF3C5026412C81000E97F9 /* FirebaseDatabase */; };
 		BBC02E1826424675009AFA5B /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC02E1726424675009AFA5B /* AdminViewModel.swift */; };
+		BBF0509F2648EAB800447E3E /* icons8-checked-checkbox-48.png in Resources */ = {isa = PBXBuildFile; fileRef = BBF0509E2648EAB800447E3E /* icons8-checked-checkbox-48.png */; };
+		BBF050A42648EAC200447E3E /* icons8-unchecked-checkbox-48.png in Resources */ = {isa = PBXBuildFile; fileRef = BBF050A32648EAC200447E3E /* icons8-unchecked-checkbox-48.png */; };
 		E7BBEAD6FCFC82270EF5A7FA /* Pods_GreenBeansSB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70819FF9B6009D94BE2A5307 /* Pods_GreenBeansSB.framework */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +173,8 @@
 		BB9F3DB9261C2780003C93FA /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		BB9F3DBE261C27D0003C93FA /* AddressSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchBar.swift; sourceTree = "<group>"; };
 		BBC02E1726424675009AFA5B /* AdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewModel.swift; sourceTree = "<group>"; };
+		BBF0509E2648EAB800447E3E /* icons8-checked-checkbox-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-checked-checkbox-48.png"; sourceTree = "<group>"; };
+		BBF050A32648EAC200447E3E /* icons8-unchecked-checkbox-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-unchecked-checkbox-48.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +284,8 @@
 				BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */,
 				BB61A70825EDFB7100EB1228 /* Main.storyboard */,
 				BB0BC5662640F04A0079544B /* imagePlaceholder.png */,
+				BBF050A32648EAC200447E3E /* icons8-unchecked-checkbox-48.png */,
+				BBF0509E2648EAB800447E3E /* icons8-checked-checkbox-48.png */,
 				BB978F18263B42670021FBD7 /* greenbeansinclogo_default.png */,
 				BB61A70B25EDFB7400EB1228 /* Assets.xcassets */,
 				BB61A70D25EDFB7400EB1228 /* LaunchScreen.storyboard */,
@@ -656,8 +662,10 @@
 				BB61A70A25EDFB7100EB1228 /* Main.storyboard in Resources */,
 				BB4D4D9226254E4E00581F83 /* Futura.ttc in Resources */,
 				BB0BC5672640F04A0079544B /* imagePlaceholder.png in Resources */,
+				BBF050A42648EAC200447E3E /* icons8-unchecked-checkbox-48.png in Resources */,
 				BB4D4D972625503000581F83 /* Pipetton DEMO.ttf in Resources */,
 				BB978F19263B42670021FBD7 /* greenbeansinclogo_default.png in Resources */,
+				BBF0509F2648EAB800447E3E /* icons8-checked-checkbox-48.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class AdminViewModel {
     
-    func addNewProduct(data: Data, name: String, price: String, discount: String, description: String, category: String) {
+    func addNewProduct(data: Data, name: String, price: String, discount: String, description: String, category: String, clothingSizes: String) {
         let replaced = name.replacingOccurrences(of: " ", with: "_")
         let path = "gs://greenbeans-9bcea.appspot.com/" + replaced + ".jpg"
         var highlightedProduct = "false"
@@ -26,7 +26,8 @@ class AdminViewModel {
             "productType": category,
             "productDescription": description,
             "highlightedProduct": highlightedProduct,
-            "highlightedDiscount": discount
+            "highlightedDiscount": discount,
+            "clothingSizes": clothingSizes
         ]
         let md = StorageMetadata()
         md.contentType = "image/jpeg"
@@ -41,6 +42,6 @@ class AdminViewModel {
                  print("error \(String(describing: error))")
              }
          }
-        reference(.Products).document(name).setData(productDictionary)
+        reference(.Products).document().setData(productDictionary)
     }
 }

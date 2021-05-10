@@ -8,9 +8,10 @@
 import UIKit
 import Firebase
 
-class ProductListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+class ProductListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, ProductCellDelegate {
     var products: [Product] = []
     var imageDictionary: [String:UIImage] = [:]
+    var viewModel: AdminViewModel?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
@@ -31,19 +32,16 @@ class ProductListDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductCell
         let product = products[indexPath.row]
-        let image = imageDictionary[product.productTitle]
-        cell.productImage = image
-//        cell.productTitle = product.productTitle
-        cell.productPrice = "$" + product.productPrice
-        cell.productDescription = product.productTitle + " " + product.productDescription
-        if product.productHighlighted == "true" {
-            cell.productDiscount = product.productDiscount + " Off!"
-        } else {
-            cell.productDiscount = ""
-        }
-        
+        let image = imageDictionary[product.productTitle]!
+        cell.delegate = self
+        cell.generateCell(product: product, image: image, indexPath: indexPath)
         return cell
-    }    
+    }
+    
+    func removeProduct(indexPath: IndexPath) {
+        products.remove(at: indexPath.row)
+        viewModel?.removeProduct(indexPath: indexPath)
+    }
 }
 
 

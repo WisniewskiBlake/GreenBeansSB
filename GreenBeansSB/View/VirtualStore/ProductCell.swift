@@ -7,15 +7,34 @@
 
 import UIKit
 
+protocol ProductCellDelegate {
+    func removeProduct(indexPath: IndexPath)
+}
+
 class ProductCell: UITableViewCell {
     @IBOutlet private weak var productImageView: UIImageView!
     @IBOutlet private weak var productPriceLabel: UILabel!    
     @IBOutlet private weak var productDiscountLabel: UILabel!
     @IBOutlet private weak var productDescriptionText: UITextView!
     
-//    var productTitle: String? {
-//        didSet { productTitleLabel.text = productTitle ?? "" }
-//    }
+    var delegate: ProductCellDelegate?
+    var indexPath: IndexPath!
+    
+    func generateCell(product: Product, image: UIImage, indexPath: IndexPath) {
+        self.indexPath = indexPath
+        productImage = image
+        if ((product.productPrice.range(of: "$", options: .caseInsensitive)) == nil) {
+            productPrice = "$" + product.productPrice
+        } else {
+            productPrice = product.productPrice
+        }
+        productDescription = product.productTitle + " " + product.productDescription
+        if product.productHighlighted == "true" {
+            productDiscount = product.productDiscount + " Off!"
+        } else {
+            productDiscount = ""
+        }
+    }
     
     var productPrice: String? {
         didSet { productPriceLabel.text = productPrice ?? "" }
@@ -26,13 +45,16 @@ class ProductCell: UITableViewCell {
     }
         
     var productDescription: String? {
-//        didSet { productDescriptionLabel.text = productDescription ?? "" }
         didSet { productDescriptionText.text = productDescription ?? "" }
     }
     
     var productDiscount: String? {
         didSet { productDiscountLabel.text = productDiscount ?? "" }
     }
+    
+    @IBAction func removeClicked(_ sender: Any) {
+        delegate!.removeProduct(indexPath: indexPath)
+    }    
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -20,6 +20,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         configureUI()
         emailTextField.delegate = self
         fullNameTextField.delegate = self

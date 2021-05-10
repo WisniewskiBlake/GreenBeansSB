@@ -23,11 +23,25 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var categoryButton: UIButton!
     
+    @IBOutlet weak var stockLabel: UILabel!
+    @IBOutlet weak var smallBtn: UIButton!
+    @IBOutlet weak var medBtn: UIButton!
+    @IBOutlet weak var largeBtn: UIButton!
+    @IBOutlet weak var xlBtn: UIButton!
+    @IBOutlet weak var xxlBtn: UIButton!
+    
+    @IBOutlet weak var sLabel: UILabel!
+    @IBOutlet weak var mLabel: UILabel!
+    @IBOutlet weak var lLabel: UILabel!
+    @IBOutlet weak var xlLabel: UILabel!
+    @IBOutlet weak var xxlLabel: UILabel!
+    
     let transparentView = UIView()
     let tableView = UITableView()
     var selectedButton = UIButton()
     var dataSource = [String]()
     var cellText = "Category"
+    var clothingSizes = ""
     
     let imageTapGestureRecognizer = UITapGestureRecognizer()
     let imagePickerVC = UIImagePickerController()
@@ -36,9 +50,12 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
     let helper = Helper()
     var image = UIImage()
     var data = Data()
+    var imageSelected: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        initButtons()
         imageTapGestureRecognizer.addTarget(self, action: #selector(self.handleImageTap))
         productImage.isUserInteractionEnabled = true
         productImage.addGestureRecognizer(imageTapGestureRecognizer)
@@ -52,15 +69,15 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
     }
     
     @IBAction func addProductClicked(_ sender: Any) {
-        if(productNameText.text != "" || productNameText.text != "Product Name" && productPriceText.text != "" || productPriceText.text != "Product Price" && productDescriptionText.text != "" || productDescriptionText.text != "Description" && productDiscount.text != "") {
+        
+        if fieldsValid() {
+            checkClothingSizes()
             let productName = productNameText.text
             let productPrice = productPriceText.text
             let discount = Int(productDiscount.text!) ?? 0
             let productDescription = productDescriptionText.text
             let category = categoryButton.title(for: .normal)
-            
-            viewModel.addNewProduct(data: data, name: productName!, price: productPrice!, discount: String(discount), description: productDescription!, category: category!)
-            
+            viewModel.addNewProduct(data: data, name: productName!, price: productPrice!, discount: String(discount), description: productDescription!, category: category!, clothingSizes: clothingSizes)
             let alertview = JSSAlertView().show(self,
               title: "Added New Product!",
               buttonText: "Ok"
@@ -69,9 +86,16 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
             alertview.setTitleFont("ClearSans-Bold") // Title font
             alertview.setTextFont("ClearSans") // Alert body text font
             alertview.setButtonFont("ClearSans-Light") // Button text font
-
         } else {
-            helper.showAlert(title: "Please Fill All Fields", message: "", in: self)
+            helper.showAlert(title: "Please Fill All Fields Except Discount", message: "", in: self)
+        }
+    }
+    
+    func fieldsValid() -> Bool {
+        if((productNameText.text != "" || productNameText.text != nil) && (productPriceText.text != "" || productPriceText.text != nil) && (productDescriptionText.text != "" || productDescriptionText.text != nil) && imageSelected || (categoryButton.title(for: .normal) == "Clothing" && (smallBtn.isSelected == true || medBtn.isSelected == true || largeBtn.isSelected == true || xlBtn.isSelected == true || xxlBtn.isSelected == true))) {
+            return true
+        } else {
+            return false
         }
     }
     
@@ -79,6 +103,24 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
         dataSource = ["Clothing", "Concentrate", "Edible", "Supplies"]
         selectedButton = categoryButton
         addTransparentView(frames: categoryButton.frame)
+    }
+    
+    func checkClothingSizes() {
+        if smallBtn.isSelected == true {
+            clothingSizes = clothingSizes + "S;"
+        }
+        if medBtn.isSelected == true {
+            clothingSizes = clothingSizes + "M;"
+        }
+        if largeBtn.isSelected == true {
+            clothingSizes = clothingSizes + "L;"
+        }
+        if xlBtn.isSelected == true {
+            clothingSizes = clothingSizes + "XL;"
+        }
+        if xxlBtn.isSelected == true {
+            clothingSizes = clothingSizes + "XXL;"
+        }
     }
     
     @objc func handleImageTap() {
@@ -104,6 +146,11 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
         self.present(sheet, animated: true, completion: nil)
     }
     
+    @IBAction func smallClicked(_ sender: UIButton) {
+        sender.isSelected.toggle()
+    }
+    
+    
     func showPicker(with source: UIImagePickerController.SourceType) {
         imagePickerVC.sourceType = .photoLibrary
         imagePickerVC.allowsEditing = true
@@ -116,16 +163,7 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
         image = (info[.editedImage] as? UIImage)!
         productImage.image = image
         data = image.jpegData(compressionQuality: 0.5)!
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        imageSelected = true
 //        let image = info[UIImagePickerController.InfoKey(rawValue: convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage))] as? UIImage
 //        let picturePath = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
 //
@@ -140,9 +178,28 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
         dismiss(animated: true)
     }
     
+    @IBAction func textEndEditing(_ sender: UITextField) {
+        if ((sender.text?.range(of: "$", options: .caseInsensitive)) == nil) {
+            sender.text = "$" + sender.text!
+        }
+    }
+    
     @IBAction func backButtonClicked(_ sender: Any) {
         addTransitionLeft()
         dismiss(animated: true, completion: nil)
+    }
+    
+    func initButtons() {
+        smallBtn.setImage(UIImage(named: "icons8-unchecked-checkbox-48.png"), for: .normal)
+        smallBtn.setImage(UIImage(named: "icons8-checked-checkbox-48.png"), for: .selected)
+        medBtn.setImage(UIImage(named: "icons8-unchecked-checkbox-48.png"), for: .normal)
+        medBtn.setImage(UIImage(named: "icons8-checked-checkbox-48.png"), for: .selected)
+        largeBtn.setImage(UIImage(named: "icons8-unchecked-checkbox-48.png"), for: .normal)
+        largeBtn.setImage(UIImage(named: "icons8-checked-checkbox-48.png"), for: .selected)
+        xlBtn.setImage(UIImage(named: "icons8-unchecked-checkbox-48.png"), for: .normal)
+        xlBtn.setImage(UIImage(named: "icons8-checked-checkbox-48.png"), for: .selected)
+        xxlBtn.setImage(UIImage(named: "icons8-unchecked-checkbox-48.png"), for: .normal)
+        xxlBtn.setImage(UIImage(named: "icons8-checked-checkbox-48.png"), for: .selected)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -209,6 +266,31 @@ extension AddProduct: UITableViewDelegate, UITableViewDataSource {
         selectedButton.setTitle(dataSource[indexPath.row], for: .normal)
         removeTransparentView()
         cellText = dataSource[indexPath.row]
+        if cellText == "Clothing" {
+            stockLabel.isHidden = false
+            smallBtn.isHidden = false
+            medBtn.isHidden = false
+            largeBtn.isHidden = false
+            xlBtn.isHidden = false
+            xxlBtn.isHidden = false
+            sLabel.isHidden = false
+            mLabel.isHidden = false
+            lLabel.isHidden = false
+            xlLabel.isHidden = false
+            xxlLabel.isHidden = false
+        } else {
+            stockLabel.isHidden = true
+            smallBtn.isHidden = true
+            medBtn.isHidden = true
+            largeBtn.isHidden = true
+            xlBtn.isHidden = true
+            xxlBtn.isHidden = true
+            sLabel.isHidden = true
+            mLabel.isHidden = true
+            lLabel.isHidden = true
+            xlLabel.isHidden = true
+            xxlLabel.isHidden = true
+        }
     }    
 }
 
