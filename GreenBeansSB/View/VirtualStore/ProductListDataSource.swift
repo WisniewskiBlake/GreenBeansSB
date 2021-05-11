@@ -26,7 +26,8 @@ class ProductListDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "cellClicked"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "cellStoreClicked"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "cellAdminClicked"), object: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,8 +40,9 @@ class ProductListDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
     }
     
     func removeProduct(indexPath: IndexPath) {
+        let product = products[indexPath.row]
         products.remove(at: indexPath.row)
-        viewModel?.removeProduct(indexPath: indexPath)
+        viewModel?.removeProduct(indexPath: indexPath, product: product)
     }
 }
 

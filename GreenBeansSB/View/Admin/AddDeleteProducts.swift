@@ -10,15 +10,17 @@ import UIKit
 class AddDeleteProducts: UIViewController {
     let viewModel = VirtualStoreViewModel()
     var dataSource = ProductListDataSource()
+    
     private var products: [Product] = []
     private var imageDictionary: [String:UIImage] = [:]
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "loadedProducts"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedImages"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellClicked"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "loadedAdminProducts"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedAdminImages"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellAdminClicked"), object: nil)
         viewModel.fetchAllProducts(category: "All Products")
     }  
     

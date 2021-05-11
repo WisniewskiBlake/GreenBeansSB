@@ -20,19 +20,18 @@ class VirtualStoreViewController: UIViewController {
     
     var dataSource = ProductListDataSource()
     var viewModel = VirtualStoreViewModel()
+    
     private var products: [Product] = []
     private var imageDictionary: [String:UIImage] = [:]
-    private var tag = ""
-    var isMenuClicked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "loadedProducts"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedImages"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellClicked"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "loadedStoreProducts"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellStoreClicked"), object: nil)
         allButton.gradientStartColor = #colorLiteral(red: 1, green: 0.4314318299, blue: 0.7802562118, alpha: 1)
         allButton.gradientEndColor = #colorLiteral(red: 1, green: 0.5957168212, blue: 0.8018686056, alpha: 1)
-        viewModel.fetchAllProducts(category: "All Products")
+        viewModel.fetchAllProducts(category: "All Products", vc: "Store")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +43,7 @@ class VirtualStoreViewController: UIViewController {
     
     @objc func loadImages() {
         products = viewModel.getProducts()
-        viewModel.loadImages(products: products)
+        viewModel.loadImages(products: products, vc: "Store")
     }
     
     @objc func setDataSource() {
@@ -74,32 +73,32 @@ class VirtualStoreViewController: UIViewController {
 
     @IBAction func allClicked(_ sender: Any) {
         allProductsPink()
-        viewModel.fetchAllProducts(category: "All Products")
+        viewModel.fetchAllProducts(category: "All Products", vc: "Store")
     }
     
     @IBAction func onSaleClicked(_ sender: Any) {
         onSalePink()
-        viewModel.fetchAllProducts(category: "On Sale")
+        viewModel.fetchAllProducts(category: "On Sale", vc: "Store")
     }
     
     @IBAction func clothingClicked(_ sender: Any) {
         clothingPink()
-        viewModel.fetchAllProducts(category: "Merchandise")
+        viewModel.fetchAllProducts(category: "Merchandise", vc: "Store")
     }
     
     @IBAction func concentrateClicked(_ sender: Any) {
         concentratePink()
-        viewModel.fetchAllProducts(category: "Concentrate")
+        viewModel.fetchAllProducts(category: "Concentrate", vc: "Store")
     }
     
     @IBAction func edibleClicked(_ sender: Any) {
         ediblePink()
-        viewModel.fetchAllProducts(category: "Edible")
+        viewModel.fetchAllProducts(category: "Edible", vc: "Store")
     }
     
     @IBAction func suppliesClicked(_ sender: Any) {
         suppliesPink()
-        viewModel.fetchAllProducts(category: "Supplies")
+        viewModel.fetchAllProducts(category: "Supplies", vc: "Store")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

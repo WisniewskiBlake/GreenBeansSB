@@ -26,7 +26,7 @@ class VirtualStoreViewModel {
         return imageDictionary
     }
     
-    func fetchAllProducts(category: String) {
+    func fetchAllProducts(category: String, vc: String) {
         let query = self.provideQuery(category: category)
         query.getDocuments { (snapshot, error) in
              self.products = []
@@ -43,11 +43,15 @@ class VirtualStoreViewModel {
                      self.products.append(product)
                  }
              }
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedProducts"), object: nil)
+            if vc == "Store" {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedStoreProducts"), object: nil)
+            } else {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedAdminProducts"), object: nil)
+            }
         }
     }
     
-    func loadImages(products: [Product]) {        
+    func loadImages(products: [Product], vc: String) {
         for i in 0...products.count-1 {
             let str = products[i].productTitle
             let storageRef = Firebase.Storage.storage().reference(forURL: products[i].productImageUrl) 
@@ -59,7 +63,11 @@ class VirtualStoreViewModel {
                 self.imageDictionary[str] = UIImage(data: data!)!
                 //self.images.append(UIImage(data: data!)!)
                 if self.imageDictionary.count == self.products.count {
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedImages"), object: nil)
+                    if vc == "Store" {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
+                    } else {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedAdminImages"), object: nil)
+                    }                 
                 }
               }
             }

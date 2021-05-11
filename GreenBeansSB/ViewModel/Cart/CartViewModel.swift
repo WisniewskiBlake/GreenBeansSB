@@ -53,7 +53,7 @@ class CartViewModel: ObservableObject {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedCart"), object: nil)
         }
     }
-    
+//TODO: reference document differently than productTitle
     func removeProductFromCart(indexPath: IndexPath) {
         let document: DocumentReference?
         self.indexPath = indexPath
