@@ -18,7 +18,7 @@ class VirtualStoreViewController: UIViewController {
     @IBOutlet weak var edibleButton: LGButton!
     @IBOutlet weak var suppliesButton: LGButton!
     
-    var dataSource = ProductListDataSource()
+    var dataSource = ProductListDataSource.sharedProductDS
     var viewModel = VirtualStoreViewModel()
     
     private var products: [Product] = []
@@ -31,7 +31,15 @@ class VirtualStoreViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellStoreClicked"), object: nil)
         allButton.gradientStartColor = #colorLiteral(red: 1, green: 0.4314318299, blue: 0.7802562118, alpha: 1)
         allButton.gradientEndColor = #colorLiteral(red: 1, green: 0.5957168212, blue: 0.8018686056, alpha: 1)
-        viewModel.fetchAllProducts(category: "All Products", vc: "Store")
+        if dataSource.products.count == 0 && dataSource.imageDictionary.count == 0 {
+            viewModel.fetchAllProducts(category: "All Products", vc: "Store")
+        } else {
+            dataSource.viewModel = viewModel
+            tableView.dataSource = dataSource
+            tableView.delegate = dataSource
+            tableView.reloadData()
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,17 +50,24 @@ class VirtualStoreViewController: UIViewController {
     }
     
     @objc func loadImages() {
-        products = viewModel.getProducts()
-        viewModel.loadImages(products: products, vc: "Store")
+//        if products.count > 0 && products.count == imageDictionary.count {
+//            dataSource.products = products
+//            dataSource.imageDictionary = imageDictionary
+//            tableView.dataSource = dataSource
+//            tableView.delegate = dataSource
+//            tableView.reloadData()
+//        } else {
+            products = viewModel.getProducts()
+            viewModel.loadImages(products: products, vc: "Store")
+        
+        
     }
     
-    @objc func setDataSource() {
-//        onSaleButton.gradientStartColor = #colorLiteral(red: 1, green: 0.4314318299, blue: 0.7802562118, alpha: 1)
-//        onSaleButton.gradientEndColor = #colorLiteral(red: 1, green: 0.5957168212, blue: 0.8018686056, alpha: 1)
-        
+    @objc func setDataSource() {        
         imageDictionary = viewModel.getImages()
         dataSource.products = products
         dataSource.imageDictionary = imageDictionary
+        dataSource.viewModel = viewModel
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         tableView.reloadData()

@@ -45,31 +45,6 @@ class AdminViewModel {
         reference(.Products).document().setData(productDictionary)
     } 
     
-    func removeProduct(indexPath: IndexPath, product: Product) {
-        //var query: DocumentChange?
-        let query = reference(.Products).whereField(kPRODUCTTITLE, isEqualTo: product.productTitle)
-        var id: String?
-        
-        query.getDocuments { (snapshot, error) in
-             if error != nil {
-                 print(error!.localizedDescription)
-                 return
-             }
-             guard let snapshot = snapshot else { return }
-             if !snapshot.isEmpty {
-                for document in snapshot.documents {
-                    id = document.documentID
-                }
-             }
-        }
-        
-        reference(.Products).document(id ?? "").delete() { err in
-            if let err = err {
-                print("Error removing document: \(err)")
-            } else {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "productRemoved"), object: nil)
-                print("Document successfully removed!")
-            }
-        }
-    }
+    
+    
 }

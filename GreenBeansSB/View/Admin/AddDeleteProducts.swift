@@ -9,7 +9,8 @@ import UIKit
 
 class AddDeleteProducts: UIViewController {
     let viewModel = VirtualStoreViewModel()
-    var dataSource = ProductListDataSource()
+    let adminViewModel = AdminViewModel()
+    var dataSource = ProductListDataSource.sharedProductDS
     
     private var products: [Product] = []
     private var imageDictionary: [String:UIImage] = [:]
@@ -18,10 +19,14 @@ class AddDeleteProducts: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "loadedAdminProducts"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedAdminImages"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "loadedAdminProducts"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedAdminImages"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellAdminClicked"), object: nil)
-        viewModel.fetchAllProducts(category: "All Products")
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "adminRemove"), object: nil)
+        tableView.dataSource = dataSource
+        tableView.delegate = dataSource
+        tableView.reloadData()
+        //viewModel.fetchAllProducts(category: "All Products", vc: "Admin")
     }  
     
     @IBAction func addButtonClicked(_ sender: Any) {
@@ -30,17 +35,26 @@ class AddDeleteProducts: UIViewController {
         //performSegue(withIdentifier: "AddProduct", sender: self)
     }
     
-    @objc func loadImages() {
-        products = viewModel.getProducts()
-        viewModel.loadImages(products: products)
-    }
+//    @objc func loadImages() {
+//        if  !products.isEmpty && !imageDictionary.isEmpty {            
+//            tableView.dataSource = dataSource
+//            tableView.delegate = dataSource
+//            tableView.reloadData()
+//        } else {
+//            products = viewModel.getProducts()
+//            viewModel.loadImages(products: products, vc: "Admin")
+//        }
+//        
+//    }
+//    
+//    @objc func setDataSource() {
+//        tableView.dataSource = dataSource
+//        tableView.delegate = dataSource
+//        tableView.reloadData()
+//    }
     
-    @objc func setDataSource() {
-        imageDictionary = viewModel.getImages()
-        dataSource.products = products
-        dataSource.imageDictionary = imageDictionary
-        tableView.dataSource = dataSource
-        tableView.delegate = dataSource
+    @objc func updateUI() {
+        products = dataSource.products
         tableView.reloadData()
     }
     

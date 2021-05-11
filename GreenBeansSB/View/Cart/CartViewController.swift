@@ -32,8 +32,7 @@ class CartViewController: UIViewController {
     }
     
     @objc func updateUI() {
-        products = dataSource.products
-                
+        products = dataSource.products                
         tableView.reloadData()
     }
     

@@ -116,6 +116,31 @@ class VirtualStoreViewModel {
         }
     }
     
+    func removeProduct(indexPath: IndexPath, product: Product) {
+        //var query: DocumentChange?
+        let query = reference(.Products).whereField(kPRODUCTTITLE, isEqualTo: product.productTitle)
+        
+        query.getDocuments { (snapshot, error) in
+             if error != nil {
+                 print(error!.localizedDescription)
+                 return
+             }
+             guard let snapshot = snapshot else { return }
+             if !snapshot.isEmpty {
+                for document in snapshot.documents {
+                    reference(.Products).document(document.documentID).delete() { err in
+                        if let err = err {
+                            print("Error removing document: \(err)")
+                        } else {
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "adminRemove"), object: nil)
+                            print("Document successfully removed!")
+                        }
+                    }
+                }
+             }
+        }
+    }
+    
     func provideQuery(category: String) -> Query {
         var query: Query?
         if(category != "All Products" && category != "On Sale") {

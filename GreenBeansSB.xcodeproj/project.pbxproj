@@ -42,7 +42,6 @@
 		BB61A7F825EF48D900EB1228 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A7F725EF48D900EB1228 /* CartViewController.swift */; };
 		BB61A7FD25EF48ED00EB1228 /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A7FC25EF48ED00EB1228 /* OrderHistoryViewController.swift */; };
 		BB61A80625EF490D00EB1228 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A80525EF490D00EB1228 /* SettingsViewController.swift */; };
-		BB61A80B25EF5EB300EB1228 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A80A25EF5EB300EB1228 /* ProductListViewController.swift */; };
 		BB61A81525EF6F1F00EB1228 /* VirtualStoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A81425EF6F1F00EB1228 /* VirtualStoreViewModel.swift */; };
 		BB61A81D25EF79A500EB1228 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A81C25EF79A500EB1228 /* ProductCell.swift */; };
 		BB61A82225EF7FB800EB1228 /* ProductListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A82125EF7FB800EB1228 /* ProductListDataSource.swift */; };
@@ -146,7 +145,6 @@
 		BB61A7F725EF48D900EB1228 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		BB61A7FC25EF48ED00EB1228 /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
 		BB61A80525EF490D00EB1228 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		BB61A80A25EF5EB300EB1228 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		BB61A81425EF6F1F00EB1228 /* VirtualStoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualStoreViewModel.swift; sourceTree = "<group>"; };
 		BB61A81C25EF79A500EB1228 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		BB61A82125EF7FB800EB1228 /* ProductListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListDataSource.swift; sourceTree = "<group>"; };
@@ -371,7 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				BB61A7C725EE1C7600EB1228 /* VirtualStoreViewController.swift */,
-				BB61A80A25EF5EB300EB1228 /* ProductListViewController.swift */,
 				BB61A81C25EF79A500EB1228 /* ProductCell.swift */,
 				BB61A82125EF7FB800EB1228 /* ProductListDataSource.swift */,
 				BB61A83825F1EEC600EB1228 /* ProductDetailViewController.swift */,
@@ -848,7 +845,6 @@
 				BB61A82C25EF9EC700EB1228 /* TestViewController.swift in Sources */,
 				BB86013D260974140093EE16 /* OrderHistoryViewModel.swift in Sources */,
 				BB8601112601CEFB0093EE16 /* PickupViewController.swift in Sources */,
-				BB61A80B25EF5EB300EB1228 /* ProductListViewController.swift in Sources */,
 				BB86011E260201320093EE16 /* TimeViewController.swift in Sources */,
 				BB9F3DBA261C2780003C93FA /* SearchResults.swift in Sources */,
 				BB61A75B25EDFDBC00EB1228 /* RegisterViewController.swift in Sources */,
