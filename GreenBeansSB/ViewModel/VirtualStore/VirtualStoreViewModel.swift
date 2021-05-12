@@ -15,6 +15,7 @@ class VirtualStoreViewModel {
     private var user: User!
     private var userSession = AuthViewModel.shared.userSession
     private var images: [UIImage] = []
+    static let sharedViewModel = VirtualStoreViewModel()
     
     init() {}
     
@@ -42,16 +43,15 @@ class VirtualStoreViewModel {
                      let product = Product(dictionary: productDictionary as! [String : Any])
                      self.products.append(product)
                  }
-             }
-            if vc == "Store" {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedStoreProducts"), object: nil)
-            } else {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedAdminProducts"), object: nil)
-            }
+             }            
+            self.loadImages(products: self.products, vc: "Store")
+            //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedStoreProducts"), object: nil)
         }
     }
     
     func loadImages(products: [Product], vc: String) {
+        self.imageDictionary = [:]
+        //if all else fails, put a condition to check if product.count ==0, do nothing
         for i in 0...products.count-1 {
             let str = products[i].productTitle
             let storageRef = Firebase.Storage.storage().reference(forURL: products[i].productImageUrl) 
@@ -63,11 +63,7 @@ class VirtualStoreViewModel {
                 self.imageDictionary[str] = UIImage(data: data!)!
                 //self.images.append(UIImage(data: data!)!)
                 if self.imageDictionary.count == self.products.count {
-                    if vc == "Store" {
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
-                    } else {
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedAdminImages"), object: nil)
-                    }                 
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)                            
                 }
               }
             }
@@ -119,7 +115,6 @@ class VirtualStoreViewModel {
     func removeProduct(indexPath: IndexPath, product: Product) {
         //var query: DocumentChange?
         let query = reference(.Products).whereField(kPRODUCTTITLE, isEqualTo: product.productTitle)
-        
         query.getDocuments { (snapshot, error) in
              if error != nil {
                  print(error!.localizedDescription)
@@ -139,6 +134,77 @@ class VirtualStoreViewModel {
                 }
              }
         }
+    }
+    
+    func editProduct(data: Data, name: String, price: String, discount: String, description: String, category: String, clothingSizes: String, imageChanged: Bool, product: Product) {
+        var productDictionary: [String:Any] = [:]
+        var highlightedProduct = "false"
+        if discount != "0" {
+            highlightedProduct = "true"
+        }
+        
+        if imageChanged {
+            let md = StorageMetadata()
+            md.contentType = "image/jpeg"
+            let replaced = name.replacingOccurrences(of: " ", with: "_")
+            let path = "gs://greenbeans-9bcea.appspot.com/" + replaced + ".jpg"
+            productDictionary = [
+                "productImageUrl": path,
+                "productTitle": name,
+                "productPrice": price,
+                "productType": category,
+                "productDescription": description,
+                "highlightedProduct": highlightedProduct,
+                "highlightedDiscount": discount,
+                "clothingSizes": clothingSizes
+            ]
+            let ref = Storage.storage().reference().child(replaced + ".jpg")
+            ref.putData(data, metadata: md) { (metadata, error) in
+                 if error == nil {
+                     ref.downloadURL(completion: { (url, error) in
+                         print("Done, url is \(String(describing: url))")
+                     })
+                 }else{
+                     print("error \(String(describing: error))")
+                 }
+             }
+            reference(.Products).document().setData(productDictionary)
+        } else {
+            productDictionary = [
+                "productTitle": name,
+                "productPrice": price,
+                "productType": category,
+                "productDescription": description,
+                "highlightedProduct": highlightedProduct,
+                "highlightedDiscount": discount,
+                "clothingSizes": clothingSizes
+            ]
+        }
+        let query = reference(.Products).whereField(kPRODUCTTITLE, isEqualTo: product.productTitle)
+        query.getDocuments { (snapshot, error) in
+             if error != nil {
+                 print(error!.localizedDescription)
+                 return
+             }
+             guard let snapshot = snapshot else { return }
+             if !snapshot.isEmpty {
+                for document in snapshot.documents {
+                    reference(.Products).document(document.documentID).updateData(productDictionary) { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+//                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "editProduct"), object: nil)
+                            self.fetchAllProducts(category: "All Products", vc: "Store")
+                            print("Document successfully updated!")
+                        }
+                    }
+                }
+             }
+        }
+        
+        
+      
+        
     }
     
     func provideQuery(category: String) -> Query {

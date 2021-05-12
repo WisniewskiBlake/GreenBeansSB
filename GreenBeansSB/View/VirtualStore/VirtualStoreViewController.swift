@@ -19,27 +19,37 @@ class VirtualStoreViewController: UIViewController {
     @IBOutlet weak var suppliesButton: LGButton!
     
     var dataSource = ProductListDataSource.sharedProductDS
-    var viewModel = VirtualStoreViewModel()
+    var viewModel = VirtualStoreViewModel.sharedViewModel
     
     private var products: [Product] = []
     private var imageDictionary: [String:UIImage] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "loadedStoreProducts"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellStoreClicked"), object: nil)
+        initObservers()
         allButton.gradientStartColor = #colorLiteral(red: 1, green: 0.4314318299, blue: 0.7802562118, alpha: 1)
         allButton.gradientEndColor = #colorLiteral(red: 1, green: 0.5957168212, blue: 0.8018686056, alpha: 1)
-        if dataSource.products.count == 0 && dataSource.imageDictionary.count == 0 {
-            viewModel.fetchAllProducts(category: "All Products", vc: "Store")
-        } else {
-            dataSource.viewModel = viewModel
-            tableView.dataSource = dataSource
-            tableView.delegate = dataSource
-            tableView.reloadData()
-        }
-        
+        //TODO: remove if view appear works
+//        if dataSource.products.count == 0 && dataSource.imageDictionary.count == 0 {
+//            viewModel.fetchAllProducts(category: "All Products", vc: "Store")
+//        } else {
+//            dataSource.viewModel = viewModel
+//            tableView.dataSource = dataSource
+//            tableView.delegate = dataSource
+//            tableView.reloadData()
+//        }
+        viewModel.fetchAllProducts(category: "All Products", vc: "Store")
+    }
+    
+    func initObservers() {
+//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "loadedStoreProducts"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "cellStoreClicked"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "editProduct"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "loadedStoreProducts"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellStoreClicked"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateProducts), name: NSNotification.Name(rawValue: "editProduct"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,21 +59,17 @@ class VirtualStoreViewController: UIViewController {
         }
     }
     
-    @objc func loadImages() {
-//        if products.count > 0 && products.count == imageDictionary.count {
-//            dataSource.products = products
-//            dataSource.imageDictionary = imageDictionary
-//            tableView.dataSource = dataSource
-//            tableView.delegate = dataSource
-//            tableView.reloadData()
-//        } else {
-            products = viewModel.getProducts()
-            viewModel.loadImages(products: products, vc: "Store")
-        
-        
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        <#code#>
+//    }
     
-    @objc func setDataSource() {        
+//    @objc func loadImages() {
+//        products = viewModel.getProducts()
+//        viewModel.loadImages(products: products, vc: "Store")
+//    }
+    
+    @objc func setDataSource() {
+        products = viewModel.getProducts()
         imageDictionary = viewModel.getImages()
         dataSource.products = products
         dataSource.imageDictionary = imageDictionary
@@ -82,8 +88,11 @@ class VirtualStoreViewController: UIViewController {
             vc.viewModel = viewModel
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
+            }
         }
-        }
+    }
+    @objc func updateProducts() {
+        viewModel.fetchAllProducts(category: "All Products", vc: "Store")
     }
 
     @IBAction func allClicked(_ sender: Any) {
@@ -111,6 +120,7 @@ class VirtualStoreViewController: UIViewController {
         viewModel.fetchAllProducts(category: "Edible", vc: "Store")
     }
     
+    //TODO: can remove is viewwillappear works
     @IBAction func suppliesClicked(_ sender: Any) {
         suppliesPink()
         viewModel.fetchAllProducts(category: "Supplies", vc: "Store")
@@ -127,22 +137,7 @@ class VirtualStoreViewController: UIViewController {
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "Any", let productListViewController = segue.destination as? ProductListViewController {
-//            productListViewController.category = tag
-//            productListViewController.modalPresentationStyle = .fullScreen
-//
-//        }
-//
-//
-//
-////        if let productListViewController = segue.destination as? ProductListViewController {
-////            if let button = sender as? UIView {
-////                productListViewController.category = String(button.tag)
-////                productListViewController.modalPresentationStyle = .fullScreen
-////            }
-////        }
-//    }
+    
     
     func allProductsPink() {
         allButton.gradientStartColor = nil

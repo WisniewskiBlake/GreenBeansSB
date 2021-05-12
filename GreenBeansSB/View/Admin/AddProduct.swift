@@ -11,9 +11,7 @@ import UIKit
 import JSSAlertView
 import Firebase
 
-class CellClass: UITableViewCell {
-    
-}
+class CellClass: UITableViewCell {}
 
 class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var productNameText: UITextField!
@@ -45,8 +43,7 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
     
     let imageTapGestureRecognizer = UITapGestureRecognizer()
     let imagePickerVC = UIImagePickerController()
-    var pictureToUpload: String? = ""
-    let viewModel = AdminViewModel()
+    let viewModel = AdminViewModel()    
     let helper = Helper()
     var image = UIImage()
     var data = Data()
@@ -69,7 +66,6 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
     }
     
     @IBAction func addProductClicked(_ sender: Any) {
-        
         if fieldsValid() {
             checkClothingSizes()
             let productName = productNameText.text
@@ -164,17 +160,6 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
         productImage.image = image
         data = image.jpegData(compressionQuality: 0.5)!
         imageSelected = true
-//        let image = info[UIImagePickerController.InfoKey(rawValue: convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage))] as? UIImage
-//        let picturePath = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-//
-//            // assign selected image to AvaImageView
-//        self.productImage.image = picturePath
-//        
-//            // refresh global variable storing the user's profile pic
-//        let pictureData = image?.jpegData(compressionQuality: 0.4)!
-//        let avatar = pictureData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-//        pictureToUpload = avatar
-
         dismiss(animated: true)
     }
     

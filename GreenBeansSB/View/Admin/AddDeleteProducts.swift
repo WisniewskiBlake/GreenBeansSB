@@ -8,7 +8,7 @@
 import UIKit
 
 class AddDeleteProducts: UIViewController {
-    let viewModel = VirtualStoreViewModel()
+    let viewModel = VirtualStoreViewModel.sharedViewModel
     let adminViewModel = AdminViewModel()
     var dataSource = ProductListDataSource.sharedProductDS
     
@@ -19,52 +19,44 @@ class AddDeleteProducts: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "loadedAdminProducts"), object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedAdminImages"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellAdminClicked"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "adminRemove"), object: nil)
+        initObservers()
+        updateUI()
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         tableView.reloadData()
-        //viewModel.fetchAllProducts(category: "All Products", vc: "Admin")
-    }  
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //viewModel.fetchAllProducts(category: "All Products", vc: "Store")
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
     
     @IBAction func addButtonClicked(_ sender: Any) {
         let helper = Helper()
         helper.instantiateViewController(identifier: "AddProducts", animated: true, by: self, completion: nil)
-        //performSegue(withIdentifier: "AddProduct", sender: self)
     }
     
-//    @objc func loadImages() {
-//        if  !products.isEmpty && !imageDictionary.isEmpty {            
-//            tableView.dataSource = dataSource
-//            tableView.delegate = dataSource
-//            tableView.reloadData()
-//        } else {
-//            products = viewModel.getProducts()
-//            viewModel.loadImages(products: products, vc: "Admin")
-//        }
-//        
-//    }
-//    
-//    @objc func setDataSource() {
-//        tableView.dataSource = dataSource
-//        tableView.delegate = dataSource
-//        tableView.reloadData()
-//    }
-    
     @objc func updateUI() {
-        products = dataSource.products
+        products = viewModel.getProducts()
+        imageDictionary = viewModel.getImages()
+//        dataSource.products = products
+//        dataSource.imageDictionary = imageDictionary
+//        dataSource.viewModel = viewModel
+        tableView.dataSource = dataSource
+        tableView.delegate = dataSource
         tableView.reloadData()
     }
     
     @objc func cellClicked() {
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "productDetailVC") as? ProductDetailViewController
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditProduct") as? EditProduct
         {
             if let row = tableView.indexPathForSelectedRow?.row {
                 let product = dataSource.products[row]
-            vc.product = product
-            vc.viewModel = viewModel
+                vc.product = product
+                vc.image = dataSource.imageDictionary[product.productTitle]!
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
@@ -76,5 +68,15 @@ class AddDeleteProducts: UIViewController {
             addTransitionRight()
             destinationViewController.modalPresentationStyle = .fullScreen
         }
+    }
+    
+    func initObservers() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "cellAdminClicked"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "adminRemove"), object: nil)
+        //NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "editProduct"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellAdminClicked"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "adminRemove"), object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "editProduct"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
     }
 }
