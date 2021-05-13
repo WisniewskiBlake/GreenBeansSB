@@ -9,12 +9,15 @@ target 'GreenBeansSB' do
 	pod 'LGButton'
 	pod 'JSSAlertView'
 	pod 'GooglePlaces', '4.2.0'
-#pod 'Firebase/Auth'
-#pod 'Firebase/Firestore'
-#pod 'Firebase/Storage'
-#pod 'PromisesSwift'
+
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
+pod 'PromisesSwift'
+
 pod 'SideMenu'
 pod 'LGButton'
+pod 'LayoutHelper'
 
   target 'GreenBeansSBTests' do
     inherit! :search_paths

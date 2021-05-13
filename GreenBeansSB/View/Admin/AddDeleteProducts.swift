@@ -28,7 +28,6 @@ class AddDeleteProducts: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //viewModel.fetchAllProducts(category: "All Products", vc: "Store")
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
@@ -42,9 +41,6 @@ class AddDeleteProducts: UIViewController {
     @objc func updateUI() {
         products = viewModel.getProducts()
         imageDictionary = viewModel.getImages()
-//        dataSource.products = products
-//        dataSource.imageDictionary = imageDictionary
-//        dataSource.viewModel = viewModel
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         tableView.reloadData()
@@ -57,9 +53,9 @@ class AddDeleteProducts: UIViewController {
                 let product = dataSource.products[row]
                 vc.product = product
                 vc.image = dataSource.imageDictionary[product.productTitle]!
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
-        }
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
         }
     }
     
@@ -73,10 +69,10 @@ class AddDeleteProducts: UIViewController {
     func initObservers() {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "cellAdminClicked"), object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "adminRemove"), object: nil)
-        //NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "editProduct"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellAdminClicked"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "adminRemove"), object: nil)
-        //NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "editProduct"), object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
     }
 }

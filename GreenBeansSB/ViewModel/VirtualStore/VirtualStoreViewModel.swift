@@ -112,6 +112,8 @@ class VirtualStoreViewModel {
         }
     }
     
+    //TODO: notification center can be removed from here and replace with vm.fetchAllProducts
+    
     func removeProduct(indexPath: IndexPath, product: Product) {
         //var query: DocumentChange?
         let query = reference(.Products).whereField(kPRODUCTTITLE, isEqualTo: product.productTitle)
@@ -163,12 +165,13 @@ class VirtualStoreViewModel {
                  if error == nil {
                      ref.downloadURL(completion: { (url, error) in
                          print("Done, url is \(String(describing: url))")
+                        self.editProductHelper(productDictionary: productDictionary, product: product)
                      })
                  }else{
                      print("error \(String(describing: error))")
                  }
              }
-            reference(.Products).document().setData(productDictionary)
+//            reference(.Products).document().setData(productDictionary)
         } else {
             productDictionary = [
                 "productTitle": name,
@@ -179,7 +182,12 @@ class VirtualStoreViewModel {
                 "highlightedDiscount": discount,
                 "clothingSizes": clothingSizes
             ]
+            self.editProductHelper(productDictionary: productDictionary, product: product)
         }
+        
+    }
+    
+    func editProductHelper(productDictionary: [String:Any], product: Product) {
         let query = reference(.Products).whereField(kPRODUCTTITLE, isEqualTo: product.productTitle)
         query.getDocuments { (snapshot, error) in
              if error != nil {
@@ -193,7 +201,6 @@ class VirtualStoreViewModel {
                         if let err = err {
                             print("Error updating document: \(err)")
                         } else {
-//                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "editProduct"), object: nil)
                             self.fetchAllProducts(category: "All Products", vc: "Store")
                             print("Document successfully updated!")
                         }
@@ -201,10 +208,6 @@ class VirtualStoreViewModel {
                 }
              }
         }
-        
-        
-      
-        
     }
     
     func provideQuery(category: String) -> Query {
