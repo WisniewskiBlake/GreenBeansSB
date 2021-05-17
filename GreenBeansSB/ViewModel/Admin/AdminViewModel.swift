@@ -50,8 +50,8 @@ class AdminViewModel {
         reference(.Products).document().setData(productDictionary)
     } 
     
-    func fetchCustomerOrders() {
-        let query = reference(.Orders)
+    func fetchCustomerOrders(filter: String) {
+        let query = reference(.Orders).whereField(kORDERSTATUS, isEqualTo: filter)
         query.getDocuments { (snapshot, error) in
              self.orders = []
              if error != nil {
@@ -69,5 +69,5 @@ class AdminViewModel {
              }
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedOrders"), object: nil)
         }
-    }
+    }    
 }

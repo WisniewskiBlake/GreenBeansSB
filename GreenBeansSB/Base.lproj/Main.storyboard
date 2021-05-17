@@ -1117,7 +1117,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qCB-wD-WGR">
-                                <rect key="frame" x="0.0" y="131" width="414" height="765"/>
+                                <rect key="frame" x="0.0" y="173" width="414" height="723"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customerOrderCell" rowHeight="116" id="W7h-Nv-jv7" customClass="CustomerOrderCell" customModule="GreenBeansSB" customModuleProvider="target">
@@ -1134,7 +1134,7 @@
                                                         <constraint firstAttribute="width" constant="190" id="Rjo-3M-vW6"/>
                                                         <constraint firstAttribute="height" constant="32" id="xLU-kd-iYw"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1143,18 +1143,17 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="41" id="uH2-Vg-LwD"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f67-BE-A52">
-                                                    <rect key="frame" x="316" y="64" width="78" height="41"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <rect key="frame" x="325" y="67" width="69" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <color key="tintColor" systemColor="systemRedColor"/>
                                                     <state key="normal" title="Archive"/>
                                                     <connections>
                                                         <action selector="archiveButtonClicked:" destination="W7h-Nv-jv7" eventType="touchUpInside" id="S4w-wD-hF2"/>
-                                                        <action selector="removeButtonClicked:" destination="W7h-Nv-jv7" eventType="touchUpInside" id="Sn1-PH-Xao"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1165,6 +1164,7 @@
                                                 <constraint firstItem="MtN-lL-6B7" firstAttribute="bottom" secondItem="nQd-2S-d6T" secondAttribute="bottomMargin" id="Ifr-b7-bmj"/>
                                                 <constraint firstItem="3j3-W3-VVX" firstAttribute="trailing" secondItem="nQd-2S-d6T" secondAttribute="trailingMargin" id="Wcv-QK-re1"/>
                                                 <constraint firstItem="MtN-lL-6B7" firstAttribute="leading" secondItem="nQd-2S-d6T" secondAttribute="leadingMargin" id="Ynr-kN-UfA"/>
+                                                <constraint firstItem="MtN-lL-6B7" firstAttribute="top" secondItem="3j3-W3-VVX" secondAttribute="bottom" constant="21" id="cKZ-uV-SRH"/>
                                                 <constraint firstItem="f67-BE-A52" firstAttribute="bottom" secondItem="nQd-2S-d6T" secondAttribute="bottomMargin" id="v4n-hM-DYs"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1172,25 +1172,40 @@
                                             <outlet property="archiveButton" destination="f67-BE-A52" id="Gjz-8q-aU6"/>
                                             <outlet property="orderNumberLabel" destination="3j3-W3-VVX" id="GZa-wb-h6h"/>
                                             <outlet property="orderStatusLabel" destination="MtN-lL-6B7" id="O7z-0e-Phd"/>
-                                            <outlet property="removeButton" destination="f67-BE-A52" id="AU9-dE-O7e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EX8-py-KgO">
+                                <rect key="frame" x="0.0" y="131" width="414" height="32"/>
+                                <segments>
+                                    <segment title="Placed"/>
+                                    <segment title="Processing"/>
+                                    <segment title="Completed"/>
+                                    <segment title="Archived"/>
+                                </segments>
+                                <connections>
+                                    <action selector="filterSegmentValueChanged:" destination="JVc-FE-mLT" eventType="valueChanged" id="bTg-qX-80W"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4gF-ld-Vz3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cdT-Qy-2Ui" firstAttribute="leading" secondItem="4gF-ld-Vz3" secondAttribute="leading" id="13k-89-r95"/>
+                            <constraint firstItem="EX8-py-KgO" firstAttribute="leading" secondItem="4gF-ld-Vz3" secondAttribute="leading" id="6Qd-uW-AIu"/>
                             <constraint firstItem="cdT-Qy-2Ui" firstAttribute="trailing" secondItem="4gF-ld-Vz3" secondAttribute="trailing" id="CBR-P3-9GK"/>
+                            <constraint firstItem="EX8-py-KgO" firstAttribute="top" secondItem="cdT-Qy-2Ui" secondAttribute="bottom" constant="8" symbolic="YES" id="Cqb-xY-pFu"/>
+                            <constraint firstItem="qCB-wD-WGR" firstAttribute="top" secondItem="EX8-py-KgO" secondAttribute="bottom" constant="11" id="EkX-CL-uJe"/>
                             <constraint firstItem="qCB-wD-WGR" firstAttribute="trailing" secondItem="4gF-ld-Vz3" secondAttribute="trailing" id="KF4-w0-UUA"/>
                             <constraint firstItem="cdT-Qy-2Ui" firstAttribute="top" secondItem="GLl-0d-ofJ" secondAttribute="top" id="P24-NZ-7m3"/>
-                            <constraint firstItem="qCB-wD-WGR" firstAttribute="top" secondItem="cdT-Qy-2Ui" secondAttribute="bottom" constant="8" symbolic="YES" id="aaO-tI-FVC"/>
                             <constraint firstAttribute="bottom" secondItem="qCB-wD-WGR" secondAttribute="bottom" id="f0a-4i-3ue"/>
+                            <constraint firstItem="EX8-py-KgO" firstAttribute="trailing" secondItem="4gF-ld-Vz3" secondAttribute="trailing" id="kDm-kE-sRM"/>
                             <constraint firstItem="qCB-wD-WGR" firstAttribute="leading" secondItem="4gF-ld-Vz3" secondAttribute="leading" id="lNK-Ue-J1d"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="filterSegmentedControl" destination="EX8-py-KgO" id="aQc-Xe-0Tz"/>
                         <outlet property="tableView" destination="qCB-wD-WGR" id="k03-bR-cat"/>
                     </connections>
                 </viewController>

@@ -210,7 +210,7 @@ class VirtualStoreViewModel {
         }
     }
     
-    func provideQuery(category: String) -> Query {
+    private func provideQuery(category: String) -> Query {
         var query: Query?
         if(category != "All Products" && category != "On Sale") {
             query = reference(.Products).whereField(kPRODUCTTYPE, isEqualTo: category)
