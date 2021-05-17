@@ -43,28 +43,3 @@ class CartCell: UITableViewCell {
     }
 }
 
-
-
-
-
-
-
-
-
-//     var productTitle: String? {
-//        didSet { productTitleLabel.text = productTitle ?? "" }
-//    }
-//
-//    var productPrice: String? {
-//            didSet { productPriceLabel.text = productPrice ?? "" }
-//    }
-//
-//    var productQuantity: String? {
-//        didSet { productQuantityLabel.text = "x" + (productQuantity ?? "") }
-//    }
-//
-//    var productCostTotal: Double? {
-//        didSet {
-//            let total = String(productCostTotal ?? 0)
-//            productCostTotalLabel.text = total }
-//    }

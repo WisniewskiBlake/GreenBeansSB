@@ -11,6 +11,11 @@ import UIKit
 import FirebaseAuth
 
 class AdminViewModel {
+    var orders: [Order] = []
+    
+    func getOrders() -> [Order] {
+        return self.orders
+    }
     
     func addNewProduct(data: Data, name: String, price: String, discount: String, description: String, category: String, clothingSizes: String) {
         let replaced = name.replacingOccurrences(of: " ", with: "_")
@@ -45,5 +50,24 @@ class AdminViewModel {
         reference(.Products).document().setData(productDictionary)
     } 
     
-    
+    func fetchCustomerOrders() {
+        let query = reference(.Orders)
+        query.getDocuments { (snapshot, error) in
+             self.orders = []
+             if error != nil {
+                 print(error!.localizedDescription)
+                 return
+             }
+             guard let snapshot = snapshot else { return }
+             if !snapshot.isEmpty {
+                 for document in snapshot.documents {
+                     let orderDictionary = document.data() as NSDictionary
+                     let order = Order(dictionary: orderDictionary as! [String : Any])
+                     order.orderId = document.documentID
+                     self.orders.append(order)
+                 }
+             }
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedOrders"), object: nil)
+        }
+    }
 }

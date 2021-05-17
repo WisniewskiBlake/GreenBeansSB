@@ -400,8 +400,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "loadImages(products:vc:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -496,8 +496,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "loadImages(products:vc:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -512,8 +512,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
             endingLineNumber = "56"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "loadImages(products:vc:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -576,8 +576,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "getImages()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -592,8 +592,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "loadImages(products:vc:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -606,8 +606,8 @@
             filePath = "GreenBeansSB/ViewModel/Admin/AdminViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "addNewProduct(data:name:price:discount:description:category:clothingSizes:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -656,8 +656,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
             endingLineNumber = "52"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "loadImages(products:vc:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -672,8 +672,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
             endingLineNumber = "48"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "fetchAllProducts(category:vc:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -688,8 +688,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "loadImages(products:vc:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -720,8 +720,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
             endingLineNumber = "117"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "removeProduct(indexPath:product:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

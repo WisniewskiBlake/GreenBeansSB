@@ -23,6 +23,10 @@ class OrderHistoryViewModel: ObservableObject {
         return self.orders
     }
     
+    func fetchAllOrders() {
+        
+    }
+    
     func fetchOrderHistory() {
         let query: CollectionReference?
         if userSession == nil {

@@ -15,6 +15,7 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var newAdminButton: UIButton!
     @IBOutlet weak var addRemoveProductsButton: UIButton!
+    @IBOutlet weak var customerOrdersButton: UIButton!
     
     let helper = Helper()
     
@@ -50,6 +51,10 @@ class SideMenuViewController: UIViewController {
         helper.instantiateViewController(identifier: "NewAdmin", animated: true, by: self, completion: nil)
     }
     
+    @IBAction func customerOrdersClicked(_ sender: Any) {
+        helper.instantiateViewController(identifier: "CustomerOrders", animated: true, by: self, completion: nil)
+    }
+    
     func hideButtons() {
         if AuthViewModel.shared.userSession == nil {
             signOutButton.setTitle("Login", for: .normal)            
@@ -57,6 +62,7 @@ class SideMenuViewController: UIViewController {
         if AuthViewModel.shared.user?.appManager == "false" {
             newAdminButton.isHidden = true
             addRemoveProductsButton.isHidden = true
+            customerOrdersButton.isHidden = true
         }
     }
 }

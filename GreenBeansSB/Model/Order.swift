@@ -8,6 +8,7 @@
 import Foundation
 
 class Order {
+    var orderId: String
     var subtotal: String
     var total: String
     var tax: String
@@ -28,6 +29,7 @@ class Order {
     let orderDictionary: NSMutableDictionary
 
     init(dictionary: [String: Any]) {
+        self.orderId = dictionary["orderId"] as? String ?? ""
         self.customerAddress = dictionary["customerAddress"] as? String ?? ""
         self.subtotal = dictionary["subtotal"] as? String ?? ""
         self.tax = dictionary["tax"] as? String ?? ""
@@ -45,12 +47,13 @@ class Order {
         self.deliveryFee = dictionary["deliveryFee"] as? String ?? ""
         self.products = dictionary[kPRODUCTS] as? [String] ?? []
         
-        orderDictionary = NSMutableDictionary(objects: [customerAddress, subtotal, tax, orderTime, orderType, userEmail, userPhone, orderStatus, fullName, archived, total, pickUpAddress, pickUpTime, specialInstructions, deliveryFee, products], forKeys: [kORDERADDRESS as NSCopying, kORDERSUBTOTAL as NSCopying, kORDERTAX as NSCopying, kORDERTIME as NSCopying, kORDERTYPE as NSCopying, kORDEREMAIL as NSCopying, kORDERPHONE as NSCopying, kORDERSTATUS as NSCopying, kORDERFULLNAME as NSCopying, kORDERARCHIVED as NSCopying, kORDERTOTAL as NSCopying, kORDERPICKUPADDRESS as NSCopying, kORDERPICKUPTIME as NSCopying, kORDERINSTRUCTIONS as NSCopying, kORDERDELIVERYFEE  as NSCopying, kPRODUCTS  as NSCopying])
+        orderDictionary = NSMutableDictionary(objects: [orderId, customerAddress, subtotal, tax, orderTime, orderType, userEmail, userPhone, orderStatus, fullName, archived, total, pickUpAddress, pickUpTime, specialInstructions, deliveryFee, products], forKeys: ["orderId" as NSCopying, kORDERADDRESS as NSCopying, kORDERSUBTOTAL as NSCopying, kORDERTAX as NSCopying, kORDERTIME as NSCopying, kORDERTYPE as NSCopying, kORDEREMAIL as NSCopying, kORDERPHONE as NSCopying, kORDERSTATUS as NSCopying, kORDERFULLNAME as NSCopying, kORDERARCHIVED as NSCopying, kORDERTOTAL as NSCopying, kORDERPICKUPADDRESS as NSCopying, kORDERPICKUPTIME as NSCopying, kORDERINSTRUCTIONS as NSCopying, kORDERDELIVERYFEE  as NSCopying, kPRODUCTS  as NSCopying])
     }
     
     
     
     init() {
+        self.orderId = ""
         self.customerAddress = ""
         self.subtotal = ""
         self.tax = ""

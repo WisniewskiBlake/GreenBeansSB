@@ -18,9 +18,13 @@
 		BB1A14AB25FAE4A0008F94C9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14AA25FAE4A0008F94C9 /* Address.swift */; };
 		BB1A14B825FB47E0008F94C9 /* NewAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14B725FB47E0008F94C9 /* NewAddressViewController.swift */; };
 		BB1A14BD25FB6262008F94C9 /* OrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14BC25FB6262008F94C9 /* OrderSummaryViewController.swift */; };
+		BB256A6B2651ED6D00A848CF /* CustomerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB256A6A2651ED6D00A848CF /* CustomerOrderCell.swift */; };
+		BB256A702651ED9F00A848CF /* CustomerOrderCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB256A6F2651ED9F00A848CF /* CustomerOrderCellDataSource.swift */; };
 		BB4D4D8C262548BA00581F83 /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4D4D8B262548BA00581F83 /* Designables.swift */; };
 		BB4D4D9226254E4E00581F83 /* Futura.ttc in Resources */ = {isa = PBXBuildFile; fileRef = BB4D4D9126254E4400581F83 /* Futura.ttc */; };
 		BB4D4D972625503000581F83 /* Pipetton DEMO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4D4D962625502C00581F83 /* Pipetton DEMO.ttf */; };
+		BB536682264E36F80011FD66 /* CustomerOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB536681264E36F80011FD66 /* CustomerOrders.swift */; };
+		BB536693264E3DCB0011FD66 /* OrderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB536692264E3DCB0011FD66 /* OrderDetails.swift */; };
 		BB61A70325EDFB7100EB1228 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A70225EDFB7100EB1228 /* AppDelegate.swift */; };
 		BB61A70525EDFB7100EB1228 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */; };
 		BB61A70A25EDFB7100EB1228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB61A70825EDFB7100EB1228 /* Main.storyboard */; };
@@ -115,9 +119,13 @@
 		BB1A14AA25FAE4A0008F94C9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		BB1A14B725FB47E0008F94C9 /* NewAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAddressViewController.swift; sourceTree = "<group>"; };
 		BB1A14BC25FB6262008F94C9 /* OrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewController.swift; sourceTree = "<group>"; };
+		BB256A6A2651ED6D00A848CF /* CustomerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrderCell.swift; sourceTree = "<group>"; };
+		BB256A6F2651ED9F00A848CF /* CustomerOrderCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrderCellDataSource.swift; sourceTree = "<group>"; };
 		BB4D4D8B262548BA00581F83 /* Designables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
 		BB4D4D9126254E4400581F83 /* Futura.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Futura.ttc; sourceTree = "<group>"; };
 		BB4D4D962625502C00581F83 /* Pipetton DEMO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pipetton DEMO.ttf"; sourceTree = "<group>"; };
+		BB536681264E36F80011FD66 /* CustomerOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrders.swift; sourceTree = "<group>"; };
+		BB536692264E3DCB0011FD66 /* OrderDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetails.swift; sourceTree = "<group>"; };
 		BB61A6FF25EDFB7100EB1228 /* GreenBeansSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenBeansSB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB61A70225EDFB7100EB1228 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB61A70425EDFB7100EB1228 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +220,7 @@
 		BB0BC534263F9E8A0079544B /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				BB536686264E3B260011FD66 /* CustomerOrders */,
 				BB0BC56B26411E8B0079544B /* AddProduct.swift */,
 				BB0BC54A263F9F020079544B /* AddDeleteProducts.swift */,
 				BB0BC55C2640DAFC0079544B /* EditProduct.swift */,
@@ -238,6 +247,15 @@
 			path = OrderDetails;
 			sourceTree = "<group>";
 		};
+		BB256A692651ED2200A848CF /* CustomerOrderCell */ = {
+			isa = PBXGroup;
+			children = (
+				BB256A6A2651ED6D00A848CF /* CustomerOrderCell.swift */,
+				BB256A6F2651ED9F00A848CF /* CustomerOrderCellDataSource.swift */,
+			);
+			path = CustomerOrderCell;
+			sourceTree = "<group>";
+		};
 		BB4D4D9026254E1300581F83 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +263,16 @@
 				BB4D4D9126254E4400581F83 /* Futura.ttc */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		BB536686264E3B260011FD66 /* CustomerOrders */ = {
+			isa = PBXGroup;
+			children = (
+				BB256A692651ED2200A848CF /* CustomerOrderCell */,
+				BB536681264E36F80011FD66 /* CustomerOrders.swift */,
+				BB536692264E3DCB0011FD66 /* OrderDetails.swift */,
+			);
+			path = CustomerOrders;
 			sourceTree = "<group>";
 		};
 		BB61A6F625EDFB7000EB1228 = {
@@ -834,10 +862,13 @@
 				BB61A89125F6198900EB1228 /* AddressCellDataSource.swift in Sources */,
 				BB61A75625EDFDA800EB1228 /* LoginViewController.swift in Sources */,
 				BB860146260C32AE0093EE16 /* HistoryCellDataSource.swift in Sources */,
+				BB536693264E3DCB0011FD66 /* OrderDetails.swift in Sources */,
 				BB61A74125EDFD1400EB1228 /* User.swift in Sources */,
 				BB61A87525F60D1700EB1228 /* UserAddressViewController.swift in Sources */,
 				BB61A7F325EF3F5600EB1228 /* SideMenuViewController.swift in Sources */,
 				BB61A84E25F49CE600EB1228 /* CartCell.swift in Sources */,
+				BB536682264E36F80011FD66 /* CustomerOrders.swift in Sources */,
+				BB256A6B2651ED6D00A848CF /* CustomerOrderCell.swift in Sources */,
 				BB1A14AB25FAE4A0008F94C9 /* Address.swift in Sources */,
 				BB61A81525EF6F1F00EB1228 /* VirtualStoreViewModel.swift in Sources */,
 				BB1A14A625F9F0C0008F94C9 /* OrderTypeViewController.swift in Sources */,
@@ -865,6 +896,7 @@
 				BB61A82725EF953200EB1228 /* Constants.swift in Sources */,
 				BB61A85325F4A18500EB1228 /* CartCellDataSource.swift in Sources */,
 				BB86014B260C32C40093EE16 /* HistoryCell.swift in Sources */,
+				BB256A702651ED9F00A848CF /* CustomerOrderCellDataSource.swift in Sources */,
 				BB61A70525EDFB7100EB1228 /* SceneDelegate.swift in Sources */,
 				BB0BC5622640DEFB0079544B /* NewAdmin.swift in Sources */,
 				BB61A81D25EF79A500EB1228 /* ProductCell.swift in Sources */,
