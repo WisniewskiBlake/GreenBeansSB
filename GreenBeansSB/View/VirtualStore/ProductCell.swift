@@ -24,29 +24,47 @@ class ProductCell: UITableViewCell {
     func generateCell(product: Product, image: UIImage, indexPath: IndexPath) {
         self.indexPath = indexPath
         productImage = image
-        if ((product.productPrice.range(of: "$", options: .caseInsensitive)) == nil) {
-            productPrice = "$" + product.productPrice
-        } else {
-            productPrice = product.productPrice
-        }
-        productDescription = product.productTitle + " " + product.productDescription
+        
+        let attrs = [NSAttributedString.Key.font : UIFont.init(name: "Futura Bold", size: 15)]
+        let attributedString = NSMutableAttributedString(string:product.productTitle + " ", attributes:attrs as [NSAttributedString.Key : Any])
+        let normalString = NSMutableAttributedString(string:product.productDescription)
+        attributedString.append(normalString)
+        productDescription = attributedString
+        
         if product.productHighlighted == "true" {
-            productDiscount = product.productDiscount + " Off!"
+            if ((product.productDiscount.range(of: "$", options: .caseInsensitive)) == nil) {
+                productDiscount = "$" + product.productDiscount
+            } else {
+                productDiscount = product.productDiscount
+            }
+            if ((product.productPrice.range(of: "$", options: .caseInsensitive)) == nil) {
+                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: "$" + product.productPrice)
+                attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+                productPrice = attributeString
+            } else {
+                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: product.productPrice)
+                attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+                productPrice = attributeString
+            }
         } else {
             productDiscount = ""
+            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: product.productPrice)
+            productPrice = attributeString
         }
+        
+        
     }
     
-    var productPrice: String? {
-        didSet { productPriceLabel.text = productPrice ?? "" }
+    var productPrice: NSMutableAttributedString? {
+        didSet { productPriceLabel.attributedText = productPrice }
     }
     
     var productImage: UIImage? {
         didSet { productImageView.image = productImage }
     }
         
-    var productDescription: String? {
-        didSet { productDescriptionText.text = productDescription ?? "" }
+    var productDescription: NSMutableAttributedString? {
+        didSet { productDescriptionText.attributedText = productDescription }
     }
     
     var productDiscount: String? {

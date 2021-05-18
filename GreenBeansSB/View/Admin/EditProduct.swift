@@ -61,10 +61,10 @@ class EditProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerC
             checkClothingSizes()
             let productName = productNameText.text
             let productPrice = productPriceText.text
-            let discount = Int(productDiscount.text!) ?? 0
+            let discount = productDiscount.text ?? "0"
             let productDescription = productDescriptionTextView.text
             let category = categoryButton.title(for: .normal)
-            viewModel.editProduct(data: data, name: productName!, price: productPrice!, discount: String(discount), description: productDescription!, category: category!, clothingSizes: clothingSizes, imageChanged: imageSelected, product: product!)
+            viewModel.editProduct(data: data, name: productName!, price: productPrice!, discount: discount, description: productDescription!, category: category!, clothingSizes: clothingSizes, imageChanged: imageSelected, product: product!)
             let alertview = JSSAlertView().show(self,
               title: "Product Updated!",
               buttonText: "Ok"

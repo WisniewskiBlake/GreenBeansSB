@@ -1660,15 +1660,6 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50% Off!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yf8-4r-O7x">
-                                                            <rect key="frame" x="171" y="114" width="69" height="32"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="32" id="mZp-gI-eg3"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" systemColor="systemRedColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhL-Kn-PID">
                                                             <rect key="frame" x="330" y="8" width="36" height="32"/>
                                                             <constraints>
@@ -1692,6 +1683,15 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50% Off!" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yf8-4r-O7x">
+                                                            <rect key="frame" x="216" y="114" width="71" height="32"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="32" id="mZp-gI-eg3"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
@@ -1699,14 +1699,13 @@
                                                         <constraint firstItem="f9j-Km-f0b" firstAttribute="leading" secondItem="aQC-DX-BgF" secondAttribute="leading" id="IJ5-uh-dcx"/>
                                                         <constraint firstItem="nhL-Kn-PID" firstAttribute="leading" secondItem="FGl-sG-h8R" secondAttribute="trailing" constant="8" symbolic="YES" id="LV0-BD-0ST"/>
                                                         <constraint firstAttribute="bottom" secondItem="f9j-Km-f0b" secondAttribute="bottom" id="Md2-D4-L67"/>
-                                                        <constraint firstItem="kTQ-Da-fwy" firstAttribute="leading" secondItem="yf8-4r-O7x" secondAttribute="trailing" constant="55" id="MzK-ri-GTM"/>
                                                         <constraint firstItem="kTQ-Da-fwy" firstAttribute="top" secondItem="FGl-sG-h8R" secondAttribute="bottom" constant="42" id="aic-a7-pLY"/>
                                                         <constraint firstItem="FGl-sG-h8R" firstAttribute="leading" secondItem="f9j-Km-f0b" secondAttribute="trailing" constant="8" symbolic="YES" id="c2E-PM-2Yz"/>
                                                         <constraint firstAttribute="trailing" secondItem="kTQ-Da-fwy" secondAttribute="trailing" constant="8" id="hc1-4j-LDk"/>
-                                                        <constraint firstItem="kTQ-Da-fwy" firstAttribute="leading" secondItem="yf8-4r-O7x" secondAttribute="trailing" constant="55" id="ikH-Se-0IU"/>
+                                                        <constraint firstItem="kTQ-Da-fwy" firstAttribute="leading" secondItem="yf8-4r-O7x" secondAttribute="trailing" constant="8" id="ikH-Se-0IU"/>
                                                         <constraint firstItem="nhL-Kn-PID" firstAttribute="top" secondItem="aQC-DX-BgF" secondAttribute="top" constant="8" id="jha-ra-SDx"/>
                                                         <constraint firstAttribute="trailing" secondItem="nhL-Kn-PID" secondAttribute="trailing" constant="8" id="ky1-Oj-28i"/>
-                                                        <constraint firstItem="yf8-4r-O7x" firstAttribute="leading" secondItem="f9j-Km-f0b" secondAttribute="trailing" constant="8" symbolic="YES" id="sB8-rK-K5H"/>
+                                                        <constraint firstItem="yf8-4r-O7x" firstAttribute="leading" secondItem="f9j-Km-f0b" secondAttribute="trailing" constant="53" id="sB8-rK-K5H"/>
                                                         <constraint firstItem="FGl-sG-h8R" firstAttribute="top" secondItem="aQC-DX-BgF" secondAttribute="top" constant="8" id="sRU-Uh-Dde"/>
                                                         <constraint firstItem="f9j-Km-f0b" firstAttribute="top" secondItem="aQC-DX-BgF" secondAttribute="top" id="vcJ-b3-Pz3"/>
                                                     </constraints>
@@ -1750,6 +1749,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="productDescriptionText" destination="FGl-sG-h8R" id="nTP-D6-2eb"/>
                                             <outlet property="productDiscountLabel" destination="yf8-4r-O7x" id="zM4-Ll-jjK"/>
                                             <outlet property="productImageView" destination="f9j-Km-f0b" id="TAa-ei-nUK"/>
                                             <outlet property="productPriceLabel" destination="kTQ-Da-fwy" id="tX6-Nn-5Y1"/>
@@ -5196,7 +5196,7 @@
         <segue reference="cLY-t4-nRl"/>
         <segue reference="WHG-7K-Mwd"/>
         <segue reference="sQV-T3-k3t"/>
-        <segue reference="yAe-hI-qI8"/>
+        <segue reference="6aP-yJ-pry"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
