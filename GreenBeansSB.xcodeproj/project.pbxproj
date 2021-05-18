@@ -20,6 +20,7 @@
 		BB1A14BD25FB6262008F94C9 /* OrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A14BC25FB6262008F94C9 /* OrderSummaryViewController.swift */; };
 		BB256A6B2651ED6D00A848CF /* CustomerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB256A6A2651ED6D00A848CF /* CustomerOrderCell.swift */; };
 		BB256A702651ED9F00A848CF /* CustomerOrderCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB256A6F2651ED9F00A848CF /* CustomerOrderCellDataSource.swift */; };
+		BB256A752652473200A848CF /* PopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB256A742652473200A848CF /* PopUpController.swift */; };
 		BB4D4D8C262548BA00581F83 /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4D4D8B262548BA00581F83 /* Designables.swift */; };
 		BB4D4D9226254E4E00581F83 /* Futura.ttc in Resources */ = {isa = PBXBuildFile; fileRef = BB4D4D9126254E4400581F83 /* Futura.ttc */; };
 		BB4D4D972625503000581F83 /* Pipetton DEMO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4D4D962625502C00581F83 /* Pipetton DEMO.ttf */; };
@@ -121,6 +122,7 @@
 		BB1A14BC25FB6262008F94C9 /* OrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewController.swift; sourceTree = "<group>"; };
 		BB256A6A2651ED6D00A848CF /* CustomerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrderCell.swift; sourceTree = "<group>"; };
 		BB256A6F2651ED9F00A848CF /* CustomerOrderCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrderCellDataSource.swift; sourceTree = "<group>"; };
+		BB256A742652473200A848CF /* PopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpController.swift; sourceTree = "<group>"; };
 		BB4D4D8B262548BA00581F83 /* Designables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
 		BB4D4D9126254E4400581F83 /* Futura.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Futura.ttc; sourceTree = "<group>"; };
 		BB4D4D962625502C00581F83 /* Pipetton DEMO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pipetton DEMO.ttf"; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 				BB61A83325F0E7EC00EB1228 /* CollectionReference.swift */,
 				BB4D4D8B262548BA00581F83 /* Designables.swift */,
 				BB978F53263B7CE60021FBD7 /* CustomTextField.swift */,
+				BB256A742652473200A848CF /* PopUpController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				BB9F3DBA261C2780003C93FA /* SearchResults.swift in Sources */,
 				BB61A75B25EDFDBC00EB1228 /* RegisterViewController.swift in Sources */,
 				BB61A7F825EF48D900EB1228 /* CartViewController.swift in Sources */,
+				BB256A752652473200A848CF /* PopUpController.swift in Sources */,
 				BB61A80625EF490D00EB1228 /* SettingsViewController.swift in Sources */,
 				BB9F3DBF261C27D0003C93FA /* AddressSearchBar.swift in Sources */,
 				BB61A74925EDFD2300EB1228 /* Order.swift in Sources */,

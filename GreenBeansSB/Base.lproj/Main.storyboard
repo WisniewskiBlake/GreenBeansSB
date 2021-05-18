@@ -1213,10 +1213,10 @@
             </objects>
             <point key="canvasLocation" x="2394.202898550725" y="-806.25"/>
         </scene>
-        <!--View Controller-->
+        <!--Order Details-->
         <scene sceneID="Lpl-Og-Nh8">
             <objects>
-                <viewController id="DWe-GQ-ouD" sceneMemberID="viewController">
+                <viewController id="DWe-GQ-ouD" customClass="OrderDetails" customModule="GreenBeansSB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fTh-hS-3J8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1260,19 +1260,297 @@
                                     <constraint firstAttribute="height" constant="123" id="zI1-CV-Gq3"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9OY-3C-KUE">
+                                <rect key="frame" x="0.0" y="131" width="414" height="289"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="289" id="I3i-bg-dnf"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" rowHeight="116" id="xA1-ZS-IL8" customClass="CartCell" customModule="GreenBeansSB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="116"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xA1-ZS-IL8" id="viz-Ux-UW8">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NPa-Ib-y8X">
+                                                    <rect key="frame" x="20" y="12.666666666666664" width="91" height="91"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="91" id="cYX-AZ-rW9"/>
+                                                        <constraint firstAttribute="height" constant="91" id="qn0-oV-hQA"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OG Bobby Johnson" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W53-ow-76k">
+                                                    <rect key="frame" x="119" y="11" width="275" height="49"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="49" id="jJq-kE-zkQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$149.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnw-Ft-Q6e">
+                                                    <rect key="frame" x="119" y="68" width="74" height="32"/>
+                                                    <color key="tintColor" systemColor="systemGray3Color"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="74" id="ASX-kz-w9x"/>
+                                                        <constraint firstAttribute="height" constant="32" id="HOi-4C-IrH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K97-ib-CFE">
+                                                    <rect key="frame" x="219" y="71" width="38" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="38" id="ZfQ-ay-PDc"/>
+                                                        <constraint firstAttribute="height" constant="26" id="gl2-FD-M85"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$305.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ah6-vA-ihI">
+                                                    <rect key="frame" x="314" y="71" width="65.666666666666686" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="26" id="5x8-TY-HaR"/>
+                                                        <constraint firstAttribute="width" constant="65.5" id="UcU-ur-jfH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="W53-ow-76k" firstAttribute="leading" secondItem="NPa-Ib-y8X" secondAttribute="trailing" constant="8" symbolic="YES" id="4jh-D8-TbT"/>
+                                                <constraint firstItem="ah6-vA-ihI" firstAttribute="leading" secondItem="K97-ib-CFE" secondAttribute="trailing" constant="57" id="5jN-vJ-RWU"/>
+                                                <constraint firstItem="K97-ib-CFE" firstAttribute="top" secondItem="W53-ow-76k" secondAttribute="bottom" constant="11" id="9kQ-zI-2XE"/>
+                                                <constraint firstAttribute="trailing" secondItem="ah6-vA-ihI" secondAttribute="trailing" constant="34.5" id="ArP-Zb-mcm"/>
+                                                <constraint firstItem="W53-ow-76k" firstAttribute="top" secondItem="viz-Ux-UW8" secondAttribute="topMargin" id="BS2-VO-xcU"/>
+                                                <constraint firstItem="NPa-Ib-y8X" firstAttribute="top" secondItem="viz-Ux-UW8" secondAttribute="topMargin" constant="1.5" id="G58-WO-ldL"/>
+                                                <constraint firstItem="Gnw-Ft-Q6e" firstAttribute="top" secondItem="W53-ow-76k" secondAttribute="bottom" constant="8" id="ILZ-jW-e4q"/>
+                                                <constraint firstItem="NPa-Ib-y8X" firstAttribute="leading" secondItem="viz-Ux-UW8" secondAttribute="leadingMargin" id="NA9-Iy-A6Z"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="NPa-Ib-y8X" secondAttribute="bottom" constant="1.5" id="PHq-1O-OLL"/>
+                                                <constraint firstAttribute="bottom" secondItem="ah6-vA-ihI" secondAttribute="bottom" constant="19" id="PKT-Ac-9T2"/>
+                                                <constraint firstItem="Gnw-Ft-Q6e" firstAttribute="leading" secondItem="NPa-Ib-y8X" secondAttribute="trailing" constant="8" symbolic="YES" id="RDo-3h-Ne5"/>
+                                                <constraint firstItem="NPa-Ib-y8X" firstAttribute="centerY" secondItem="viz-Ux-UW8" secondAttribute="centerY" id="SyB-jr-sQJ"/>
+                                                <constraint firstItem="K97-ib-CFE" firstAttribute="leading" secondItem="Gnw-Ft-Q6e" secondAttribute="trailing" constant="26" id="aWg-FJ-4e1"/>
+                                                <constraint firstItem="W53-ow-76k" firstAttribute="trailing" secondItem="viz-Ux-UW8" secondAttribute="trailingMargin" id="uTg-bn-bzs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="productCostTotalLabel" destination="ah6-vA-ihI" id="tQb-V5-TEQ"/>
+                                            <outlet property="productImageView" destination="NPa-Ib-y8X" id="d7S-g2-GUb"/>
+                                            <outlet property="productPriceLabel" destination="Gnw-Ft-Q6e" id="TCd-Rw-aeb"/>
+                                            <outlet property="productQuantityLabel" destination="K97-ib-CFE" id="wAJ-i3-cbi"/>
+                                            <outlet property="productTitleLabel" destination="W53-ow-76k" id="IQK-Uk-Kfc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caA-Y5-KlK">
+                                <rect key="frame" x="20" y="453" width="59" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="Sou-Te-fDy"/>
+                                    <constraint firstAttribute="height" constant="21" id="n1u-IY-ifJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2Z-Db-8CI">
+                                <rect key="frame" x="253" y="447" width="141" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="MFd-AP-oyF"/>
+                                    <constraint firstAttribute="height" constant="33" id="YS6-Vu-Rng"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Order Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQb-8R-Sem">
+                                <rect key="frame" x="20" y="494" width="128" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="9No-Br-F7r"/>
+                                    <constraint firstAttribute="height" constant="21" id="NYd-TY-CV2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21R-51-T8F">
+                                <rect key="frame" x="253" y="488" width="141" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="J3n-Gu-VA7"/>
+                                    <constraint firstAttribute="height" constant="33" id="U4M-9f-OWT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aa4-2n-QKv">
+                                <rect key="frame" x="20" y="535" width="85" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="dgV-Y3-H6E"/>
+                                    <constraint firstAttribute="width" constant="59" id="hEL-tE-Vyq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejV-fz-rOa">
+                                <rect key="frame" x="253" y="529" width="141" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="9fx-vc-3Ld"/>
+                                    <constraint firstAttribute="height" constant="33" id="TCV-Mz-6Yv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Order Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSe-hI-rIh">
+                                <rect key="frame" x="20" y="576" width="128" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="XKo-n2-RJc"/>
+                                    <constraint firstAttribute="width" constant="59" id="f2n-8k-UVT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQb-6y-rRC">
+                                <rect key="frame" x="253" y="570" width="141" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="afC-nv-ffr"/>
+                                    <constraint firstAttribute="height" constant="33" id="he2-ie-Lxy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="PickUp/Deliver Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJh-la-aaG">
+                                <rect key="frame" x="20" y="617" width="193" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="3mp-sZ-Quz"/>
+                                    <constraint firstAttribute="height" constant="21" id="P0E-cD-qEM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GB6-0o-Hyc">
+                                <rect key="frame" x="253" y="611" width="141" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="gij-K2-lHc"/>
+                                    <constraint firstAttribute="width" constant="106" id="m3K-8R-Fft"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="User Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRA-ID-E3X">
+                                <rect key="frame" x="20" y="658" width="193" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="K46-HF-QjH"/>
+                                    <constraint firstAttribute="height" constant="21" id="zhr-wH-Kh2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPA-vu-pLu">
+                                <rect key="frame" x="253" y="652" width="141" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="h7y-dL-Wmo"/>
+                                    <constraint firstAttribute="height" constant="33" id="hYS-8J-4c9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="User Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DX8-Fq-mad">
+                                <rect key="frame" x="20" y="699" width="193" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="bkx-9G-81H"/>
+                                    <constraint firstAttribute="width" constant="59" id="xMr-Lf-FYn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhW-yk-dPZ">
+                                <rect key="frame" x="253" y="693" width="141" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="OQK-V1-co1"/>
+                                    <constraint firstAttribute="height" constant="33" id="put-9Z-6RV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZNA-K0-797"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="caA-Y5-KlK" firstAttribute="top" secondItem="9OY-3C-KUE" secondAttribute="bottom" constant="33" id="13G-9p-ZMi"/>
                             <constraint firstItem="hv4-WA-he1" firstAttribute="trailing" secondItem="ZNA-K0-797" secondAttribute="trailing" id="2cR-H8-cIV"/>
                             <constraint firstItem="hv4-WA-he1" firstAttribute="leading" secondItem="ZNA-K0-797" secondAttribute="leading" id="9w7-kd-wLo"/>
+                            <constraint firstItem="caA-Y5-KlK" firstAttribute="leading" secondItem="ZNA-K0-797" secondAttribute="leading" constant="20" id="Fze-bA-l0J"/>
+                            <constraint firstItem="9OY-3C-KUE" firstAttribute="leading" secondItem="ZNA-K0-797" secondAttribute="leading" id="Nnd-Tk-B24"/>
+                            <constraint firstItem="O2Z-Db-8CI" firstAttribute="top" secondItem="9OY-3C-KUE" secondAttribute="bottom" constant="27" id="SoO-OH-NPx"/>
+                            <constraint firstItem="ZNA-K0-797" firstAttribute="trailing" secondItem="O2Z-Db-8CI" secondAttribute="trailing" constant="55" id="Th6-iw-boL"/>
+                            <constraint firstItem="9OY-3C-KUE" firstAttribute="top" secondItem="hv4-WA-he1" secondAttribute="bottom" constant="8" symbolic="YES" id="WSj-wB-59n"/>
+                            <constraint firstItem="9OY-3C-KUE" firstAttribute="trailing" secondItem="ZNA-K0-797" secondAttribute="trailing" id="y5H-G1-KF4"/>
                             <constraint firstItem="hv4-WA-he1" firstAttribute="top" secondItem="fTh-hS-3J8" secondAttribute="top" id="zg8-GY-o75"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="orderTypeLabel" destination="21R-51-T8F" id="dxr-6x-Pku"/>
+                        <outlet property="tableView" destination="9OY-3C-KUE" id="PrX-YI-A0h"/>
+                        <outlet property="totalLabel" destination="O2Z-Db-8CI" id="cFi-Bc-Y0i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hto-2f-qgb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3128.985507246377" y="-806.25"/>
+        </scene>
+        <!--Pop Up Controller-->
+        <scene sceneID="XSW-p6-aEO">
+            <objects>
+                <viewController storyboardIdentifier="descriptionPopover" modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="SX1-c8-xyI" customClass="PopUpController" customModule="GreenBeansSB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w63-rE-Xhg">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="290"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pgG-Dq-y2v">
+                                <rect key="frame" x="0.0" y="0.0" width="290" height="290"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lj0-sb-s9C"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pgG-Dq-y2v" firstAttribute="trailing" secondItem="lj0-sb-s9C" secondAttribute="trailing" id="CtE-yS-hTL"/>
+                            <constraint firstItem="pgG-Dq-y2v" firstAttribute="bottom" secondItem="lj0-sb-s9C" secondAttribute="bottom" id="g7K-iK-ain"/>
+                            <constraint firstItem="pgG-Dq-y2v" firstAttribute="leading" secondItem="lj0-sb-s9C" secondAttribute="leading" id="gr1-Ke-mJM"/>
+                            <constraint firstItem="pgG-Dq-y2v" firstAttribute="top" secondItem="w63-rE-Xhg" secondAttribute="top" id="sWL-IS-wzR"/>
+                        </constraints>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="290" height="325"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="290" height="290"/>
+                    <connections>
+                        <outlet property="textView" destination="pgG-Dq-y2v" id="7ZS-Jn-VVy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="czk-gU-REa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2048" y="1318"/>
         </scene>
         <!--New Admin-->
         <scene sceneID="iFP-Yr-2OF">
@@ -3523,12 +3801,12 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZT-Mk-Jl7">
-                                <rect key="frame" x="16" y="519" width="382" height="34"/>
+                                <rect key="frame" x="16" y="484" width="382" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="04T-Sj-RNb">
-                                <rect key="frame" x="16" y="561" width="382" height="34"/>
+                                <rect key="frame" x="16" y="526" width="378" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                 <connections>
@@ -3536,36 +3814,31 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Discounted Price (If Applicable)" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W46-IC-p9c">
-                                <rect key="frame" x="16" y="603" width="382" height="34"/>
+                                <rect key="frame" x="16" y="568" width="378" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                 <connections>
                                     <action selector="textEndEditing:" destination="fEP-he-C21" eventType="editingDidEnd" id="GNw-oy-TyO"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CZw-8g-Prn">
-                                <rect key="frame" x="16" y="645" width="382" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="imagePlaceholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="AXz-0o-tqx">
-                                <rect key="frame" x="45" y="131" width="323" height="330"/>
+                                <rect key="frame" x="45" y="131" width="323" height="295"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="330" id="dPj-fw-ORe" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                    <constraint firstAttribute="height" constant="295" id="dPj-fw-ORe" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
-                                                <real key="value" value="210"/>
+                                                <real key="value" value="175"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
-                                                <real key="value" value="330"/>
+                                                <real key="value" value="295"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
                                 </constraints>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sizes In Stock:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugo-GA-0Mq">
-                                <rect key="frame" x="16" y="693" width="132" height="34"/>
+                                <rect key="frame" x="16" y="658" width="132" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="OlF-fL-HIg" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                         <userDefinedRuntimeAttributes>
@@ -3614,7 +3887,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTu-FW-9og">
-                                <rect key="frame" x="156" y="691" width="36" height="36"/>
+                                <rect key="frame" x="156" y="656" width="36" height="36"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" selected="YES"/>
                                 </accessibility>
@@ -3631,7 +3904,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUP-7c-6jX">
-                                <rect key="frame" x="200" y="691" width="36" height="36"/>
+                                <rect key="frame" x="200" y="656" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="T7m-Fa-ErH"/>
                                     <constraint firstAttribute="width" constant="36" id="VpT-m3-p2q"/>
@@ -3645,7 +3918,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNN-o3-ejg">
-                                <rect key="frame" x="244" y="691" width="36" height="36"/>
+                                <rect key="frame" x="244" y="656" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="4U7-a6-Sfx"/>
                                     <constraint firstAttribute="width" constant="36" id="z7A-FI-sKY"/>
@@ -3659,7 +3932,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7e-BJ-APm">
-                                <rect key="frame" x="288" y="691" width="36" height="36"/>
+                                <rect key="frame" x="288" y="656" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="4ZO-OR-iZF"/>
                                     <constraint firstAttribute="width" constant="36" id="8JG-MJ-Jq3"/>
@@ -3673,7 +3946,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ul2-3T-4uq">
-                                <rect key="frame" x="332" y="691" width="36" height="36"/>
+                                <rect key="frame" x="332" y="656" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="ZqZ-iK-gJ8"/>
                                     <constraint firstAttribute="height" constant="36" id="ash-cl-eDY"/>
@@ -3687,7 +3960,7 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzA-Z3-Zeb">
-                                <rect key="frame" x="156" y="723" width="36" height="21"/>
+                                <rect key="frame" x="156" y="688" width="36" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Fxx-LD-LNE"/>
                                     <constraint firstAttribute="width" constant="36" id="tOq-fi-vi9"/>
@@ -3697,7 +3970,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hK-xl-nmJ">
-                                <rect key="frame" x="200" y="723" width="36" height="21"/>
+                                <rect key="frame" x="200" y="688" width="36" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="82o-ZV-GiZ"/>
                                     <constraint firstAttribute="width" constant="36" id="PWZ-h2-BA0"/>
@@ -3707,7 +3980,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a80-oc-0GN">
-                                <rect key="frame" x="244" y="723" width="36" height="21"/>
+                                <rect key="frame" x="244" y="688" width="36" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="J26-TX-THl"/>
                                     <constraint firstAttribute="width" constant="36" id="SCF-fV-clx"/>
@@ -3717,7 +3990,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwB-M9-Kdp">
-                                <rect key="frame" x="288" y="723" width="36" height="21"/>
+                                <rect key="frame" x="288" y="688" width="36" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="91c-Rd-h4b"/>
                                     <constraint firstAttribute="height" constant="21" id="HtE-bp-cCs"/>
@@ -3727,7 +4000,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3K-hk-TZz">
-                                <rect key="frame" x="332" y="723" width="36" height="21"/>
+                                <rect key="frame" x="332" y="688" width="36" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0Jf-3h-w6P"/>
                                     <constraint firstAttribute="width" constant="36" id="ja5-zJ-goS"/>
@@ -3737,7 +4010,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50b-Zc-TQk">
-                                <rect key="frame" x="16" y="469" width="382" height="42"/>
+                                <rect key="frame" x="16" y="434" width="382" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="bfx-1n-Qsk"/>
                                 </constraints>
@@ -3749,6 +4022,16 @@
                                     <action selector="categoryButtonClicked:" destination="fEP-he-C21" eventType="touchUpInside" id="lko-sY-PEX"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Sample Product Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UoD-ib-Nem">
+                                <rect key="frame" x="16" y="610" width="297.66666666666669" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="xcQ-II-kGH"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5me-GM-qxV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3821,6 +4104,40 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="UoD-ib-Nem" firstAttribute="leading" secondItem="5me-GM-qxV" secondAttribute="leading" constant="16" id="2lu-Li-F8d" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12Mini">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12ProMax">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="qTu-FW-9og" firstAttribute="leading" secondItem="Ugo-GA-0Mq" secondAttribute="trailing" constant="8" id="3Uw-9M-aez" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
@@ -3855,7 +4172,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="pNN-o3-ejg" firstAttribute="top" secondItem="CZw-8g-Prn" secondAttribute="bottom" constant="12" id="68t-5d-JSv"/>
+                            <constraint firstItem="pNN-o3-ejg" firstAttribute="top" secondItem="UoD-ib-Nem" secondAttribute="bottom" constant="6" id="5fk-Id-wqO"/>
                             <constraint firstItem="cwB-M9-Kdp" firstAttribute="top" secondItem="k7e-BJ-APm" secondAttribute="bottom" constant="-4" id="6Gc-tc-IN7" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
@@ -3924,40 +4241,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="5me-GM-qxV" firstAttribute="trailing" secondItem="W46-IC-p9c" secondAttribute="trailing" constant="-84.333333333333314" id="A5G-1y-87R" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12Mini">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12ProMax">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
+                            <constraint firstItem="qTu-FW-9og" firstAttribute="top" secondItem="UoD-ib-Nem" secondAttribute="bottom" constant="6" id="B9g-9v-v6P"/>
                             <constraint firstItem="HZT-Mk-Jl7" firstAttribute="top" secondItem="50b-Zc-TQk" secondAttribute="bottom" constant="8" symbolic="YES" id="BZI-XU-64E"/>
                             <constraint firstItem="04T-Sj-RNb" firstAttribute="top" secondItem="HZT-Mk-Jl7" secondAttribute="bottom" constant="8" id="Cc5-II-Git" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
@@ -4061,6 +4345,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstAttribute="trailing" secondItem="W46-IC-p9c" secondAttribute="trailing" constant="20" symbolic="YES" id="Hc1-e6-3tr"/>
                             <constraint firstItem="a80-oc-0GN" firstAttribute="leading" secondItem="pNN-o3-ejg" secondAttribute="leading" id="J8b-pn-sip" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
@@ -4129,40 +4414,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="5me-GM-qxV" firstAttribute="trailing" secondItem="CZw-8g-Prn" secondAttribute="trailing" constant="-84.333333333333314" id="KRV-ki-c9G" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12Mini">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12ProMax">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
                             <constraint firstItem="pNN-o3-ejg" firstAttribute="leading" secondItem="JUP-7c-6jX" secondAttribute="trailing" constant="8" symbolic="YES" id="Nmc-WY-VnQ" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
@@ -4197,6 +4448,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="JUP-7c-6jX" firstAttribute="top" secondItem="UoD-ib-Nem" secondAttribute="bottom" constant="6" id="PHv-1D-ssc"/>
                             <constraint firstItem="50b-Zc-TQk" firstAttribute="leading" secondItem="5me-GM-qxV" secondAttribute="leading" constant="16" id="Qai-70-7C8" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
@@ -4299,7 +4551,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="k7e-BJ-APm" firstAttribute="top" secondItem="CZw-8g-Prn" secondAttribute="bottom" constant="12" id="SOR-ji-FP5"/>
                             <constraint firstItem="5me-GM-qxV" firstAttribute="trailing" secondItem="50b-Zc-TQk" secondAttribute="trailing" constant="-84.333333333333314" id="SR8-FT-ZVP" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
@@ -4470,7 +4721,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="JUP-7c-6jX" firstAttribute="top" secondItem="CZw-8g-Prn" secondAttribute="bottom" constant="12" id="bMf-U7-5AG"/>
+                            <constraint firstItem="ul2-3T-4uq" firstAttribute="top" secondItem="UoD-ib-Nem" secondAttribute="bottom" constant="6" id="awk-wi-qXJ"/>
                             <constraint firstItem="Ugo-GA-0Mq" firstAttribute="leading" secondItem="5me-GM-qxV" secondAttribute="leading" constant="16" id="bWG-yQ-wCE" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
@@ -4505,7 +4756,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="ul2-3T-4uq" firstAttribute="top" secondItem="CZw-8g-Prn" secondAttribute="bottom" constant="12" id="cOn-fr-yYy"/>
                             <constraint firstItem="ul2-3T-4uq" firstAttribute="leading" secondItem="k7e-BJ-APm" secondAttribute="trailing" constant="8" symbolic="YES" id="d6V-ZZ-Nl3" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
@@ -4608,6 +4858,40 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="UoD-ib-Nem" firstAttribute="trailing" secondItem="EtO-QQ-hdj" secondAttribute="trailingMargin" constant="16" id="iFQ-aZ-hwd" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12Mini">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12ProMax">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="JUP-7c-6jX" firstAttribute="leading" secondItem="qTu-FW-9og" secondAttribute="trailing" constant="8" symbolic="YES" id="jnA-gG-al0" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
@@ -4642,7 +4926,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="qTu-FW-9og" firstAttribute="top" secondItem="CZw-8g-Prn" secondAttribute="bottom" constant="12" id="ked-3Y-EkH"/>
                             <constraint firstItem="5hK-xl-nmJ" firstAttribute="top" secondItem="JUP-7c-6jX" secondAttribute="bottom" constant="-4" id="mMd-F9-NrI" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
@@ -4711,6 +4994,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="UoD-ib-Nem" firstAttribute="top" secondItem="W46-IC-p9c" secondAttribute="bottom" constant="8" symbolic="YES" id="ocG-cY-yys"/>
+                            <constraint firstItem="k7e-BJ-APm" firstAttribute="top" secondItem="UoD-ib-Nem" secondAttribute="bottom" constant="6" id="pTK-LV-NFf"/>
                             <constraint firstItem="T3K-hk-TZz" firstAttribute="top" secondItem="ul2-3T-4uq" secondAttribute="bottom" constant="-4" id="qxD-PC-QxK" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
@@ -4776,40 +5061,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="CZw-8g-Prn" firstAttribute="leading" secondItem="5me-GM-qxV" secondAttribute="leading" constant="16" id="usR-gR-XGI" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12Mini">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12ProMax">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
                             <constraint firstItem="efP-5z-5Jl" firstAttribute="top" secondItem="EtO-QQ-hdj" secondAttribute="top" id="vrd-mi-zh7" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
@@ -4844,6 +5095,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="Ugo-GA-0Mq" firstAttribute="top" secondItem="UoD-ib-Nem" secondAttribute="bottom" constant="8" symbolic="YES" id="vtD-uw-CmT"/>
                             <constraint firstItem="5me-GM-qxV" firstAttribute="trailing" secondItem="HZT-Mk-Jl7" secondAttribute="trailing" constant="-84.333333333333314" id="wkK-O4-JdW" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
@@ -4912,41 +5164,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="Ugo-GA-0Mq" firstAttribute="top" secondItem="CZw-8g-Prn" secondAttribute="bottom" constant="14" id="xUx-EI-rfY"/>
-                            <constraint firstItem="CZw-8g-Prn" firstAttribute="top" secondItem="W46-IC-p9c" secondAttribute="bottom" constant="8" symbolic="YES" id="yQ2-Hm-xVa" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone4s">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhoneSE2G">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone8Plus">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Pro">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone11Max">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12Mini">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPhone12ProMax">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wu0-m6-D0l"/>
@@ -4956,7 +5173,7 @@
                         <outlet property="largeBtn" destination="pNN-o3-ejg" id="lAU-ph-6N7"/>
                         <outlet property="mLabel" destination="5hK-xl-nmJ" id="UlC-0H-sgA"/>
                         <outlet property="medBtn" destination="JUP-7c-6jX" id="Vkx-Og-F4t"/>
-                        <outlet property="productDescriptionText" destination="CZw-8g-Prn" id="emc-mh-zJn"/>
+                        <outlet property="productDescriptionTextView" destination="UoD-ib-Nem" id="Gas-Lq-Ede"/>
                         <outlet property="productDiscount" destination="W46-IC-p9c" id="Jhf-UT-0uJ"/>
                         <outlet property="productImage" destination="AXz-0o-tqx" id="Oa0-Lt-2vm"/>
                         <outlet property="productNameText" destination="HZT-Mk-Jl7" id="Tac-dp-vnm"/>
@@ -4979,7 +5196,7 @@
         <segue reference="cLY-t4-nRl"/>
         <segue reference="WHG-7K-Mwd"/>
         <segue reference="sQV-T3-k3t"/>
-        <segue reference="GD9-rI-c5i"/>
+        <segue reference="MQ8-GQ-eFy"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

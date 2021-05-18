@@ -1,21 +1,20 @@
 //
-//  OrderDetails.swift
+//  PopUpController.swift
 //  GreenBeansSB
 //
-//  Created by Blake Wisniewski on 5/14/21.
+//  Created by Blake Wisniewski on 5/17/21.
 //
 
 import UIKit
 
-class OrderDetails: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var orderTypeLabel: UILabel!
+class PopUpController: UIViewController {
+    @IBOutlet weak var textView: UITextView!
+    
+    var textToShow = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
 

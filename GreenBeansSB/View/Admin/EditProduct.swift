@@ -12,7 +12,8 @@ class EditProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerC
     @IBOutlet weak var productNameText: UITextField!
     @IBOutlet weak var productPriceText: UITextField!
     @IBOutlet weak var productDiscount: UITextField!
-    @IBOutlet weak var productDescriptionText: UITextField!
+    //@IBOutlet weak var productDescriptionText: UITextField!
+    @IBOutlet weak var productDescriptionTextView: UITextView!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var categoryButton: UIButton!
     
@@ -61,7 +62,7 @@ class EditProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerC
             let productName = productNameText.text
             let productPrice = productPriceText.text
             let discount = Int(productDiscount.text!) ?? 0
-            let productDescription = productDescriptionText.text
+            let productDescription = productDescriptionTextView.text
             let category = categoryButton.title(for: .normal)
             viewModel.editProduct(data: data, name: productName!, price: productPrice!, discount: String(discount), description: productDescription!, category: category!, clothingSizes: clothingSizes, imageChanged: imageSelected, product: product!)
             let alertview = JSSAlertView().show(self,
@@ -140,14 +141,14 @@ class EditProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerC
         productNameText.delegate = self
         productPriceText.delegate = self
         productDiscount.delegate = self
-        productDescriptionText.delegate = self
+        productDescriptionTextView.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         productNameText.text = product?.productTitle
         productPriceText.text = product?.productPrice
         productImage.image = image
         productDiscount.text = product?.productDiscount
-        productDescriptionText.text = product?.productDescription
+        productDescriptionTextView.text = product?.productDescription
         categoryButton.setTitle(product?.productType, for: .normal)
         productImage.isUserInteractionEnabled = true
         productImage.addGestureRecognizer(imageTapGestureRecognizer)
@@ -155,7 +156,7 @@ class EditProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerC
     }
     
     func fieldsValid() -> Bool {
-        if((productNameText.text != "" || productNameText.text != nil) && (productPriceText.text != "" || productPriceText.text != nil) && (productDescriptionText.text != "" || productDescriptionText.text != nil) && imageSelected || (categoryButton.title(for: .normal) == "Clothing" && (smallBtn.isSelected == true || medBtn.isSelected == true || largeBtn.isSelected == true || xlBtn.isSelected == true || xxlBtn.isSelected == true))) {
+        if((productNameText.text != "" || productNameText.text != nil) && (productPriceText.text != "" || productPriceText.text != nil) && (productDescriptionTextView.text != "" || productDescriptionTextView.text != nil) && imageSelected || (categoryButton.title(for: .normal) == "Clothing" && (smallBtn.isSelected == true || medBtn.isSelected == true || largeBtn.isSelected == true || xlBtn.isSelected == true || xxlBtn.isSelected == true))) {
             return true
         } else {
             return false
@@ -282,6 +283,43 @@ class EditProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerC
         self.view.endEditing(true)
          return true
     }
+    @IBAction func showButtonClicked(_ sender: UIButton) {
+//        let tableViewController = UIViewController()
+//        //tableViewController.textView.text = productDescriptionText.text ?? ""
+//        tableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+//        tableViewController.preferredContentSize = CGSize(width: 300, height: 300)
+//
+//        present(tableViewController, animated: true, completion: nil)
+//
+//        let popoverPresentationController = tableViewController.popoverPresentationController
+//        popoverPresentationController?.sourceView = sender
+        
+        
+//        let vc = PopUpController()
+//        vc.preferredContentSize = CGSize(width: 300,height: 300)
+//        vc.modalPresentationStyle = .popover
+//        if let pres = vc.presentationController {
+//            pres.delegate = self
+//        }
+//        let textView = UITextView(frame: CGRect(x: 0.0, y: 0.0, width: 300.0, height: 300.0))
+//        textView.text = productDescriptionText.text!
+//        vc.view.addSubview(textView)
+////        vc.textView.text = productDescriptionText.text ?? ""
+//        self.present(vc, animated: true)
+//        if let pop = vc.popoverPresentationController {
+//            pop.sourceView = (sender as UIView)
+//            pop.sourceRect = (sender as UIView).bounds
+//        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "DescriptionPopover", let destinationViewController = segue.destination as? PopUpController {
+//            destinationViewController.textToShow = productDescriptionText.text ?? ""
+//            destinationViewController.modalPresentationStyle = .popover
+//            let popoverPresentationController = destinationViewController.popoverPresentationController
+//            popoverPresentationController?.sourceView = sender as? UIView
+//        }
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool { // return NO to not change text
         if textField == productPriceText || textField == productDiscount {
@@ -296,7 +334,6 @@ class EditProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerC
                         decimalCount += 1
                     }
                 }
-
                 if decimalCount == 1 {
                     return false
                 } else {
@@ -312,9 +349,13 @@ class EditProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerC
         } else {
             return true
         }
-            
     }
-    
+}
+
+extension EditProduct : UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
+    }
 }
 
 extension EditProduct: UITableViewDelegate, UITableViewDataSource {
