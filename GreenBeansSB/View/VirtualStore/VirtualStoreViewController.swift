@@ -38,15 +38,15 @@ class VirtualStoreViewController: UIViewController {
 //            tableView.delegate = dataSource
 //            tableView.reloadData()
 //        }
-        viewModel.fetchAllProducts(category: "All Products", vc: "Store")
+        viewModel.fetchAllProducts(category: "All Products")
     }
     
     func initObservers() {
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "loadedStoreProducts"), object: nil)
+//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "couldNotLoadProducts"), object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "cellStoreClicked"), object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "editProduct"), object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "loadedStoreProducts"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "couldNotLoadProducts"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellStoreClicked"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateProducts), name: NSNotification.Name(rawValue: "editProduct"), object: nil)
@@ -92,38 +92,38 @@ class VirtualStoreViewController: UIViewController {
         }
     }
     @objc func updateProducts() {
-        viewModel.fetchAllProducts(category: "All Products", vc: "Store")
+        viewModel.fetchAllProducts(category: "All Products")
     }
 
     @IBAction func allClicked(_ sender: Any) {
         allProductsPink()
-        viewModel.fetchAllProducts(category: "All Products", vc: "Store")
+        viewModel.fetchAllProducts(category: "All Products")
     }
     
     @IBAction func onSaleClicked(_ sender: Any) {
         onSalePink()
-        viewModel.fetchAllProducts(category: "On Sale", vc: "Store")
+        viewModel.fetchAllProducts(category: "On Sale")
     }
     
     @IBAction func clothingClicked(_ sender: Any) {
         clothingPink()
-        viewModel.fetchAllProducts(category: "Merchandise", vc: "Store")
+        viewModel.fetchAllProducts(category: "Clothing")
     }
     
     @IBAction func concentrateClicked(_ sender: Any) {
         concentratePink()
-        viewModel.fetchAllProducts(category: "Concentrate", vc: "Store")
+        viewModel.fetchAllProducts(category: "Concentrate")
     }
     
     @IBAction func edibleClicked(_ sender: Any) {
         ediblePink()
-        viewModel.fetchAllProducts(category: "Edible", vc: "Store")
+        viewModel.fetchAllProducts(category: "Edible")
     }
     
     //TODO: can remove is viewwillappear works
     @IBAction func suppliesClicked(_ sender: Any) {
         suppliesPink()
-        viewModel.fetchAllProducts(category: "Supplies", vc: "Store")
+        viewModel.fetchAllProducts(category: "Supplies")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

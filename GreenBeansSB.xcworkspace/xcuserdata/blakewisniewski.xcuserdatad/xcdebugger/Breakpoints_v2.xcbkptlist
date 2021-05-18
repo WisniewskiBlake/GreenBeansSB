@@ -398,9 +398,9 @@
             filePath = "GreenBeansSB/ViewModel/VirtualStore/VirtualStoreViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "loadImages(products:vc:)"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "loadImages(products:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -494,9 +494,9 @@
             filePath = "GreenBeansSB/ViewModel/VirtualStore/VirtualStoreViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "loadImages(products:vc:)"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "loadImages(products:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -510,9 +510,9 @@
             filePath = "GreenBeansSB/ViewModel/VirtualStore/VirtualStoreViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "loadImages(products:vc:)"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "loadImages(products:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -590,9 +590,9 @@
             filePath = "GreenBeansSB/ViewModel/VirtualStore/VirtualStoreViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "loadImages(products:vc:)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "loadImages(products:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -654,25 +654,9 @@
             filePath = "GreenBeansSB/ViewModel/VirtualStore/VirtualStoreViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "loadImages(products:vc:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B8F775F7-512E-46D8-8D3E-EED41B792076"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GreenBeansSB/ViewModel/VirtualStore/VirtualStoreViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "fetchAllProducts(category:vc:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "loadImages(products:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -686,9 +670,9 @@
             filePath = "GreenBeansSB/ViewModel/VirtualStore/VirtualStoreViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "loadImages(products:vc:)"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "loadImages(products:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -712,14 +696,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9366501E-C295-42DB-9CFF-894CE7B8C730"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GreenBeansSB/ViewModel/VirtualStore/VirtualStoreViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "removeProduct(indexPath:product:)"
             landmarkType = "7">
          </BreakpointContent>

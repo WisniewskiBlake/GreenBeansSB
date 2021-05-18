@@ -282,44 +282,7 @@ class EditProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerC
     func textViewShouldReturn(_ textField: UITextView) -> Bool {
         self.view.endEditing(true)
          return true
-    }
-    @IBAction func showButtonClicked(_ sender: UIButton) {
-//        let tableViewController = UIViewController()
-//        //tableViewController.textView.text = productDescriptionText.text ?? ""
-//        tableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
-//        tableViewController.preferredContentSize = CGSize(width: 300, height: 300)
-//
-//        present(tableViewController, animated: true, completion: nil)
-//
-//        let popoverPresentationController = tableViewController.popoverPresentationController
-//        popoverPresentationController?.sourceView = sender
-        
-        
-//        let vc = PopUpController()
-//        vc.preferredContentSize = CGSize(width: 300,height: 300)
-//        vc.modalPresentationStyle = .popover
-//        if let pres = vc.presentationController {
-//            pres.delegate = self
-//        }
-//        let textView = UITextView(frame: CGRect(x: 0.0, y: 0.0, width: 300.0, height: 300.0))
-//        textView.text = productDescriptionText.text!
-//        vc.view.addSubview(textView)
-////        vc.textView.text = productDescriptionText.text ?? ""
-//        self.present(vc, animated: true)
-//        if let pop = vc.popoverPresentationController {
-//            pop.sourceView = (sender as UIView)
-//            pop.sourceRect = (sender as UIView).bounds
-//        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "DescriptionPopover", let destinationViewController = segue.destination as? PopUpController {
-//            destinationViewController.textToShow = productDescriptionText.text ?? ""
-//            destinationViewController.modalPresentationStyle = .popover
-//            let popoverPresentationController = destinationViewController.popoverPresentationController
-//            popoverPresentationController?.sourceView = sender as? UIView
-//        }
-    }
+    }    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool { // return NO to not change text
         if textField == productPriceText || textField == productDiscount {

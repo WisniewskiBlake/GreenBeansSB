@@ -27,7 +27,7 @@ class VirtualStoreViewModel {
         return imageDictionary
     }
     
-    func fetchAllProducts(category: String, vc: String) {
+    func fetchAllProducts(category: String) {
         let query = self.provideQuery(category: category)
         query.getDocuments { (snapshot, error) in
              self.products = []
@@ -43,13 +43,16 @@ class VirtualStoreViewModel {
                      let product = Product(dictionary: productDictionary as! [String : Any])
                      self.products.append(product)
                  }
-             }            
-            self.loadImages(products: self.products, vc: "Store")
-            //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedStoreProducts"), object: nil)
+             }
+            if self.products.count == 0 {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
+            } else {
+                self.loadImages(products: self.products)
+            }
         }
     }
     
-    func loadImages(products: [Product], vc: String) {
+    func loadImages(products: [Product]) {
         self.imageDictionary = [:]
         //if all else fails, put a condition to check if product.count ==0, do nothing
         for i in 0...products.count-1 {
@@ -201,7 +204,7 @@ class VirtualStoreViewModel {
                         if let err = err {
                             print("Error updating document: \(err)")
                         } else {
-                            self.fetchAllProducts(category: "All Products", vc: "Store")
+                            self.fetchAllProducts(category: "All Products")
                             print("Document successfully updated!")
                         }
                     }

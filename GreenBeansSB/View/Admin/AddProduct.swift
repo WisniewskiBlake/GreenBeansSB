@@ -17,7 +17,8 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
     @IBOutlet weak var productNameText: UITextField!
     @IBOutlet weak var productPriceText: UITextField!
     @IBOutlet weak var productDiscount: UITextField!
-    @IBOutlet weak var productDescriptionText: UITextField!
+    //@IBOutlet weak var productDescriptionText: UITextField!
+    @IBOutlet weak var productDescriptionText: UITextView!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var categoryButton: UIButton!
     
