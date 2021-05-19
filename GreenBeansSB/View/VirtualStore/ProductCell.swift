@@ -14,8 +14,7 @@ protocol ProductCellDelegate {
 class ProductCell: UITableViewCell {
     @IBOutlet private weak var productImageView: UIImageView!
     @IBOutlet private weak var productPriceLabel: UILabel!    
-    @IBOutlet private weak var productDiscountLabel: UILabel!
-    //@IBOutlet private weak var productDescriptionText: UITextView!
+    @IBOutlet private weak var productDiscountLabel: UILabel!    
     @IBOutlet weak var productDescriptionText: UILabel!
     
     var delegate: ProductCellDelegate?

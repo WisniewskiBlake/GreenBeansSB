@@ -14,25 +14,61 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productQuantityLabel: UILabel!
     @IBOutlet weak var productDescriptionText: UITextView!
+    @IBOutlet weak var productDiscountLabel: UILabel!    
+    
+    @IBOutlet weak var stockLabel: UILabel!
+    @IBOutlet weak var smallBtn: UIButton!
+    @IBOutlet weak var medBtn: UIButton!
+    @IBOutlet weak var largeBtn: UIButton!
+    @IBOutlet weak var xlBtn: UIButton!
+    @IBOutlet weak var xxlBtn: UIButton!
+    
+    @IBOutlet weak var sLabel: UILabel!
+    @IBOutlet weak var mLabel: UILabel!
+    @IBOutlet weak var lLabel: UILabel!
+    @IBOutlet weak var xlLabel: UILabel!
+    @IBOutlet weak var xxlLabel: UILabel!
     
     let helper = Helper()
     var product = Product()
+    var productSizes: [String] = []
     var viewModel: VirtualStoreViewModel!
             
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        initButtons()
+        checkButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     func configureUI() {
         productTitleLabel.text = product.productTitle
-        productPriceLabel.text = "$" + product.productPrice
-        productDescriptionText.text = product.productDescription
+        productDescriptionText.text = product.productDescription        
+        
+        if product.productHighlighted == "true" {
+            if ((product.productDiscount.range(of: "$", options: .caseInsensitive)) == nil) {
+                productDiscountLabel.text = "$" + product.productDiscount
+            } else {
+                productDiscountLabel.text = product.productDiscount
+            }
+            if ((product.productPrice.range(of: "$", options: .caseInsensitive)) == nil) {
+                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: "$" + product.productPrice)
+                attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+                productPriceLabel.attributedText = attributeString
+            } else {
+                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: product.productPrice)
+                attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+                productPriceLabel.attributedText = attributeString
+            }
+        } else {
+            productDiscountLabel.text = ""
+            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: product.productPrice)
+            productPriceLabel.attributedText = attributeString
+        }
     }
     
     @IBAction func minusButtonClicked(_ sender: Any) {
@@ -58,6 +94,62 @@ class ProductDetailViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func checkBoxClicked(_ sender: UIButton) {
+        sender.isSelected.toggle()
+    }
+    
+    
+    func checkButtons() {
+        if product.clothingSizes != "" {
+            productSizes = (product.clothingSizes.components(separatedBy: ";"))
+            stockLabel.isHidden = false
+            if productSizes.contains("S") {
+                sLabel.isHidden = false
+                smallBtn.isHidden = false                
+            }
+            if productSizes.contains("M") {
+                mLabel.isHidden = false
+                medBtn.isHidden = false
+            }
+            if productSizes.contains("L") {
+                lLabel.isHidden = false
+                largeBtn.isHidden = false
+            }
+            if productSizes.contains("XL") {
+                xlLabel.isHidden = false
+                xlBtn.isHidden = false
+            }
+            if productSizes.contains("XXL") {
+                xxlLabel.isHidden = false
+                xxlBtn.isHidden = false
+            }
+        } else {
+            stockLabel.isHidden = true
+            smallBtn.isHidden = true
+            medBtn.isHidden = true
+            largeBtn.isHidden = true
+            xlBtn.isHidden = true
+            xxlBtn.isHidden = true
+            sLabel.isHidden = true
+            mLabel.isHidden = true
+            lLabel.isHidden = true
+            xlLabel.isHidden = true
+            xxlLabel.isHidden = true
+        }
+    }
+    
+    func initButtons() {
+        smallBtn.setImage(UIImage(named: "icons8-unchecked-checkbox-48.png"), for: .normal)
+        smallBtn.setImage(UIImage(named: "icons8-checked-checkbox-48.png"), for: .selected)
+        medBtn.setImage(UIImage(named: "icons8-unchecked-checkbox-48.png"), for: .normal)
+        medBtn.setImage(UIImage(named: "icons8-checked-checkbox-48.png"), for: .selected)
+        largeBtn.setImage(UIImage(named: "icons8-unchecked-checkbox-48.png"), for: .normal)
+        largeBtn.setImage(UIImage(named: "icons8-checked-checkbox-48.png"), for: .selected)
+        xlBtn.setImage(UIImage(named: "icons8-unchecked-checkbox-48.png"), for: .normal)
+        xlBtn.setImage(UIImage(named: "icons8-checked-checkbox-48.png"), for: .selected)
+        xxlBtn.setImage(UIImage(named: "icons8-unchecked-checkbox-48.png"), for: .normal)
+        xxlBtn.setImage(UIImage(named: "icons8-checked-checkbox-48.png"), for: .selected)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
