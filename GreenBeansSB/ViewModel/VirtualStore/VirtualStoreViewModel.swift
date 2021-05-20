@@ -225,7 +225,7 @@ class VirtualStoreViewModel {
         if(category != "All Products" && category != "On Sale") {
             query = reference(.Products).whereField(kPRODUCTTYPE, isEqualTo: category)
         } else if category == "On Sale" {
-            query = reference(.Products).whereField(kPRODUCTDISCOUNT, isNotEqualTo: "")
+            query = reference(.Products).whereField(kPRODUCTHIGHLIGHTED, isEqualTo: "true")
         }
         return query ?? reference(.Products)
     }

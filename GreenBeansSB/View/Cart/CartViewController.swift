@@ -8,8 +8,9 @@
 import UIKit
 
 class CartViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var checkoutButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!    
+    @IBOutlet weak var checkoutButton: LGButton!
+    @IBOutlet weak var cartEmptyLabel: UILabel!
     
     private var dataSource = CartCellDataSource()
     private var cartViewModel = CartViewModel()    
@@ -19,6 +20,7 @@ class CartViewController: UIViewController {
     private var products: [Product] = []
     private var imageDictionary: [String:UIImage] = [:]
     
+    //TODO: make sure to go to storyboard and move cart empty label below table view so it shows
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotificationCenter()        
@@ -30,18 +32,20 @@ class CartViewController: UIViewController {
         hideCheckout()
         dataSource.viewModel = cartViewModel
         dataSource.products = products
+        dataSource.order = order
         dataSource.imageDictionary = imageDictionary
         tableView.dataSource = dataSource
         tableView.reloadData()
     }
     
     @objc func updateUI() {
-        products = dataSource.products                
+        products = dataSource.products!
+        hideCheckout()
         tableView.reloadData()
     }
     
     @IBAction func checkoutButtonClicked(_ sender: Any) {
-        if(!dataSource.products.isEmpty) {
+        if(!dataSource.products!.isEmpty) {
             performSegue(withIdentifier: "OrderType", sender: self)
         } else {
             helper.showAlert(title: "No Items In Cart", message: "", in: self)
@@ -62,9 +66,11 @@ class CartViewController: UIViewController {
     
     func hideCheckout() {
         if products.isEmpty {
+            cartEmptyLabel.isHidden = false
             checkoutButton.isHidden = true
         } else {
             checkoutButton.isHidden = false
+            cartEmptyLabel.isHidden = true
         }
     }
     
