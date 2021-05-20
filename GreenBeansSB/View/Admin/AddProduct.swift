@@ -17,7 +17,6 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
     @IBOutlet weak var productNameText: UITextField!
     @IBOutlet weak var productPriceText: UITextField!
     @IBOutlet weak var productDiscount: UITextField!
-    //@IBOutlet weak var productDescriptionText: UITextField!
     @IBOutlet weak var productDescriptionText: UITextView!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var categoryButton: UIButton!
@@ -71,10 +70,13 @@ class AddProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerCo
             checkClothingSizes()
             let productName = productNameText.text
             let productPrice = productPriceText.text
-            let discount = Int(productDiscount.text!) ?? 0
+            var discount = productDiscount.text ?? "0"
+            if discount == "$0" {
+                discount = "0"
+            }
             let productDescription = productDescriptionText.text
             let category = categoryButton.title(for: .normal)
-            viewModel.addNewProduct(data: data, name: productName!, price: productPrice!, discount: String(discount), description: productDescription!, category: category!, clothingSizes: clothingSizes)
+            viewModel.addNewProduct(data: data, name: productName!, price: productPrice!, discount: discount, description: productDescription!, category: category!, clothingSizes: clothingSizes)
             let alertview = JSSAlertView().show(self,
               title: "Added New Product!",
               buttonText: "Ok"

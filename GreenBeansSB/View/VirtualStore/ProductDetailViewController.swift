@@ -30,7 +30,9 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var xxlLabel: UILabel!
     
     let helper = Helper()
-    var product = Product()
+    var product: Product?
+    var image: UIImage?
+    var clothingSizes = ""
     var productSizes: [String] = []
     var viewModel: VirtualStoreViewModel!
             
@@ -46,28 +48,34 @@ class ProductDetailViewController: UIViewController {
     }
     
     func configureUI() {
-        productTitleLabel.text = product.productTitle
-        productDescriptionText.text = product.productDescription        
-        
-        if product.productHighlighted == "true" {
-            if ((product.productDiscount.range(of: "$", options: .caseInsensitive)) == nil) {
-                productDiscountLabel.text = "$" + product.productDiscount
+        productTitleLabel.text = product?.productTitle
+        productTitleLabel.sizeToFit()
+        productDescriptionText.text = product?.productDescription
+        productImageView.image = image
+        if product?.productHighlighted == "true" {
+            if ((product?.productDiscount.range(of: "$", options: .caseInsensitive)) == nil) {
+                productDiscountLabel.text = "$" + product!.productDiscount
             } else {
-                productDiscountLabel.text = product.productDiscount
+                productDiscountLabel.text = product?.productDiscount
             }
-            if ((product.productPrice.range(of: "$", options: .caseInsensitive)) == nil) {
-                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: "$" + product.productPrice)
+            if ((product?.productPrice.range(of: "$", options: .caseInsensitive)) == nil) {
+                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: "$" + product!.productPrice)
                 attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
                 productPriceLabel.attributedText = attributeString
             } else {
-                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: product.productPrice)
+                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: product!.productPrice)
                 attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
                 productPriceLabel.attributedText = attributeString
             }
         } else {
-            productDiscountLabel.text = ""
-            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: product.productPrice)
-            productPriceLabel.attributedText = attributeString
+            productDiscountLabel.isHidden = true
+            if ((product?.productPrice.range(of: "$", options: .caseInsensitive)) == nil) {
+                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: "$" + product!.productPrice)
+                productPriceLabel.attributedText = attributeString
+            } else {
+                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: product!.productPrice)
+                productPriceLabel.attributedText = attributeString
+            }            
         }
     }
     
@@ -94,33 +102,68 @@ class ProductDetailViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func checkBoxClicked(_ sender: UIButton) {
-        sender.isSelected.toggle()
+    @IBAction func smallBtnClicked(_ sender: UIButton) {
+        smallBtn.isSelected = true
+        medBtn.isSelected = false
+        largeBtn.isSelected = false
+        xlBtn.isSelected = false
+        xxlBtn.isSelected = false
     }
     
+    @IBAction func medBtnClicked(_ sender: UIButton) {
+        smallBtn.isSelected = false
+        medBtn.isSelected = true
+        largeBtn.isSelected = false
+        xlBtn.isSelected = false
+        xxlBtn.isSelected = false
+    }
+    
+    @IBAction func lBtnClicked(_ sender: UIButton) {
+        smallBtn.isSelected = false
+        medBtn.isSelected = false
+        largeBtn.isSelected = true
+        xlBtn.isSelected = false
+        xxlBtn.isSelected = false
+    }
+    
+    @IBAction func xlBtnClicked(_ sender: UIButton) {
+        smallBtn.isSelected = false
+        medBtn.isSelected = false
+        largeBtn.isSelected = false
+        xlBtn.isSelected = true
+        xxlBtn.isSelected = false
+    }
+    
+    @IBAction func xxlBtnClicked(_ sender: UIButton) {
+        smallBtn.isSelected = false
+        medBtn.isSelected = false
+        largeBtn.isSelected = false
+        xlBtn.isSelected = false
+        xxlBtn.isSelected = true
+    }
     
     func checkButtons() {
-        if product.clothingSizes != "" {
-            productSizes = (product.clothingSizes.components(separatedBy: ";"))
+        if product?.clothingSizes != "" {
+            productSizes = (product?.clothingSizes.components(separatedBy: ";"))!
             stockLabel.isHidden = false
+            sLabel.isHidden = false
+            mLabel.isHidden = false
+            lLabel.isHidden = false
+            xlLabel.isHidden = false
+            xxlLabel.isHidden = false
             if productSizes.contains("S") {
-                sLabel.isHidden = false
                 smallBtn.isHidden = false                
             }
             if productSizes.contains("M") {
-                mLabel.isHidden = false
                 medBtn.isHidden = false
             }
             if productSizes.contains("L") {
-                lLabel.isHidden = false
                 largeBtn.isHidden = false
             }
             if productSizes.contains("XL") {
-                xlLabel.isHidden = false
                 xlBtn.isHidden = false
             }
             if productSizes.contains("XXL") {
-                xxlLabel.isHidden = false
                 xxlBtn.isHidden = false
             }
         } else {
@@ -151,18 +194,62 @@ class ProductDetailViewController: UIViewController {
         xxlBtn.setImage(UIImage(named: "icons8-checked-checkbox-48.png"), for: .selected)
     }
     
+    func checkClothingSizes() {
+        if smallBtn.isSelected == true {
+            clothingSizes = clothingSizes + "S;"
+        }
+        if medBtn.isSelected == true {
+            clothingSizes = clothingSizes + "M;"
+        }
+        if largeBtn.isSelected == true {
+            clothingSizes = clothingSizes + "L;"
+        }
+        if xlBtn.isSelected == true {
+            clothingSizes = clothingSizes + "XL;"
+        }
+        if xxlBtn.isSelected == true {
+            clothingSizes = clothingSizes + "XXL;"
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
 }
 extension ProductDetailViewController {
     func isValidQuantity(quantity: String) {
-        if(productQuantityLabel.text != "0") {
+        if productDiscountLabel.isHidden == false {
+            product?.productDictionary[kPRODUCTPRICE] = productDiscountLabel.text!
+        } else {
+            product?.productDictionary[kPRODUCTPRICE] = productPriceLabel.text!
+        }
+        
+        if product?.productType == "Clothing" {
+            if smallBtn.isSelected || medBtn.isSelected || largeBtn.isSelected || xlBtn.isSelected || xxlBtn.isSelected {
+                if productQuantityLabel.text != "0" {
+                    let alertview = JSSAlertView().show(self,
+                      title: "Added To Cart",
+                      buttonText: "Ok"
+                    )
+                    checkClothingSizes()
+                    viewModel?.addProductToCart(product: product!, quantity: productQuantityLabel.text ?? "0", clothingSizes: clothingSizes)
+                    alertview.addAction { self.dismissController() }
+                    alertview.setTitleFont("ClearSans-Bold") // Title font
+                    alertview.setTextFont("ClearSans") // Alert body text font
+                    alertview.setButtonFont("ClearSans-Light") // Button text font
+                } else {
+                    helper.showAlert(title: "Please Select Quantity", message: "", in: self)
+                }
+            } else {
+                helper.showAlert(title: "Please Select Size And Quantity", message: "", in: self)
+            }
+            
+        } else if productQuantityLabel.text != "0" {            
             let alertview = JSSAlertView().show(self,
               title: "Added To Cart",
               buttonText: "Ok"
             )
-            viewModel?.addProductToCart(product: product, quantity: productQuantityLabel.text ?? "0")
+            viewModel?.addProductToCart(product: product!, quantity: productQuantityLabel.text ?? "0", clothingSizes: clothingSizes)
             alertview.addAction { self.dismissController() }
             alertview.setTitleFont("ClearSans-Bold") // Title font
             alertview.setTextFont("ClearSans") // Alert body text font

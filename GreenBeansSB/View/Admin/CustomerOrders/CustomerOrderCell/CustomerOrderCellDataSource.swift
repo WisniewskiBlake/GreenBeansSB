@@ -15,6 +15,10 @@ class CustomerOrderCellDataSource: NSObject, UITableViewDataSource, UITableViewD
         return orders.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "orderCellClicked"), object: nil)        
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let order = orders[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "customerOrderCell", for: indexPath) as! CustomerOrderCell

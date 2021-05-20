@@ -22,7 +22,7 @@ struct User {
         self.address = dictionary["address"] as? String ?? ""
         self.fullName = dictionary["fullName"] as? String ?? ""
         self.orderHistory = (dictionary["OrderHistory"] as? [Order] ?? [])
-        self.cart = (dictionary["Kart"] as? [Product] ?? [])
+        self.cart = (dictionary["Cart"] as? [Product] ?? [])
         self.guestId = dictionary["guestId"] as? String ?? ""
         self.phoneNumber = dictionary["phoneNumber"] as? String ?? ""
         self.appManager = dictionary["appManager"] as? String ?? ""

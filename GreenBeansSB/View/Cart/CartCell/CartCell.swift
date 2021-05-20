@@ -22,12 +22,19 @@ class CartCell: UITableViewCell {
     var indexPath: IndexPath!
     var delegate: CartCellDelegate?
     
-    func generateCell(product: Product, indexPath: IndexPath) {
+    func generateCell(product: Product, image: UIImage, indexPath: IndexPath) {
         self.indexPath = indexPath
         productTitleLabel.text = product.productTitle
-        productPriceLabel.text = "$" + product.productPrice
         productQuantityLabel.text = "x" + product.productQuantity
-        productCostTotalLabel.text = "$" + String(Double(product.productPrice)! * Double(product.productQuantity + ".0")!)
+        productImageView.image = image
+        if ((product.productPrice.range(of: "$", options: .caseInsensitive)) != nil) {
+            productPriceLabel.text = product.productPrice
+            let doublePrice = product.productPrice.replacingOccurrences(of: "$", with: "")
+            productCostTotalLabel.text = "$" + String(Double(doublePrice)! * Double(product.productQuantity + ".0")!)
+        } else {
+            productPriceLabel.text = "$" + product.productPrice
+            productCostTotalLabel.text = "$" + String(Double(product.productPrice)! * Double(product.productQuantity + ".0")!)
+        }
     }
     
     @IBAction func removeButtonClicked(_ sender: Any) {

@@ -22,8 +22,7 @@ class ProductCell: UITableViewCell {
     
     func generateCell(product: Product, image: UIImage, indexPath: IndexPath) {
         self.indexPath = indexPath
-        productImage = image
-        
+        productImage = image        
         let attrs = [NSAttributedString.Key.font : UIFont.init(name: "Futura Bold", size: 15)]
         let attributedString = NSMutableAttributedString(string:product.productTitle + " ", attributes:attrs as [NSAttributedString.Key : Any])
         let normalString = NSMutableAttributedString(string:product.productDescription)
@@ -47,11 +46,14 @@ class ProductCell: UITableViewCell {
             }
         } else {
             productDiscount = ""
-            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: product.productPrice)
-            productPrice = attributeString
+            if ((product.productPrice.range(of: "$", options: .caseInsensitive)) == nil) {
+                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: "$" + product.productPrice)
+                productPrice = attributeString
+            } else {
+                let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: product.productPrice)
+                productPrice = attributeString
+            }         
         }
-        
-        
     }
     
     var productPrice: NSMutableAttributedString? {

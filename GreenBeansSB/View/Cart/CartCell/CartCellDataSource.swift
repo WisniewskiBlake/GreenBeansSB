@@ -9,6 +9,7 @@ import UIKit
 
 class CartCellDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, CartCellDelegate {
     var products: [Product] = []
+    var imageDictionary: [String:UIImage] = [:]
     var viewModel: CartViewModel?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -16,10 +17,11 @@ class CartCellDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let product = products[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartCell
+        let product = products[indexPath.row]
+        let image = imageDictionary[product.productTitle]!
         cell.delegate = self
-        cell.generateCell(product: product, indexPath: indexPath)
+        cell.generateCell(product: product, image: image, indexPath: indexPath)
         
         return cell
     }

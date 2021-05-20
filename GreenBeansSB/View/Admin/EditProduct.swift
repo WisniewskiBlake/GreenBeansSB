@@ -11,8 +11,7 @@ import JSSAlertView
 class EditProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var productNameText: UITextField!
     @IBOutlet weak var productPriceText: UITextField!
-    @IBOutlet weak var productDiscount: UITextField!
-    //@IBOutlet weak var productDescriptionText: UITextField!
+    @IBOutlet weak var productDiscount: UITextField!    
     @IBOutlet weak var productDescriptionTextView: UITextView!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var categoryButton: UIButton!
@@ -61,7 +60,10 @@ class EditProduct: UIViewController, UIGestureRecognizerDelegate, UIImagePickerC
             checkClothingSizes()
             let productName = productNameText.text
             let productPrice = productPriceText.text
-            let discount = productDiscount.text ?? "0"
+            var discount = productDiscount.text ?? "0"
+            if discount == "$0" {
+                discount = "0"
+            }
             let productDescription = productDescriptionTextView.text
             let category = categoryButton.title(for: .normal)
             viewModel.editProduct(data: data, name: productName!, price: productPrice!, discount: discount, description: productDescription!, category: category!, clothingSizes: clothingSizes, imageChanged: imageSelected, product: product!)

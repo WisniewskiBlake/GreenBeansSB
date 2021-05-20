@@ -21,6 +21,7 @@ let kPRODUCTQUANTITY = "productQuantity"
 let kPRODUCTHIGHLIGHTED = "highlightedProduct"
 let kPRODUCTDISCOUNT = "highlightedDiscount"
 let kPRODUCTSTATUS = "productStatus"
+let kPRODUCTCLOTHINGSIZES = "clothingSizes"
 
 let kORDERSUBTOTAL = "subtotal"
 let kORDERTAX = "tax"

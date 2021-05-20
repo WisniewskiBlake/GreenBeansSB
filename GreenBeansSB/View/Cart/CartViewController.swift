@@ -12,10 +12,12 @@ class CartViewController: UIViewController {
     @IBOutlet weak var checkoutButton: UIButton!
     
     private var dataSource = CartCellDataSource()
-    private var cartViewModel = CartViewModel()
-    private var products: [Product] = []
+    private var cartViewModel = CartViewModel()    
     private var order = Order()
     private let helper = Helper()
+    
+    private var products: [Product] = []
+    private var imageDictionary: [String:UIImage] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +26,11 @@ class CartViewController: UIViewController {
     
     @objc func setDataSource() {
         products = cartViewModel.getCart()
+        imageDictionary = cartViewModel.getImages()
         hideCheckout()
         dataSource.viewModel = cartViewModel
         dataSource.products = products
+        dataSource.imageDictionary = imageDictionary
         tableView.dataSource = dataSource
         tableView.reloadData()
     }
@@ -65,6 +69,8 @@ class CartViewController: UIViewController {
     }
     
     func addNotificationCenter() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "productRemoved"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "loadedCart"), object: nil)        
         NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: "productRemoved"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedCart"), object: nil)
     }

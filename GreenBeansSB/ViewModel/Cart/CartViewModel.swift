@@ -7,9 +7,11 @@
 
 import Firebase
 import CoreLocation
+import UIKit
 
 class CartViewModel: ObservableObject {
     var products = [Product]()
+    var imageDictionary: [String:UIImage] = [:]
     var summaryProducts = [Product]()
     var indexPath = IndexPath()
     private var userSession = AuthViewModel.shared.userSession
@@ -19,6 +21,10 @@ class CartViewModel: ObservableObject {
     
     func getCart() -> [Product] {
         return self.products
+    }
+    
+    func getImages() -> [String:UIImage] {
+        return imageDictionary
     }
     
     func getSummaryProducts() -> [Product] {
@@ -32,7 +38,7 @@ class CartViewModel: ObservableObject {
             query = reference(.GuestUsers).document(guestId).collection("Cart")   
         } else {
             guard let email = userSession?.email else { return }
-            query = reference(.Users).document(email).collection("Kart")
+            query = reference(.Users).document(email).collection("Cart")
         }
         query?.getDocuments { (snapshot, error) in
              self.products = []
@@ -50,9 +56,35 @@ class CartViewModel: ObservableObject {
                      self.products.append(product)
                  }
              }
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedCart"), object: nil)
+            if self.products.count == 0 {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedCart"), object: nil)
+            } else {
+                self.loadImages(products: self.products)
+            }            
         }
     }
+    
+    func loadImages(products: [Product]) {
+        self.imageDictionary = [:]
+        //if all else fails, put a condition to check if product.count ==0, do nothing
+        for i in 0...products.count-1 {
+            let str = products[i].productTitle
+            let storageRef = Firebase.Storage.storage().reference(forURL: products[i].productImageUrl)
+            storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+              if let error = error {
+                print(error)
+              } else {
+                // Data for "images/island.jpg" is returned
+                self.imageDictionary[str] = UIImage(data: data!)!
+                //self.images.append(UIImage(data: data!)!)
+                if self.imageDictionary.count == self.products.count {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadedCart"), object: nil)
+                }
+              }
+            }
+        }
+    }
+    
 //TODO: reference document differently than productTitle
     func removeProductFromCart(indexPath: IndexPath) {
         let document: DocumentReference?
@@ -64,7 +96,7 @@ class CartViewModel: ObservableObject {
             document = reference(.GuestUsers).document(guestId).collection("Cart").document(product.productTitle)
         } else {
             guard let email = userSession?.email else { return }
-            document = reference(.Users).document(email).collection("Kart").document(product.productTitle)
+            document = reference(.Users).document(email).collection("Cart").document(product.productTitle)
         }
         document?.delete() { err in
             if let err = err {
@@ -91,9 +123,6 @@ class CartViewModel: ObservableObject {
         let userRef = reference(.Users).document(email).collection("OrderHistory")
         let orderID = userRef.document().documentID
         let ordersRef = reference(.Orders).document(orderID)
-//        for product in products {
-//            order?.products.append(product.productTitle + ";" + product.productQuantity)
-//        }
         let orderDictionary: [String : Any] = ["customerAddress": order?.customerAddress ?? "",
                     "subtotal": order?.subtotal ?? "",
                     "tax": order?.tax ?? "",
@@ -114,7 +143,7 @@ class CartViewModel: ObservableObject {
         userRef.document(orderID).setData(orderDictionary)
         ordersRef.setData(orderDictionary as [String : Any])
         for product in products {
-            reference(.Users).document(email).collection("Kart").document(product.productTitle).delete()
+            reference(.Users).document(email).collection("Cart").document(product.productTitle).delete()
         }
     }
     
@@ -123,9 +152,6 @@ class CartViewModel: ObservableObject {
         let guestUserRef = reference(.GuestUsers).document(guestId).collection("OrderHistory")
         let orderID = guestUserRef.document().documentID
         let ordersRef = reference(.Orders).document(orderID)
-//        for product in products {
-//            order?.products.append(product.productTitle + ";" + product.productQuantity)
-//        }
         let orderDictionary: [String : Any] = ["customerAddress": order?.customerAddress ?? "",
                     "subtotal": order?.subtotal ?? "",
                     "tax": order?.tax ?? "",
@@ -209,7 +235,7 @@ class CartViewModel: ObservableObject {
     func getProductNames(order: Order) -> [String] {
         var productNames: [String] = []
         for product in order.products {
-            var details = product.components(separatedBy: ";")
+            let details = product.components(separatedBy: ";")
             productNames.append(details[0])
         }
         return productNames
@@ -218,7 +244,7 @@ class CartViewModel: ObservableObject {
     func getProductQuantities(order: Order) -> [String] {
         var productQuantities: [String] = []
         for product in order.products {
-            var details = product.components(separatedBy: ";")
+            let details = product.components(separatedBy: ";")
             productQuantities.append(details[1])
         }
         return productQuantities

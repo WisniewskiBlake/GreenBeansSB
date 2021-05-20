@@ -13,11 +13,11 @@ class Product {
     let productPrice: String
     let productType: String
     let productImageUrl: String
-    var productQuantity: String
     let productHighlighted: String
     let productDiscount: String
-    let productStatus: String
     let clothingSizes: String
+    var productQuantity: String
+    let productStatus: String    
     let productDictionary: NSMutableDictionary
         
     init(dictionary: [String: Any]) {

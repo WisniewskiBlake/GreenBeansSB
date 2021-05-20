@@ -73,46 +73,53 @@ class VirtualStoreViewModel {
         }
     }
     
-    func addProductToCart(product: Product, quantity: String) {
+    func addProductToCart(product: Product, quantity: String, clothingSizes: String) {
+        product.productDictionary[kPRODUCTQUANTITY] = ""
         product.productDictionary[kPRODUCTQUANTITY] = quantity
+        product.productDictionary[kPRODUCTCLOTHINGSIZES] = ""
+        product.productDictionary[kPRODUCTCLOTHINGSIZES] = clothingSizes
         if userSession == nil {
-            addToGuestCart(product: product, quantity: quantity)
+            addToGuestCart(product: product, quantity: quantity, clothingSizes: clothingSizes)
         } else {
-            addToUserCart(product: product, quantity: quantity)
+            addToUserCart(product: product, quantity: quantity, clothingSizes: clothingSizes)
         }
     }
 
     
-    func addToGuestCart(product: Product, quantity: String) {
+    func addToGuestCart(product: Product, quantity: String, clothingSizes: String) {
         guard let guestId = AuthViewModel.shared.user?.guestId else { return }
         let query = reference(.GuestUsers).document(guestId).collection("Cart").document(product.productTitle)
-        query.getDocument { snapshot, _ in
-            if let snapshot = snapshot, snapshot.exists {
-                guard let data = snapshot.data() else { return }
-                let oldProduct = Product(dictionary: data)
-                let newQuantity = Int(quantity)! + Int(oldProduct.productQuantity)!
-                product.productDictionary[kPRODUCTQUANTITY] = String(newQuantity)
-                query.setData(product.productDictionary as! [String : Any])
-            } else {
-                query.setData(product.productDictionary as! [String : Any])
-            }
-        }
+//        query.getDocument { snapshot, _ in
+//            if let snapshot = snapshot, snapshot.exists {
+//                guard let data = snapshot.data() else { return }
+////                let oldProduct = Product(dictionary: data)
+////                let newQuantity = Int(quantity)! + Int(oldProduct.productQuantity)!
+////                product.productDictionary[kPRODUCTQUANTITY] = String(newQuantity)
+////                product.productDictionary[kPRODUCTCLOTHINGSIZES] = clothingSizes
+//                query.setData(product.productDictionary as! [String : Any])
+//            } else {
+//                query.setData(product.productDictionary as! [String : Any])
+//            }
+//        }
+        query.setData(product.productDictionary as! [String : Any])
     }
     
-    func addToUserCart(product: Product, quantity: String) {
+    func addToUserCart(product: Product, quantity: String, clothingSizes: String) {
         guard let email = AuthViewModel.shared.userSession?.email else { return }
-        let query = reference(.Users).document(email).collection("Kart").document(product.productTitle)
-        query.getDocument { snapshot, _ in
-            if let snapshot = snapshot, snapshot.exists {
-                guard let data = snapshot.data() else { return }
-                let oldProduct = Product(dictionary: data)
-                let newQuantity = Int(quantity)! + Int(oldProduct.productQuantity)!
-                product.productDictionary[kPRODUCTQUANTITY] = String(newQuantity)
-                query.setData(product.productDictionary as! [String : Any])                
-            } else {
-                query.setData(product.productDictionary as! [String : Any])
-            }
-        }
+        let query = reference(.Users).document(email).collection("Cart").document(product.productTitle)
+//        query.getDocument { snapshot, _ in
+//            if let snapshot = snapshot, snapshot.exists {
+//                guard let data = snapshot.data() else { return }
+////                let oldProduct = Product(dictionary: data)
+////                let newQuantity = Int(quantity)! + Int(oldProduct.productQuantity)!
+////                product.productDictionary[kPRODUCTQUANTITY] = String(newQuantity)
+////                product.productDictionary[kPRODUCTCLOTHINGSIZES] = clothingSizes
+//                query.setData(product.productDictionary as! [String : Any])
+//            } else {
+//                query.setData(product.productDictionary as! [String : Any])
+//            }
+//        }
+        query.setData(product.productDictionary as! [String : Any])
     }
     
     //TODO: notification center can be removed from here and replace with vm.fetchAllProducts

@@ -29,27 +29,7 @@ class VirtualStoreViewController: UIViewController {
         initObservers()
         allButton.gradientStartColor = #colorLiteral(red: 1, green: 0.4314318299, blue: 0.7802562118, alpha: 1)
         allButton.gradientEndColor = #colorLiteral(red: 1, green: 0.5957168212, blue: 0.8018686056, alpha: 1)
-        //TODO: remove if view appear works
-//        if dataSource.products.count == 0 && dataSource.imageDictionary.count == 0 {
-//            viewModel.fetchAllProducts(category: "All Products", vc: "Store")
-//        } else {
-//            dataSource.viewModel = viewModel
-//            tableView.dataSource = dataSource
-//            tableView.delegate = dataSource
-//            tableView.reloadData()
-//        }
         viewModel.fetchAllProducts(category: "All Products")
-    }
-    
-    func initObservers() {
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "couldNotLoadProducts"), object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "cellStoreClicked"), object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "editProduct"), object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(loadImages), name: NSNotification.Name(rawValue: "couldNotLoadProducts"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellStoreClicked"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateProducts), name: NSNotification.Name(rawValue: "editProduct"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,15 +38,6 @@ class VirtualStoreViewController: UIViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
-    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        <#code#>
-//    }
-    
-//    @objc func loadImages() {
-//        products = viewModel.getProducts()
-//        viewModel.loadImages(products: products, vc: "Store")
-//    }
     
     @objc func setDataSource() {
         products = viewModel.getProducts()
@@ -84,13 +55,15 @@ class VirtualStoreViewController: UIViewController {
         {
             if let row = tableView.indexPathForSelectedRow?.row {
                 let product = dataSource.products[row]
-            vc.product = product
-            vc.viewModel = viewModel
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
+                vc.product = product
+                vc.image = dataSource.imageDictionary[product.productTitle]!
+                vc.viewModel = viewModel
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
             }
         }
     }
+    
     @objc func updateProducts() {
         viewModel.fetchAllProducts(category: "All Products")
     }
@@ -137,7 +110,14 @@ class VirtualStoreViewController: UIViewController {
         }
     }
     
-    
+    func initObservers() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "cellStoreClicked"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "editProduct"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setDataSource), name: NSNotification.Name(rawValue: "loadedStoreImages"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(cellClicked), name: NSNotification.Name(rawValue: "cellStoreClicked"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateProducts), name: NSNotification.Name(rawValue: "editProduct"), object: nil)
+    }
     
     func allProductsPink() {
         allButton.gradientStartColor = nil
